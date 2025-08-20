@@ -203,7 +203,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
     Sei $K$ ein Körper und $\mathcal F\subseteq K[X]$ eine Menge von nicht-konstanten Polynomen. Ein Zerfällungskörper ist eine Körpererweiterung $L/K$ sodass jedes $f\in\mathcal F$ in $L[X]$ in Linearfaktoren zerfällt und $L=K(a\in\bar K\mid f(a)=0 \text{ für ein } f\in\mathcal F)$
 \end{Def}
 \begin{Lemma}
-    Für eine Menge $\mathcal F\subseteq K[X]$ nicht-konstanter Polynome existiert ein Zerfällungskörper und ein Zerfällungskörper ist eindeutig bist auf $K$-Isomorphismus.
+    Für eine Menge $\mathcal F\subseteq K[X]$ nicht-konstanter Polynome existiert ein Zer\-fäl\-lungs\-kör\-per und ein Zer\-fäl\-lungs\-kör\-per ist eindeutig bist auf $K$-Isomorphismus.
 \end{Lemma}
 \begin{proof}
     Sei $L=K(a\in\bar K\mid f(a)=0 \text{ für ein } f\in\mathcal F)\subseteq \bar K$. Dann ist $L$ ein Zerfällungskörper.
@@ -460,7 +460,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 \end{Satz}
 \begin{proof}
     Sei $b\in L$ und $N\subset L$ die $G-$Bahn von $b$, das heißt $N=\set{\sigma(b)}{ \sigma\in G}=\{b_1,\dots,b_r\}$ wobei $r=|N|$. Sei $f=\prod_{i=1}^r(X-b_i)\in L[X]$.
-    Es ist $f^\sigma=\prod_i(X-b_i)^\sigma=\prod_i(X-\sigma(b_i))=\prod_i(X-b_i)=f$ für alle $\sigma\in G$. Also ist $f\in K[X]$ und $b$ algebraisch über $K$ und separable da $f$ in verschiedene Nullstellen zerfällt.
+    Es ist $$f^\sigma=\prod_i(X-b_i)^\sigma=\prod_i(X-\sigma(b_i))=\prod_i(X-b_i)=f$$ für alle $\sigma\in G.$ Also ist $f\in K[X]$ und $b$ algebraisch über $K$ und separable da $f$ in verschiedene Nullstellen zerfällt.
     Also ist $L/K$ Galoisch.
     Angenommen $[L:K]>|G|$. Sei $G=\Set{\sigma_1,\dots,\sigma_n}$. Wähle $y_1,\dots,y_m\in L$ $K$-linear unabhängig und sei $A$ die Matrix $A=(\sigma_i(y_j))_{i,j}\in M_{n\times m}(L)$.
     Aus $m>n$ folgt es gibt ein $b\in L^m\setminus\Set{0}$ im Kern von $A$.
@@ -486,7 +486,7 @@ $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANw
 \end{tikzcd}$$
 \item Wenn $H$ mit $M$ korrespondiert, dann ist $[M:K]=[G:H]$ oder äquivalent $[L:M]=|H|$
 \item Wenn $\sigma\in G$ ist und $M$ zu $H$ korrespondiert, dann korrespondiert $\sigma(M)$ zu $\sigma H\sigma^{-1}$
-\item wenn $H_1$ zu $M_1$ korrespondiert und $H_2$ zu $M_2$ korrespondiert, dann ist $H_1\subseteq H_2\iff M_1\supseteq M_2$
+\item wenn $H_1$ zu $M_1$ korrespondiert und $H_2$ zu $M_2$ korrespondiert, dann ist $$H_1\subseteq H_2\iff M_1\supseteq M_2$$
 \item $M=K$ korrespondiert zu $H=G$ und $M=L$ korrespondiert zu $H=\Set{e}$.
 \end{enumerate}
 \begin{proof}
@@ -695,7 +695,7 @@ K \arrow[r, no head] & K'\cap M \arrow[r, no head] \arrow[u, no head] & K' \arro
     somit $End(G)\cong End(\ZZ/n\ZZ)\cong \ZZ/n\ZZ$ denn Endomorphismen eindeutig bestimmt durch $f(1)=a$.
 \end{proof}
 \begin{Def}
-   Die Anzahl der zu $n$ teilerfremden Zahlen in $\Set{0,1,\dots,n-1}$ ist $\varphi(n)=\abs{(\ZZ/n\ZZ)^*}$. Die Funktion $\varphi$ heißt Eulersche $\varphi$-Funktion
+   Die Anzahl der zu $n$ teilerfremden Zahlen in $\Set{0,1,\dots,n-1}$ ist $$\varphi(n)=\abs{(\ZZ/n\ZZ)^*}.$$ Die Funktion $\varphi$ heißt Eulersche $\varphi$-Funktion
 \end{Def}
 \begin{Lemma} Es gilt
     \begin{enumerate}
@@ -946,7 +946,7 @@ $$\begin{tikzpicture}
     \begin{enumerate}
         \item $a\in K(M)$
         \item $\bar a\in K(M)$
-        \item $\Re(a),\Im(a)\in K(M)$\\
+        \item $\Re(a),\Im(a)\in K(M)$
         \item $|a|, \frac{a}{|a|}\in K(M)$
     \end{enumerate}
    $$ \begin{tikzpicture}
@@ -1298,7 +1298,7 @@ $$\begin{tikzpicture}
     Nach \hyperref[Lem:AuflRad]{Lemma \ref{Lem:AuflRad}} ist ohne Einschränkung $L/K$ Galoisch.
     Sei $n=[L:K]$ und $K'=K(\mu_n)$ und $L'=L(\mu_n)$.
     Da $L/K$ Galoisch ist $L'/K'$ Galoisch und $L'/K$ Galoisch. Es sind $\Gal(K'/K)$ und $\Gal(L'/L)$ abelsch, insbesondere auflösbar.
-    Es ist $\Gal(L/K)\cong \Gal(L'/K)/\Gal(L'/L)$ und $\Gal(L'/K)/\Gal(L'/K')\cong \Gal(K'/K)$.
+    Es ist $$\Gal(L/K)\cong \Gal(L'/K)/\Gal(L'/L)$$ und $\Gal(L'/K)/\Gal(L'/K')\cong \Gal(K'/K)$.
     Also ist \begin{align*}
         \Gal(L/K)\text{ auflösbar }&\iff \Gal(L'/K) \text{ auflösbar}\\
         &\iff \Gal(L'/K') \text{ auflösbar}

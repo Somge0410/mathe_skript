@@ -57,7 +57,7 @@ $$\abs{G}\cong \ZZ/m_1\ZZ\times\dots\times\ZZ/m_r\ZZ$$ mit $m_1\mid\dots\mid m_r
 \end{proof}
 \begin{Def}
     Sei $G$ eine Gruppe. Dann ist das Zentrum von $G$ definiert als
-    $$Z(G)=\set{a\in G}{ab=ba\ \forall b\in G}.$$ Das ist ein abelscher Normalteiler. $Z(G)$ sind Fixpunkte der Operation $G\times G\to G, (a,b)\mapsto aba^{-1}$.
+    $$Z(G)=\set{a\in G}{ab=ba\ \forall b\in G}.$$ Das ist ein abelscher Normalteiler. $Z(G)$ sind Fixpunkte der Operation $$G\times G\to G, (a,b)\mapsto aba^{-1}.$$
 \end{Def}
 \begin{Def}
     Der Zentralisator von $a\in G$ ist $$C_G(a)=\set{b\in G}{ba=ab}.$$ Das ist eine Untergruppe von $G$ und $a\in Z(C_G(a))$. Es ist $a\in Z(G)$ genau dann wenn $C_G(a)=G$. Es ist $C_G(a)=\Stab_G(a)$ für die Wirkung $G\times G\to G,\ (a,b)\mapsto aba^{-1}$
@@ -175,9 +175,9 @@ Sei $P\subseteq G$ eine $P$-Sylowgruppe und $H\subseteq G$ eine $p$-Gruppe. Dann
     Dann ist $\ZZ/n\ZZ\times\ZZ/m\ZZ\cong \ZZ/k\ZZ\times\ZZ/d\ZZ.$
 \end{Lemma}
 \begin{proof}
-    Sei $xn+ym=d$ für $x,y\in \ZZ$
-    Definiere $f\colon \ZZ\times \ZZ\to\ZZ/n\ZZ\times\ZZ/m\ZZ, (a,b)\mapsto (a-b\frac{xn}{d}+n\ZZ,a+b\frac{ym}{d})+m\ZZ$
-    Angenommen $f(a,b)=(0,0)$. Dann ist $b\frac{xn}{d}\equiv a \mod n$ und $-b\frac{ym}{d}\equiv a\mod m$. Also gilt $b\frac{xn}{d}\equiv -b\frac{ym}{d} \mod d$ und somit $b(\frac{xn}{d}+\frac{ym}{d})\equiv 0 \mod d$. Da $\frac{xn}{d}+\frac{ym}{d}\equiv 1\mod d$ gilt, ist $b\equiv 0 \mod d$. Sei also $b=s\cdot d$. Dann ist $a\equiv \frac{xn}{d}\cdot b=xns\equiv 0\mod n$ und analog $a\equiv 0 \mod n$. Also ist $a\equiv 0\mod k$. Das zeigt $\ker(f)=k\ZZ\times d\ZZ$ und somit ist $\bar f\colon \ZZ/k\ZZ\times \ZZ/d\ZZ\to \ZZ/n\ZZ\times \ZZ/m\ZZ$ injektiv und damit surjektiv wegen gleicher Anzahl der Elemente.
+    Sei $xn+ym=d$ für $x,y\in \ZZ$.
+    Definiere $$f\colon \ZZ\times \ZZ\to\ZZ/n\ZZ\times\ZZ/m\ZZ, (a,b)\mapsto (a-b\frac{xn}{d}+n\ZZ,a+b\frac{ym}{d})+m\ZZ.$$
+    Angenommen $f(a,b)=(0,0)$. Dann ist $$b\frac{xn}{d}\equiv a \mod n$$ und $$-b\frac{ym}{d}\equiv a\mod m.$$ Also gilt $$b\frac{xn}{d}\equiv -b\frac{ym}{d} \mod d$$ und somit $$b(\frac{xn}{d}+\frac{ym}{d})\equiv 0 \mod d.$$ Da $$\frac{xn}{d}+\frac{ym}{d}\equiv 1\mod d$$ gilt, ist $$b\equiv 0 \mod d.$$ Sei also $b=s\cdot d$. Dann ist $$a\equiv \frac{xn}{d}\cdot b=xns\equiv 0\mod n$$ und analog $a\equiv 0 \mod n$. Also ist $a\equiv 0\mod k$. Das zeigt $\ker(f)=k\ZZ\times d\ZZ$ und somit ist $\bar f\colon \ZZ/k\ZZ\times \ZZ/d\ZZ\to \ZZ/n\ZZ\times \ZZ/m\ZZ$ injektiv und damit surjektiv wegen gleicher Anzahl der Elemente.
 \end{proof}
 
 \subsection{Semidirekte Produkte}
@@ -185,7 +185,7 @@ Sei $P\subseteq G$ eine $P$-Sylowgruppe und $H\subseteq G$ eine $p$-Gruppe. Dann
     Sei $G$ eine Gruppe und $N,H\subseteq  G$ Untergruppen sodass $N$ normal ist und $H\cap N=\Set e$ und $G=NH$. Dannn heißt $G$ das innere semidirekte Produkt von $N$ und $H$.
 \end{Def}
 \begin{Bem}
-    Wenn $G$ das semidirekte Produkt von $N$ und $H$ ist, dann ist die Abbildung $N\times H\to G,\ (n,h)\mapsto n\cdot h$ bijektiv. Das Verleiht $N\times H$ mit der Gruppenstruktur $(n,h)\cdot (n',h')=(n\cdot hn'h^{-1},h\cdot h')$. Das heißt wenn $\alpha\colon H\to\Aut(N),\ \alpha(h)=(N\to N, n\mapsto hn'h^{-1})$ Dann ist $(n,h)\cdot(n',h')=(n\cdot\alpha(h)(n'),hh')$
+    Wenn $G$ das semidirekte Produkt von $N$ und $H$ ist, dann ist die Abbildung $N\times H\to G,\ (n,h)\mapsto n\cdot h$ bijektiv. Das Verleiht $N\times H$ mit der Gruppenstruktur $(n,h)\cdot (n',h')=(n\cdot hn'h^{-1},h\cdot h')$. Das heißt wenn $$\alpha\colon H\to\Aut(N),\ \alpha(h)=(N\to N, n\mapsto hn'h^{-1})$$ dann ist $(n,h)\cdot(n',h')=(n\cdot\alpha(h)(n'),hh')$
 \end{Bem}
 \begin{proof}
     Wenn $nh=n'h'$ dann ist $n^{-1}n=h^{'-1}\in N\cap H=\Set e$.
@@ -203,7 +203,7 @@ Sei $P\subseteq G$ eine $P$-Sylowgruppe und $H\subseteq G$ eine $p$-Gruppe. Dann
     Sei $\tau=(n,h)\in G$. Dann ist $(n,e)\cdot (e, h)=\tau$.
 \end{proof}
 \begin{Def}
-    Sei $\Grpact$ die Kategorie mit Objekten $(H,N,\alpha)$ wobei $H,N$ Gruppen sind und $\alpha\colon H\to\Aut(N)$ ein Gruppenhomomorphismus ist. Morphismen $(H,N,\alpha)\to (H',N',\alpha')$ in $\Grpact$ sind $(f_H,f_N)$ wobei $f_H\colon H\to H'$  und $f_N\colon N\to N'$ $H$-equivariante Gruppenhomomorphismen sind. Das heißt
+    Sei $\Grpact$ die Kategorie mit Objekten $(H,N,\alpha)$ wobei $H,N$ Gruppen sind und $\alpha\colon H\to\Aut(N)$ ein Gruppenhomomorphismus ist. Morphismen $$(H,N,\alpha)\to (H',N',\alpha')$$ in $\Grpact$ sind $(f_H,f_N)$ wobei $f_H\colon H\to H'$  und $f_N\colon N\to N'$ $H$-equivariante Gruppenhomomorphismen sind. Das heißt
     $f_N(\alpha(h)(n))=\alpha'(f_H(h))(f_N(n))$ for all $h\in H$ and $n\in N$.
 \end{Def}
 \begin{Lemma}\label{Lem:AdjSemDir}

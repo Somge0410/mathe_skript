@@ -62,7 +62,7 @@
         \item Für alle $x\in\calC$ ist $F(\id_x)=\id_{F(x)}.$
         \item Für alle $f\colon x\to y$ und $g\colon y\to z$ in $\calC$ ist $F(g\circ f)=F(g)\circ F(f).$
     \end{enumerate}
-    Ein Funktor $F\colon\calC\to\calD$ ist treu (bzw. volltreu), falls für alle $x,y\calC$ die Abbildung $F\colon\Mor_\calC(x,y)\to\Mor\calD(F(x),F(y))$  injektiv (bzw. bijektiv ist).
+    Ein Funktor $F\colon\calC\to\calD$ ist treu (bzw. volltreu), falls für alle $x,y\in \calC$ die Abbildung $$F\colon\Mor_\calC(x,y)\to\Mor\calD(F(x),F(y))$$  injektiv (bzw. bijektiv ist).
 \end{Def}
 \begin{Bem}
     Sei $F\colon\calC\to \calD$ ein treuer Funktor. Dann reflektiert $F$ Mono- und Epimorphismen. Wenn $F$ volltreu ist, dann reflektiert $F$ auch spaltende Mono- und Epimorphismen.
@@ -73,7 +73,7 @@
 \begin{Def}
     Sei $I$ eine partiell geordnete Menge (zB. $[n]=Set{0,1,\dots n}$). Dann definiere eine Kategorie $N P$ durch $$\ob(N P)=P\text{ und } \Mor_{N P}(p,q)=\begin{cases}
         \Set{*} & \text{ falls } p\leq q\\
-        \empty & \text{ sonst.}
+        \emptyset & \text{ sonst.}
     \end{cases}$$
     Das gibt einen volltreuen Funktor $N\colon \CatOrd\to\Cat$ 
 \end{Def}
@@ -227,7 +227,7 @@ $$ G(\id_{F(x)})\circ\eta_x = \eta_x= \eta_x \circ\id_x$$
  ist also \hyperref[Satz:AdjFun]{Satz \ref{Satz:AdjFun}} eine Folgerung aus \hyperref[Satz:BildFunktor]{Satz \ref{Satz:BildFunktor}}.
 \end{Bem}
 \begin{Def}\label{Def:ArrowCat}
-    Sei $\calC$ eine Kategorie. Wir definieren die Pfeilkategorie von $\calC$ als $\Arr(\calC)=\Fun(N[1],\calC)$.
+    Sei $\calC$ eine Kategorie. Wir definieren die Pfeilkategorie von $\calC$ als $$\Arr(\calC)=\Fun(N[1],\calC).$$
 \end{Def}
 \begin{Lemma}\label{Lem:CodomAdj}
     Sei $\codom\colon \Arr(\calC)\to \calC$ der Funktor, der $\phi\colon A\to B$ auf $B$ schickt und ein kommutatives Diagramm auf den rechten Morphismus.

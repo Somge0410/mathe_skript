@@ -1,0 +1,242 @@
+\begin{Def}[Kategorie]
+    Eine Kategorie $\calC$ besteht aus den folgenden Daten:
+    \begin{enumerate}
+        \item Eine Klasse von Objekten $\ob(\calC)$.
+        \item Für alle $x,y\in\ob(\calC)$ eine Klasse von Morphismen $\Mor_\calC(x,y)$.
+        \item Für alle $x\in\ob(\calC)$ einen Identitätsmorphismus $\id_x\in\Mor_\calC(x,x)$.
+        \item Für alle $x,y,z\in\ob(\calC)$ eine Verkettungsabbildung 
+        $$\Mor_\calC(y,z)\times \Mor_\calC(x,y)\to \Mor_\calC(x,z),\ (g,f)\mapsto g\circ f.$$
+    \end{enumerate}
+    Dabei fordern wir, dass folgende Bedingungen erfüllt sind:
+    \begin{enumerate}
+        \item Für alle $f\in\Mor_\calC(x,y)$ ist
+        $f\circ \id_x=f=\id_y\circ f.$
+        \item Für alle $f\in\Mor_\calC(w,x), g\in\Mor_\calC(x,y)$ und $h\in\Mor_\calC(y,x)$ ist 
+        $$h\circ (g\circ f)=(h\circ g)\circ f.$$
+    \end{enumerate}
+    Wir nennen eine Kategorie $\calC$ lokal klein, falls für alle $x,y\in\ob(\calC)$ die Klasse $\Mor_\calC(x,y)$ eine Menge ist, und klein, falls zusätzlich auch die Klasse $\ob(\calC)$ eine Menge ist.
+\end{Def}
+\begin{Def}[Mono-,Epi-,Isomorphismus]
+    Sei $f\colon x\to y$ ein Morphismus in einer Kategorie $\calC$.
+    \begin{enumerate}
+        \item Wir sagen $f$ ist ein Monomorphismus, falls für alle $z\in\calC$ die Abbildung 
+        $$f_*\colon \Mor_\calC(z,x)\to\Mor_\calC(z,y),\; g\mapsto f\circ g$$ injektiv ist.
+        Dual dazu sagen wir $f$ ist ein Epimorphismus, falls für alle $z\in\calC$ die Abbildung
+        $$f^*\colon\Mor_\calC(y,z)\to\Mor_\calC(x,z),\; g\mapsto g\circ f$$ injektiv ist.
+        \item Wir sagen $f$ ist ein spaltender Monomorphismus, falls es einen Morphismus $g\colon y\to x$ gibt mit $g\circ f=\id_x$. Wir nenn dann $g$ eine Retraktion voon $f$\\
+        Dual dazu sagen wir $f$ ist ein spaltender Epimorphismus falls es einen Morphismus $g\colon y\to x$ mit $f\circ g=\id_y$. Wir nennen dann $g$ einen Schnitt von $f$.
+        \item Wir sagen $f$ ist ein Isomorphismus falls es einen Morphismus $f'\colon y\to x$ gibt der gleichzeitig Retraktion und Schnitt von $f$ ist. So ein $f'$ ist dann eindeutig und wir schreiben $f^{-1}=f'$
+    \end{enumerate}
+\end{Def}
+\begin{Lemma}
+    Sei $f\colon x\to y$ ein Morphismus in einer Kategorie $\calC.$ Dann sind die folgenden Bedinungen äquivalent:
+    \begin{enumerate}
+        \item $f$ ist ein Isomorphismus.
+        \item $f$ ist sowohl ein Monomorphismus als auch ein spaltender Epimorphismus.
+        \item $f$ ist sowohl ein Epimorphisus als auch ein spaltender Monomorphismus.
+         
+        \item Für alle $z\in\calC$ ist die Abbildung $f_*\colon\Mor_\calC(z,x)\to\Mor_\calC(z,y)$ bijektiv.
+        \item Für alle $z\in\calC$ ist die Abbildung $f^*\colon \Mor_\calC(y,z)\to \Mor_\calC(x,z)$ bijektiv.
+       
+    \end{enumerate}
+\end{Lemma}
+\begin{proof}
+    Gelte 1). Dann ist für alle $z\in\calC:$ $$f^{-1}_*f_*=(f^{-1}f)_*=\id_{\Mor_\calC(z,x)}$$ also ist $f_*$ injektiv und damit ist $f$ ein Monomorphismus. Also gilt 2).\\
+    Gelte 2). Dann sei $g\colon y\to x$ ein Schnitt.
+    Es gilt für $z=x$ dass $f_\star (\id_x)=f=f\circ g\circ f=f_*(g\circ f)$ also ist $\id_x=g\circ f$. Damit gilt 1).
+    Gelte 1). Dann ist für Retration und Schnitt $g\colon y\to x$ und alle $z\in\calC$:
+    $\id=(\id_x)_*=(g\circ f)_*=g_*\circ f_*$ und analog
+    $\id=f_*\circ g_*$. Also ist $f_*$ injektiv und surjektiv. Also gilt 4).
+    Gelte 4). Dann ist $f$ ein Monomorphismus. Zu $z=y$ gibt es $g\colon y\to x$ mit $f_*(g)=\id_y$ also $f\circ g=\id_y$. Dann ist $g$ ein Schnitt und es gilt $2).$
+    Das zeigt $1)\iff 2)\iff 4)$. Analog zeigt man $1)\iff 3)\iff 5).$
+\end{proof}
+\subsection{Funktoren}
+\begin{Def}[Funktor]
+    Seien $\calC$ und $\calD$ Kategorien. Ein Funktor $F\colon\calC\to\calD$ besteht aus folgenden Daten:
+    \begin{enumerate}
+        \item Eine Abbildung $$\ob(\calC)\to\ob(\calC),\; x\mapsto F(x).$$
+        \item Für alle Objekte $x,y\in\calC$ eine Abbildung 
+        $$\Mor_\calC(x,y)\to\Mor_\calD(F(x),F(y)),\; f\mapsto F(f).$$
+    \end{enumerate} Dabei fordern wir, dass die folgenden Bedingungen erfüllt sind:
+    \begin{enumerate}
+        \item Für alle $x\in\calC$ ist $F(\id_x)=\id_{F(x)}.$
+        \item Für alle $f\colon x\to y$ und $g\colon y\to z$ in $\calC$ ist $F(g\circ f)=F(g)\circ F(f).$
+    \end{enumerate}
+    Ein Funktor $F\colon\calC\to\calD$ ist treu (bzw. volltreu), falls für alle $x,y\calC$ die Abbildung $F\colon\Mor_\calC(x,y)\to\Mor\calD(F(x),F(y))$  injektiv (bzw. bijektiv ist).
+\end{Def}
+\begin{Bem}
+    Sei $F\colon\calC\to \calD$ ein treuer Funktor. Dann reflektiert $F$ Mono- und Epimorphismen. Wenn $F$ volltreu ist, dann reflektiert $F$ auch spaltende Mono- und Epimorphismen.
+\end{Bem}
+\begin{Def}
+    Sei $\Cat$ die Kategorie deren Objekte kleine Kategorien $\calC$ sind mit Morphismen sind die Funktoren.
+\end{Def}
+\begin{Def}
+    Sei $I$ eine partiell geordnete Menge (zB. $[n]=Set{0,1,\dots n}$). Dann definiere eine Kategorie $N P$ durch $$\ob(N P)=P\text{ und } \Mor_{N P}(p,q)=\begin{cases}
+        \Set{*} & \text{ falls } p\leq q\\
+        \empty & \text{ sonst.}
+    \end{cases}$$
+    Das gibt einen volltreuen Funktor $N\colon \CatOrd\to\Cat$ 
+\end{Def}
+\subsection{Natürliche Transformationen}
+\begin{Def}
+    Seien $F,G\colon\calC\to\calD$ Funktoren zwischen Kategorien. Eine natürliche Transformation $\tau\colon F\to G$ besteht aus den folgenden Daten:
+    \begin{enumerate}
+        \item Für alle $x\in\calC$ ein Morphismus $\tau_x\colon F(x)\to G(x)$ in $\calD$.
+    \end{enumerate}
+\end{Def}
+Dabei fordern wir, dass folgende Bedingung erfüllt ist:
+\begin{enumerate}
+    \item Für alle Morphismen $f\colon x\to y$ in $\calC$ kommutiert das Diagramm $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADEAKADwEoQAvqXSZc+QigCM5KrUYs2AcR78hI7HgJEyk2fWatEHTgE9VwkBg3ii03dX0Kjys4NkwoAc3hFQAMwAnCABbJDIQHAgkaTkDNgAdeJw6JgB9bkELQJCw6kikACYHeUNjP3N-INDEIoioxABmYrijROS0jLUQbOqY-MbmpxBlcrcBIA
+\begin{tikzcd}
+F(x) \arrow[r, "\tau_x"] \arrow[d, "F(f)"] & G(x) \arrow[d, "G(f)"] \\
+F(y) \arrow[r, "\tau_x"]                   & G(y)                  
+\end{tikzcd}$$ Wir schreibe $\Nat(F,G)$ für die Klasse der natürlichen Transformationen $\tau\colon F\to G$.
+\end{enumerate}
+\begin{Def}[Funktorkategorie]
+    Seien $\mathcal{C}$ und $\mathcal{D}$ Kategorien. Dann definieren wir die Funktorkategorie $\Fun(\calC,\calD)$ wie folgt
+    \begin{enumerate}
+        \item Die Objekte sind Funktoren $F\colon \calC\to\calD.$
+        \item Morphismen $\tau\colon F\to G$ sind natürliche Transformationen  mit Verkettung $(\nu\circ \tau)_x=v_x\circ\tau_x$ für $x\in\calC$.
+    \end{enumerate}
+\end{Def}
+\begin{Lemma}
+    Sei $\calC$ eine kleine und $\calD$ eine lokal kleine Kategorie. Dann ist $\Fun(\calC,\calD)$ wieder lokal klein.
+\end{Lemma}
+\begin{proof}
+    Seien $F,G\colon\calC\to\calD$ Funktoren. Dann ist 
+    $$\Nat(F,G)\subseteq \prod_{x\in\calC}\Mor_\calD(F(x),G(x))$$ und das letze ist eine Menge.
+\end{proof}
+\begin{Lemma}
+    Eine natürliche Transformation $\tau\colon F\to G$ ist natürlicher Isomorphismus, wenn $\tau_x$ ein Isomorphismus für alle $x\in \calC$ ist.
+\end{Lemma}
+\begin{proof}
+    Behauptung: $(\tau^{-1}_x)_x$ ist eine natürliche Transformation. Sei $f\colon x\to y$ ein Morphismus. Dann ist 
+    \begin{align*}
+        \tau_y^{-1}\circ G(f)&=\tau_y^{-1}\circ (G(f)\circ \tau_x)\circ \tau_x^{-1}\\
+        &= \tau_y^{-1}\circ( \tau_y \circ F(f))\circ\tau_x^{-1}\\
+        &= F(f)\circ \tau_x^{-1}
+    \end{align*}
+\end{proof}
+\begin{Satz}\label{Satz:BildFunktor}
+    Sei $i\colon\calD'\to\calD$ ein volltreuer Funktor und $F\colon\calC\to\calD$ ein Funktor mit $\Image(F)\subseteq \Image(i)$. Dann existiert ein Paar $(F',\kappa)$ bestehend aus einem Funktor $F'\colon\calC\to \calD'$ und einen natürlichen Isomorphismus $\kappa\colon i\circ F'\cong F$. Weiter gibt es für zwei solcher Paare $(F_1',\kappa_1)$ und $(F_2',\kappa_2)$ einen eindeutigen natürlichen Isomorphismus $\nu\colon F'_1\cong F_2'$ sodass $\kappa_2\circ i(\nu)=\kappa_1$, das heißt das Paar $(F',\kappa)$ ist eindeutig bis auf eindeutigen Isomorphismus.
+\end{Satz}
+\begin{Lemma}
+    Seien $\calC,\calD$ und $\calE$ Kategorien. Dann gibt es einen natürlichen Isomorphismus von Kategorien 
+    $$\Fun(\calC\times\calD,\calE)\cong \Fun(\calC,\Fun(\calD,\calE)).$$
+\end{Lemma}
+\begin{proof}
+    Klar.
+\end{proof}
+\begin{Def}[Kategorienäquivalenz]
+Sei $F\colon\calC\to\calD$ ein Funktor. Ein Quasiinverses zu $F$ ist ein Funktor $G\colon\calD\to\calC$ zusammen mit natürlichen Isomorphismen $\alpha\colon G\circ F\cong \id_\calC$ und $\beta\colon F\circ G\cong \id_\calD$ sodass 
+$$F(\alpha)=\beta_F\colon FGF\cong F \text{ und } G(\beta)=\alpha_G\colon GFG\cong G.$$
+Falls ein Quasiinverses existiert dann nennen wir $F$ eine Kategorienäquivalenz.
+    
+\end{Def}
+\begin{Satz}
+    Für einen Funktor $F\colon\calC\to\calD$ sind die folgenden Bedingunen äquivalent:
+    \begin{enumerate}
+        \item $F$ ist eine Kategorienäquivalenz.
+        \item Es existiert ein Funktor $G\colon\calD\to\calC$ mit natürlichen Isomorphismen $\alpha\colon G\circ F\cong \id_\calC$ und $\beta\colon F\circ G\cong \id_\calD.$
+        \item $F$ ist volltreu und essentiell surjektiv.
+    \end{enumerate}
+    Außerdem ist ein Quasiinverses zu $F$ eindeutig bis auf eindeutigen Isomorphismus.
+\end{Satz}
+\begin{proof}
+    1) nach 2) ist klar. Gelte 2). Für $y\in\calD$ ist $\beta_y^{-1}\colon y\cong F(G(y))$ also ist $F$ essentiell surjektiv. Außerdem sind für $x,y\in\calC$ die Diagramme 
+    $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZCAJwH1OAY0YBhABQAPUgE8AlCAC+pdJlz5CKAEzkqtRizaceA4YwAi4gGJS5pG-IXLV2PASIAWXdXrNWiDm4+QXYRBgkAcRtJOyjxRyUVEAxXDU9SAEY9X0MA42CzcKlZJz0YKABzeCJQADNeCABbJAzqHAgkHX0-NgjEuobmxC72pABmagY6ACMYBgAFNTdNEAYYWpwQHwN-QMY0AAs6fhlhLF4hAAJxAFo5M4vOfaP+SQA9YBuMxX6QeqakGQQKNEBNVlgwLsoBAmNM1lsQAcYHQoGxIJCETg6FgGGiCKxnH9BoC2h1EK1urkQFYlBRFEA
+\begin{tikzcd}
+{\Mor_\calC(x,y)} \arrow[rrrrd, no head, Rightarrow] \arrow[rr, "F"] &  & {\Mor_\calD(F(x),F(y))} \arrow[rr, "G"] &  & {\Mor_\calC(GF(x),GF(y))} \arrow[d, "\alpha_y\circ (-)\circ\alpha_x^{-1}"] \\
+                                                                     &  &                                         &  & {\Mor_\calC(x,y)}                                                         
+\end{tikzcd}$$
+\end{proof}
+\begin{Bem}
+    Sei $F\colon \calC\to\calD$ ein Funktor. Dann ist äquivalent 
+    \begin{enumerate}
+        \item $F$ ist Kategorienäquivalenz
+        \item Für alle Kategroien $\calE$ ist $F_*\colon \Fun(\calE,\calC)\to \Fun(\calE,\calD)$ eine Kategorienäquivalenz
+        \item Für alle Kategroien $\calE$ ist $F^*\colon \Fun(\calD,\calE)\to \Fun(\calC,\calE)$ eine Kategorienäquivalenz    \end{enumerate}
+\end{Bem}
+\subsection{Yoneda Lemma}
+\begin{Satz}[Yoneda Lemma]\label{Lem:Yoneda}
+    Sei $\calC$ eine lokal kleine Kategorie. Sei $F\colon \calC^\op\to\Sets$ ein Funktor und $x\in\calC$. Dann ist die Abbildung 
+    $$\Nat(\Mor_\calC(-,x),F)\to F(x),\; \tau\mapsto \tau_x(\id_x)$$ bijektiv.
+\end{Satz}
+\begin{proof}
+    Für $s\in F(x)$ definiere $\tau^{(s)}\colon\Mor_\calC(-,x)\to F$ durch $$\tau_y^{(s)}\colon \Mor_\calC(y,x)\to F(y),\; f\mapsto F(f)(s)$$ für $y\in \calC$.\\
+    Es gilt $\tau_x^{(s)}(\id_x)=s$ und $\tau_y^{(\tau_x(\id_x))}(f)=\tau_y(f)$.
+    Also gilt die Aussage.
+\end{proof}
+\begin{Kor}[Yoneda-Einbettung]
+    Sei $\calC$ eine lokal kleine Kategorie. Dann ist der Funktor $$Y_\calC\colon\calC\to\Fun(\calC^\op,\Sets),\; x\mapsto \Mor_\calC(-,x)$$ volltreu.
+\end{Kor}
+\begin{proof}
+    Seien $x,y\in\calC$. Zeige 
+    $$\Mor_\calC(x,y)\to\Nat(\Mor_\calC(-,x),\Mor_\calC(-,y)),\; f\mapsto f_*$$ ist eine Bijektion. Das ist aber genau die Inverse Abbildung aus dem \hyperref[Lem:Yoneda]{Yoneda Lemma \ref{Lem:Yoneda}} für den Funktor $F=\Mor_\calC(-,y).$
+\end{proof}
+\begin{Bem}
+    Es gibt eine duale Version vom Yoneda Lemma. Sei $\calC$ eine lokal kleine Kategorie und $F\colon\calC\to\Sets$ ein Funktor und $x\in\calC$. Dann ist die Abbildung 
+    $$Nat(\Mor_\calC(x,-),F))\to F(x),\; \tau\mapsto \tau_x(\id_x))$$ bijektiv. Dann ist die duale Yoneda Einbettung $Y^\calC\colon\calC^\op\to\Fun(\calC,\Sets),\; x\mapsto \Mor_\calC(x,-)$ volltreu.
+\end{Bem}
+\begin{Def}
+    Sei $\calC$ eine lokal kleine Kategorie. Ein Funktor $F\colon\calC^\op\to \Sets$ heißt darstellbar falls er im essentiellen Bild der Yoneda Einbettung liegt.  Analog heißt ein FUnktor $F\colon\calC\to\Sets$  kodarstellbar, wenn er im essentiellen Bild von $Y^\calC$ liegt.
+\end{Def}
+\subsection{Adjunktionen}
+\begin{Def}[Adjungiertes Objekt]
+    Sei $G\colon\calD\to\calC$ ein Funktor und $x\in\calC$. Ein unter $G$ zu $x$ linksadjungiertes Objekt ist ein Objekt $y\in\calD$ zusammen mit einem Morphismus $\eta\colon x\to G(y)$ sodass für alle $y'\in\calD$ die Abbildung 
+    $$\Mor_\calD(y,y')\to\Mor_\calC(x,G(y')), \; f\mapsto G(f)\circ\eta$$ bijektiv ist.
+\end{Def}
+\begin{Bem}
+    sei $G\calD\to\calC$ ein Funktor sodass $\calC,\calD$ lokal kleine Kategorien sind. Dann ist ein zu $x$ linksadjungiertes Objekt das gleiche wie ein kodarstellendes Objekt für den Funktor $$\Mor_\calC(x,G(-))\colon \calD\to\Sets$$
+\end{Bem}
+\begin{Satz}[Adjungierter Fuktor]\label{Satz:AdjFun}
+    Sei $G\colon\calD\to\calC$ ein Funktor und sei $i\colon \calC'\subseteq \calC$ eine volle Unterkategorie, sodass alle Objekte in $\calC'$ unter $G$ ein linksadjungiertes Objekt besitzen. Dann existiert ein Funktor $F\colon \calC'\to\calD$ und eine natürliche Transformation $\eta\colon i\to G\circ F$ sodass $(F(x) \eta_x)$ für jedes $x\in\calC$ ein unter $G$ zu $x$ linksadjungiertes Objekt ist. Das Paar
+ $(F,\eta )$ ist eindeutig bis auf eindeutigen Isomorphismus.
+ Wir nennen $F$, zusammen mit der natürlichen Transformation , einen partiellen links
+adjungierten Funktor zu $G$. Wenn $\calC= \calC'$ dann nennen wir $F\colon \calC\to \calD$ auch einfach einen
+ linksadjungierten Funktor zu $G$.
+\end{Satz}
+\begin{proof}
+    Wähle ein linksadjungiertes Objekt $(F(x), \eta_x)$ für jedes $x\in\calC.$ Für einen Morphis
+mus $f\colon x\to y$ in $\calC$ definiere $F(f)\colon F(x) F(y)$ als das eindeutige Urbild von $\eta_y\circ f$ unter
+ der bijektiven Abbildung
+ $$\Mor_\calD (F(x),F(y))\to \Mor_\calC (x,G(F(y)),\; g\mapsto G(g)\circ \eta_x;$$
+ wir haben also $G(F(f))\circ\eta_x = \eta_y\circ f.$
+ Wir behaupten nun noch, dass diese Daten einen Funktor $F\colon \calC
+ \to \calD$ definieren; danach
+ ist es dann sofort klar, dass die $\eta_x$ eine natürliche Transformation $\eta\colon i\to G\circ F$ definieren.
+ Für ein Objekt $x\in\calC'$ ist
+$$ G(\id_{F(x)})\circ\eta_x = \eta_x= \eta_x \circ\id_x$$
+ und somit $F(\id_x) = \id_{F(x)}$. Weiter ist für Morphismen $f\colon x\to y$ und $g\colon  y\to  z$
+\begin{align*}
+    G(F(g)\circ F(f))\circ \eta_x&=G(F(g))\circ G(F(f))\circ\eta_x\\
+ &=G(F(g))\circ\eta_y\circ f\\
+ &= \eta_z\circ g\circ f
+\end{align*} 
+ und somit $F(g\circ f) = F(g)\circ F(f).$
+ Die Eindeutigkeit von $(F,\eta)$ bis auf eindeutigen Isomorphismus folgt aus der Eindeutigkeit
+ von linksadjungierten Objekten.
+\end{proof}
+\begin{Bem}
+     Sei $G\colon \calD\to \calC$ ein Funktor und sei $\calC'\subseteq \calC$ die volle Unterkategorie der
+ Objekte die unter $G$ ein linksadjungiertes Objekt besitzen. Wir nehmen außerdem an, dass $\calC$
+ und $\calD$ lokal klein sind.
+ Dann ist ein partieller Linksadjungierter $F\colon\calC'\to \calD$ von $G$ das Gleiche wie eine Faktorisierung des Funktors
+ $$\calC'\to\Fun(\calD,\Sets)^\op,\; x\mapsto\Mor_\calC(x,G(-))$$
+ durch die (volltreue) duale Yoneda-Einbettung $$Y^{\calD,\op}\colon \calD\to\Fun(\calD,\Sets)^\op.$$ In dieser Situation
+ ist also \hyperref[Satz:AdjFun]{Satz \ref{Satz:AdjFun}} eine Folgerung aus \hyperref[Satz:BildFunktor]{Satz \ref{Satz:BildFunktor}}.
+\end{Bem}
+\begin{Def}\label{Def:ArrowCat}
+    Sei $\calC$ eine Kategorie. Wir definieren die Pfeilkategorie von $\calC$ als $\Arr(\calC)=\Fun(N[1],\calC)$.
+\end{Def}
+\begin{Lemma}\label{Lem:CodomAdj}
+    Sei $\codom\colon \Arr(\calC)\to \calC$ der Funktor, der $\phi\colon A\to B$ auf $B$ schickt und ein kommutatives Diagramm auf den rechten Morphismus.
+    Dann ist $\codom$ links-adjungiert zum Funktor $R\colon \calC\to \Arr(\calC), C\mapsto (\id\colon C\to C)$
+\end{Lemma}
+\begin{proof}
+    Klar
+\end{proof}
+\subsection{Moduln}
+\begin{Def}
+    Sei $\calC$ eine Kategorie mit Pullbacks und sei $A\in\calC$. Ein Modul ist ein abelsches Gruppenobjekt in der Slice Kategorie $\calC_{/A}$.
+\end{Def}

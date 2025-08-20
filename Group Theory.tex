@@ -1,0 +1,352 @@
+\section{Gruppen}
+\begin{Satz}[Gruppenordnung]
+    Sei $G$ eine Gruppe und $H\subseteq G$ eine Untergruppe. Dann ist $|G|=|H|\cdot [G:H]$
+\end{Satz}
+\begin{proof}
+    Es ist $[G:H]=\abs{G/H}=\set{aH}{a\in G}$ und $$G=\bigcup_{aH\in G/H}aH$$ disjunkte Vereinigung, denn wenn $g\in G$ dann ist $g\in gH$ und $aH\cap bH=\empty \iff aH=bH$ Es ist $\abs{H}\not=\abs{aH}$ für alle $a\in G$.
+\end{proof}
+\begin{Kor}[Satz von Lagrange]\label{Kor:Lagrange}
+    Es gilt $\abs{H}\mid\abs{G}$
+\end{Kor}
+\begin{Kor}\label{Kor:Lagrange2}
+Für $a\in G$ ist $\ord(a)\mid \abs{G}$. Also $a^{\abs{G}}=e$.
+\end{Kor}
+\begin{Kor}\label{Kleiner Satz von Fermat}
+    Sei $p$ eine Primzahl und $a\in\ZZ$ sodass $p\not\mid a$. Dann ist $a^{p-1}\equiv 1\mod p$.
+\end{Kor}
+\begin{proof}
+    Sei $G=\FF_p^*$. Dann ist $\abs{G}=p-1$ also gilt $\bar a^{p-1}=1$.
+\end{proof}
+\begin{Satz}[Struktursatz endlicher abelscher Gruppen] \label{Satz:StuktEndlAb}
+Jede endliche abelsche Gruppe $G$ mit $\abs{G}$ lässt sich schreiben als 
+$$\abs{G}\cong \ZZ/m_1\ZZ\times\dots\times\ZZ/m_r\ZZ$$ mit $m_1\mid\dots\mid m_r$
+\end{Satz}
+\subsection{Bahnenformel und Klassengleichung}
+\begin{Def}
+    Sei $G$ eine Gruppe, $X$ eine Meng und $G\times X\to X$ eine Gruppenwirkung.
+    \begin{enumerate}
+        \item Für $x\in X$ ist $Gx=\set{ax}{a\in G}$ die Bahn von $x$.
+        \item Für ist $x\in X$ ist $\Stab_G(x)=G_x=\set{a\in G}{ax=x}$ der Stabilisator von $x$.
+        \item Die Wirkung heißt transitiv, wenn $X=Gx$ für ein $x\in X$ ist.
+        \item $x\in X$ heißt Fixpunkt der Wirkung, wenn $\Stab_G(X)=G$ ist.
+        \item $X^G$ sie die Menge der Fixpunkte von $G$ auf $X$.
+        \item Die Operation heißt treu, wenn der Homomorphismus $G\to S(X)$ injektiv ist.
+    \end{enumerate}
+\end{Def}
+\begin{Bem}
+    Sei $G\times X\to X$ eine Gruppenwirkung. Dann ist $X=\coprod _{i\in I}Gx_i$ für $x_i$ ein Vertretersystem aller Bahnen.
+\end{Bem}
+\begin{Lemma}\label{Lem:Bahnengleichung1}
+    Für $x\in X$ gibt es eine natürliche Bijektion 
+    $$G/\Stab_G(X)\to G_x, a\Stab_G(X)\mapsto ax$$
+\end{Lemma}
+\begin{proof}
+    Man prüft, dass das wohldefiniert ist. Die Abbildung ist surjektiv nach Definition und wenn $ax=bx$ ist, dann ist $a^{-1}b\in\Stab_G(X)$ also $a\Stab_G(X)=b=\Stab_G(X)$.
+\end{proof}
+\begin{Kor}
+    Sei $G\times X\to X$ eine Gruppenwirkung. Dann ist 
+    $$\abs{Gx}=[G:\Stab_G(X)].$$
+\end{Kor}
+\begin{Satz}[Bahnengleichung]\label{Satz:Bahnengleichung}
+    Sei $G\times X\to X$ eine Gruppenwirkung wobei $X$ eine endliche Menge ist. Seien $x_1,\dots,x_r$ Verterter der Bahnen. Dann ist 
+    $$\abs X=\sum_{i=1}^r[G\colon\Stab_G(X_i)].$$
+\end{Satz}
+\begin{proof}
+    Da $X=\coprod_{i=1}^rGx_i$ eine disjunkte Vereinigung ist, folgt 
+    $$\abs X=\sum_{i=1}^r\abs{Gx_i}=\sum_{i=1}^r[G\colon\Stab_G(x_i)].$$
+\end{proof}
+\begin{Def}
+    Sei $G$ eine Gruppe. Dann ist das Zentrum von $G$ definiert als
+    $$Z(G)=\set{a\in G}{ab=ba\ \forall b\in G}.$$ Das ist ein abelscher Normalteiler. $Z(G)$ sind Fixpunkte der Operation $G\times G\to G, (a,b)\mapsto aba^{-1}$.
+\end{Def}
+\begin{Def}
+    Der Zentralisator von $a\in G$ ist $$C_G(a)=\set{b\in G}{ba=ab}.$$ Das ist eine Untergruppe von $G$ und $a\in Z(C_G(a))$. Es ist $a\in Z(G)$ genau dann wenn $C_G(a)=G$. Es ist $C_G(a)=\Stab_G(a)$ für die Wirkung $G\times G\to G,\ (a,b)\mapsto aba^{-1}$
+\end{Def}
+\begin{Satz}[Klassengleichung]\label{Satz:Klassengleichung}
+    Sei $G$ eine endliche Gruppe und $a_1,\dots,a_r$ Verteter der Konjugationsklassen von nicht-zentralen Elementen. Dann ist 
+    $$\abs G=\abs{Z(G)}+\sum_{i=1}^r[G:C_G(a_i)$$
+\end{Satz}
+\begin{proof}
+    Das ist die \hyperref[Satz:Bahnengleichung]{Bahnengleichung \ref{Satz:Bahnengleichung}} für die Wirkung $G\times G\to G,\ (a,b)\mapsto aba^{-1}$, denn wenn $x_i$ ein Vertreter einer Bahn mit zentralen Element, dann ist $\Stab_G(x_i)=C_G(x_i)=G$
+\end{proof}
+\begin{Def}
+    Sei $p$ eine Primzahl. Eine $p$-Gruppe ist eine Gruppe $G$ mit $\abs G=p^r$ für $r\geq 0$. 
+\end{Def}
+\begin{Satz}\label{Satz:FixpPGrp}
+    Sei $G\times X\to X$ eine Wirkung einer $p$-Gruppe auf eine endliche Menge $X$. Dann ist 
+    $$\abs X\equiv \abs{X^G}\mod p.$$
+\end{Satz}
+\begin{proof}
+    Nach \hyperref[Satz:Bahnengleichung]{Bahnengleichung \ref{Satz:Bahnengleichung}} ist 
+    $$\abs X=\abs{X^G}+\sum_{i=1}^r[G\colon \Stab_G(x_i)]$$ wobei $x_i$ Vetreter von Bahnen mit mindestens zwei Elementen sind. Da $G$ eine $p$-Gruppe ist, gilt 
+    $p\mid [G:\Stab_G(x_i)]=\abs X-\abs{X^G}.$
+\end{proof}
+\begin{Satz}\label{Satz:pGrpZentrum}
+    Eine nicht-triviale $p$-Gruppe $G$ hat ein nicht-triviales Zentrum.
+\end{Satz}
+\begin{proof}
+    Betrachte Wirkung $G\times G\to G, (a,b)\mapsto aba{-1}.$. Nach \hyperref[Satz:FixpPGrp]{ Satz \ref{Satz:FixpPGrp}} gilt $\abs G=\abs{Z(G)}\mod p$. Also $\abs{Z(G)}\geq p$.
+\end{proof}
+
+\begin{proof}
+    Das ist der \hyperref[Satz:HauptEndlMod]{Hauptsatz über endlich erzeugte Moduln über Hauptidealringe} \ref{Satz:HauptEndlMod} zusammen mit dem Fakt, dass endliche Gruppen Torsionsmoduln sind.
+\end{proof}
+\subsection{Sylowsätze}
+Sei $G$ eine endliche Gruppe und $p$ eine Primzahl.
+\begin{Def}
+    Eine $p$-Sylowgruppe von $G$ ist eine $p$-Gruppe $P\subseteq G$ mit $p\not\mid[G:P]$. Das heißt wenn $\abs{G}=p^r\cdot m$ mit $p\not\mid m$ dann ist $P\subseteq G$ eine $p$-Sylowgruppe von $G$ genau dann wenn $\abs P=p^r$.
+\end{Def}
+\begin{Lemma}\label{Lem:CauchyGrp}
+    Sei $G$ eine endliche Gruppe und $p$ eine Primzahl mit $p\mid \abs G$. Dann gibt es ein $a\in G$ mit $\ord(a)=p$.
+\end{Lemma}
+\begin{proof}
+    $\ZZ/p\ZZ$ operiert auf der Menge $M=\set{(g_1,\dots,g_p)\in G^p}{g_1\cdot g_2\dots \cdot g_p=e}$ durch $k\cdot (g_1,\dots,g_p)=(g_{1+k\mod p},\dots,g_{p+k\mod p})$. Es ist $\abs M=\abs G ^{p-1}$.
+    Nach \hyperref[Satz:FixpPGrp]{ Satz \ref{Satz:FixpPGrp}} ist $$0\equiv \abs G^{p-1}\equiv \abs{M^{\ZZ/p\ZZ}}\mod p$$. Das heißt es gibt Fixpunkt $(g_1,\dots,g_p)$ wobei $g_i\neq e$.
+    Dann ist aber $g_i=g_j$ für alle $i,j$ also ist dieses Tupel $(g,\dots ,g)$ für ein $g\in G$. Dann ist $g^p=e$.
+\end{proof}
+\begin{Kor}\label{Kor:NormIndex}
+    Sei $G$ eine $p$-Gruppe, $\abs{G}=p^n$. Dann gibt es für jedes $k\leq n$ eine normale Untergruppe $H\subseteq G$ der Ordnung $p^k$.
+\end{Kor}
+\begin{proof}
+    Da $\abs{Z(G)}\mid p^n$ und $Z(G)$ nach \hyperref[Satz:pGrpZentrum]{Satz \ref{Satz:pGrpZentrum}} nicht trivial ist, gibt es nach \hyperref[Lem:CauchyGrp]{Lemma \ref{Lem:CauchyGrp}} ein $a\in Z(G)$ von der Ordnung $p$. Wenn $k=1$ dann ist $N=\anglebr{a}$ die Lösung denn $N$ ist normal. Wenn $k>1$ ist, dann hat $G/N$ hat Ordnung $p^{n-1}$. Nach Induktion hat $\bar G=G/N$ eine normale Untergruppe $\bar H$ der Ordnung $p^{k-1}$. Sei $H=\pi^{-1}\bar H$ wobei $\pi\colon G\to N$ die Projektion ist. Dann ist $H/N\cong \bar H$ also ist $H$ normal von Ordnung $p^{k-1}$.
+\end{proof}
+\begin{Satz}[1. Sylowsatz]
+    $G$ hat eine $p$-Sylowgruppe.
+\end{Satz}
+\begin{proof}
+    Sei $\abs G=p^r\cdot m$ mit $p\not\mid m$.
+    Sei ohne Einschränkung $r\geq 1$.
+    Angenommen $p\mid \abs{Z(G)}$ wobei $Z(G)$ das Zentrum von $G$ ist. Wähle $a\in Z(G)$ mit $\ord(a)=p$. Dann ist $N=\anglebr{a}\subseteq G$ ein Normalteiler, da $a$ zentral ist. Es ist $\abs{G/N}=p^{r-1}\cdot m$ und nach Induktion gibt es eine $p$-Sylowgruppe $Q\subseteq G/N$. Sei $P=\pi^{-1}(Q)$ wobei $\pi\colon G\to G/N$ die Projektion ist.
+    Dann ist $P/N\cong Q$ also $\abs P=p^r$. Somit ist $P\subseteq G$ eine $p$-Sylwogruppe.\\
+    Angenommen $p\not\mid \abs{Z(G)}$. Dann gibt es die \hyperref[Satz:Klassengleichung]{Klassengleichung \ref{Satz:Klassengleichung}}
+    $$\abs G=\abs{Z(G)}+\sum_{i=1}^r[G\colon C_G(a_i)].$$
+    Also gibt es ein $i$ sodass $p\not\mid [G:C_G(a_i)]$.
+    Da $$\abs G=\abs{C_G(a_i)}\cdot [G\colon C_G(a_i)]$$ ist $p^r\mid\abs{C_G(a_i)}$. Da $a_i$ nicht zentral ist, ist $C_G(a_i)\neq G$. Nach Induktion gibt es eine $P$-Sylowgruppe $P\subseteq C_G(a_i)$.
+\end{proof} 
+\begin{Satz}[2. Sylowsatz]\label{Satz:2Sylow}
+Sei $P\subseteq G$ eine $P$-Sylowgruppe und $H\subseteq G$ eine $p$-Gruppe. Dann gibt es ein $a\in G$ sodass $aHa^{-1}\subseteq P$.    
+\end{Satz}
+\begin{proof}
+    $H$ operiert auf $G/P$ duch $h\cdot (aP)=haP$. Nach \hyperref[Satz:FixpPGrp]{Satz \ref{Satz:FixpPGrp}} ist 
+    $$\abs{G/P}\equiv \abs{(G/P)^H}\mod p.$$
+    Also ist $p\not\mid \abs{(G/P)^H}$ und somit gibt es einen Fixpunkt $aP$. Das heißt $HaP=aP$ und somit $a^{-1}HaP=P$ also $a^{-1}Ha\subseteq P$.
+\end{proof}
+\begin{Kor}
+    Wenn $H$ eine weitere $p$-Sylowgruppe ist, dann folgt $aHa^{-1}=P$ wegen Anzahl der Elemente. somit sind alle $p$-Sylowgruppen konjugiert.
+\end{Kor}
+\begin{Bem}
+    Eine $p$-Sylowgruppe $P\subseteq G$ ist normal $\iff P$ die einzige $p$-Sylowgruppe ist.
+\end{Bem}
+\begin{Satz}[3. Sylowsatz]\label{Satz:3Sylow}
+    Sei $G=p^r\cdot m$ mit $p\not \mid m$. Sei $s$ die Anzahl der $p$-Sylowgruppen von $G$. Dann gilt
+    \begin{align}
+        s&\equiv 1\mod p\\
+        s&\mid m
+    \end{align}
+\end{Satz}
+\begin{proof}
+    Zeige 1). Sei $P$ eine $p$-sylowgruppe. $P$ operiert auf der Menge $X$ der $p$-Sylowgruppen von $G$ durch Konjugation $P\times X\to X, (a,Q)\mapsto aQa^{-1}$.
+    \hyperref[Satz:Bahnengleichung]{Bahnengleichung \ref{Satz:Bahnengleichung}} liefert
+    $$\abs X=\sum_{i=1}^r[P:\Stab_P(P_i)]$$ wobei $P_i$ Verteter der Bahnen sind. Sei $P=P_1$. Dann ist $[P\colon\Stab_P(P_1)]=1$ und für $i\geq 2$ gilt, dass $P_i$ normal ist in $H_i=\set{a\in G}{aP_ia^{-1}=P_i}=\Stab_G(P_i)$. Also ist $P_i$ die einzige $p$-Sylowgruppe von $H_i$. Also ist $P\subsetneq H_i$ und damit $P\neq \Stab_P(P_i)$ also $p\mid [P\colon\Stab_P(P_i)]$. Damit ist $$S=\abs X=1+\sum_{i\geq 2}^k[P\colon \Stab_G(P_i)]\equiv 1\mod p.$$\\
+    Zeige 2). Sei $X$ wie oben. Wegen \hyperref[Satz:2Sylow]{2. Sylowsatz \ref{Satz:2Sylow}} operiert $G$ transitiv auf $X$ durch Konjugation.
+    Sei $H=\Stab_G(P)$ der Normalisator von $P$. Es ist $P\subseteq H$ und somit $p^r\mid H$. Es ist $\abs H=p^r\cdot \ell$ mit $p\not\mid \ell$. Nach \hyperref[Lem:Bahnengleichung1]{Lemma \ref{Lem:Bahnengleichung1}} ist
+    Dann ist $s=\abs X=\text{Bahn}(P)=\abs G/\abs H=\frac{m}{\ell}.$ Also ist $s$ ein Teiler von $m$.
+\end{proof}
+\begin{Satz}
+    Seien $p,q$ Primzahlen und $p<q$  und $p\not\mid q-1$. Dann ist jede Gruppe der Ordnung $p\cdot q$ zyklisch.
+\end{Satz}
+\begin{proof}
+    Sei $s$ die Anzahl der $p$-Sylwogruppen und $t$ die Anzahl der $q$-Sylowgruppen. Nach \hyperref[Satz:3Sylow]{3. Sylowsatz \ref{Satz:3Sylow}} gilt $s=t=1.$ Seien also $P$ eine $p$-Sylowgruppe und $Q$ eine $q$-Sylowgruppen.
+    Es ist $P\cap Q=\Set e$ denn die Ordnung von $P\cap Q$ teilt $p$ und $q$ nach \hyperref[Kor:Lagrange2]{Korollar \ref{Kor:Lagrange2}}. Also gilt für $a\in P, b\in Q$ dass $ab=ba$, denn $b^{-1}aba^{-1}\in P\cap Q$ wegen Normalität von $P$ und $Q$. Es sind $P,Q$ zyklisch. Seien also $a\in P$ und $b\in Q$ Erzeuger. Es ist 
+    $$(ab)^n=a^nb^n=e\iff a^n=b^{-n}\iff a^n=e=b^n\iff pq\mid n$$
+    Also ist $\ord(ab)=pq=\abs G$ und somit $G=\anglebr{ab}.$
+\end{proof}
+\begin{Lemma}
+    Jede endliche abelsche Gruppe ist isomorph zum Produkt ihrer Sylowgruppen.
+\end{Lemma}
+\begin{proof}
+    Sei $\abs G=\prod_{i=1}^rp_i^{e_i}$ wobei $p_i$ verschiedene Primzahlen sind und $e_i\geq 1$.
+    Da $G$ abelsch ist, sind alle Untergruppen normal somit gibt es genau eine $p_i$-Sylowgruppe $P_i\subseteq G$. Die Abbildung 
+    $$f\colon\prod_{i=1}^rP_i\to G,\ (a_1,\dots,a_r)\mapsto a_1\cdot\dots\cdot a_r$$ ist Gruppenhomomorphismus. Wegen der Gruppenordnung ist $f$ bijektiv wenn $f$ injektiv ist. Angenommen $a_i\in P_i$ sodass $a_1\cdot\dots\cdot a_r=e$. Es ist $a_1=(a_2\cdots a_r)^{-1}$ und $\ord(a_1)=\ord(a_2\cdots a_r)\mid\prod_{i=2}^rp_i^{e_i}$.
+    Somit $\ord(a_1)\mid \ggT(p_1^{e_1},\prod_{i=2}^rp_i^{e_i})=1$. Also $e_1=e$ und genauso $a_i=e$ für alle $i$. Also ist $f$ injektiv.
+\end{proof}
+\begin{Lemma}[Chinesischer Restsatz]\label{Lem:ChinRest1}
+    Seien $n,m\in\ZZ$ und $d=\ggT(n,m)$ und $k=\kgV(n,m)$.
+    Dann ist $\ZZ/n\ZZ\times\ZZ/m\ZZ\cong \ZZ/k\ZZ\times\ZZ/d\ZZ.$
+\end{Lemma}
+\begin{proof}
+    Sei $xn+ym=d$ für $x,y\in \ZZ$
+    Definiere $f\colon \ZZ\times \ZZ\to\ZZ/n\ZZ\times\ZZ/m\ZZ, (a,b)\mapsto (a-b\frac{xn}{d}+n\ZZ,a+b\frac{ym}{d})+m\ZZ$
+    Angenommen $f(a,b)=(0,0)$. Dann ist $b\frac{xn}{d}\equiv a \mod n$ und $-b\frac{ym}{d}\equiv a\mod m$. Also gilt $b\frac{xn}{d}\equiv -b\frac{ym}{d} \mod d$ und somit $b(\frac{xn}{d}+\frac{ym}{d})\equiv 0 \mod d$. Da $\frac{xn}{d}+\frac{ym}{d}\equiv 1\mod d$ gilt, ist $b\equiv 0 \mod d$. Sei also $b=s\cdot d$. Dann ist $a\equiv \frac{xn}{d}\cdot b=xns\equiv 0\mod n$ und analog $a\equiv 0 \mod n$. Also ist $a\equiv 0\mod k$. Das zeigt $\ker(f)=k\ZZ\times d\ZZ$ und somit ist $\bar f\colon \ZZ/k\ZZ\times \ZZ/d\ZZ\to \ZZ/n\ZZ\times \ZZ/m\ZZ$ injektiv und damit surjektiv wegen gleicher Anzahl der Elemente.
+\end{proof}
+
+\subsection{Semidirekte Produkte}
+\begin{Def}
+    Sei $G$ eine Gruppe und $N,H\subseteq  G$ Untergruppen sodass $N$ normal ist und $H\cap N=\Set e$ und $G=NH$. Dannn heißt $G$ das innere semidirekte Produkt von $N$ und $H$.
+\end{Def}
+\begin{Bem}
+    Wenn $G$ das semidirekte Produkt von $N$ und $H$ ist, dann ist die Abbildung $N\times H\to G,\ (n,h)\mapsto n\cdot h$ bijektiv. Das Verleiht $N\times H$ mit der Gruppenstruktur $(n,h)\cdot (n',h')=(n\cdot hn'h^{-1},h\cdot h')$. Das heißt wenn $\alpha\colon H\to\Aut(N),\ \alpha(h)=(N\to N, n\mapsto hn'h^{-1})$ Dann ist $(n,h)\cdot(n',h')=(n\cdot\alpha(h)(n'),hh')$
+\end{Bem}
+\begin{proof}
+    Wenn $nh=n'h'$ dann ist $n^{-1}n=h^{'-1}\in N\cap H=\Set e$.
+\end{proof}
+\begin{Def}
+    Seien $N,H$ Gruppen und $\alpha\colon H\to\Aut(N)$ ein Gruppenhomomorphismus. Definiere $N\rtimes H=N\rtimes_\alpha H$ als Menge $N\times H$ und Gruppenstuktur $(n,h)(n',h')=(n\alpha(h)(n'),hh')$. Das ist eine Gruppe. (Z.B. ist $(n,h)^{-1}=(\alpha(h^{-1})(n^{-1}),h^{-1})$). $N\rtimes_\alpha H$ heißt semidirektes Produkt von $N$ und $H$ bezüglich $\alpha$.
+    Es ist $N\subseteq N\rtimes H, n\mapsto (n,e)$ und $H\subseteq N\times H,\ h\mapsto (e,h)$.
+\end{Def}
+\begin{Lemma}
+    $N\subseteq N\rtimes H=G$ ist normale Untergruppe, $G=NH$ und $N\cap H=\Set e$.
+\end{Lemma}
+\begin{proof}
+    Es sei $\tau=(\star,g)\in G$. Dann ist $\tau^{-1}=(\star,g^{-1})$.
+    Es ist $\tau(n,e)\tau^{-1}=\tau\cdot(\star,g^{-1})=(\star,e)\in N$ also ist $N$ normal. 
+    Sei $\tau=(n,h)\in G$. Dann ist $(n,e)\cdot (e, h)=\tau$.
+\end{proof}
+\begin{Def}
+    Sei $\Grpact$ die Kategorie mit Objekten $(H,N,\alpha)$ wobei $H,N$ Gruppen sind und $\alpha\colon H\to\Aut(N)$ ein Gruppenhomomorphismus ist. Morphismen $(H,N,\alpha)\to (H',N',\alpha')$ in $\Grpact$ sind $(f_H,f_N)$ wobei $f_H\colon H\to H'$  und $f_N\colon N\to N'$ $H$-equivariante Gruppenhomomorphismen sind. Das heißt
+    $f_N(\alpha(h)(n))=\alpha'(f_H(h))(f_N(n))$ for all $h\in H$ and $n\in N$.
+\end{Def}
+\begin{Lemma}\label{Lem:AdjSemDir}
+    Sei $\Arr(\Grp)$ die \hyperref[Def:ArrowCat]{Arrow Kategorie} von $\Grp$. Der 
+    $$R\colon \Arr(\Grp)\to\Grpact,\ (\phi\colon H'\to N')\mapsto (H',N',\alpha')$$ wobei $\alpha'$ die Konjugation in $N$ ist, das heißt $\alpha'(h')(n')=\phi(h')n'\phi(h')^{-1}$ für alle $h'\in H'$ und $n'\in N'$.\\
+    Der Funktor $$L\colon\Grpact\to\Arr(\Grp), (H,N,\alpha)\mapsto (H\subseteq N\rtimes_\alpha H)$$ ist linksadjungiert zu $U$.
+\end{Lemma}
+\begin{proof}
+     Sei $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAJEAX1PU1z5CKchWp0mrdgDkAOrIBOeALbwA+vKZoAFvQAEXXv2x4CRMgCZxDFm0ScA5Dz4gMJoUVFWaNqfelORq4CpsLIosTWknYg0jziMFAA5vBEoABmChDKSBY0OBBIAMw+0ezyOljOGVk5iGQgBbmltuzpaoYumdlIDU2Ioo30WIzs2hAQANYgLX4gWB3VIN11g-0lEq327cByiirwBtxLK0gALPmFA-nDo-bjUzObcwtx3JTcQA
+\begin{tikzcd}
+                                          & N \arrow[d, "i_N", hook,dashed]                      \\
+H \arrow[d, "f_H"] \arrow[r, "i_H", hook] & N\rtimes_\alpha H \arrow[d, "f_{N\rtimes H}"] \\
+H' \arrow[r, "\phi"]                      & N'                                           
+\end{tikzcd}$$ ein kommutatives Diagramm von Gruppen.
+     Definiere $f_N=i_N\circ f_{N\rtimes H}\colon N\to N'$ und sei $(H',N',\alpha')=R(\phi)$.
+     Dann ist $$(f_H,f_{N\rtimes H}\circ i_N)\colon (H,N,\alpha)\to (H',N',\alpha')$$ ein Morphismus in $\Grpact$, denn
+     $$\alpha'(f_H(h))(f_{N\rtimes H}(n,e))=f_{N\rtimes H}((e,h)\cdot (n,e)\cdot (e,h)^{-1})$$
+      und da $$(e,h)(n,e)(e,h)^{-1}=(\alpha(h)(n),h)(e,h^{-1})=(\alpha(h)(n),e)$$
+      ist $$\alpha'(f_H(h))(f_{N}(n))=f_N(\alpha(h)(n))$$ für alle $h\in H$ und $N\in N$.\\
+      Wenn andersrum $\phi\colon H'\to N'$ Gruppenhomomorphismus ist und $$(f_H,f_N)\colon(H,N,\alpha)\to R(\phi)=(H',N',\alpha')$$ ein Morphismus in $\Grpact$ ist, dann definiere $f_{N\rtimes H}\colon N\rtimes_\alpha H\to N'$ durch $$f_{N\rtimes H}(n,h)=f_N(n)\phi(f_H(h)).$$
+      Man prüft dass das folgende Diagramm kommutiert, das heißt wir haben einen Morphismus in $\Arr(Grp)$:
+      $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbAHIAdWQCc8AW3gB9eYzQALOgAJOPPtjwEiZYePrNWiDgHJuvEBhOCioy9WtS70x1ziMFAA5vBEoABmChDKSABM1DgQSADM3pK2IPI6WE5RMXGIZCDJCRk2bJFqhs7RsUglZYiipXRYDGzaEBAA1iAVviBYNfkg9UWtzekSlXbVwHKKKvAGXNwUXEA
+\begin{tikzcd}
+H \arrow[d, "f_H"] \arrow[r, "i_H", hook] & N\rtimes_\alpha H \arrow[d, "f_{N\rtimes H}"] \\
+H' \arrow[r, "\phi"]                      & N'                                           
+\end{tikzcd}$$ Man prüft das diese Zuordnungen einen natürlichen Isomorphismus der $Hom$-Funktoren definieren.
+      
+     \end{proof}
+\begin{Lemma}
+    Sei $\codom\colon \Arr(\Grp)\to\Grp$ der Codomain Funktor aus \hyperref[Lem:CodomAdj]{Lemma \ref{Lem:CodomAdj}} mit Rechtadjungiertem $R'\colon\Grp\to\Arr(\Grp)$.
+    Seien $L,R$ wie in \hyperref[Lem:AdjSemDir]{Lemma \ref{Lem:AdjSemDir}}. Dann ist $$\codom\circ L\colon \Grpact\to \Grp,\ (H,N,\alpha)\mapsto N\rtimes_\alpha H$$ linksadjungiert zu 
+    $$R\circ R'\colon \Grp\to\Grpact,\ G\mapsto (G,G,\alpha')$$ wobei $\alpha'(h)(g)=hgh^{-1}$ für alle $h,g\in G$.
+\end{Lemma}
+\begin{proof}
+    Klar.
+\end{proof}
+    
+\subsection{Einfache und auflösbare Gruppen}
+Sei $G$ eine Gruppe.
+\begin{Def}
+    \begin{enumerate}
+        \item []
+        \item Eine Normalreihe in $G$ ist eine Folge $$\Set e=G_0\subseteq G_1\subseteq \dots\subseteq G_n=G$$ sodass $G_i\subseteq G$ eine normale Untergruppe ist.
+        \item Eine abelsche Normalreihe ist eine Normalreihe sodass $G_i/G_{i-1}$ abelsch ist für alle $i$.
+        \item $G$ ist auflösbar, wenn $G$ eine abelsche Normalreihe hat.
+    \end{enumerate}
+\end{Def}
+\begin{Bsp}
+    Wenn $G$ abelsch ist, dann ist $G$ auflösbar denn $G_0=\Set e\subseteq G_1=G$ ist abelsche Normalreihe.
+\end{Bsp}
+\begin{Lemma}\label{Lem:AuflUntQuot}
+    Sei $H\subseteq G$ normal. Es gilt 
+    $$H \text{ auflösbar und } G/H \text{ auflösbar}\implies G \text{ auflösbar}$$
+\end{Lemma}
+\begin{proof}
+    Sei $$\Set e=H_0\subseteq H_1\subseteq \dots\subseteq H_n=H$$ eine abelsche Normalreihe und $$\Set e=\bar G_n\subseteq\bar G_{n+1}\subseteq\dots \subseteq \bar G_m=G/H$$ eine abelsche Normalreihe. Sei $\pi\colon G\to G/H$ Projektion und setze $G_i=H_i$ für $0\leq i\leq n$ und $G_i=\pi^{-1}\bar G_i$  für $n\leq i\leq n$.
+    Dann bilden die $G_i$ eine abelsche Normalreihe.
+\end{proof}
+\begin{Satz}
+    Seien $p<q$ Primzahlen. Jede Gruppe der Ordnung $p\cdot q$ ist auflösbar.
+\end{Satz}
+\begin{proof}
+    Sei $s$ die Anzahl der $q$-Sylowgrupen. Dann ist $s\equiv 1\mod q$ und $s\mid p$. Also ist $s=1$ denn $p<q$. Somit ist eine $q$-Sylowgruppe $Q\subseteq G$ normal und $G/Q\cong \ZZ/p\ZZ$ und $Q\cong\ZZ/q\ZZ$. Dann ist $\Set e\subseteq Q\subseteq G$ eine abelsche Normalreihe.
+\end{proof}
+\begin{Satz}
+    Jede $p$-Gruppe $G$ ist auflösbar
+\end{Satz}
+\begin{proof}
+    Wenn $G\neq \Set e$ ist, dann ist $Z(G)\neq \Set e$. $Z(G)$ ist abelscher Normalteiler und somit auflösbar. Nach Induktion ist $G/Z(G)$ auflösbar. Nach \hyperref[Lem:AuflUntQuot]{Lemma \ref{Lem:AuflUntQuot}} folgt die Aussage.
+\end{proof}
+\begin{Def}
+    Sei $G$ eine Gruppe. Der Kommutatot von $a,b\in G$ ist $aba^{-1}b^{-1}=[a,b]$.
+    Die Kommutatorgruppe oder derigierte Gruppe von $G$ ist $D(G)=[G,G]=\anglebr{\set{[a,b]}{a,b\in G}}$. Die Abelisierung von $G$ ist $G^{\ab}=G/D(G)$.
+\end{Def}
+\begin{Lemma}
+    $D(G)$ ist normaler Untergruppe und $G^{\ab}$ ist abelsch.
+\end{Lemma}
+\begin{proof}
+    Klar, Rechnung
+\end{proof}
+\begin{Satz}[Universelle Eigenschaft der Abelisierung]
+    Abelisierung wird zu einem Funktor $(-)^\ab\colon\Gr\to\Ab$ der linksadjungiert ist zum Vergiss-Funktor $U\colon \Ab\to \Grp$
+\end{Satz}
+\begin{proof}
+    Sei $f\colon G\to U(H)$ Gruppenhomomorphismus. Da $U(H)$ abelsch ist, ist $D(G)$ im Kern von $f$. Das induziert also $\bar f\colon G/D(G)\to H$.
+\end{proof}
+\begin{Def}
+    Sei $D^n(G)=D(D^{n-1}(G))$ und $D^0(G)=G.$
+\end{Def}
+\begin{Bem}
+    Wenn $G=G_0\supseteq G_1\supseteq\dots$ abelsche Normalreihe ist, dann gilt $D^n(G)\subseteq G_n$ für alle $n$.
+\end{Bem}
+\begin{proof}
+    Da $G_n/G_{n+1}$ abelsch ist, ist $D(G_n)\subseteq G_{n+1}$. Damit folgt die Aussage per Induktion.
+\end{proof}
+\begin{Satz}
+    $G$ ist auflösbar $\iff D^n(G)=\Set e$ für ein $n\in\NN$.
+\end{Satz}
+\begin{proof}
+    Wenn $G$ auflösbar ist, dann ist $G=G_0\supseteq\dots\supseteq G_n=\Set e$ und somit $D^n(G)\subseteq \Set e$.
+    Wenn $D^n(G)=\Set e$, dann ist $G\supseteq D(G)\supseteq\dots\supseteq D^n(G)$ eine abelsche Normalreihe.
+\end{proof}
+\begin{Bsp}
+    $S_3$ ist auflösbar, denn für $p=\anglebr{(1,2,3)}\subseteq S_3$ ist $G/P\cong \ZZ/2\ZZ$ und somit $\Set e, P,S_3$ eine abelsche Normalreihe.
+    Es gibt surjektiven Homomorphismus $\psi\colon S_4\to S_3$ mit $\ker(\psi)\cong \ZZ/2\ZZ\times\ZZ/2\ZZ$. Das ist abelsch und da $S_4/\ker(\psi)=S_3$ auflösbar ist, ist $S_4$ auflösbar.
+\end{Bsp}
+\begin{Satz}
+    $A_n$ ist nicht auflösbar für $n\geq 5$.
+\end{Satz}
+\begin{proof}
+    Es ist $$[(1,2,3),(3,4,5)]=(1,4,3).$$ Somit enthält $D(A_n)$ alle 3-Zykel, also $D(A_n)=A_n$ und $D^m(A_n)\neq\Set e$ für alle $m$.
+\end{proof}
+\begin{Def}
+    Eine Gruppe $G$ heißt einfach, wenn $G\neq \Set e$ und $G$ keine Normalteler außer $\Set e$ und $G$ hat.
+\end{Def}
+\begin{Bem}
+    Wenn $G$ abelsch und einfach ist, dann ist $G\cong \ZZ/p\ZZ$ für eine Primzahl $p.$
+\end{Bem}
+\begin{proof}
+    Es gibt $a\in G$ sodas $\ord(a)=p$ prim ist. Sei $H=\anglebr{a}\subseteq G$. Dann ist $H$ normal und da $H\neq \Set e$ ist $H=G$.
+\end{proof}
+\begin{Bem} Wenn $G$ einfach ist und nicht abelsch, dann ist $G$ nicht auflösbar.
+\end{Bem}
+\begin{Bem}
+    In $A_n$ mit $n\geq 5$ sind alle 3-Zykel konjugiert. Denn sei $\tau_1=(a \ b\ c)$ und $\tau_2=(1\ 2\ 3)$. Sei $\sigma(1)=a, \sigma(2)=b, \sigma(3)=c$ und setzte $\sigma$ fort zu $\sigma\in A_n$. Dann ist $\sigma\tau_2\sigma^{-1}=\tau_1$.
+\end{Bem}
+\begin{Satz}
+    Für $n\geq 5$ ist $A_n$ einfach.
+\end{Satz}
+\begin{proof}
+    Sei $N\subseteq A_n$ normale Untergruppe und $N\neq\Set e$.
+    Sei $\sigma\in N$ sodass die Anzahl der Fixpunkte von $\sigma$ maximal ist und $\sigma\neq e$.
+    Behauptung: Alle Zykel in der Zykeldarstellung von $\sigma$ haben die gleiche Länge $d$. Denn wenn Längen $m<d$ vorkommen, dann hat $\sigma^m$ mehr Fixpunkte und $\sigma^m\neq e$.
+    Behauptung: $\sigma$ ist ein 3-Zykel. Dann enthält $N$ als normale Untergruppe alle $3$-Zykel, somit $N=A_n$.
+    Sei $\sigma=(a\ b \ c\dots)(\dots)\dots$. 
+    Wenn $d\geq 3$ bilde $s=(\tau \sigma\tau^{-1})\sigma^{-1}$ für $\tau=(a\ b)(d\ e)$. Dann ist $s=(c\ d\ e)$ ein 3-Zykel. Wegen Maximalität ist dann $\sigma$ dieser 3-Zykel.
+    Wenn $d=2$ dann ist $\sigma=(a\ b)(c \ d)\dots=\sigma^{-1}$.
+    Sei $\tau=(b\ c)(e\ f)$. Dann ist $\tau\sigma\tau^{-1}\sigma^{-1}=(a\ d)(b\ c)$. Wegen der Maximalität von $\sigma$ ist $\sigma=(a\ b)(c\ d)$
+    Dann ist aber für $\tau=(d\ e)(a\ b)$ der Folgende 3-Zykel $\tau\sigma\tau^{-1}\sigma^{-1}=(c\ d\ e)$ was ein Widerspruch zur Maximalität ist.
+\end{proof}
+\begin{Satz}[Burnside 1911]
+    Jede endliche Gruppe der Ordnung $p^aq^b$ wobei $p,q$ Primzahlen sind ist auflösbar.
+\end{Satz}
+\begin{Satz}[Feit-Thomson 1963]
+    Jede Gruppe ungerader Ordnung ist auflösbar.
+\end{Satz}

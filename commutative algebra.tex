@@ -2,137 +2,137 @@
 
 \begin{Def}
 testtest hallo
-    Ein Ring $R$ heißt Integritätsbereich (oder nullteilerfrei), wenn $R\neq 0$ und $ab=0\implies a=0 \text{ oder } b=0 \ \forall a,b\in R.$
+    Ein Ring \(R\) heißt Integritätsbereich (oder nullteilerfrei), wenn \(R\neq 0\) und \(ab=0\implies a=0 \text{ oder } b=0 \ \forall a,b\in R.\)
 \end{Def}
-\begin{Lemma} Sei $R$ ein kommutativer Ring.
+\begin{Lemma} Sei \(R\) ein kommutativer Ring.
 \begin{enumerate}
-    \item Ein Idea $I\subseteq R$ ist ein Primideal $\iff R/I$ ist Integritätsbereich.
-    \item $R$ ist ein Körper $\iff R$ hat genau zwei Ideale $\Set 0$ und $R$.
-    \item Ein Ideal $I\subseteq R$ ist maximal $\iff R/I$ ist ein Körper.
+    \item Ein Idea \(I\subseteq R\) ist ein Primideal \(\iff R/I\) ist Integritätsbereich.
+    \item \(R\) ist ein Körper \(\iff R\) hat genau zwei Ideale \(\Set 0\) und \(R\).
+    \item Ein Ideal \(I\subseteq R\) ist maximal \(\iff R/I\) ist ein Körper.
 \end{enumerate}
 \begin{proof}
     1) ist klar.
-    Zeige 2). Wenn $R$ ein Körper ist und $I\subsetneq \Set 0$ ein Ideal, dann gibt es $x\in I$ mit $x\neq 0$. Dann ist $1=x^{-1}x\in I$, also ist $I=R$. Andersrum zeige, dass $x\neq 0$ invertierbar ist. Es ist $R=(x)$ also gibt es Inverses.
-    Zeige 3). $I\subseteq R$ ist maximal $\iff R/I$ hat genau zwei Ideale $\{0\}, R/I \iff R/I$ ist Körper.
+    Zeige 2). Wenn \(R\) ein Körper ist und \(I\subsetneq \Set 0\) ein Ideal, dann gibt es \(x\in I\) mit \(x\neq 0\). Dann ist \(1=x^{-1}x\in I\), also ist \(I=R\). Andersrum zeige, dass \(x\neq 0\) invertierbar ist. Es ist \(R=(x)\) also gibt es Inverses.
+    Zeige 3). \(I\subseteq R\) ist maximal \(\iff R/I\) hat genau zwei Ideale \(\{0\}, R/I \iff R/I\) ist Körper.
 \end{proof}
 \begin{Lemma}\label{Lem:IdealeProduktring}
-    Seien $R_1,R_2$ Ringe und $R=R_1\times R_2$. Jedes Ideal von $R$ hat die Form $I=I_1\times I_2$ wobei $I_1\subseteq R_1$ und $I_2\subseteq R_2$ Ideale sind. $I$ ist genau dann prim wenn entweder $I_1$ prim und $I_2=R_2$ oder $I_1=R_1$ und $I_2$ prim ist.
-    Folglich ist $\Spec(R)=\Spec(R_1)\coprod \Spec(R_2)$.
+    Seien \(R_1,R_2\) Ringe und \(R=R_1\times R_2\). Jedes Ideal von \(R\) hat die Form \(I=I_1\times I_2\) wobei \(I_1\subseteq R_1\) und \(I_2\subseteq R_2\) Ideale sind. \(I\) ist genau dann prim wenn entweder \(I_1\) prim und \(I_2=R_2\) oder \(I_1=R_1\) und \(I_2\) prim ist.
+    Folglich ist \(\Spec(R)=\Spec(R_1)\coprod \Spec(R_2)\).
 \end{Lemma}
 \begin{proof}
-    Die erste Behauptung ist klar. Es ist $R/I\cong R_1/I_1\times R_2/I_2$ und $I$ ist prim, genau dann wenn $R/I$ nullteilerfrei ist.
-    Da $(a,0)\cdot (0,b)=(0,0)$ ist, ist das genau dann der Fall, wenn eines der $I_j=R_j$ ist und das andere prim.
+    Die erste Behauptung ist klar. Es ist \(R/I\cong R_1/I_1\times R_2/I_2\) und \(I\) ist prim, genau dann wenn \(R/I\) nullteilerfrei ist.
+    Da \((a,0)\cdot (0,b)=(0,0)\) ist, ist das genau dann der Fall, wenn eines der \(I_j=R_j\) ist und das andere prim.
 \end{proof}
 
 \begin{Satz}\label{Satz:ExMaxId}
-    Sei $R$ ein kommutativer Ring, $R\neq 0$. Dann hat $R$ ein maximales Ideal.
+    Sei \(R\) ein kommutativer Ring, \(R\neq 0\). Dann hat \(R\) ein maximales Ideal.
 \end{Satz}
 \begin{proof}
-    Sei $M$ die Menge aller Ideale $I\subseteq R$ mit $I\neq R$ und sei $M'\subseteq M$ eine totale geordnete Teilmenge.  Ohne Einschränkung ist $(0)\in M'$. Sei $$J=\bigcup\limits_{I\in M'}I.$$ Dann ist $J$ ein Ideal mit $1\not\in J$ also $J\in M$. Das ist eine obere Schranke für $M'$. Also hat $M$ ein maximales Element nach Lemma von Zorn.
+    Sei \(M\) die Menge aller Ideale \(I\subseteq R\) mit \(I\neq R\) und sei \(M'\subseteq M\) eine totale geordnete Teilmenge.  Ohne Einschränkung ist \((0)\in M'\). Sei \[J=\bigcup\limits_{I\in M'}I.\] Dann ist \(J\) ein Ideal mit \(1\not\in J\) also \(J\in M\). Das ist eine obere Schranke für \(M'\). Also hat \(M\) ein maximales Element nach Lemma von Zorn.
 \end{proof}
 \end{Lemma}
 \begin{Def}
-    Sei $R$ ein kommutativer Ring. Sei $n\in \NN$ gegeben sodass $(n)=\ker(\ZZ\to R)$.Dann heißt $n$ die Charakteristik von $R$. Wenn $R$ nullteilerfrei ist, dann ist $n=0$ oder $n$ eine Primzahl.
+    Sei \(R\) ein kommutativer Ring. Sei \(n\in \NN\) gegeben sodass \((n)=\ker(\ZZ\to R)\).Dann heißt \(n\) die Charakteristik von \(R\). Wenn \(R\) nullteilerfrei ist, dann ist \(n=0\) oder \(n\) eine Primzahl.
 \end{Def}
 \subsection{Euklidische Ringe, Hauptidealringe und faktorielle Ringe}
 \begin{Def}
-    Sei $R$ ein Ring. $R$ ist Euklidisch wenn $R$ ein Integritätsbereich ist und es eine Abbildung $\delta\colon R\setminus\Set 0\to\NN$ gibt sodass für $a,q\in R$ mit $q\neq 0$ es $b,c\in R$ gibt mit $a=bq+c$ und $\delta(x)<\delta(q)$ oder $c=0$.
+    Sei \(R\) ein Ring. \(R\) ist Euklidisch wenn \(R\) ein Integritätsbereich ist und es eine Abbildung \(\delta\colon R\setminus\Set 0\to\NN\) gibt sodass für \(a,q\in R\) mit \(q\neq 0\) es \(b,c\in R\) gibt mit \(a=bq+c\) und \(\delta(x)<\delta(q)\) oder \(c=0\).
 \end{Def}
 \begin{Def}
-    Ein Ring $R$ ist ein Hauptidealring, wenn $R$ ein Integritätsbereich ist und jedes Ideal ein Hauptideal ist.
+    Ein Ring \(R\) ist ein Hauptidealring, wenn \(R\) ein Integritätsbereich ist und jedes Ideal ein Hauptideal ist.
 \end{Def}
 \begin{Satz}
     Jeder Euklidische Ring ist ein Hauptidealring.
 \end{Satz}
 \begin{proof}
-    Sei $I\subseteq R$ ein Ideal, $I\neq \Set 0$. wähle $q\in I$ sodass $\delta(q)$ minimal ist. Dann ist $I=(q)$.
+    Sei \(I\subseteq R\) ein Ideal, \(I\neq \Set 0\). wähle \(q\in I\) sodass \(\delta(q)\) minimal ist. Dann ist \(I=(q)\).
 \end{proof}
 \begin{Bsp}
-    $R=\ZZ[X]$ ist kein Hauptidealring, also auch nicht Euklidisch. Denn $(2,X)$ ist kein Hauptideal.
+    \(R=\ZZ[X]\) ist kein Hauptidealring, also auch nicht Euklidisch. Denn \((2,X)\) ist kein Hauptideal.
 \end{Bsp}
 \begin{Def}
-    Sei $R$ nullteilerfrei und $a\in R$. Wir nennen $a\in R$ Primelement, wenn $\Set 0\subsetneq (a)\subsetneq R$ ist und wenn für alle $b,c\in R$ mit $a\mid bc$ folgt, dass $a\mid b$ oder $a\mid c$.\\
-    Wir nenne $a\in R$ irreduzibel, wenn $\Set 0\subsetneq (a)\subsetneq R$ und für alle $b,c\in R$ folgt, dass $b\in R^*$ oder $c\in R^*$.
+    Sei \(R\) nullteilerfrei und \(a\in R\). Wir nennen \(a\in R\) Primelement, wenn \(\Set 0\subsetneq (a)\subsetneq R\) ist und wenn für alle \(b,c\in R\) mit \(a\mid bc\) folgt, dass \(a\mid b\) oder \(a\mid c\).\\
+    Wir nenne \(a\in R\) irreduzibel, wenn \(\Set 0\subsetneq (a)\subsetneq R\) und für alle \(b,c\in R\) folgt, dass \(b\in R^*\) oder \(c\in R^*\).
 \end{Def}
 \begin{Bem}
-    Es gilt $a\in R\text{ prim}\implies a\in R\text{ irreduzibel}$ und wenn $\Set 0\subsetneq (a)$ ist, dann ist $a$ prim $\iff (a)$ Primideal ist.
+    Es gilt \(a\in R\text{ prim}\implies a\in R\text{ irreduzibel}\) und wenn \(\Set 0\subsetneq (a)\) ist, dann ist \(a\) prim \(\iff (a)\) Primideal ist.
 \end{Bem}
 \begin{proof}
-    Sei $a\in R$ prim und $a=bc$ für $b,c\in R$. Dann ist $a\mid b$ oder $a\mid c$. Wenn $a\mid b$ dann ist $b=ad=bcd$. Da $b\neq 0$ und $R$ nullteilerfrei ist, ist $1=cd$ und $c\in R^*$.
+    Sei \(a\in R\) prim und \(a=bc\) für \(b,c\in R\). Dann ist \(a\mid b\) oder \(a\mid c\). Wenn \(a\mid b\) dann ist \(b=ad=bcd\). Da \(b\neq 0\) und \(R\) nullteilerfrei ist, ist \(1=cd\) und \(c\in R^*\).
 \end{proof}
 \begin{Lemma}
-    Sei $R$ nullteilerfrei und $a\in R$ mit $a\neq 0$. Es gilt 
+    Sei \(R\) nullteilerfrei und \(a\in R\) mit \(a\neq 0\). Es gilt 
     \begin{align*}
-        a \text{ ist irreduzibel} \iff (a) \text{ ist maximal unter Hauptidealen $\neq R$.}
+        a \text{ ist irreduzibel} \iff (a) \text{ ist maximal unter Hauptidealen \(\neq R\).}
     \end{align*}
 \end{Lemma}
 \begin{proof}
     Das ist eine direkte Übersetzung der Eigenschaft irreduzibel zu sein.
 \end{proof}
 \begin{Def}
-    Ein faktorieller Ring $R$ ist ein Integritätsbereich $R$, sodass jedes $a\in R$ mit $\Set 0\subsetneq (a)\subsetneq R$ eine Darstellung $a=p_1\cdots p_r$ hat mit $r\in\NN$ und $p_i$ Primelementen. Die Darstellung ist automatisch eindeutig bis auf Reihenfolge und Assoziertheit.
+    Ein faktorieller Ring \(R\) ist ein Integritätsbereich \(R\), sodass jedes \(a\in R\) mit \(\Set 0\subsetneq (a)\subsetneq R\) eine Darstellung \(a=p_1\cdots p_r\) hat mit \(r\in\NN\) und \(p_i\) Primelementen. Die Darstellung ist automatisch eindeutig bis auf Reihenfolge und Assoziertheit.
 \end{Def}
 \begin{Lemma}
-    Sei $R$ ein Integritätsbereich. 
+    Sei \(R\) ein Integritätsbereich. 
     \begin{align*}
         R \text{ ist faktoriell} \iff& \text{Jedes irreduzible Element von R ist prim und}\\
-        & \text{Jedes $a\in R$ mit $\Set 0\subsetneq (a)\subsetneq R$ ist Produkt von}\\
+        & \text{Jedes \(a\in R\) mit \(\Set 0\subsetneq (a)\subsetneq R\) ist Produkt von}\\
         &\text{irreduziblen Elementen}
     \end{align*}
 \end{Lemma}
 \begin{proof}
-    Sei $R$ faktoriell und $a\in R$ irreduzibel. Sei $a=p_1\cdots p_r$ mit Primelementen $p_i$. Da $a$ irreduzibel ist, ist $p_1\in R^*$ oder $p_2\cdots p_r\in R^*$. Da beides nicht der Fall ist, muss $a=p_1$ prim sein.
+    Sei \(R\) faktoriell und \(a\in R\) irreduzibel. Sei \(a=p_1\cdots p_r\) mit Primelementen \(p_i\). Da \(a\) irreduzibel ist, ist \(p_1\in R^*\) oder \(p_2\cdots p_r\in R^*\). Da beides nicht der Fall ist, muss \(a=p_1\) prim sein.
 \end{proof}
 \begin{Satz}
-    Jeder Hauptidealring $R$ ist faktoriell. Für $a\in R$ prim ist $R/(a)$ ein Körper.
+    Jeder Hauptidealring \(R\) ist faktoriell. Für \(a\in R\) prim ist \(R/(a)\) ein Körper.
 \end{Satz}
 \begin{proof}
-    Zeige: Jedes irreduzible $a\in R$ ist prim. Es gilt 
+    Zeige: Jedes irreduzible \(a\in R\) ist prim. Es gilt 
     \begin{align*}
         a \text{ ist irreduzibel} &\iff (a) \text{ ist maximal unter echten Hauptidealen}\\
         &\stackrel{R \text{ HIR}}\iff (a) \text{ ist maximales Ideal}\\
         &\iff R/(a) \text{ ist Körper}\\
         &\implies a \text{ ist Primelement.}
     \end{align*}
-    Sei $n=p_1^{e_1}\cdots p_s^{e_s}$ die Primfaktorzerlegung in paarweise verschiedene Primzahlen. Dann ist nach \hyperref[Lem:ChinRest1]{Chinesischer Restsatz} $\ZZ/n\ZZ\cong \prod \ZZ/p_i^{e_i}\ZZ$ und nach \hyperref[Lem:IdealeProduktring]{Lemma \ref{Lem:IdealeProduktring}} haben maximale Ideale die Form $\ZZ/p_1^{e_1}\ZZ\times\dots\times \frakm_i\times\dots\times \ZZ/p_s^{e_s}\ZZ$ für ein maximales Ideal $\frakm_i \subseteq \ZZ/p_i^{e_i}\ZZ$.
-    Da Primideale von $\ZZ/p_i^{e_i}\ZZ$ den Primidealen in $\ZZ$ entsprechen, die $(p_i^{e_i})$ enthalten, folgt, das der Ring lokal ist. also folgt die Aussage.
+    Sei \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung in paarweise verschiedene Primzahlen. Dann ist nach \hyperref[Lem:ChinRest1]{Chinesischer Restsatz} \(\ZZ/n\ZZ\cong \prod \ZZ/p_i^{e_i}\ZZ\) und nach \hyperref[Lem:IdealeProduktring]{Lemma \ref{Lem:IdealeProduktring}} haben maximale Ideale die Form \(\ZZ/p_1^{e_1}\ZZ\times\dots\times \frakm_i\times\dots\times \ZZ/p_s^{e_s}\ZZ\) für ein maximales Ideal \(\frakm_i \subseteq \ZZ/p_i^{e_i}\ZZ\).
+    Da Primideale von \(\ZZ/p_i^{e_i}\ZZ\) den Primidealen in \(\ZZ\) entsprechen, die \((p_i^{e_i})\) enthalten, folgt, das der Ring lokal ist. also folgt die Aussage.
 \end{proof}
 
 \begin{Lemma}\label{Lem:PrimidealEig}
-    Es Sei R ein Ring und $I,J\subseteq R$ beliebige Ideale und $\frakp\subseteq R$ ein Primideal. Dann gilt 
-    $IJ\subseteq \frakp\implies I\subseteq\frakp \text{ oder } J\subseteq\frakp$
+    Es Sei R ein Ring und \(I,J\subseteq R\) beliebige Ideale und \(\frakp\subseteq R\) ein Primideal. Dann gilt 
+    \(IJ\subseteq \frakp\implies I\subseteq\frakp \text{ oder } J\subseteq\frakp\)
 \end{Lemma}
 \begin{proof}
-    Wenn $I\subsetneq \frakp$ dann gibt es $x\in I\setminus\frakp$. Für $y\in J$ gilt dann $xy\in\frakp$ also $y\in\frakp$
+    Wenn \(I\subsetneq \frakp\) dann gibt es \(x\in I\setminus\frakp\). Für \(y\in J\) gilt dann \(xy\in\frakp\) also \(y\in\frakp\)
 \end{proof}
 \begin{Kor}
-    Für ein maximales Ideal $\frakm\subseteq R$ hat der Ring $R/\frakm^n$ genau ein Primideal und ist insbesondere lokal.
+    Für ein maximales Ideal \(\frakm\subseteq R\) hat der Ring \(R/\frakm^n\) genau ein Primideal und ist insbesondere lokal.
 \end{Kor}
 \begin{proof}
-    Primideale in $R/\frakm$ entsprechen den Primidealen $\frakm'$ in $R$ mit $\frakm^n\subseteq \frakm'$. Nach \hyperref[Lem:PrimidealEig]{Lemma \ref{Lem:PrimidealEig}} folgt $\frakm\subseteq \frakm'$ also $\frakm=\frakm'$. 
+    Primideale in \(R/\frakm\) entsprechen den Primidealen \(\frakm'\) in \(R\) mit \(\frakm^n\subseteq \frakm'\). Nach \hyperref[Lem:PrimidealEig]{Lemma \ref{Lem:PrimidealEig}} folgt \(\frakm\subseteq \frakm'\) also \(\frakm=\frakm'\). 
 \end{proof}
 \begin{Bsp}
-    Es sei $R$ der Ring der stetigen Funktionen $f:\RR\to \RR$. Für jedes $x\in \RR$ ist $\frakm_x=\{f\in R\mid f(x)=0\}$ ein maximales Ideal von $R$, denn betrachte Abbildung $eval_x\colon R\to \RR, f\mapsto f(x)$. Das ist surjektiv mit $\ker(eval_x)=\frakm_x$. da $\RR$ ein Körper ist, ist folgt die Behauptung.
-    Weiter ist die Menge $I$ aller $f\in R$ mit kompaktem Träger ein echtes Ideal von $R$, das in keinem $\frakm_x$ enthalten ist, denn definiere $$f_x\colon \RR\to \RR,\, y\mapsto \begin{cases}
+    Es sei \(R\) der Ring der stetigen Funktionen \(f:\RR\to \RR\). Für jedes \(x\in \RR\) ist \(\frakm_x=\{f\in R\mid f(x)=0\}\) ein maximales Ideal von \(R\), denn betrachte Abbildung \(eval_x\colon R\to \RR, f\mapsto f(x)\). Das ist surjektiv mit \(\ker(eval_x)=\frakm_x\). da \(\RR\) ein Körper ist, ist folgt die Behauptung.
+    Weiter ist die Menge \(I\) aller \(f\in R\) mit kompaktem Träger ein echtes Ideal von \(R\), das in keinem \(\frakm_x\) enthalten ist, denn definiere $$f_x\colon \RR\to \RR,\, y\mapsto \begin{cases}
         y-(x-1), & y\in[x-1,x]\\
         -y+x+1, & y\in [x,x+1]\\
         0, & \text{ sonst }
-    \end{cases}$$. Dann ist $f_x$ stetig mit kompaktem Träger $K=[x-1,x+1]$ also ist $f_x\in I$. Da aber $f_x(x)=1$ folgt $I\subsetneq \frakm_x$. Also hat $R$ maximale Ideale die nicht von der Form $\frakm_x$ sind.
+    \end{cases}\($. Dann ist \)f_x\( stetig mit kompaktem Träger \)K=[x-1,x+1]\( also ist \)f_x\in I\(. Da aber \)f_x(x)=1\( folgt \)I\subsetneq \frakm_x\(. Also hat \)R\( maximale Ideale die nicht von der Form \)\frakm_x$ sind.
 \end{Bsp}
 \begin{Def}
-    Sei $R$ ein Ring und $S\subseteq R$ eine multiplikative Menge, das heißt $1\in S$ und $s,s'\in S$ impliziert $ss'\in S$.
-    Definiere Äquivalenzrelation auf $R\times S$ durch $$(a,s)\sim (a',s')\iff \exists t\in S\colon (as'-a's)t=0$$. Notation: $R_S=S^{-1}R=(R\times S)/\sim$ und schreibe $\frac a s$ für die Äquivalenzklasse $[(a,s)]$.
-    $S^{-1}R$ wird Ring durch 
-    $$\frac a s+\frac b t=\frac{at+bs}{st}$$
-    $$\frac a s\cdot \frac b t=\frac{ab}{st}$$
-    $S^{-1}R$ heißt Lokalisierung von $R$ mit $S$.
-    Es gibt Ringhomomorphismus $\tau:R\to S^{-1}R,a\mapsto \frac a 1$.
-    Es ist $\ker(\tau)=\set{ a\in R}{\exists s\in S\colon as=0}$ und $S^{-1}R\neq 0 \iff 0\not\in S$ and $\tau $ ist bijektiv wenn $S\subseteq R^*$.
-    Wenn $R$ ein Integritätsbereich ist, dann ist $S=R\setminus\Set{0}$ multiplikativ und wir definieren $\Quot(R)=S^{-1}R$. Das ist ein Körper.
-    Wenn $\frakp\subseteq R$ ein primideal ist, dann ist $S=R\setminus\frakp$ multiplikativ. Definiere $R_\frakp=S^{-1}R.$
+    Sei \(R\) ein Ring und \(S\subseteq R\) eine multiplikative Menge, das heißt \(1\in S\) und \(s,s'\in S\) impliziert \(ss'\in S\).
+    Definiere Äquivalenzrelation auf \(R\times S\) durch \[(a,s)\sim (a',s')\iff \exists t\in S\colon (as'-a's)t=0\]. Notation: \(R_S=S^{-1}R=(R\times S)/\sim\) und schreibe \(\frac a s\) für die Äquivalenzklasse \([(a,s)]\).
+    \(S^{-1}R\) wird Ring durch 
+    \[\frac a s+\frac b t=\frac{at+bs}{st}\]
+    \[\frac a s\cdot \frac b t=\frac{ab}{st}\]
+    \(S^{-1}R\) heißt Lokalisierung von \(R\) mit \(S\).
+    Es gibt Ringhomomorphismus \(\tau:R\to S^{-1}R,a\mapsto \frac a 1\).
+    Es ist \(\ker(\tau)=\set{ a\in R}{\exists s\in S\colon as=0}\) und \(S^{-1}R\neq 0 \iff 0\not\in S\) and \(\tau \) ist bijektiv wenn \(S\subseteq R^*\).
+    Wenn \(R\) ein Integritätsbereich ist, dann ist \(S=R\setminus\Set{0}\) multiplikativ und wir definieren \(\Quot(R)=S^{-1}R\). Das ist ein Körper.
+    Wenn \(\frakp\subseteq R\) ein primideal ist, dann ist \(S=R\setminus\frakp\) multiplikativ. Definiere \(R_\frakp=S^{-1}R.\)
 \end{Def}
 \begin{Satz}
-    Sei $R$ ein Ring und $S\subseteq R$ multiplikativ. Dann existiert ein kommutatives Diagramm:
+    Sei \(R\) ein Ring und \(S\subseteq R\) multiplikativ. Dann existiert ein kommutatives Diagramm:
     $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB124YdhOAzAE50A1nQC+fdkNF1OcJgCNuOGAEcABACUNnVQA9eGgJKxGG8aQ0BlTgGM6aAcLEBeTjAC2aHAE8V4iCW6Ji4+IQoAEzkVLSMLGzyPFIyIoqSzqKK8koqYOo2AHrAALQAjOI6ejCGwCZmDOKBwSAY2HgERGRlsfTMrIgcXMmZImgZ0i5OXLk8BVXsBkYACoJYnlgNFjb2jqNo7uxePv48zaQh7eFE0T3UfQmDSbyjahOpajnKc5rWxeWVXSLGq8VbrTYwRhNIKxGBQADm8CIoCEEE8SDIIBwECQZXu8QGQ1ScnYnkccGxGjof1KFS0IGoDDoihgDGWoQ6ERADBg-BwDJAAAtIVA2DgAO4QYV0KAIFqo9GIaJYnGIADM+P6iS46wFTJZbI510GPL5QQuIAVSGV2IxmseYCYDAYjOZrPZV06Jt5-OoODoWAYbEFEAgInNKMEaKQGpVuPtA0dztdBo9YS93J9Av9geDofD4go4iAA
 \begin{tikzcd}
 {\set{\fraka}{\fraka\subseteq R \text{ Ideal }, S\cap\fraka=\emptyset}} \arrow[rr, "\fraka\mapsto aS^{-1}R", two heads] &  & \set{\frakb}{\frakb\subsetneq S^{-1}R \text{ Ideal}}                   \\
@@ -140,67 +140,67 @@ testtest hallo
 \end{tikzcd}$$
 \end{Satz}
 \begin{proof}
-    Angenommen $\frac a s=1$ für $a\in\fraka$ und $s\in S$. Das heißt $\exists t\in S$ sodass $(a-s)t=0$ also $at=ts\in S$. Dann ist aber $at\in \fraka\cap S$.
-    wenn $\frakb\subsetneq S^{-1}R$ ein Ideal ist, definiere $\fraka=\tau^{-1}(\frakb)$. Dann ist $\fraka S^{-1}R=\frakb$ und $S\cap\fraka=\empty$.
-    Wenn $\frakp\subseteq R$ prim ist mit $S\cap\frakp=\emptyset$ dann ist $q=\frakp S^{-1}R$ prim, denn wenn $\frac a s,\frac{a'}{a}\in S^{-1}R$ mit $\frac{aa'}{ss'}=\frac b t\in \frakq$ mit $b\in\frakp$ dann ist 
-    $$(aa't-ss'b)r=0$$ für ein $r\in S$ also $aa't\in \frakp$. Dann ist $a\in\frakp$ oder $a'\in\frakp'$ also $\frac a s\in\frakq$ oder $\frac{a'}{s'}\in\frakq$.
-    Wenn $\frakp$ prim ist, dann ist $\frakp=\tau^{-1}(\frakp S^{-1}R)$ denn wenn $x\in b$ sodass $\frac x 1=\frac a s$ für ein $a\in\frakp$ dann folgt wie oben dass $x\in\frakp$.
-    Wenn $\frakq\subseteq S^{-1}R$ prim ist, dann ist $\tau^{-1}(\frakq)$ prim. Somit ist untere Abbildung Bijektion.
+    Angenommen \(\frac a s=1\) für \(a\in\fraka\) und \(s\in S\). Das heißt \(\exists t\in S\) sodass \((a-s)t=0\) also \(at=ts\in S\). Dann ist aber \(at\in \fraka\cap S\).
+    wenn \(\frakb\subsetneq S^{-1}R\) ein Ideal ist, definiere \(\fraka=\tau^{-1}(\frakb)\). Dann ist \(\fraka S^{-1}R=\frakb\) und \(S\cap\fraka=\empty\).
+    Wenn \(\frakp\subseteq R\) prim ist mit \(S\cap\frakp=\emptyset\) dann ist \(q=\frakp S^{-1}R\) prim, denn wenn \(\frac a s,\frac{a'}{a}\in S^{-1}R\) mit \(\frac{aa'}{ss'}=\frac b t\in \frakq\) mit \(b\in\frakp\) dann ist 
+    \[(aa't-ss'b)r=0\] für ein \(r\in S\) also \(aa't\in \frakp\). Dann ist \(a\in\frakp\) oder \(a'\in\frakp'\) also \(\frac a s\in\frakq\) oder \(\frac{a'}{s'}\in\frakq\).
+    Wenn \(\frakp\) prim ist, dann ist \(\frakp=\tau^{-1}(\frakp S^{-1}R)\) denn wenn \(x\in b\) sodass \(\frac x 1=\frac a s\) für ein \(a\in\frakp\) dann folgt wie oben dass \(x\in\frakp\).
+    Wenn \(\frakq\subseteq S^{-1}R\) prim ist, dann ist \(\tau^{-1}(\frakq)\) prim. Somit ist untere Abbildung Bijektion.
     
 \end{proof}
 \begin{Bsp}
-    Sei $R=\ZZ$ und $\fraka=(2)$ sowie $\fraka'=(6)$ und $S=\{1,3,3^2,3^3,\dots\}$. Dann ist $\fraka S^{-1}\ZZ=\set{\frac{2x}{3^n}}{x\in\ZZ, n\in\NN}$ und $\fraka'S^{-1}\ZZ=\set{\frac{6y}{3^m}}{y\in\ZZ, m\in \NN}=\fraka S^{-1}\ZZ.$
+    Sei \(R=\ZZ\) und \(\fraka=(2)\) sowie \(\fraka'=(6)\) und \(S=\{1,3,3^2,3^3,\dots\}\). Dann ist \(\fraka S^{-1}\ZZ=\set{\frac{2x}{3^n}}{x\in\ZZ, n\in\NN}\) und \(\fraka'S^{-1}\ZZ=\set{\frac{6y}{3^m}}{y\in\ZZ, m\in \NN}=\fraka S^{-1}\ZZ.\)
 \end{Bsp}
 \begin{Kor}
-    $\tau\colon R\to S^{-1}R$ induziert Isomorphismus $$\Spec(S^{-1}R)\to \set{\frakp\in\Spec R}{\frakp\cap S\neq\emptyset}.\, \frakq\mapsto \tau^{-1}(\frakq)$$
+    \(\tau\colon R\to S^{-1}R\) induziert Isomorphismus \[\Spec(S^{-1}R)\to \set{\frakp\in\Spec R}{\frakp\cap S\neq\emptyset}.\, \frakq\mapsto \tau^{-1}(\frakq)\]
 \end{Kor}
 \begin{Kor}
-    Für alle $\frakp\subseteq R$ prim ist $R_\frakp$ ein lokaler Ring mit maximalem Ideal $\frakp R_\frakp$
+    Für alle \(\frakp\subseteq R\) prim ist \(R_\frakp\) ein lokaler Ring mit maximalem Ideal \(\frakp R_\frakp\)
 \end{Kor}
 \begin{proof}
-    $R_\frakp\setminus \frakp R_\frakp$ besteht aus Einheiten.
+    \(R_\frakp\setminus \frakp R_\frakp\) besteht aus Einheiten.
 \end{proof}
 \begin{Satz}[Universelle Eigenschaft der Lokalisierung]\label{Satz:UnivEigLok}
-Es ist $\tau(S)\subseteq (S^{-1}R)^*$. Wenn $\varphi\colon R\to R'$ Ringhomorphismus ist, dann git $\varphi(S)\subseteq (R')^*$ genau dann, wenn es einen eindeutigen Ringhomomorphismus $\varphi'\colon S^{-1}R\to R'$ gibt sodass $\varphi=\varphi'\circ\tau.$
+Es ist \(\tau(S)\subseteq (S^{-1}R)^*\). Wenn \(\varphi\colon R\to R'\) Ringhomorphismus ist, dann git \(\varphi(S)\subseteq (R')^*\) genau dann, wenn es einen eindeutigen Ringhomomorphismus \(\varphi'\colon S^{-1}R\to R'\) gibt sodass \(\varphi=\varphi'\circ\tau.\)
 $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgHJuvEBmx4CRMsPH1mrRCADKAPWABaYV05dxMKAHN4RUADMAThAC2SMiBwQkAJmotKV0AHRCcOiYQagY6ACMYBgAFfhUhEGcsGwALHHknVw9ELx8kURBYhOTUwTYGGEc8wMkdEDD6ZzRsrHyQF3d-alLEcoYsMFaoCBwca2iJbTZ2uk7uuRj4xJTlWt1MnLzLLiA
 \begin{tikzcd}
 R \arrow[d, "\tau"'] \arrow[r, "\varphi"] & R' \\
 S^{-1}R \arrow[ru, "\varphi'"', dotted]   &   
 \end{tikzcd}$$
-Wenn $\varphi\colon R\to R'$ dieselbe Eigenschaft erfüllt wie $\tau$, dann ist $\varphi'$ Isomorphismus.
+Wenn \(\varphi\colon R\to R'\) dieselbe Eigenschaft erfüllt wie \(\tau\), dann ist \(\varphi'\) Isomorphismus.
 \end{Satz}
 
 \begin{proof}
-    Definiere $\varphi'(\frac a s)=\varphi(a)\varphi(s)^{-1}$. Prüfe dass das wohldefiniert und eindeutig ist. 
-    Angenommen $\tau,\varphi$ sind beide universell, das heißt es existiert $\varphi'\colon S^{-1}R\to R'$ mit $\varphi=\varphi'\circ\tau$ und $\tau'\colon R'\to S^{-1}R$ mit $\tau=\tau'\circ \varphi$.
+    Definiere \(\varphi'(\frac a s)=\varphi(a)\varphi(s)^{-1}\). Prüfe dass das wohldefiniert und eindeutig ist. 
+    Angenommen \(\tau,\varphi\) sind beide universell, das heißt es existiert \(\varphi'\colon S^{-1}R\to R'\) mit \(\varphi=\varphi'\circ\tau\) und \(\tau'\colon R'\to S^{-1}R\) mit \(\tau=\tau'\circ \varphi\).
     Dann ist 
-    $$\id_{R'}\circ \varphi=\varphi'\circ \tau=(\varphi'\circ \tau')\circ \varphi$$ also $\id_{R'}=\varphi'\circ\tau'$ wegen Eindeutigkeit. Analog ist $\id_{S^{-1}R}=\tau'\circ\varphi'$
+    \[\id_{R'}\circ \varphi=\varphi'\circ \tau=(\varphi'\circ \tau')\circ \varphi\] also \(\id_{R'}=\varphi'\circ\tau'\) wegen Eindeutigkeit. Analog ist \(\id_{S^{-1}R}=\tau'\circ\varphi'\)
 \end{proof}
 \begin{Lemma}
-    Sei $R$ ein Ring und $F=(f_i)_{i\in I}$ eine Familie in $R$ und $S\subseteq R$ eine multiplikative Menge von $F$ erzeugt. Seien Variablen $T=(t_i)_{i\in I}$ gegeben.
+    Sei \(R\) ein Ring und \(F=(f_i)_{i\in I}\) eine Familie in \(R\) und \(S\subseteq R\) eine multiplikative Menge von \(F\) erzeugt. Seien Variablen \(T=(t_i)_{i\in I}\) gegeben.
     Dann existiert ein Isomoprhismus 
-    $$R_S\to R[T]/(1-f_it_i\mid i\in I)$$
-    Insbesondere ist $R_f\cong R[X]/(1-fX)$
+    \[R_S\to R[T]/(1-f_it_i\mid i\in I)\]
+    Insbesondere ist \(R_f\cong R[X]/(1-fX)\)
 \end{Lemma}
 \begin{proof}
-    Sei $\varphi:R\to R'$ Ringhomomorphismus sodass $\varphi(S)\subseteq (R')^*$. Definiere $\tilde\varphi\colon R[T]\to R'$ durch $\varphi$ und $t_i\mapsto \varphi(f_i)^{-1}$.
-    Dann ist $\ker(\tilde\varphi)=(1-f_it_i\mid i\in I)$ was $\varphi':R[T]/(1-f_it_i\mid i\in I)\to R'$ induziert sodass $\varphi=\varphi'\circ\tau$ wobei $\tau:R\to R[T]/(1-f_it_i\mid i\in I)$.
-    $\varphi'$ ist eindeutig da $1=\varphi'(f_it_i)=\varphi(f_i)\tilde\varphi(t_i)$ ist. Also gibt es Isomorphismus nach \hyperref[Satz:UnivEigLok]{Satz \ref{Satz:UnivEigLok}}
+    Sei \(\varphi:R\to R'\) Ringhomomorphismus sodass \(\varphi(S)\subseteq (R')^*\). Definiere \(\tilde\varphi\colon R[T]\to R'\) durch \(\varphi\) und \(t_i\mapsto \varphi(f_i)^{-1}\).
+    Dann ist \(\ker(\tilde\varphi)=(1-f_it_i\mid i\in I)\) was \(\varphi':R[T]/(1-f_it_i\mid i\in I)\to R'\) induziert sodass \(\varphi=\varphi'\circ\tau\) wobei \(\tau:R\to R[T]/(1-f_it_i\mid i\in I)\).
+    \(\varphi'\) ist eindeutig da \(1=\varphi'(f_it_i)=\varphi(f_i)\tilde\varphi(t_i)\) ist. Also gibt es Isomorphismus nach \hyperref[Satz:UnivEigLok]{Satz \ref{Satz:UnivEigLok}}
 \end{proof}
 \begin{Satz}\label{Satz:EigLok}
-    Seien $f,g\in R$ und $d,e\in\NN$ mit $d\geq 1$. Dann kommutiert $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgH0AZt14gM2PASJlh4+s1aIOM4HIDmXRX1WCiordR1T9ACllyAlIbkA9YAFoYXY08oMy5xGChjeCJQOQAnCABbJDIQHAgkACYeGPikxBS0pGFskDjEzOpCxABmO0k9EAAdRuwkkrK80VT0mtCuIA
+    Seien \(f,g\in R\) und \(d,e\in\NN\) mit \(d\geq 1\). Dann kommutiert $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgH0AZt14gM2PASJlh4+s1aIOM4HIDmXRX1WCiordR1T9ACllyAlIbkA9YAFoYXY08oMy5xGChjeCJQOQAnCABbJDIQHAgkACYeGPikxBS0pGFskDjEzOpCxABmO0k9EAAdRuwkkrK80VT0mtCuIA
 \begin{tikzcd}
 R \arrow[d] \arrow[r]    & R_f \arrow[d]     \\
 R_{fg} \arrow[r, "\sim"] & (R_f)_{f^{-e}g^d}
 \end{tikzcd}$$
 \end{Satz}
 \begin{proof}
-    Die Abbildung $R\to R_f\to (R_f)_{f^{-e}g^d}$ schickt $f,g$ und somit $fg$ auf Einheiten. 
-    Das gibt $R_{fg}\to (R_f)_{f^{-e}g^d}$
-    $R\to R_{fg}$ schickt $f$ auf Einheit, das gibt also $R_f\to R_{fg}$ und der schickt $f^{-e}g^d$ auf eine Einheit. Das gibt $(R_f)_{f^{-e}g^d}\to R_{fg}$ invers zu oben.
+    Die Abbildung \(R\to R_f\to (R_f)_{f^{-e}g^d}\) schickt \(f,g\) und somit \(fg\) auf Einheiten. 
+    Das gibt \(R_{fg}\to (R_f)_{f^{-e}g^d}\)
+    \(R\to R_{fg}\) schickt \(f\) auf Einheit, das gibt also \(R_f\to R_{fg}\) und der schickt \(f^{-e}g^d\) auf eine Einheit. Das gibt \((R_f)_{f^{-e}g^d}\to R_{fg}\) invers zu oben.
 \end{proof}
 \begin{Satz}
-    Sei $\frakp$ Primideal, $f\in R\setminus \frakp$. 
+    Sei \(\frakp\) Primideal, \(f\in R\setminus \frakp\). 
     Dann kommutiert 
     $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgH0AZt14gM2PASJlh4+s1aIOMgDqG5AJzoBrNIr6rBRUVuo6p+gBSy5AShnBjZyzQAAk8vbnEYKABzeCJQMwgAWyQyEBwIJGEeeNMkzOp0pABmbJAE5MRUwsQAJlLypBqCjMQi50k9EGNsZK4KLiA
 \begin{tikzcd}
@@ -212,166 +212,166 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
     Analog wie in \hyperref[Satz:EigLok]{Satz \ref{Satz:EigLok}}
 \end{proof}
 \begin{Bsp}
-    Es gibt Isomorphismus $(\ZZ/12\ZZ)[3^{-1}]\to \ZZ/4\ZZ$ und jeder Zwischenring $\ZZ\subseteq R\subseteq \QQ$ ist eine Lokalisierung von $\ZZ$.
+    Es gibt Isomorphismus \((\ZZ/12\ZZ)[3^{-1}]\to \ZZ/4\ZZ\) und jeder Zwischenring \(\ZZ\subseteq R\subseteq \QQ\) ist eine Lokalisierung von \(\ZZ\).
 \end{Bsp}
 \begin{proof}
-    Sei $\varphi\colon \ZZ/12\ZZ\to \ZZ/4\ZZ $. Einheiten von $\ZZ/12\ZZ$ sind $1,5,5,11$ und diese gehen auf Einheiten in $\ZZ/4\ZZ$.
-    Sei $\tau'\colon \ZZ/4\ZZ\to \ZZ/12\ZZ[-3],\, x+4\ZZ\mapsto \frac{x+12\ZZ}{1}$. Das ist wohldefiniert wie man prüft und $\tau'$ ist eindeutig sodass $\tau'\circ\varphi=\tau.$ also ist beides Isomorph.
-    Sei $\ZZ\subseteq R\subseteq \QQ$ Zwischenring und $S$ die multiplikative Menge erzeugt von allen Primzaheln $p$ sodas $\frac 1 p\in R$. Dann ist $S^{-1}\ZZ\subseteq R$. Sei $\frac a b\in R$ mit $a,b$ teilerfremd. sei $p$ eine Primzahl mit $p\mid b$. Dann ist $\frac a p\in R$ und da $a,p$ teilerfremd, gibt es $m,n\in\ZZ$ sodass $1=ma+np$ ist. Also ist $$\frac 1 p+n=\frac{ma}{p}\in R$$ also ist $\frac 1 p\in R$. Dann ist $\frac 1 b\in S^{-1}R$ und somit $\frac a b\in S^{-1}\ZZ$.
+    Sei \(\varphi\colon \ZZ/12\ZZ\to \ZZ/4\ZZ \). Einheiten von \(\ZZ/12\ZZ\) sind \(1,5,5,11\) und diese gehen auf Einheiten in \(\ZZ/4\ZZ\).
+    Sei \(\tau'\colon \ZZ/4\ZZ\to \ZZ/12\ZZ[-3],\, x+4\ZZ\mapsto \frac{x+12\ZZ}{1}\). Das ist wohldefiniert wie man prüft und \(\tau'\) ist eindeutig sodass \(\tau'\circ\varphi=\tau.\) also ist beides Isomorph.
+    Sei \(\ZZ\subseteq R\subseteq \QQ\) Zwischenring und \(S\) die multiplikative Menge erzeugt von allen Primzaheln \(p\) sodas \(\frac 1 p\in R\). Dann ist \(S^{-1}\ZZ\subseteq R\). Sei \(\frac a b\in R\) mit \(a,b\) teilerfremd. sei \(p\) eine Primzahl mit \(p\mid b\). Dann ist \(\frac a p\in R\) und da \(a,p\) teilerfremd, gibt es \(m,n\in\ZZ\) sodass \(1=ma+np\) ist. Also ist \[\frac 1 p+n=\frac{ma}{p}\in R\] also ist \(\frac 1 p\in R\). Dann ist \(\frac 1 b\in S^{-1}R\) und somit \(\frac a b\in S^{-1}\ZZ\).
 \end{proof}
 \begin{Def}
-    Sei $R$ ein Ring und $j(R)=\cap_{\frakm\in\Specm(R)}\frakm$ das Jacobson Radikal von $R$. 
-    Wenn $R=\{0\}$ dann setzte $j(R)=\{0\}$.
-    Es ist $j(R)$ maximal genau dann wenn $R$ lokal ist
+    Sei \(R\) ein Ring und \(j(R)=\cap_{\frakm\in\Specm(R)}\frakm\) das Jacobson Radikal von \(R\). 
+    Wenn \(R=\{0\}\) dann setzte \(j(R)=\{0\}\).
+    Es ist \(j(R)\) maximal genau dann wenn \(R\) lokal ist
 \end{Def}
 \begin{Bem}
-    Für $a\in R$ ist äquivalent:
+    Für \(a\in R\) ist äquivalent:
     \begin{enumerate}
-        \item $a\in j(R)$
-        \item $1-ab\in R^*$ für alle $b\in R$
+        \item \(a\in j(R)\)
+        \item \(1-ab\in R^*\) für alle \(b\in R\)
     \end{enumerate}
 \end{Bem}
 \begin{proof}
-    Angenommen $1-ab\in R^{*}$ für alle $b$. Sei $\frakm$ ein maximales Ideal. Setze $\frakn=(a,\frakm$. Wenn $a\not\in\frakm$ dann ist $\frakn=R$ und es gibt $b\in R$ und $m\in\frakm$ sodass $1=ab+m$. Aber dann ist $m$ eine Einheit. Also muss $a\in\frakm$ sein für alle maximalen Ideal $\frakm$. Also ist $a\in j(R)$.
+    Angenommen \(1-ab\in R^{*}\) für alle \(b\). Sei \(\frakm\) ein maximales Ideal. Setze \(\frakn=(a,\frakm\). Wenn \(a\not\in\frakm\) dann ist \(\frakn=R\) und es gibt \(b\in R\) und \(m\in\frakm\) sodass \(1=ab+m\). Aber dann ist \(m\) eine Einheit. Also muss \(a\in\frakm\) sein für alle maximalen Ideal \(\frakm\). Also ist \(a\in j(R)\).
 \end{proof}
 \begin{Def}
-    Sei $\rad(R)=\bigcap_{\frakp\in \Spec R}\frakp$ das Nilradikal. $R$ heißt reduziert, wenn $\rad(R)=0$.
+    Sei \(\rad(R)=\bigcap_{\frakp\in \Spec R}\frakp\) das Nilradikal. \(R\) heißt reduziert, wenn \(\rad(R)=0\).
 \end{Def}
 \begin{Satz}
-    $\rad(R)=\{a\in R\mid a \text{ nilpotent}\}$
+    \(\rad(R)=\{a\in R\mid a \text{ nilpotent}\}\)
 \end{Satz}
 \begin{proof}
-    Sei $a$ nicht nilpotent. Dann ist $0\not\in S={1,a,a^2,\dots}$ also $S^{-1}R\neq 0$.
-    Das heißt es gibt ein maximales Ideal in $S^{-1}R$ das zu Primideal $\frakp\subseteq R$ korrespondiert mit $\frakp\cap S=\emptyset$.
-    Das heißt $a\not\in\frakp$ und $a\not\in \rad(R)$. Die andere Inklusion ist klar.
+    Sei \(a\) nicht nilpotent. Dann ist \(0\not\in S={1,a,a^2,\dots}\) also \(S^{-1}R\neq 0\).
+    Das heißt es gibt ein maximales Ideal in \(S^{-1}R\) das zu Primideal \(\frakp\subseteq R\) korrespondiert mit \(\frakp\cap S=\emptyset\).
+    Das heißt \(a\not\in\frakp\) und \(a\not\in \rad(R)\). Die andere Inklusion ist klar.
 \end{proof}
 \begin{Lemma}
     Es ist äquivalent:
     \begin{enumerate}
-        \item $R$ hat genau ein Primideal
-        \item $a\in R\implies a\in R^* \text{ oder $a$ ist nilpotent}$
-        \item $R/\rad(R)$ ist ein Körper
+        \item \(R\) hat genau ein Primideal
+        \item \(a\in R\implies a\in R^* \text{ oder \)a\( ist nilpotent}\)
+        \item \(R/\rad(R)\) ist ein Körper
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
     klar.
 \end{proof}
 \begin{Def}
-    Sei $\fraka\subseteq R$ ein Ideal. $j(\fraka)\coloneq \pi^{-1}(j(R/\fraka))$ und $\rad(\fraka)=\pi^{-1}(rad(R/\fraka))$ wobei $\pi:R\to R/\fraka$ kanonische Abbildung.
+    Sei \(\fraka\subseteq R\) ein Ideal. \(j(\fraka)\coloneq \pi^{-1}(j(R/\fraka))\) und \(\rad(\fraka)=\pi^{-1}(rad(R/\fraka))\) wobei \(\pi:R\to R/\fraka\) kanonische Abbildung.
 \end{Def}
 \begin{Satz}
-    sei $K$ Körper. $j(K[X_1,\dots,X_n])=0$
+    sei \(K\) Körper. \(j(K[X_1,\dots,X_n])=0\)
 \end{Satz}
 \begin{proof}
-    sei $\bar K$ der algebraische Abschluss von $K$.
+    sei \(\bar K\) der algebraische Abschluss von \(K\).
     Sei $x=\begin{pmatrix}
         x_1\\ \vdots\\ x_n
     \end{pmatrix}\in \bar K^n$. Betrachte 
-    $$\frakm_x=\set{f\in K[X_1,\dots,X_n]}{f(x)=0}=\ker(K[X_1,\dots,X_n]\to\bar K, g\mapsto g(x))$$
-    Die letzte Abbildung ist surjektiv auf den Körper $K(x_1,\dots,x_n)$ (Betrachte Minimalpolynom und dann modifiziere um Element zu erhalten).
-    Also ist $K[X_1,\dots,X_m]/\frakm_x\cong K(x_1,\dots,x_n)$ Körper und somit $\frakm_x$ maximales Ideal in $K[X_1,\dots,X_n]$.
-    $f\in j(K[X_1,\dots,X_n])$ impliziert dass $f\in\frakm_x$ ist also $f(x)=0$ für alle $x\in\bar K^{n}$. Also ist $f$ das Nullpolynom nach Induktion.
+    \[\frakm_x=\set{f\in K[X_1,\dots,X_n]}{f(x)=0}=\ker(K[X_1,\dots,X_n]\to\bar K, g\mapsto g(x))\]
+    Die letzte Abbildung ist surjektiv auf den Körper \(K(x_1,\dots,x_n)\) (Betrachte Minimalpolynom und dann modifiziere um Element zu erhalten).
+    Also ist \(K[X_1,\dots,X_m]/\frakm_x\cong K(x_1,\dots,x_n)\) Körper und somit \(\frakm_x\) maximales Ideal in \(K[X_1,\dots,X_n]\).
+    \(f\in j(K[X_1,\dots,X_n])\) impliziert dass \(f\in\frakm_x\) ist also \(f(x)=0\) für alle \(x\in\bar K^{n}\). Also ist \(f\) das Nullpolynom nach Induktion.
 \end{proof}
 \begin{Lemma}[Primvermeidung]
-    Sei $\fraka\subseteq R$ ein Ideal. Wenn $\frakp_1,\dots,\frakp_n$ Primideale sind mit $\fraka\subseteq \bigcup_{i=1}^n\frakp_i$ dann ist $\fraka\subseteq \frakp_i$ für ein $i$.
+    Sei \(\fraka\subseteq R\) ein Ideal. Wenn \(\frakp_1,\dots,\frakp_n\) Primideale sind mit \(\fraka\subseteq \bigcup_{i=1}^n\frakp_i\) dann ist \(\fraka\subseteq \frakp_i\) für ein \(i\).
     
 \end{Lemma}
 \begin{proof}
-    Induktion: $n=1$ ist klar. Gelte die Behauptung für $n-1$. Angenommen $\fraka\not\subseteq \bigcup_{j\neq i}\frakp_j$ für alle $i$. Das heißt es gibt $f_i\in\fraka$ mit $f_i\not\in\bigcup_{j\neq i}\frakp_j$ und $f_i\in\frakp_i$.
-    Es ist $f_1+f_2\cdots f_n\in\fraka$ aber $f_1+f_2\cdots f_n\not\in \frakp_1$und $f_1+f_2\cdots f_n\not\in\frakp_i$ für $i\geq 2$. Das ist ein Widerspruch. Also ist $\fraka\subseteq \bigcup_{j\neq i}\frakp_j$ für ein $i$. Also folgt die Aussagen mit Induktion.
+    Induktion: \(n=1\) ist klar. Gelte die Behauptung für \(n-1\). Angenommen \(\fraka\not\subseteq \bigcup_{j\neq i}\frakp_j\) für alle \(i\). Das heißt es gibt \(f_i\in\fraka\) mit \(f_i\not\in\bigcup_{j\neq i}\frakp_j\) und \(f_i\in\frakp_i\).
+    Es ist \(f_1+f_2\cdots f_n\in\fraka\) aber \(f_1+f_2\cdots f_n\not\in \frakp_1\)und \(f_1+f_2\cdots f_n\not\in\frakp_i\) für \(i\geq 2\). Das ist ein Widerspruch. Also ist \(\fraka\subseteq \bigcup_{j\neq i}\frakp_j\) für ein \(i\). Also folgt die Aussagen mit Induktion.
 \end{proof}
 
 \begin{Lemma}[Nakayama]\label{Lem:Nakayama}
-    Sei $I\subseteq R$ ein Ideal mit $I\subseteq j(R)$. Sei $M$ ein endlich erzeugter $R$-Modul. Es gilt:
+    Sei \(I\subseteq R\) ein Ideal mit \(I\subseteq j(R)\). Sei \(M\) ein endlich erzeugter \(R\)-Modul. Es gilt:
     \begin{enumerate}
-        \item Wenn $IM=M$ ist dann ist $M=0$.
-        \item Wenn $N,N'\subseteq M$ und $M=N+IN'$ wobei $N'$ endlich erzeugt dann ist $M=N$.
-        \item Wenn $N\to M$ eine Abbildung sodass $N/IN\to M/IM$ surjektiv ist dann ist $N\to M$ surjektiv.
-        \item Wenn $x_1,\dots, x_n\in M$ $M/IM$ erzeugen dann erzeugen $x_1,\dots,x_n$ schon $M$.
+        \item Wenn \(IM=M\) ist dann ist \(M=0\).
+        \item Wenn \(N,N'\subseteq M\) und \(M=N+IN'\) wobei \(N'\) endlich erzeugt dann ist \(M=N\).
+        \item Wenn \(N\to M\) eine Abbildung sodass \(N/IN\to M/IM\) surjektiv ist dann ist \(N\to M\) surjektiv.
+        \item Wenn \(x_1,\dots, x_n\in M\) \(M/IM\) erzeugen dann erzeugen \(x_1,\dots,x_n\) schon \(M\).
         
     \end{enumerate}
     
 \end{Lemma}
 \begin{proof}
-    Angenommen $M\neq 0$. Da $M$ endlich erzeugt ist, betrachte minimales Erzeugendensystem $x_1,\dots,x_n\in M$. Da $\fraka M=M$ gilt, ist $x_n=a_1x_1+\dots+a_nx_n$ für $a_i\in\fraka$. Dann ist $(1-a_n)x_n=a_1x_1+\dots+a_nx_n$ und da $(1-a_n)$ eine Einheit ist, folgt $x_n$ ist im Erzeugnis von $(x_1,\dots,x_{n-1})$ was ein Widerspruch ist. Das zeigt 1.
-    Wenn $N'$ endlich erzeugt ist, dann auch $M/N$. Anwenden von 1 auf $M/N$ liefert die Aussage.
-    Es ist $M=\Image(N\to M)+IM$ und nach 2. folgt, dass $M=\Image(N\to M).$
-    Sei $R^n\to M, (a_1,\dots,a_n)\mapsto a_1x_1+\dots a_nx_n$. Nach 3. folgt, dass die Abbildung surjektiv ist also gilt 4.
+    Angenommen \(M\neq 0\). Da \(M\) endlich erzeugt ist, betrachte minimales Erzeugendensystem \(x_1,\dots,x_n\in M\). Da \(\fraka M=M\) gilt, ist \(x_n=a_1x_1+\dots+a_nx_n\) für \(a_i\in\fraka\). Dann ist \((1-a_n)x_n=a_1x_1+\dots+a_nx_n\) und da \((1-a_n)\) eine Einheit ist, folgt \(x_n\) ist im Erzeugnis von \((x_1,\dots,x_{n-1})\) was ein Widerspruch ist. Das zeigt 1.
+    Wenn \(N'\) endlich erzeugt ist, dann auch \(M/N\). Anwenden von 1 auf \(M/N\) liefert die Aussage.
+    Es ist \(M=\Image(N\to M)+IM\) und nach 2. folgt, dass \(M=\Image(N\to M).\)
+    Sei \(R^n\to M, (a_1,\dots,a_n)\mapsto a_1x_1+\dots a_nx_n\). Nach 3. folgt, dass die Abbildung surjektiv ist also gilt 4.
 \end{proof}
 \begin{Def}
-    Eine partiell geordnete Menge $\Sigma$ hat die aufsteigende Kettenbedingung, falls jede Kette $S_1\leq S_2\leq\dots\leq S_k\leq\dots$ irgendwann stationär wird.
+    Eine partiell geordnete Menge \(\Sigma\) hat die aufsteigende Kettenbedingung, falls jede Kette \(S_1\leq S_2\leq\dots\leq S_k\leq\dots\) irgendwann stationär wird.
 \end{Def}
 \begin{Lemma}
-    Sei $\Sigma$ partiell geordnet. $\Sigma$ hat die aufsteigende Ketten-Bedingung genau dann wenn für alle $S\subseteq \Sigma$ mit $S\neq \emptyset$ gilt, dass $S$ ein maximales Element hat.
+    Sei \(\Sigma\) partiell geordnet. \(\Sigma\) hat die aufsteigende Ketten-Bedingung genau dann wenn für alle \(S\subseteq \Sigma\) mit \(S\neq \emptyset\) gilt, dass \(S\) ein maximales Element hat.
 \end{Lemma}
 \begin{Bsp}
-    Unterräume eines endlich-dimensionalen Vektorraums oder Ideale in $\ZZ$ erfüllen aufsteigende Kettenbedingung.
+    Unterräume eines endlich-dimensionalen Vektorraums oder Ideale in \(\ZZ\) erfüllen aufsteigende Kettenbedingung.
 \end{Bsp}
 \begin{Satz}
-    Sei $A$ ein Ring. Es ist äquivalent:
+    Sei \(A\) ein Ring. Es ist äquivalent:
     \begin{enumerate}
-        \item Die Menge $\Sigma$ der Ideale von $A$ hat die aufsteigende Ketten-Bedingung.
-        \item Jede nicht-leere Menge $S\subseteq \Sigma$ hat ein maximales Element
-        \item Jedes Ideal $I\in\Sigma$ ist endlich erzeugt.
+        \item Die Menge \(\Sigma\) der Ideale von \(A\) hat die aufsteigende Ketten-Bedingung.
+        \item Jede nicht-leere Menge \(S\subseteq \Sigma\) hat ein maximales Element
+        \item Jedes Ideal \(I\in\Sigma\) ist endlich erzeugt.
     \end{enumerate}
-    In dem Fall heißt $A$ noethersch.
+    In dem Fall heißt \(A\) noethersch.
 \end{Satz}
 \begin{proof}
-    Zeige 3 nach 1. Sei $I_1\subseteq I_2\subseteq\dots$ Kette von Idealen. Dann ist $I=\bigcup_kI_k$ endlich erzeugt, $I=(f_1,\dots,f_n)$ dann ist $f_1,\dots,f_n\in I_k$ für ein $k$ und somit wird Kette stationär nach $k$.
+    Zeige 3 nach 1. Sei \(I_1\subseteq I_2\subseteq\dots\) Kette von Idealen. Dann ist \(I=\bigcup_kI_k\) endlich erzeugt, \(I=(f_1,\dots,f_n)\) dann ist \(f_1,\dots,f_n\in I_k\) für ein \(k\) und somit wird Kette stationär nach \(k\).
 \end{proof}
 \begin{Satz}
-    Sei $M$ ein $A$-Modul. Es ist äquivalent:
+    Sei \(M\) ein \(A\)-Modul. Es ist äquivalent:
     \begin{enumerate}
-        \item Die Menge $\Sigma$ der Untermoduln von $M$ hat die aufsteigende Ketten-Bedingung.
-        \item Jede nicht-leere Menge $S\subseteq \Sigma$ hat ein maximales Element
-        \item Jeder Untermodul $N\in\Sigma$ ist endlich erzeugt.
+        \item Die Menge \(\Sigma\) der Untermoduln von \(M\) hat die aufsteigende Ketten-Bedingung.
+        \item Jede nicht-leere Menge \(S\subseteq \Sigma\) hat ein maximales Element
+        \item Jeder Untermodul \(N\in\Sigma\) ist endlich erzeugt.
     \end{enumerate}
-    In dem Fall heißt $M$ noethersch.
+    In dem Fall heißt \(M\) noethersch.
 \end{Satz}
 \begin{Satz}
-    Sei $M$ ein $A$-Modul. Es ist äquivalent:
+    Sei \(M\) ein \(A\)-Modul. Es ist äquivalent:
     \begin{enumerate}
-        \item Die Menge $\Sigma$ der Untermoduln von $M$ hat die absteigende Ketten-Bedingung.
-        \item Jede nicht-leere Menge $S\subseteq \Sigma$ hat ein minimales Element
-        \item Für Jede Familie $\{M_i\}_{i\in I}$ von Untermoduln gibt es $I_0\subseteq I$ endlich sodass $$\bigcap_{i\in I}M_i=\bigcap_{i\in I_0}M_i$$
+        \item Die Menge \(\Sigma\) der Untermoduln von \(M\) hat die absteigende Ketten-Bedingung.
+        \item Jede nicht-leere Menge \(S\subseteq \Sigma\) hat ein minimales Element
+        \item Für Jede Familie \(\{M_i\}_{i\in I}\) von Untermoduln gibt es \(I_0\subseteq I\) endlich sodass \[\bigcap_{i\in I}M_i=\bigcap_{i\in I_0}M_i\]
     \end{enumerate}
-    In dem Fall heißt $M$ artinsch.
+    In dem Fall heißt \(M\) artinsch.
 \end{Satz}
 \begin{proof}
-    Zeige 1 nach 3. Wähle $i_1\in I$ sodass $M_{i_1}\neq\bigcap_{i\in I}M_i$ (falls möglich). Für $M_{i_1},\dots,M_{i_k}$ gegeben wähle $M_{i_{k+1}}$ so, dass $\bigcap_{j=1}^{k+1}M_{i_j}\neq \bigcap_{j=1}^kM_{i_j}$. Das gibt $M_{i_1}\supsetneq M_{i_1}\cap M_{i_2}\supsetneq\dots$. Also gibt es ein $k$ sodass $\bigcap_{j=1}^{k}M_{i_j}\neq \bigcap_{i\in I}M_{i}$. Sei $I_0=\{i_1,\dots,i_k\}.$
+    Zeige 1 nach 3. Wähle \(i_1\in I\) sodass \(M_{i_1}\neq\bigcap_{i\in I}M_i\) (falls möglich). Für \(M_{i_1},\dots,M_{i_k}\) gegeben wähle \(M_{i_{k+1}}\) so, dass \(\bigcap_{j=1}^{k+1}M_{i_j}\neq \bigcap_{j=1}^kM_{i_j}\). Das gibt \(M_{i_1}\supsetneq M_{i_1}\cap M_{i_2}\supsetneq\dots\). Also gibt es ein \(k\) sodass \(\bigcap_{j=1}^{k}M_{i_j}\neq \bigcap_{i\in I}M_{i}\). Sei \(I_0=\{i_1,\dots,i_k\}.\)
 \end{proof}
 \begin{Lemma}\label{Lem:UntermodExSeq}
-    Sei $0\to L\stackrel{\alpha}\to M\stackrel \beta\to N\to 0$ eine exakte Sequenz von $A$-Moduln und $M_1\subseteq M_2\subseteq M$ Untermoduln. Es gilt 
-    $$L\cap M_1=L\cap M_2\text{ und }\beta(M_1)=\beta(M_2)\implies M_1=M_2$$
+    Sei \(0\to L\stackrel{\alpha}\to M\stackrel \beta\to N\to 0\) eine exakte Sequenz von \(A\)-Moduln und \(M_1\subseteq M_2\subseteq M\) Untermoduln. Es gilt 
+    \[L\cap M_1=L\cap M_2\text{ und }\beta(M_1)=\beta(M_2)\implies M_1=M_2\]
 \end{Lemma}
 \begin{Satz}
-    Sei $0\to L\stackrel{\alpha}\to M\stackrel \beta\to N\to 0$ eine exakte Sequenz von $A$-Moduln. Dann ist $$M \text{ noethersch } \iff M \text{ und } L \text{ noethersch}$$
+    Sei \(0\to L\stackrel{\alpha}\to M\stackrel \beta\to N\to 0\) eine exakte Sequenz von \(A\)-Moduln. Dann ist \[M \text{ noethersch } \iff M \text{ und } L \text{ noethersch}\]
 \end{Satz}
 \begin{proof}
-    Angenommen $M_1\subseteq M_2\subseteq \dots$ ist aufsteigende Kette von Untermoduln von $M$. Das gibt aufsteigende Ketten
-    $L\cap M_1\subseteq L\cap M_2\subseteq \dots$ und
-    $\beta(M_1)\subseteq \beta(M_2)\subseteq \dots$ in $L$ und $N$ Beide Ketten werden stationär. Nach Lemma \hyperref[Lem:UntermodExSeq]{Lemma \ref{Lem:UntermodExSeq}} wird also die ursprüngliche Kette stationär
+    Angenommen \(M_1\subseteq M_2\subseteq \dots\) ist aufsteigende Kette von Untermoduln von \(M\). Das gibt aufsteigende Ketten
+    \(L\cap M_1\subseteq L\cap M_2\subseteq \dots\) und
+    \(\beta(M_1)\subseteq \beta(M_2)\subseteq \dots\) in \(L\) und \(N\) Beide Ketten werden stationär. Nach Lemma \hyperref[Lem:UntermodExSeq]{Lemma \ref{Lem:UntermodExSeq}} wird also die ursprüngliche Kette stationär
 \end{proof}
 \begin{Kor}
     \begin{enumerate}
-        \item $M_i$ noethersch impliziert $\bigoplus_{i=1}^rM_i$ noethersch.
-        \item Wenn $A$ noetherscher Ring dann ist $A$-Module $M$ noethersch genau dann wenn $M$ endlich ist über $A$.
-        \item sei $A$ noetherscher Ring und $\varphi\colon A\to B$ Ringhomomorphismus sodass $B$ endlicher $A$-Modul ist. Dann ist $B$ noetherscher Ring.
+        \item \(M_i\) noethersch impliziert \(\bigoplus_{i=1}^rM_i\) noethersch.
+        \item Wenn \(A\) noetherscher Ring dann ist \(A\)-Module \(M\) noethersch genau dann wenn \(M\) endlich ist über \(A\).
+        \item sei \(A\) noetherscher Ring und \(\varphi\colon A\to B\) Ringhomomorphismus sodass \(B\) endlicher \(A\)-Modul ist. Dann ist \(B\) noetherscher Ring.
     \end{enumerate}
 \end{Kor}
 \begin{proof}
-    Zeige 2. sei $M$ endlich erzeugt von $f_1,\dots,f_r$ und $A^r\to M$ surjektiv mit $$(a_1,\dots,a_n)\mapsto a_1f_1+\dots+a_nf_n.$$ Sei $N$ der Kern. Das gibt exakte Sequenz 
-    $0\to N\to A^r\to M\to 0$ und nach 1 ist $A^r$ noethersche also auch $M$.
+    Zeige 2. sei \(M\) endlich erzeugt von \(f_1,\dots,f_r\) und \(A^r\to M\) surjektiv mit \[(a_1,\dots,a_n)\mapsto a_1f_1+\dots+a_nf_n.\] Sei \(N\) der Kern. Das gibt exakte Sequenz 
+    \(0\to N\to A^r\to M\to 0\) und nach 1 ist \(A^r\) noethersche also auch \(M\).
 \end{proof}
-\begin{Satz}[Hilbert Basis Theorem] Sei $A$ Ring.  Dann ist $A[X]$ noethersch genau dann wenn $A$ noethersch ist.
+\begin{Satz}[Hilbert Basis Theorem] Sei \(A\) Ring.  Dann ist \(A[X]\) noethersch genau dann wenn \(A\) noethersch ist.
 \end{Satz}
 \begin{proof}
-    Sei $A$ noethersch.
-    Sei $I\subseteq A[X]$. Definiere $$J_n=\{a\in A\mid \exists f\in I\colon f=aX^n+b_{n-1}X^{n-1}+\dots+b_0\}.$$ $J_n$ ist Ideal da $I$ Ideal ist. Es ist $J_n\subseteq J_{n+1}$ und da $A$ noethersch ist, ist $J_n=J_{n+1}=\dots$ für ein $n$.
-    Für $m\leq n$ ist $J_m\subseteq A$ endlich erzeugt, $J_m=(a_{m,1},\dots,a_{m,r_m})$. Sei $f_{m,j}\in I$ mit Leitkoeffizient $a_{m,j}$. Dann erzeugt $\{f_{m,j}\}_{\stackrel{m\leq n}{1\leq j\leq r_m}}$ das Ideal $I$. Sei nämlich $f\in I$ vom Grad $m$ und $a$ der Leitkoeffizient von $f$, $a\in J_m$.
-    Wenn $m\geq n$ dann ist $a\in J_n$ sodass $a=\sum b_ia_{n,i}$ für $b_i\in A$ und $f-\sum b_iX^{m-n}f_{n,i}$ hat Grad $<n$.
-    Wenn $m\leq n$ dann ist $a\in J_m$ sodass $a=\sum b_ia_{m_i}$ für $b_i\in A$ und $f-\sum b_if_{m,i}$ hat Grad $<m$. Mit Induktion folgt die Behauptung.
-    Sei $A[X]$ noethersch. Dann ist $0\to K\to A[X]\to R\to 0$ exakt, wobei $K$ der Kern ist von $X\mapsto 0$. Also ist $A$ noethersch.
+    Sei \(A\) noethersch.
+    Sei \(I\subseteq A[X]\). Definiere \[J_n=\{a\in A\mid \exists f\in I\colon f=aX^n+b_{n-1}X^{n-1}+\dots+b_0\}.\] \(J_n\) ist Ideal da \(I\) Ideal ist. Es ist \(J_n\subseteq J_{n+1}\) und da \(A\) noethersch ist, ist \(J_n=J_{n+1}=\dots\) für ein \(n\).
+    Für \(m\leq n\) ist \(J_m\subseteq A\) endlich erzeugt, \(J_m=(a_{m,1},\dots,a_{m,r_m})\). Sei \(f_{m,j}\in I\) mit Leitkoeffizient \(a_{m,j}\). Dann erzeugt \(\{f_{m,j}\}_{\stackrel{m\leq n}{1\leq j\leq r_m}}\) das Ideal \(I\). Sei nämlich \(f\in I\) vom Grad \(m\) und \(a\) der Leitkoeffizient von \(f\), \(a\in J_m\).
+    Wenn \(m\geq n\) dann ist \(a\in J_n\) sodass \(a=\sum b_ia_{n,i}\) für \(b_i\in A\) und \(f-\sum b_iX^{m-n}f_{n,i}\) hat Grad \(<n\).
+    Wenn \(m\leq n\) dann ist \(a\in J_m\) sodass \(a=\sum b_ia_{m_i}\) für \(b_i\in A\) und \(f-\sum b_if_{m,i}\) hat Grad \(<m\). Mit Induktion folgt die Behauptung.
+    Sei \(A[X]\) noethersch. Dann ist \(0\to K\to A[X]\to R\to 0\) exakt, wobei \(K\) der Kern ist von \(X\mapsto 0\). Also ist \(A\) noethersch.
 \end{proof}
 \begin{Lemma}
     Eine Lokalisierung von noetherschen Ringen ist noethersch.
@@ -380,249 +380,249 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
     Klar, betrachte aufsteigende Kette die zu aufsteigender Kette im Ring korrespondiert
 \end{proof}
 \begin{Lemma}
-    Wenn $I\subseteq R$ ein endlich erzeugtes Ideal ist mit $I^2=0$ und wenn $R/I$ noethersch ist, dann ist $R$ noethersch.
+    Wenn \(I\subseteq R\) ein endlich erzeugtes Ideal ist mit \(I^2=0\) und wenn \(R/I\) noethersch ist, dann ist \(R\) noethersch.
 \end{Lemma}
 \begin{proof}
-    $I$ ist $R/I$ Modul und da endlich erzeugt, ist $I$ als $R/I$ Modul noehtersch. Das heißt jeder $R/I$-Untermodule $J\subseteq I$ ist endlich erzeugt und dann auch endlich erzeugt als $R$-Modul. Also ist $I$ noetherscher $R$-Modul. Exakte Sequenz liefert, dass $R$ noethersch ist da $R/I$ endlicher $R$-Modul.
+    \(I\) ist \(R/I\) Modul und da endlich erzeugt, ist \(I\) als \(R/I\) Modul noehtersch. Das heißt jeder \(R/I\)-Untermodule \(J\subseteq I\) ist endlich erzeugt und dann auch endlich erzeugt als \(R\)-Modul. Also ist \(I\) noetherscher \(R\)-Modul. Exakte Sequenz liefert, dass \(R\) noethersch ist da \(R/I\) endlicher \(R\)-Modul.
 \end{proof}
 \begin{Lemma}
-    Sei $M$ noetherscher $R$-Modul. Zeigen Sie, dass jeder surjektive Endomorphismus $f\colon M\to M$ bijektiv ist.
+    Sei \(M\) noetherscher \(R\)-Modul. Zeigen Sie, dass jeder surjektive Endomorphismus \(f\colon M\to M\) bijektiv ist.
 \end{Lemma}
 \begin{proof}
-    Sei $I_i=\ker(f^{(i)})$. Es ist $I_i\subseteq I_{i+1}$ also gibt es $k$ sodass $I_k=I_{k+1}$. Da $f$ jedoch surjektiv ist, folgt $Ker(f)=0$
+    Sei \(I_i=\ker(f^{(i)})\). Es ist \(I_i\subseteq I_{i+1}\) also gibt es \(k\) sodass \(I_k=I_{k+1}\). Da \(f\) jedoch surjektiv ist, folgt \(Ker(f)=0\)
 \end{proof}
 \begin{Satz}
-    Sei $S\subseteq R$ multiplikative Menge, $M$ $R$-Modul. $\tau\colon M\to S^{-1}M, m\mapsto \frac m 1$. Dann gilt 
+    Sei \(S\subseteq R\) multiplikative Menge, \(M\) \(R\)-Modul. \(\tau\colon M\to S^{-1}M, m\mapsto \frac m 1\). Dann gilt 
     \begin{enumerate}
-        \item $\ker(\tau)=\{m\in M\mid \exists u\in S\colon um=0\}$
-        \item Wenn $M$ endlich erzeugt ist, dann ist $S^{-1}M=0\iff M$ wird annuliert von einem $M\in S$.
+        \item \(\ker(\tau)=\{m\in M\mid \exists u\in S\colon um=0\}\)
+        \item Wenn \(M\) endlich erzeugt ist, dann ist \(S^{-1}M=0\iff M\) wird annuliert von einem \(M\in S\).
     \end{enumerate}
 \end{Satz}
 \begin{proof}
     Wähle Erzeuger und multipliziere deren Annihilatoren.
 \end{proof}
 \begin{Lemma}
-    $S^{-1}R\otimes_RM\to S^{-1}M,\, \frac r u\otimes m\mapsto \frac{rm}{u}$ ist ein Isomorphismus.
+    \(S^{-1}R\otimes_RM\to S^{-1}M,\, \frac r u\otimes m\mapsto \frac{rm}{u}\) ist ein Isomorphismus.
 \end{Lemma}
 \begin{Satz}[Lokalisierung ist flach]\label{Satz:LokExakt}
-    Sei $\varphi\colon M\to N$ injektiv. $\frac{\varphi(x)}{s}=0$ Dann gibt es $t\in S$ sodass $t\varphi(x)=\varphi(tx)=0$ also ist $tx=0$ und somit $\frac x s=0$
+    Sei \(\varphi\colon M\to N\) injektiv. \(\frac{\varphi(x)}{s}=0\) Dann gibt es \(t\in S\) sodass \(t\varphi(x)=\varphi(tx)=0\) also ist \(tx=0\) und somit \(\frac x s=0\)
     
 \end{Satz}
 \begin{Kor}[Lokalisierung erhält endliche Schnitte]
-    Seien $M_1,\dots,M_t\subseteq M$ Untermoduln. Dann ist $S^{-1}(\bigcap_i M_i)=\bigcap_i S^{-1}M_i$.
+    Seien \(M_1,\dots,M_t\subseteq M\) Untermoduln. Dann ist \(S^{-1}(\bigcap_i M_i)=\bigcap_i S^{-1}M_i\).
 \end{Kor}
 \begin{proof}
-    Es ist exakt $0\to \bigcap_i M_i\to M\to \bigoplus_i M/M_i\to 0$ also auch 
-    $$0\to S^{-1}\bigcap_i M_i\to S^{-1}M\to \bigoplus_i S^{-1}M/S^{-1}M_i\to 0$$ und somit gilt die Aussage.
+    Es ist exakt \(0\to \bigcap_i M_i\to M\to \bigoplus_i M/M_i\to 0\) also auch 
+    \[0\to S^{-1}\bigcap_i M_i\to S^{-1}M\to \bigoplus_i S^{-1}M/S^{-1}M_i\to 0\] und somit gilt die Aussage.
 \end{proof}
 \begin{Def}
-    Eine Kompositionsreihe ist Kette $M=N_0\supsetneq \dots \supsetneq N_n=0$ sodass $N_i/N_{i+1}$ keine echten Untermodule ungleich $0$ hat.
+    Eine Kompositionsreihe ist Kette \(M=N_0\supsetneq \dots \supsetneq N_n=0\) sodass \(N_i/N_{i+1}\) keine echten Untermodule ungleich \(0\) hat.
 \end{Def}
 \begin{Def}
-    Sei $M$ ein $R$-Modul. Definiere 
-    $\length(M)$ als das Minimum aller Längen einer Komositionsreihe bzw als $\infty$ falls das nicht exisitert.
+    Sei \(M\) ein \(R\)-Modul. Definiere 
+    \(\length(M)\) als das Minimum aller Längen einer Komositionsreihe bzw als \(\infty\) falls das nicht exisitert.
 \end{Def}
 \begin{Bsp}
-    Sei $V$ ein endlich-dimensionaler Vektorraum der Dimension $n$. Dann ist $n=\length(V)$.
+    Sei \(V\) ein endlich-dimensionaler Vektorraum der Dimension \(n\). Dann ist \(n=\length(V)\).
 \end{Bsp}
 \begin{Lemma}
-    Sei $M'\subsetneq M$ ein echter Untermodul, $\length(M)=n<\infty$. Dann ist $\length(M')<\length(M)$
+    Sei \(M'\subsetneq M\) ein echter Untermodul, \(\length(M)=n<\infty\). Dann ist \(\length(M')<\length(M)\)
 \end{Lemma}
 \begin{proof}
-    Sei $M=M_0\supsetneq \dots\supsetneq M_n=0$ eine Kompositionsreihe. Es ist $$(M'\cap M_i)/(M'\cap M_{i+1})\cong (M'\cap M_i+M_{i+1})/M_{i+1}\subseteq M_i/M_{i+1}.$$
-    Also ist $(M'\cap M_i)/(M'\cap M_{i+1})=0$ oder $(M'\cap M_i)/(M'\cap M_{i+1})$ hat keine echten Untermoduln und $M'\cap M_i+M_{i+1}=M_i$.
-    Letzteres gilt nicht für alle $i$, denn angenommen doch. Es ist $M_n=0\subseteq M'$ und angenommen $M_{i+1}\subseteq M'$. Dann ist $M'\cap M_i=M'\cap M_i+M_{i+1}=M_i$ also $M_i\subseteq M'$ und mit Induktion $M\subseteq M'$.
-    Also kann $M'\supseteq M'\cap M_1\supseteq\dots \supseteq M'\cap M_n=0$ kann verändert werden durch Weglassen der Terme $M'\cap M_i$ sodass $M'\cap M_i=M'\cap M_{i+1}$. Das gibt $\length(M')<\length(M)$
+    Sei \(M=M_0\supsetneq \dots\supsetneq M_n=0\) eine Kompositionsreihe. Es ist \[(M'\cap M_i)/(M'\cap M_{i+1})\cong (M'\cap M_i+M_{i+1})/M_{i+1}\subseteq M_i/M_{i+1}.\]
+    Also ist \((M'\cap M_i)/(M'\cap M_{i+1})=0\) oder \((M'\cap M_i)/(M'\cap M_{i+1})\) hat keine echten Untermoduln und \(M'\cap M_i+M_{i+1}=M_i\).
+    Letzteres gilt nicht für alle \(i\), denn angenommen doch. Es ist \(M_n=0\subseteq M'\) und angenommen \(M_{i+1}\subseteq M'\). Dann ist \(M'\cap M_i=M'\cap M_i+M_{i+1}=M_i\) also \(M_i\subseteq M'\) und mit Induktion \(M\subseteq M'\).
+    Also kann \(M'\supseteq M'\cap M_1\supseteq\dots \supseteq M'\cap M_n=0\) kann verändert werden durch Weglassen der Terme \(M'\cap M_i\) sodass \(M'\cap M_i=M'\cap M_{i+1}\). Das gibt \(\length(M')<\length(M)\)
 \end{proof}
 \begin{Lemma}
-    sei $\length(M)=n<\infty$ und $M=N_0\supsetneq N_1\supsetneq\dots\supsetneq N_k$ Kette von Untermoduln. Dann ist $k\leq \length(M)$. 
+    sei \(\length(M)=n<\infty\) und \(M=N_0\supsetneq N_1\supsetneq\dots\supsetneq N_k\) Kette von Untermoduln. Dann ist \(k\leq \length(M)\). 
 \end{Lemma}
 \begin{proof}
-    Induktion: $\length(M)=0\implies M=0\implies k=0$.
-    Allgemein ist $$\length(N_1)<\length(M)$$ also ist $k-1\leq \length(N_1)$ und damit $k\leq \length(M)$.
+    Induktion: \(\length(M)=0\implies M=0\implies k=0\).
+    Allgemein ist \[\length(N_1)<\length(M)\] also ist \(k-1\leq \length(N_1)\) und damit \(k\leq \length(M)\).
 \end{proof}
 \begin{Kor}
-    $\length(M)$ ist das maximal aller Längen einer Kette in $M$.
+    \(\length(M)\) ist das maximal aller Längen einer Kette in \(M\).
 \end{Kor}
 \begin{Kor}
     Alle Kompositionsreihen haben die gleiche Länge
 \end{Kor}
 \begin{Satz}\label{Satz:EndlLenNoethArtin}
-    Sei $M$ ein $R$-Modul. 
-    $$\length(M)<\infty\iff M\text{ ist artinsch und noethersch}$$
+    Sei \(M\) ein \(R\)-Modul. 
+    \[\length(M)<\infty\iff M\text{ ist artinsch und noethersch}\]
 \end{Satz}
 \begin{proof}
-    Sei $M$ artinsch und noethersch. Wähle maximalen Untermodul $M_1\subsetneq M$ und maximalen Untermodul $M_2\subsetneq M_1$ usw. Das gibt $M\supsetneq M_1\supsetneq M_2\dots$ Da M artinsch wird das stationär also $M_n=0$ für ein $n$. Dann ist das Kompositionsreihe.
-    Angenommen $M$ hat endliche Länge $n$. Das heißt jede aufsteigende oder abteigende Kette bricht ab also ist M artinsch und noethersch.
+    Sei \(M\) artinsch und noethersch. Wähle maximalen Untermodul \(M_1\subsetneq M\) und maximalen Untermodul \(M_2\subsetneq M_1\) usw. Das gibt \(M\supsetneq M_1\supsetneq M_2\dots\) Da M artinsch wird das stationär also \(M_n=0\) für ein \(n\). Dann ist das Kompositionsreihe.
+    Angenommen \(M\) hat endliche Länge \(n\). Das heißt jede aufsteigende oder abteigende Kette bricht ab also ist M artinsch und noethersch.
 \end{proof}
 \begin{Satz}
-    Sei $M$ ein $R$-Modul. Es ist äquivalent:
+    Sei \(M\) ein \(R\)-Modul. Es ist äquivalent:
     \begin{enumerate}
-        \item $M$ hat keine echten Untermoduln $\neq 0$
-        \item $\length(M)=1$
-        \item $M\cong R/\frakm$ für ein maximales Ideal $m\subseteq R$.
+        \item \(M\) hat keine echten Untermoduln \(\neq 0\)
+        \item \(\length(M)=1\)
+        \item \(M\cong R/\frakm\) für ein maximales Ideal \(m\subseteq R\).
     \end{enumerate}
 \end{Satz}
 \begin{proof}
-    Gelte $a$. sei $x\in M$ mit $x\neq 0$. $x\cdot R\neq 0\implies xR=M$ also ist $$0\to \frakm\to R\stackrel x \to M\to 0$$ exakt mit $\frakm=\ker(x)$. Da $M\cong R/\frakm$ keine echten Ideale hat, ist $\frakm$ maximal.
+    Gelte \(a\). sei \(x\in M\) mit \(x\neq 0\). \(x\cdot R\neq 0\implies xR=M\) also ist \[0\to \frakm\to R\stackrel x \to M\to 0\] exakt mit \(\frakm=\ker(x)\). Da \(M\cong R/\frakm\) keine echten Ideale hat, ist \(\frakm\) maximal.
 \end{proof}
 \begin{Satz}\label{Satz:StrukturModEndlLength}
-    Sei $\length(M)<\infty$ und $M=M_0\supsetneq\dots\supsetneq M_n=0$ Kompositionsreihe. Es ist $M\cong \bigoplus_\frakp M_\frakp$ wobei die Summe über alle maximalen Ideale $\frakp\subseteq R$ geht sodass $M_i/M_{i+1}\cong R/\frakp$.
-    Die Anzahl der $M_i/M_{i+1}$ isomorph zu $R/\frakp$ ist $\length_{R_\frakp}(M_\frakp)$.
+    Sei \(\length(M)<\infty\) und \(M=M_0\supsetneq\dots\supsetneq M_n=0\) Kompositionsreihe. Es ist \(M\cong \bigoplus_\frakp M_\frakp\) wobei die Summe über alle maximalen Ideale \(\frakp\subseteq R\) geht sodass \(M_i/M_{i+1}\cong R/\frakp\).
+    Die Anzahl der \(M_i/M_{i+1}\) isomorph zu \(R/\frakp\) ist \(\length_{R_\frakp}(M_\frakp)\).
 \end{Satz}
 \begin{proof}
-    Angenommen $\length(M)=1$. Dann ist $M\cong R/\frakp$ für ein maximales Ideal $\frakp$. Sei $\frakq$ ein maximales Ideal. Wenn $\frakp=\frakq$ dann ist $M_\frakq=(R/\frakp)_\frakq=R/\frakp=M$.
-    Wenn $\frakp\neq\frakq$ dann ist $(R/\frakp)_\frakq=0$. Somit ist $(M_\frakq)_{\frakq'}=0$ für zwei verschiedene maximalen Ideale $\frakq,\frakq'$. Allgemein für $\length(M)=n$ gilt dass die Kompositionsreihe $M=M_0\supsetneq \dots\supsetneq M_n=0$ gibt $M_\frakq=(M_0)_\frakq\supsetneq \dots\supsetneq (M_n)_\frakq=0$ und $\length(M_i/M_i+1)=1$. Also ist 
+    Angenommen \(\length(M)=1\). Dann ist \(M\cong R/\frakp\) für ein maximales Ideal \(\frakp\). Sei \(\frakq\) ein maximales Ideal. Wenn \(\frakp=\frakq\) dann ist \(M_\frakq=(R/\frakp)_\frakq=R/\frakp=M\).
+    Wenn \(\frakp\neq\frakq\) dann ist \((R/\frakp)_\frakq=0\). Somit ist \((M_\frakq)_{\frakq'}=0\) für zwei verschiedene maximalen Ideale \(\frakq,\frakq'\). Allgemein für \(\length(M)=n\) gilt dass die Kompositionsreihe \(M=M_0\supsetneq \dots\supsetneq M_n=0\) gibt \(M_\frakq=(M_0)_\frakq\supsetneq \dots\supsetneq (M_n)_\frakq=0\) und \(\length(M_i/M_i+1)=1\). Also ist 
     $$(M_i/M_{i+1})_\frakq=\begin{cases}
         M_i/M_{i+1}, & M_i/M_{i+1}\cong R/\frakq\\
         0 , &\text{ sonst}
     \end{cases}$$
-    Behalte in Reihe nur die $(M_i)_\frakq$ aus oberen Fall, das gibt Kompositionsreihe von $M_\frakq$.
-    Sei $\alpha\colon M\to \bigoplus M_\frakp$ Summe der Lokalisierungsabbildugen. Sei $Q\subseteq R$ maximales Ideal. Es ist $\alpha_\frakq\colon M_\frakq\to (\bigoplus M_\frakq)_\frakq$ die Identität für alle $Q$.
+    Behalte in Reihe nur die \((M_i)_\frakq\) aus oberen Fall, das gibt Kompositionsreihe von \(M_\frakq\).
+    Sei \(\alpha\colon M\to \bigoplus M_\frakp\) Summe der Lokalisierungsabbildugen. Sei \(Q\subseteq R\) maximales Ideal. Es ist \(\alpha_\frakq\colon M_\frakq\to (\bigoplus M_\frakq)_\frakq\) die Identität für alle \(Q\).
 \end{proof}
 \begin{Satz}
-    Sei $\length(M)<\infty$. Dann gilt
-    $$M=M_\frakp\iff M\text{ wird von einer Potenz von $\frakp$ annuliert}$$
+    Sei \(\length(M)<\infty\). Dann gilt
+    \[M=M_\frakp\iff M\text{ wird von einer Potenz von \(\frakp\) annuliert}\]
 \end{Satz}
 \begin{proof}
-    Sei $\frakq\neq\frakp$ maximales Ideal, $x\in\frakp\setminus\frakq$. Dann ist $\frac x 1 M_\frakq=M_\frakq$ aber $x^n=0$ für ein $n$, also $M_\frakq=0$.
-    Nach \hyperref[Satz:StrukturModEndlLength]{ Satz \ref{Satz:StrukturModEndlLength}} folgt $M=M_\frakp$.
-    Sei andererseits $M\cong M_\frakp$ und $M=M_0\supsetneq M_1\supsetneq \dots \supsetneq M_n$ Kompositionsreihe, $M_i/M_{i+1}\cong R/\frakp$. Es ist $\frakp M=M=M_0$ und wenn $\frakp^iM\subseteq M_i$ dann ist $\frakp^{i+1}M\subseteq \frakp M_i\subseteq M_{i+1}$. Nach Induktion ist also $\frakp^nM\subseteq M_n=0$.
+    Sei \(\frakq\neq\frakp\) maximales Ideal, \(x\in\frakp\setminus\frakq\). Dann ist \(\frac x 1 M_\frakq=M_\frakq\) aber \(x^n=0\) für ein \(n\), also \(M_\frakq=0\).
+    Nach \hyperref[Satz:StrukturModEndlLength]{ Satz \ref{Satz:StrukturModEndlLength}} folgt \(M=M_\frakp\).
+    Sei andererseits \(M\cong M_\frakp\) und \(M=M_0\supsetneq M_1\supsetneq \dots \supsetneq M_n\) Kompositionsreihe, \(M_i/M_{i+1}\cong R/\frakp\). Es ist \(\frakp M=M=M_0\) und wenn \(\frakp^iM\subseteq M_i\) dann ist \(\frakp^{i+1}M\subseteq \frakp M_i\subseteq M_{i+1}\). Nach Induktion ist also \(\frakp^nM\subseteq M_n=0\).
 \end{proof}
 \begin{Satz}\label{Satz:ArtinRingEndlLen}
-    Sei $R$ ein Ring. Es ist äquivalent:
+    Sei \(R\) ein Ring. Es ist äquivalent:
     \begin{enumerate}
-        \item $R$ ist noethersch und alle Primideale in $R$ sind maximal
-        \item $R$ ist als $R$-Modul von endlicher Länge
-        \item $R$ ist artinsch.
+        \item \(R\) ist noethersch und alle Primideale in \(R\) sind maximal
+        \item \(R\) ist als \(R\)-Modul von endlicher Länge
+        \item \(R\) ist artinsch.
     \end{enumerate}
-    Wenn das git, dann hat $R$ nur endlich viele maximale Ideale.
+    Wenn das git, dann hat \(R\) nur endlich viele maximale Ideale.
 \end{Satz}
 \begin{proof}
-    Gelte 1. Sei $I\subseteq R$ ein Ideal maximal mit der Eigenschaft dass $R/I$ keine endliche Länge hat. Dann ist $I$ prim, denn seien $a\cdot b\in I$ und $a\not\in I$. Haben exakte Sequenz
-    $$0\to R/(I:a)\to R/I\to R/(I+(a))\to 0$$ wobei $(I:a)=\{x\in R\mid ax\in I\}$. Da $I\subsetneq I+(a)$ hat $R/(I+(a))$ endliche Länge. Falls $b\not\in I$ dann $I\subsetneq (I:a)$ also hat $R/(I:a)$ endliche Länge und damiit auch $R/I$ was nicht sein kann. Also ist $I$ prim. Damit ist $I$ maximal und somit $R/I$ ein Körper. Ein Körper hat Länge $=1$ was ein Widerspruch ist.
-    Also hat $R$ endliche Länge.
-    Gelte 2. 3. Folgt mit Satz \hyperref[Satz:EndlLenNoethArtin]{Satz \ref{Satz:EndlLenNoethArtin}}. gelte 3. Sei also $R$ artinsch. Zeige: $0$ ist Produkt maximaler Ideal von $R$.
-    sei $J\subseteq R$ minimal sodass $J$ Produkt maximaler Ideale ist. Zeige $J=0$.
-    Sei $\frakm $ maximales Ideal in $R$. Dann ist $\frakm J=J$ wegen Minimalität von $J$ also $J\subseteq \frakm$. Es ist $J^2=J$.
-    Falls $J\neq 0$ wähle $I$ minimal unter Idealen, die $J$ nicht annihilieren.
-    Es gilt $(IJ)J=IJ^2=IJ\neq 0$ und $IJ\subseteq I$. Wegene Minimalität von $I$ ist $IJ=I$. Das heißt es gibt $f\in I$ mit $fJ\neq 0$. Da $I$ minimal ist, ist $(f)=I$. Es gibt ein $g\in J$ mit $f=fg$ und somit $(1-g)f=0$.
-    $g$ ist in allen maximalen Idealen enthalten also ist $1-g$ eine Einheit. Also ist $f=0$ und damit $I=0$. Also ist $J=0$.
-    Somit ist $0=\frakm_1\cdots \frakm_t$ für maximale Ideale $\frakm_i\subseteq R$.
-    Der Quotient $V_S=\frakm_1\cdots \frakm_s/\frakm_1\cdots \frakm_{s+1}$ ist Vektorraum über $R/\frakm_{s+1}$. Untermodule von $V_s$ sind Ideale in $R$, die $\frakm_1\cdots \frakm_{s+1}$ enthalten.
-    Absteigende Kette von Untermoduln sind absteigende Kette in $R$. Da $R$ artinsch ist, muss Kette endlich sein.
-    Also ist $V_s$ endlich-dimensional über $R/\frakm_{s+1}$ und hat also endliche Kompositionsreihe. Alle Ketten Vereinigen gibt endliche Kompositionsreihe von $R$. Also hat $R$ endliche Länge und ist noethersch. Sei $\frakp\subseteq R$ Primideal. Da $\frakm_1\cdots \frakm_t=0\subseteq \frakp$ ist $\frakm_i=\frakp$ für ein $i$. Also ist jedes Primideal maximal.
+    Gelte 1. Sei \(I\subseteq R\) ein Ideal maximal mit der Eigenschaft dass \(R/I\) keine endliche Länge hat. Dann ist \(I\) prim, denn seien \(a\cdot b\in I\) und \(a\not\in I\). Haben exakte Sequenz
+    \[0\to R/(I:a)\to R/I\to R/(I+(a))\to 0\] wobei \((I:a)=\{x\in R\mid ax\in I\}\). Da \(I\subsetneq I+(a)\) hat \(R/(I+(a))\) endliche Länge. Falls \(b\not\in I\) dann \(I\subsetneq (I:a)\) also hat \(R/(I:a)\) endliche Länge und damiit auch \(R/I\) was nicht sein kann. Also ist \(I\) prim. Damit ist \(I\) maximal und somit \(R/I\) ein Körper. Ein Körper hat Länge \(=1\) was ein Widerspruch ist.
+    Also hat \(R\) endliche Länge.
+    Gelte 2. 3. Folgt mit Satz \hyperref[Satz:EndlLenNoethArtin]{Satz \ref{Satz:EndlLenNoethArtin}}. gelte 3. Sei also \(R\) artinsch. Zeige: \(0\) ist Produkt maximaler Ideal von \(R\).
+    sei \(J\subseteq R\) minimal sodass \(J\) Produkt maximaler Ideale ist. Zeige \(J=0\).
+    Sei \(\frakm \) maximales Ideal in \(R\). Dann ist \(\frakm J=J\) wegen Minimalität von \(J\) also \(J\subseteq \frakm\). Es ist \(J^2=J\).
+    Falls \(J\neq 0\) wähle \(I\) minimal unter Idealen, die \(J\) nicht annihilieren.
+    Es gilt \((IJ)J=IJ^2=IJ\neq 0\) und \(IJ\subseteq I\). Wegene Minimalität von \(I\) ist \(IJ=I\). Das heißt es gibt \(f\in I\) mit \(fJ\neq 0\). Da \(I\) minimal ist, ist \((f)=I\). Es gibt ein \(g\in J\) mit \(f=fg\) und somit \((1-g)f=0\).
+    \(g\) ist in allen maximalen Idealen enthalten also ist \(1-g\) eine Einheit. Also ist \(f=0\) und damit \(I=0\). Also ist \(J=0\).
+    Somit ist \(0=\frakm_1\cdots \frakm_t\) für maximale Ideale \(\frakm_i\subseteq R\).
+    Der Quotient \(V_S=\frakm_1\cdots \frakm_s/\frakm_1\cdots \frakm_{s+1}\) ist Vektorraum über \(R/\frakm_{s+1}\). Untermodule von \(V_s\) sind Ideale in \(R\), die \(\frakm_1\cdots \frakm_{s+1}\) enthalten.
+    Absteigende Kette von Untermoduln sind absteigende Kette in \(R\). Da \(R\) artinsch ist, muss Kette endlich sein.
+    Also ist \(V_s\) endlich-dimensional über \(R/\frakm_{s+1}\) und hat also endliche Kompositionsreihe. Alle Ketten Vereinigen gibt endliche Kompositionsreihe von \(R\). Also hat \(R\) endliche Länge und ist noethersch. Sei \(\frakp\subseteq R\) Primideal. Da \(\frakm_1\cdots \frakm_t=0\subseteq \frakp\) ist \(\frakm_i=\frakp\) für ein \(i\). Also ist jedes Primideal maximal.
 \end{proof}
 \begin{Kor}\label{Kor:StruktArtinring}
     Jeder Artinsche Ring ist Produkt allseiner Lokalisierungen an maximalen Idealen.
 \end{Kor}
 \begin{Lemma}
-    Sei $R$ ein Ring.
+    Sei \(R\) ein Ring.
     \begin{enumerate}
-        \item Jeder Untermodul eines Artinschen $R$-Modules ist artinsch
-        \item Jeder artinsche $\ZZ$-Modul ist torsionsmodul
-        \item Sei $p$ eine Primzahl. Die echten Untermoduln des Moduls $\ZZ[1/p]/\ZZ$ sind $K_n$ wobei $K_n$ erzeugt ist von $\frac{1}{p^n}$ und $\ZZ[1/p]/\ZZ$ ist artinsch.
+        \item Jeder Untermodul eines Artinschen \(R\)-Modules ist artinsch
+        \item Jeder artinsche \(\ZZ\)-Modul ist torsionsmodul
+        \item Sei \(p\) eine Primzahl. Die echten Untermoduln des Moduls \(\ZZ[1/p]/\ZZ\) sind \(K_n\) wobei \(K_n\) erzeugt ist von \(\frac{1}{p^n}\) und \(\ZZ[1/p]/\ZZ\) ist artinsch.
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
     \begin{enumerate}
         \item Klar
-        \item Sei $M$ artinscher $\ZZ$-Modul. Es gibt absteigende Kette $m\ZZ\supseteq 2m\ZZ\supseteq 4m\ZZ\supseteq 8m\ZZ\supseteq\dots$ von Untermoduln für $m\in M$.
-        Da $M$ artinsch ist, ist $2^km\ZZ=2^{k+1}m\ZZ$ für ein $k$.
-        Das heißt $2^km=2^{k+1}xm$ für ein $x\in\ZZ$.
-        das heißt $m2^k(1-2x)=0$. 
+        \item Sei \(M\) artinscher \(\ZZ\)-Modul. Es gibt absteigende Kette \(m\ZZ\supseteq 2m\ZZ\supseteq 4m\ZZ\supseteq 8m\ZZ\supseteq\dots\) von Untermoduln für \(m\in M\).
+        Da \(M\) artinsch ist, ist \(2^km\ZZ=2^{k+1}m\ZZ\) für ein \(k\).
+        Das heißt \(2^km=2^{k+1}xm\) für ein \(x\in\ZZ\).
+        das heißt \(m2^k(1-2x)=0\). 
         Alternativ kann man sehen dass 
-        $$0\to n\ZZ\to \ZZ\stackrel{\cdot m}\to m\ZZ\to 0$$ exakt ist für ein $n\in\ZZ$.
-        Wenn $n=0$ dan ist $m\ZZ=\ZZ$ artinsch nach 1 was ein Widerspruch ist. also ist $n\neq0$ und $m\ZZ=\ZZ/n\ZZ$. Dann ist $n\cdot m=0$ also $M$ torionsmodul.
-        \item Sei $M$ ein Untermodul. Dann ist $\frac{a}{p^n}\in M$ für ein $p\not\mid a$. Damit gibt es $1=p^nx+ay$ nach Lemma von Bezout ??? für $x,y\in\ZZ$. Also ist 
-        $$\frac{ay}{p^n}=\frac{1-p^nx}{p^n}=\frac{1}{p^n}\in M$$
-        Es gilt $\max\{n\in\NN\mid \frac{1}{p^n}\in M\}$ ist $\infty$ oder $m\in\NN$.
-        Falls $\infty$ dann ist $M=\ZZ[1/p]/\ZZ$.
-        Wenn das maximum $m$ ist dann ist $M=K_m$.
-        Also sind die einzigen Untermoduln $K_0\subseteq K_1\subseteq\dots$ also muss jede absteigende Kette stationär werden und $\ZZ[1/p]/\ZZ$ ist artinsch.
+        \[0\to n\ZZ\to \ZZ\stackrel{\cdot m}\to m\ZZ\to 0\] exakt ist für ein \(n\in\ZZ\).
+        Wenn \(n=0\) dan ist \(m\ZZ=\ZZ\) artinsch nach 1 was ein Widerspruch ist. also ist \(n\neq0\) und \(m\ZZ=\ZZ/n\ZZ\). Dann ist \(n\cdot m=0\) also \(M\) torionsmodul.
+        \item Sei \(M\) ein Untermodul. Dann ist \(\frac{a}{p^n}\in M\) für ein \(p\not\mid a\). Damit gibt es \(1=p^nx+ay\) nach Lemma von Bezout ??? für \(x,y\in\ZZ\). Also ist 
+        \[\frac{ay}{p^n}=\frac{1-p^nx}{p^n}=\frac{1}{p^n}\in M\]
+        Es gilt \(\max\{n\in\NN\mid \frac{1}{p^n}\in M\}\) ist \(\infty\) oder \(m\in\NN\).
+        Falls \(\infty\) dann ist \(M=\ZZ[1/p]/\ZZ\).
+        Wenn das maximum \(m\) ist dann ist \(M=K_m\).
+        Also sind die einzigen Untermoduln \(K_0\subseteq K_1\subseteq\dots\) also muss jede absteigende Kette stationär werden und \(\ZZ[1/p]/\ZZ\) ist artinsch.
     \end{enumerate}
 \end{proof}
 \begin{Lemma}
-    Sei $\frakm\subseteq R$ ein maximales Ideal und $n\in\NN$.
+    Sei \(\frakm\subseteq R\) ein maximales Ideal und \(n\in\NN\).
     \begin{enumerate}
-        \item Wenn $R$ noethersch ist, dann ist $R/\frakm^n$ artinsch.
-        \item Wenn $\frakm$ endlich erzeugt ist, dann ist $R/\frakm^n$ artinsch
+        \item Wenn \(R\) noethersch ist, dann ist \(R/\frakm^n\) artinsch.
+        \item Wenn \(\frakm\) endlich erzeugt ist, dann ist \(R/\frakm^n\) artinsch
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
     \begin{enumerate}
-        \item Es ist $R/\frakm^n$ noethersch. sei $\frakp$ ein Primideal von $R$ mist $\frakm^n\subseteq p\subseteq R$.
-        Dann ist $\frakm\subseteq \frakp$ also $\frakm=\frakp$ und alle Primideale in $R/\frakm^n$ sind maximal. Also ist $R/\frakm^n$ artinsch.
-        \item Sei $\frakm$ endlich erzeugt. Dann ist $\frakm^k/\frakm^{k+1}$ endlich erzeugt über $R/\frakm$, das heißt ein endlich-dimensionaler Vektorraum. Damit hat es endliche Kompositionsreihe nach ???.
-        all diese Kompositionsreihen Vereinigen ergibt Kompositionsreihe von $R/\frakm^n$. Also hat $R/\frakm^n$ endliche Länge und ist artinsch.
+        \item Es ist \(R/\frakm^n\) noethersch. sei \(\frakp\) ein Primideal von \(R\) mist \(\frakm^n\subseteq p\subseteq R\).
+        Dann ist \(\frakm\subseteq \frakp\) also \(\frakm=\frakp\) und alle Primideale in \(R/\frakm^n\) sind maximal. Also ist \(R/\frakm^n\) artinsch.
+        \item Sei \(\frakm\) endlich erzeugt. Dann ist \(\frakm^k/\frakm^{k+1}\) endlich erzeugt über \(R/\frakm\), das heißt ein endlich-dimensionaler Vektorraum. Damit hat es endliche Kompositionsreihe nach ???.
+        all diese Kompositionsreihen Vereinigen ergibt Kompositionsreihe von \(R/\frakm^n\). Also hat \(R/\frakm^n\) endliche Länge und ist artinsch.
     \end{enumerate}
 \end{proof}
 
 \begin{proof}
-    Nach Satz \hyperref[Satz:ArtinRingEndlLen]{Satz \ref{Satz:ArtinRingEndlLen}} $R$ ein $R$-Modul von endlicher Länge. Nach Satz \hyperref[Satz:StrukturModEndlLength]{Satz \ref{Satz:StrukturModEndlLength}} ist $R\cong \prod R_\frakp$ wobei $\frakp$ maximal ist.
+    Nach Satz \hyperref[Satz:ArtinRingEndlLen]{Satz \ref{Satz:ArtinRingEndlLen}} \(R\) ein \(R\)-Modul von endlicher Länge. Nach Satz \hyperref[Satz:StrukturModEndlLength]{Satz \ref{Satz:StrukturModEndlLength}} ist \(R\cong \prod R_\frakp\) wobei \(\frakp\) maximal ist.
 \end{proof}
 
 
 \begin{Def}
-    Sei $M$ ein $R$-Modul. Dann ist $\Supp M=\{\frakp\in\Spec(R)\mid M_\frakp\neq 0\}$ der Support von $M$.
+    Sei \(M\) ein \(R\)-Modul. Dann ist \(\Supp M=\{\frakp\in\Spec(R)\mid M_\frakp\neq 0\}\) der Support von \(M\).
 \end{Def}
 \begin{Lemma}
-    Sei $R$ ein Ring $M$ ein $R$-Modul.
+    Sei \(R\) ein Ring \(M\) ein \(R\)-Modul.
     \begin{enumerate}
-        \item Für $m\in M$ ist $m=0\iff \frac m 1=0\in M_\frakm \text{ für alle maximalen Ideale $\frakm\subseteq R$}$
-        \item $M=0\iff M_\frakm=0$ für alle maximalen Ideale $\frakm$ von $R$.
+        \item Für \(m\in M\) ist \(m=0\iff \frac m 1=0\in M_\frakm \text{ für alle maximalen Ideale \)\frakm\subseteq R\(}\)
+        \item \(M=0\iff M_\frakm=0\) für alle maximalen Ideale \(\frakm\) von \(R\).
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
-    Sei $I$ der Annihilator von $M$.
-    $m=0\iff I=R\iff I\not\subseteq \frakm$ für alle maximalen Ideal $\frakm$.
+    Sei \(I\) der Annihilator von \(M\).
+    \(m=0\iff I=R\iff I\not\subseteq \frakm\) für alle maximalen Ideal \(\frakm\).
     2. folgt direkt aus 1
 \end{proof}
 \begin{Kor}\label{Kor:LokSurjInjBij}
-    $\varphi\colon M\to N$ Homomorphism von $R$-Moduln.
-    $\varphi$ ist injektiv (surjektiv, bijektiv) $\iff \forall \frakm\subseteq R \text{ maximal ist } \varphi_\frakm\colon M_\frakm\to N_\frakm$ injektiv (surjektiv, bijektiv) 
+    \(\varphi\colon M\to N\) Homomorphism von \(R\)-Moduln.
+    \(\varphi\) ist injektiv (surjektiv, bijektiv) \(\iff \forall \frakm\subseteq R \text{ maximal ist } \varphi_\frakm\colon M_\frakm\to N_\frakm\) injektiv (surjektiv, bijektiv) 
 \end{Kor}
 \begin{proof}
-    $\varphi \text{ injektiv} \iff \ker(\varphi)=0\iff \ker(\varphi)_\frakm=\ker(\varphi_\frakm)=0 \forall \frakm$. Surjektiv geht analog mit Cokern statt kern.
+    \(\varphi \text{ injektiv} \iff \ker(\varphi)=0\iff \ker(\varphi)_\frakm=\ker(\varphi_\frakm)=0 \forall \frakm\). Surjektiv geht analog mit Cokern statt kern.
 \end{proof}
 \begin{Lemma}\label{Lem:SpaltenModDirSum}
-    Sei $M$ ein $R$-Modul. Dann ist äquivalent:
+    Sei \(M\) ein \(R\)-Modul. Dann ist äquivalent:
     \begin{enumerate}
-        \item $M\oplus M'=\bigoplus_{i\in I}R/f_iR$ für $f_i\in R$ und ein $R$-Modul $M'$.
-        \item Für jede kurze exakte Sequenz $$0\to A\to B\to C\to 0$$ von $R$-Moduln sodass $fA=A\cap fB$ ist für alle $f\in R$ ist die Abbildung $$\Hom_R(P,B)\to\Hom_R(P,C)$$ surjektiv.
+        \item \(M\oplus M'=\bigoplus_{i\in I}R/f_iR\) für \(f_i\in R\) und ein \(R\)-Modul \(M'\).
+        \item Für jede kurze exakte Sequenz \[0\to A\to B\to C\to 0\] von \(R\)-Moduln sodass \(fA=A\cap fB\) ist für alle \(f\in R\) ist die Abbildung \[\Hom_R(P,B)\to\Hom_R(P,C)\] surjektiv.
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
-    Gelte $1$ und sei eine exakte Sequenz wie im Satz gegebgen. Es reicht der Fall $M=R/fR$. Sei $\psi\colon R/fR\to C$ eine Abbildung und sei $b\in B$ mit $b\mapsto \psi(1)$ in $C$. Dann ist $fb\in A$ und es gibt $a\in A$ sodass $fa=fb$ also $f(b-a)=0$. Das gibt $\varphi\colon R/fR\to B, 1\mapsto b-a$ das $\psi$ liftet.
-    Wenn andersrum $2$ gilt, sie $I$ die Menge der Paare $(f,\varphi)$ wobei $f\in R$ ist und $\varphi\colon R/fR\to M$. Für $i\in I$ sei $(f_i,\varphi_i)$ das entsprechende Paar.
-    Betrachte $B=\bigoplus_{i\in I}R/f_iR\to M$ induziert durch $\varphi_i$. Sei $A=\ker(B\to M)$.
-    Wenn die Sequenz $0\to A\to B\to M\to 0$ exakt ist wie in 2. dann spaltet sie also folgt (1). Sei also $f\in R$ und $a\in A$ mit $a\mapsto fb$ Sei $b=(r_i)_{i\in I}$ wobei $r_i=0$ für fast alle $i$. dann ist $f\sum\varphi_i(r_i)=0$ in $M$. Also gibt es $i_0\in I$ sodass $f_{i_0}=f$ und $\varphi_{i_0}(1)=\sum\varphi_i(r_i)$. sei $x_{i_0}\in R/f_{i_0}R$ die Klasse von 1. Dann ist $$a'=(r_i)_{i\in I}-(0,\dots,0,x_{i_0},0,\dots)$$ ein Element von $A$ und $f'a=a$.
+    Gelte \(1\) und sei eine exakte Sequenz wie im Satz gegebgen. Es reicht der Fall \(M=R/fR\). Sei \(\psi\colon R/fR\to C\) eine Abbildung und sei \(b\in B\) mit \(b\mapsto \psi(1)\) in \(C\). Dann ist \(fb\in A\) und es gibt \(a\in A\) sodass \(fa=fb\) also \(f(b-a)=0\). Das gibt \(\varphi\colon R/fR\to B, 1\mapsto b-a\) das \(\psi\) liftet.
+    Wenn andersrum \(2\) gilt, sie \(I\) die Menge der Paare \((f,\varphi)\) wobei \(f\in R\) ist und \(\varphi\colon R/fR\to M\). Für \(i\in I\) sei \((f_i,\varphi_i)\) das entsprechende Paar.
+    Betrachte \(B=\bigoplus_{i\in I}R/f_iR\to M\) induziert durch \(\varphi_i\). Sei \(A=\ker(B\to M)\).
+    Wenn die Sequenz \(0\to A\to B\to M\to 0\) exakt ist wie in 2. dann spaltet sie also folgt (1). Sei also \(f\in R\) und \(a\in A\) mit \(a\mapsto fb\) Sei \(b=(r_i)_{i\in I}\) wobei \(r_i=0\) für fast alle \(i\). dann ist \(f\sum\varphi_i(r_i)=0\) in \(M\). Also gibt es \(i_0\in I\) sodass \(f_{i_0}=f\) und \(\varphi_{i_0}(1)=\sum\varphi_i(r_i)\). sei \(x_{i_0}\in R/f_{i_0}R\) die Klasse von 1. Dann ist \[a'=(r_i)_{i\in I}-(0,\dots,0,x_{i_0},0,\dots)\] ein Element von \(A\) und \(f'a=a\).
 \end{proof}
 \begin{Lemma}\label{Lem:IdealeTotOrd}
-    Sei $R\neq 0$ ein Ring. Dann ist äquivalent:
+    Sei \(R\neq 0\) ein Ring. Dann ist äquivalent:
     \begin{enumerate}
-        \item Für $a,b\in R$ gilt $a\mid b$ oder $b\mid a$
-        \item Jedes endlich erzeugte Ideal ist ein Hauptideal und $R$ ist lokal
+        \item Für \(a,b\in R\) gilt \(a\mid b\) oder \(b\mid a\)
+        \item Jedes endlich erzeugte Ideal ist ein Hauptideal und \(R\) ist lokal
         \item Die Menge der Ideale ist linear geordnetet durch Inklusion
     \end{enumerate}
     Das ist insebsondere erfüllt durch einen Bewertungsring
 \end{Lemma}
 \begin{proof}
-    Angenommen 2. gilt und $a,b\in R$. Dann ist $(a,b)=(c)$. Wenn $c=0$ ist, dann ist $a=b=0$ und $a$ teilt $b$. Wenn $c\neq 0$ sei $c=ua+vb$ und $a=wc$ und $b=zc$. Dann ist $c(1-uw-vz)=0$. Da $R$ lokal ist, ist $1-uw-vz\in\frakm$. Also ist entweder $w$ oder $z$ eine Einheit. Also gilt 1.
-    Wenn 1. gilt und $R$ hat zwei maximale Ideal $\frakm,\frakn$ Dann wähle $a\in \frakm\setminus\frakn$ und $b\in\frakn\setminus\frakm$. Dann teilen $a$ und $b$ einander nicht. Also hat $R$ nur ein maximales Ideal und ist lokal.
-    Sei $I=(f_1,\dots,f_n)$ und $I'=(f_2,\dots f_n)$. Es ist nach Induktion $I'=(c)$ und somit $I=(f_1,c)=(c')$.
+    Angenommen 2. gilt und \(a,b\in R\). Dann ist \((a,b)=(c)\). Wenn \(c=0\) ist, dann ist \(a=b=0\) und \(a\) teilt \(b\). Wenn \(c\neq 0\) sei \(c=ua+vb\) und \(a=wc\) und \(b=zc\). Dann ist \(c(1-uw-vz)=0\). Da \(R\) lokal ist, ist \(1-uw-vz\in\frakm\). Also ist entweder \(w\) oder \(z\) eine Einheit. Also gilt 1.
+    Wenn 1. gilt und \(R\) hat zwei maximale Ideal \(\frakm,\frakn\) Dann wähle \(a\in \frakm\setminus\frakn\) und \(b\in\frakn\setminus\frakm\). Dann teilen \(a\) und \(b\) einander nicht. Also hat \(R\) nur ein maximales Ideal und ist lokal.
+    Sei \(I=(f_1,\dots,f_n)\) und \(I'=(f_2,\dots f_n)\). Es ist nach Induktion \(I'=(c)\) und somit \(I=(f_1,c)=(c')\).
     Es ist klar dass 1 und 3 äquivalent sind.
 
-    Die letzte Behauptung gilt in einem Bewertungsring, da im Quotientenkörper für $a,b\neq 0$ gilt, dass $\frac a b=x$ ist und $x\in R$ oder $x^{-1}\in R$. Das heißt $a=bx$ oder $b=ax$ für ein $x\in R$.
+    Die letzte Behauptung gilt in einem Bewertungsring, da im Quotientenkörper für \(a,b\neq 0\) gilt, dass \(\frac a b=x\) ist und \(x\in R\) oder \(x^{-1}\in R\). Das heißt \(a=bx\) oder \(b=ax\) für ein \(x\in R\).
 \end{proof}
 \begin{Lemma}\label{Lem:ExSeqEndlPrä}
-    Sei $0\to M_1\to M_2\to M_3\to 0$ eine kurze exakte Sequenz von $R$-Moduln. Dann gilt
+    Sei \(0\to M_1\to M_2\to M_3\to 0\) eine kurze exakte Sequenz von \(R\)-Moduln. Dann gilt
     \begin{enumerate}
-        \item $M_1$,$M_3$ endlich erzeugt $\implies M_2$ endlich erzeugt.
-        \item $M_1,M_3$ endlich präsentiert $\implies M_2$ endlich präsentiert.
-        \item $M_2$ endlich erzeugt $\implies M_3$ endlich erzeugt.
-        \item $M_2$ endlich präsentiert und $M_1$ endlich erzeugt $\implies M_3$ ist endlich präsentiert.
-        \item $M_3$ endlich präsentiert und $M_2$ endlich erzeugt $\implies M_1$ endlich erzeugt.
+        \item \(M_1\),\(M_3\) endlich erzeugt \(\implies M_2\) endlich erzeugt.
+        \item \(M_1,M_3\) endlich präsentiert \(\implies M_2\) endlich präsentiert.
+        \item \(M_2\) endlich erzeugt \(\implies M_3\) endlich erzeugt.
+        \item \(M_2\) endlich präsentiert und \(M_1\) endlich erzeugt \(\implies M_3\) ist endlich präsentiert.
+        \item \(M_3\) endlich präsentiert und \(M_2\) endlich erzeugt \(\implies M_1\) endlich erzeugt.
      \end{enumerate}
 \end{Lemma}
 \begin{proof}
@@ -632,52 +632,56 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
 0 \arrow[r] & R^n \arrow[d] \arrow[r] & R^{n+m} \arrow[d] \arrow[r] & R^m \arrow[d] \arrow[r] & 0 \\
 0 \arrow[r] & M_1 \arrow[r]           & M_2 \arrow[r]               & M_3 \arrow[r]           & 0
 \end{tikzcd}$$
-Snake Lemma liefert exakte Sequenz $0\to \ker(R^n\to M_1)\to \ker(R^{n+m}\to M_2)\to \ker(R^m\to M_3)\to 0$.
-Nach (5) sind die beiden äußeren endlich erzeugt also der innere auch. Nach (4) ist dann $M_2$ endlich präsentiert.\\
-Zeige 5. Wähle Auflösung $R^m\to R^n\to M_3\to 0$. Da $R^n$ projektiv ist nach ??? gibt es eine Abbildung $R^n\to M$ sodass das solide Diagramm kommutiert:$$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKACzkqtRizYduvbHgJEyARjH1mrROy48QGOQKIiV1NZM3Sde-gpRLSx8erYBZAPpLts64OQAme6oSGiBuvp66fPI+AMwBJkEurtHhVlFEdpTxTpoASgB6ALYpkQYo-pmOZiD5wGCcxfo2yLEVpsFuyZxiMFAA5vBEoABmAE4QRYgA7NQ4EEgiIAxYYMFQdHAAFj3ho+NIABwzc4gArDIguxMAnEdIAGxZVQA6T1hQO2MT0yCzB+eXB1uiCu-0+SBuP2OSlBe0QZEhSEmMIm-gRiCEyPmQLOOgBpyBd0xiAeaOiXU4QA
+Snake Lemma liefert exakte Sequenz \(0\to \ker(R^n\to M_1)\to \ker(R^{n+m}\to M_2)\to \ker(R^m\to M_3)\to 0\).
+Nach (5) sind die beiden äußeren endlich erzeugt also der innere auch. Nach (4) ist dann \(M_2\) endlich präsentiert.\\
+Zeige 5. Wähle Auflösung \(R^m\to R^n\to M_3\to 0\). Da \(R^n\) projektiv ist nach ??? gibt es eine Abbildung \(R^n\to M\) sodass 
+das solide Diagramm kommutiert:
+\[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKACzkqtRizYduvbHgJEyARjH1mrROy48QGOQKIiV1NZM3Sde-gpRLSx8erYBZAPpLts64OQAme6oSGiBuvp66fPI+AMwBJkEurtHhVlFEdpTxTpoASgB6ALYpkQYo-pmOZiD5wGCcxfo2yLEVpsFuyZxiMFAA5vBEoABmAE4QRYgA7NQ4EEgiIAxYYMFQdHAAFj3ho+NIABwzc4gArDIguxMAnEdIAGxZVQA6T1hQO2MT0yCzB+eXB1uiCu-0+SBuP2OSlBe0QZEhSEmMIm-gRiCEyPmQLOOgBpyBd0xiAeaOiXU4QA
 \begin{tikzcd}
 0 \arrow[r] & R^m \arrow[d, dashed] \arrow[r] & R^{n} \arrow[d] \arrow[r] & M_3 \arrow[d, "\id"] \arrow[r] & 0 \\
 0 \arrow[r] & M_1 \arrow[r]                   & M_2 \arrow[r]             & M_3 \arrow[r]                  & 0
-\end{tikzcd}$$ Das gibt dann gestrichelten Pfeil. Nach Schlangenlemma ist $\coker(R^m\to M_1)\cong \coker(R^n\to M_2)$. Also ist $\coker(R^m\to M_1)$ endlich erzeugt. Nach (3) ist $\Image(R^m\to M_1)$ endlich erzeugt also ist $M_1$ endlich nach $(1)$.
-Zeige 4. Wähle Auflösung $R^m\to R^n\to M_2\to 0$ und Surjektion $R^k\to M_1$. Dann gibt es nach ?? $R^k\to R^n$ und $R^{k+m}\to R^n\to M_3\to 0$ ist eine Auflösung.
+\end{tikzcd}\] Das gibt dann gestrichelten Pfeil. Nach Schlangenlemma ist \(\coker(R^m\to M_1)\cong \coker(R^n\to M_2)\). 
+Also ist \(\coker(R^m\to M_1)\)
+ endlich erzeugt. Nach (3) ist \(\Image(R^m\to M_1)\) endlich erzeugt also ist \(M_1\) endlich nach \((1)\).
+Zeige 4. Wähle Auflösung \(R^m\to R^n\to M_2\to 0\) und Surjektion \(R^k\to M_1\). Dann gibt es nach ?? \(R^k\to R^n\) und \(R^{k+m}\to R^n\to M_3\to 0\) ist eine Auflösung.
 \end{proof}
 \begin{Lemma}\label{Lem:EndlPräsDirSum}
-    Sei $R$ ein Ring sodass die Menge der Ideale linear geordnet ist durch Inklusion. Dann ist jeder endlich-präsentierte $R$-Modul isomorph zu einer endlichen direkten Summe von Moduln der Form $R/fR$.
+    Sei \(R\) ein Ring sodass die Menge der Ideale linear geordnet ist durch Inklusion. Dann ist jeder endlich-präsentierte \(R\)-Modul isomorph zu einer endlichen direkten Summe von Moduln der Form \(R/fR\).
 \end{Lemma}
 \begin{proof}
     Es werden die Äquivalenten Bedinungen in \hyperref[Lem:IdealeTotOrd]{Lemma \ref{Lem:IdealeTotOrd}} Benutzt.
-    Sei $M$ ein endlich präsentierter $R$-Modul. Sei $\frakm\subseteq R$ das maximale Ideal und $\kappa=R/\frakm$ der Restklassenkörper. Sei $I=\{r\in R\mid rM=0\}$. Wähle Basis $y_1,\dots,y_n$ des endlich-dimensionalen $\kappa$-Vektorraum $M/\frakm M$.
-    Nach \hyperref[Lem:Nakayama]{Nakayama  \ref{Lem:Nakayama}} erzeugen Lifts $x_1,\dots,x_n$ von $y_1,\dots,y_n$ schon $M$.
-    Es gibt $i$ sodass für alle Wahlen von $x_i$ gilt $I=\{r\in R\mid rx=0\}=\colon I_i$. Denn angenommen nicht. Dann gibt es Wahlen von $x_1,\dots,x_n$ sodass $I_i\neq I$ für alle $i$. Aber da $I\subseteq I_i$ gilt $I\subsetneq I_i$ für alle $i$. Da Ideale total geordnet sind, wäre auch $I=I_1\cap I_2\cap\dots\cap I_n$ größer als $I$, was ein Widerspruch ist. Nach Umordnen ist $i=1$ und jeder Lift $x_i$ von $y_i$ erfüllt $I_1=I$. Sei $A=RX_1\subseteq M$ und betrachte die exakte Sequenz 
-    $$0\to A\to M\to M/A\to 0$$. Da $A$ endlich erzeugt ist, ist $M/A$ endlich präsentiert nach \hyperref[Lem:ExSeqEndlPrä]{Lemma \ref{Lem:ExSeqEndlPrä}} mit weniger Erzeugern. Nach Induktion ist also $M/A\cong\bigoplus_{j=1,\dots,m}R/f_jR$. Es gilt das wenn $f\in R$ dann ist $fA=A\cap fM$. Sei also $x\in A\cap fM$. dann ist $x=gx_1=fy$ für ein $g\in R$ und $y\in M$. wenn $f\mid g$ dann ist $x\in fA$. Wenn nicht, dann ist $f=hg$ für $h\in\frakm$. Dann ist $x_1'=x_1-hy$ ein Lift von $y_1$ also ist $g\in I$ und $x=0$. Nach Lemma \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} spaltet die exakte Sequenz von oben und $M\cong A\oplus\bigoplus_{j=1,\dots,m}R/f_jR$. Dann ist $A=R/I$ endlich präsentiert als Summand von $M$ und deswegen ist $I$ endlich generiert nach beides nach \hyperref[Lem:ExSeqEndlPrä]{Lemma \ref{Lem:ExSeqEndlPrä}} und also $I$ ein Hauptideal. Das zeigt den Satz.
+    Sei \(M\) ein endlich präsentierter \(R\)-Modul. Sei \(\frakm\subseteq R\) das maximale Ideal und \(\kappa=R/\frakm\) der Restklassenkörper. Sei \(I=\{r\in R\mid rM=0\}\). Wähle Basis \(y_1,\dots,y_n\) des endlich-dimensionalen \(\kappa\)-Vektorraum \(M/\frakm M\).
+    Nach \hyperref[Lem:Nakayama]{Nakayama  \ref{Lem:Nakayama}} erzeugen Lifts \(x_1,\dots,x_n\) von \(y_1,\dots,y_n\) schon \(M\).
+    Es gibt \(i\) sodass für alle Wahlen von \(x_i\) gilt \(I=\{r\in R\mid rx=0\}=\colon I_i\). Denn angenommen nicht. Dann gibt es Wahlen von \(x_1,\dots,x_n\) sodass \(I_i\neq I\) für alle \(i\). Aber da \(I\subseteq I_i\) gilt \(I\subsetneq I_i\) für alle \(i\). Da Ideale total geordnet sind, wäre auch \(I=I_1\cap I_2\cap\dots\cap I_n\) größer als \(I\), was ein Widerspruch ist. Nach Umordnen ist \(i=1\) und jeder Lift \(x_i\) von \(y_i\) erfüllt \(I_1=I\). Sei \(A=RX_1\subseteq M\) und betrachte die exakte Sequenz 
+    \[0\to A\to M\to M/A\to 0\]. Da \(A\) endlich erzeugt ist, ist \(M/A\) endlich präsentiert nach \hyperref[Lem:ExSeqEndlPrä]{Lemma \ref{Lem:ExSeqEndlPrä}} mit weniger Erzeugern. Nach Induktion ist also \(M/A\cong\bigoplus_{j=1,\dots,m}R/f_jR\). Es gilt das wenn \(f\in R\) dann ist \(fA=A\cap fM\). Sei also \(x\in A\cap fM\). dann ist \(x=gx_1=fy\) für ein \(g\in R\) und \(y\in M\). wenn \(f\mid g\) dann ist \(x\in fA\). Wenn nicht, dann ist \(f=hg\) für \(h\in\frakm\). Dann ist \(x_1'=x_1-hy\) ein Lift von \(y_1\) also ist \(g\in I\) und \(x=0\). Nach Lemma \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} spaltet die exakte Sequenz von oben und \(M\cong A\oplus\bigoplus_{j=1,\dots,m}R/f_jR\). Dann ist \(A=R/I\) endlich präsentiert als Summand von \(M\) und deswegen ist \(I\) endlich generiert nach beides nach \hyperref[Lem:ExSeqEndlPrä]{Lemma \ref{Lem:ExSeqEndlPrä}} und also \(I\) ein Hauptideal. Das zeigt den Satz.
     
 \end{proof}
 \begin{Lemma}\label{Lem:IdealTotOrdDirSum}
-    Sei $R$ ein Ring sodass alle Ideale von $R_\frakm$ total geordnet sind für jedes maximale Ideal $\frakm\subseteq R$. Dann ist jeder endlich präsentierte $R$-Modul direkter Summand von $\bigoplus_{i\in I}R/f_iR$ wobei $I$ endlich.
+    Sei \(R\) ein Ring sodass alle Ideale von \(R_\frakm\) total geordnet sind für jedes maximale Ideal \(\frakm\subseteq R\). Dann ist jeder endlich präsentierte \(R\)-Modul direkter Summand von \(\bigoplus_{i\in I}R/f_iR\) wobei \(I\) endlich.
 \end{Lemma}
 \begin{proof}
-    Sei $0\to A\to B\to C\to 0$ eine kurze exakte Sequenz von $R$-Moduln sodass $fA=A\cap fB$ für alle $f\in R$. Nach Lemma \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} reicht es, zu zeigen dass $\Hom_R(M,B)\to \Hom_R(M,C)$ surjektiv ist. Es reicht, dass es surjektiv ist nach lokalisieren an maximalen Idealen $\frakm$ nach \hyperref[Kor:LokSurjInjBij]{Korollar \ref{Kor:LokSurjInjBij}}. Da Lokalisierungnach \hyperref[Satz:LokExakt]{Satz \ref{Satz:LokExakt}} exakt ist $0\to A_\frakm\to B_\frakm\to C_\frakm\to 0$ exakt und $fA_\frakm=A_\frakm\cap fB_\frakm$.
-    Da $M$ endlich präsentiert ist, gilt $\Hom_R(M,B)_\frakm=\Hom_{R_\frakm}(M_\frakm,B_\frakm)$ und $\Hom_R(M,C)_\frakm=\Hom_{R_\frakm}(M_\frakm,C_\frakm)$ nach ???. $M_\frakm$ ist enldich präsentierter $R_\frakm$ Modul und nach \hyperref[Lem:EndlPräsDirSum]{Lemma \ref{Lem:EndlPräsDirSum}} gilt dass $M_\frakm$ direkte Summe von Moduln der Form $R_\frakm/fR_\frakm$ ist. Nach \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} ist ist Abbildung der Lokalisierung surjektiv. Also ist $M$ direkter Summand von $\bigoplus_{i\in I'}R/f_iR$. Betrachte $M\to\bigoplus_{i\in I'}R/f_iR$. Da $M$ endlich erzeugt ist, ist das Bild von $M$ in $\bigoplus_{i\in I}R/f_iR$ für eine endliche Teilmenge $I\subseteq I'$.
+    Sei \(0\to A\to B\to C\to 0\) eine kurze exakte Sequenz von \(R\)-Moduln sodass \(fA=A\cap fB\) für alle \(f\in R\). Nach Lemma \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} reicht es, zu zeigen dass \(\Hom_R(M,B)\to \Hom_R(M,C)\) surjektiv ist. Es reicht, dass es surjektiv ist nach lokalisieren an maximalen Idealen \(\frakm\) nach \hyperref[Kor:LokSurjInjBij]{Korollar \ref{Kor:LokSurjInjBij}}. Da Lokalisierungnach \hyperref[Satz:LokExakt]{Satz \ref{Satz:LokExakt}} exakt ist \(0\to A_\frakm\to B_\frakm\to C_\frakm\to 0\) exakt und \(fA_\frakm=A_\frakm\cap fB_\frakm\).
+    Da \(M\) endlich präsentiert ist, gilt \(\Hom_R(M,B)_\frakm=\Hom_{R_\frakm}(M_\frakm,B_\frakm)\) und \(\Hom_R(M,C)_\frakm=\Hom_{R_\frakm}(M_\frakm,C_\frakm)\) nach ???. \(M_\frakm\) ist enldich präsentierter \(R_\frakm\) Modul und nach \hyperref[Lem:EndlPräsDirSum]{Lemma \ref{Lem:EndlPräsDirSum}} gilt dass \(M_\frakm\) direkte Summe von Moduln der Form \(R_\frakm/fR_\frakm\) ist. Nach \hyperref[Lem:SpaltenModDirSum]{Lemma \ref{Lem:SpaltenModDirSum}} ist ist Abbildung der Lokalisierung surjektiv. Also ist \(M\) direkter Summand von \(\bigoplus_{i\in I'}R/f_iR\). Betrachte \(M\to\bigoplus_{i\in I'}R/f_iR\). Da \(M\) endlich erzeugt ist, ist das Bild von \(M\) in \(\bigoplus_{i\in I}R/f_iR\) für eine endliche Teilmenge \(I\subseteq I'\).
 \end{proof}
 \begin{Def}
-    Sei $R$ nullteilerfrei.
+    Sei \(R\) nullteilerfrei.
     \begin{enumerate}
-        \item $R$ ist ein Bézout Ring, wenn jedes endlich erzeugte Ideal ein Hauptideal ist.
-        \item $R$ ist ein Elementarteiler Ring, falls für alle $n,m\geq 1$ und jede $n\times m$ matrix $A$ es invertierbare Matrizen $U,V$ der Größe $n\times n$ bzw. $m\times m$ gibt sodass $$UAV=\begin{pmatrix}
+        \item \(R\) ist ein Bézout Ring, wenn jedes endlich erzeugte Ideal ein Hauptideal ist.
+        \item \(R\) ist ein Elementarteiler Ring, falls für alle \(n,m\geq 1\) und jede \(n\times m\) matrix \(A\) es invertierbare Matrizen \(U,V\) der Größe \(n\times n\) bzw. \(m\times m\) gibt sodass $$UAV=\begin{pmatrix}
             f_1 & 0& 0& \dots\\ 0& f_2 & 0& \dots \\ 0&0 & f_3& \dots\\ \dots & \dots & \dots & \dots
-        \end{pmatrix}$$ mit $f_1,\dots,f_{\min(n,m)}\in R$ und $f_1\mid f_2\mid\dots$.
+        \end{pmatrix}\($ mit \)f_1,\dots,f_{\min(n,m)}\in R\( und \)f_1\mid f_2\mid\dots$.
     \end{enumerate}
 \end{Def}
 \begin{Lemma}
     Ein Elementarteilerring ist Bézout Ring.
 \end{Lemma}
 \begin{proof}
-    Seien $a,b\in R$ nicht-null. Betrachte $A=(a b)$. Dann gibt es $u\in R^*$ und $V=(g_{ij})\in \GL_2(R)$ sodass $u(a,b)V=(f,0)$.
-    Dann ist $f=uag_{11}+ubg_{21}$. Es ist auch $$\begin{pmatrix}
+    Seien \(a,b\in R\) nicht-null. Betrachte \(A=(a b)\). Dann gibt es \(u\in R^*\) und \(V=(g_{ij})\in \GL_2(R)\) sodass \(u(a,b)V=(f,0)\).
+    Dann ist \(f=uag_{11}+ubg_{21}\). Es ist auch $$\begin{pmatrix}
         a & b    \end{pmatrix}=u^{-1}\begin{pmatrix}
             f & 0
         \end{pmatrix} V^{-1}
-$$ Also ist $(a,b)=(f)$. Induktion zeigt das Ergebnis.
+\($ Also ist \)(a,b)=(f)$. Induktion zeigt das Ergebnis.
 
 \end{proof}
 \begin{Satz}
@@ -687,43 +691,43 @@ $$ Also ist $(a,b)=(f)$. Induktion zeigt das Ergebnis.
     Erste Aussage ist klar und zweite gilt nach ??? was genau die Aussage ist.
 \end{proof}
 \begin{Lemma}\label{Lem:StruktBezoutring}
-    Sei $R$ Bézout ring. Dann gilt 
+    Sei \(R\) Bézout ring. Dann gilt 
     \begin{enumerate}
         \item Jeder endliche Untermodul eines freien Moduls ist frei
-        \item Jeder endlich präsentierte $R$-Modul $M$ ist direkte Summe eines endlich freien Moduls und einem torsions Modul $M_{tors}$ der Summan ist einer direkten Summe $\bigoplus_{i=1,\dots,n}R/f_iR$ wobei $f_i$ nicht-null sind.
+        \item Jeder endlich präsentierte \(R\)-Modul \(M\) ist direkte Summe eines endlich freien Moduls und einem torsions Modul \(M_{tors}\) der Summan ist einer direkten Summe \(\bigoplus_{i=1,\dots,n}R/f_iR\) wobei \(f_i\) nicht-null sind.
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
-    Sei $M\subseteq F$ endich erzeugter Untermodul, $F$ frei. Da $M$ endlich ist, ist ohne Einschränkung $F$ auch endlich, $F=R^n$. Wenn $n=1$ dann ist $M$ ein endlich erzeugtes Ideal, also ein Hauptideal. Wenn $n>1$ betrachte $pr_n\colon R^n\to R$ und $I=\Image(pr_n|_M\colon M\to R)$. Wenn $I=(0)$ dann ist $M\subseteq R^{n-1}$ und man ist fertig nach Induktion. Wenn $I\neq 0$ dann ist $I=(f)\cong R$. also $M\cong R\oplus \ker(M\to I)$ und Induktion.
+    Sei \(M\subseteq F\) endich erzeugter Untermodul, \(F\) frei. Da \(M\) endlich ist, ist ohne Einschränkung \(F\) auch endlich, \(F=R^n\). Wenn \(n=1\) dann ist \(M\) ein endlich erzeugtes Ideal, also ein Hauptideal. Wenn \(n>1\) betrachte \(pr_n\colon R^n\to R\) und \(I=\Image(pr_n|_M\colon M\to R)\). Wenn \(I=(0)\) dann ist \(M\subseteq R^{n-1}\) und man ist fertig nach Induktion. Wenn \(I\neq 0\) dann ist \(I=(f)\cong R\). also \(M\cong R\oplus \ker(M\to I)\) und Induktion.
 
-    Sei $M$ also endlich präsentiert. Nach ??? sind lokalisierungen von $R$ an maximalen Idealen Bewertungsringe, also können wir mit \hyperref[Lem:IdealTotOrdDirSum]{Lemma \ref{Lem:IdealTotOrdDirSum}} folgern, dass $M$ direkter Summand ist von $$R^r\oplus\bigoplus_{i=1,\dots,n}R/f_iR$$ wobei $f_i\neq 0$. Dann ist $M_{tors}$ ein Summand von $\bigoplus_{i=1,\dots,n}R/f_iR$ und $M/M_{tors}$ ist ein Summand von $R^r$. Nach erstem Teil ist $M/M_{tors}$ endlich frei und also $M\cong M_{tors}\oplus M/M_{tors}$.
+    Sei \(M\) also endlich präsentiert. Nach ??? sind lokalisierungen von \(R\) an maximalen Idealen Bewertungsringe, also können wir mit \hyperref[Lem:IdealTotOrdDirSum]{Lemma \ref{Lem:IdealTotOrdDirSum}} folgern, dass \(M\) direkter Summand ist von \[R^r\oplus\bigoplus_{i=1,\dots,n}R/f_iR\] wobei \(f_i\neq 0\). Dann ist \(M_{tors}\) ein Summand von \(\bigoplus_{i=1,\dots,n}R/f_iR\) und \(M/M_{tors}\) ist ein Summand von \(R^r\). Nach erstem Teil ist \(M/M_{tors}\) endlich frei und also \(M\cong M_{tors}\oplus M/M_{tors}\).
 \end{proof}
 \begin{Satz}[Struktursatz endlicher Moduln über Hauptidealrings]\label{Satz:StruktEndlModPID}
-Sei $R$ ein Hauptidealring. Dann ist jeder endliche $R$-Modul $M$ isomorph zu einem Modul der Form $$R^n\oplus\bigoplus_{i=1,\dots,n}R/f_iR$$ für $r,n\geq 0$ und $f_i$ nicht-null mit $f_1\mid f_2\mid\dots$.
+Sei \(R\) ein Hauptidealring. Dann ist jeder endliche \(R\)-Modul \(M\) isomorph zu einem Modul der Form \[R^n\oplus\bigoplus_{i=1,\dots,n}R/f_iR\] für \(r,n\geq 0\) und \(f_i\) nicht-null mit \(f_1\mid f_2\mid\dots\).
     
 \end{Satz}
 \begin{proof}
-    Ein Hauptidealring ist ein noetherscher Bézout Ring. Nach \hyperref[Lem:StruktBezoutring]{Lemma \ref{Lem:StruktBezoutring}} reicht der Fall wo $M$ torsion ist. Da $M$ endlich erzeugt, gibt es $f\in R\setminus\{0\}$ sodass $fM=0$. Dannist $M$ ein $R/fR$ Modul und $R/fR$ ist noethersch und jedes Primideal ist maximal. Also ist  nach \hyperref[Kor:StruktArtinring]{Korollar \ref{Kor:StruktArtinring}} $$R/fR=\prod R_j$$ endliches produkt wobei $R_j$ lokal artinsch. Die Projektion $R/fR\to R_j$ gibt dass $R_j=R/f_jR$ für ein $f_j$. Dann erfüllt $R_j$ die Bedinugnen von \hyperref[Lem:IdealeTotOrd]{Lemma \ref{Lem:IdealeTotOrd}}. Schreibe $M=\prod M_j$ mit $M_j=e_jM$ wobei $e_j\in R/fR$ das idempotente Element ist dass zu $1\in R_j$ correspondiert.  Nach Lemma \hyperref[Lem:EndlPräsDirSum]{Lemma \ref{Lem:EndlPräsDirSum}} ist $M_j=\bigoplus_{i=1,\dots,n_j}R_j/\bar f_{ij}R_j$ für $\bar f_{ij}\in R_j$. wähle Lifts $f_{ij}\in R$ und $g_{ji}\in R$ mit $(g_{ji})=(f_j,f_{ji})$. Dann ist $$M\cong\bigoplus R/g_{ji}R$$ als $R$-Modul.
+    Ein Hauptidealring ist ein noetherscher Bézout Ring. Nach \hyperref[Lem:StruktBezoutring]{Lemma \ref{Lem:StruktBezoutring}} reicht der Fall wo \(M\) torsion ist. Da \(M\) endlich erzeugt, gibt es \(f\in R\setminus\{0\}\) sodass \(fM=0\). Dannist \(M\) ein \(R/fR\) Modul und \(R/fR\) ist noethersch und jedes Primideal ist maximal. Also ist  nach \hyperref[Kor:StruktArtinring]{Korollar \ref{Kor:StruktArtinring}} \[R/fR=\prod R_j\] endliches produkt wobei \(R_j\) lokal artinsch. Die Projektion \(R/fR\to R_j\) gibt dass \(R_j=R/f_jR\) für ein \(f_j\). Dann erfüllt \(R_j\) die Bedinugnen von \hyperref[Lem:IdealeTotOrd]{Lemma \ref{Lem:IdealeTotOrd}}. Schreibe \(M=\prod M_j\) mit \(M_j=e_jM\) wobei \(e_j\in R/fR\) das idempotente Element ist dass zu \(1\in R_j\) correspondiert.  Nach Lemma \hyperref[Lem:EndlPräsDirSum]{Lemma \ref{Lem:EndlPräsDirSum}} ist \(M_j=\bigoplus_{i=1,\dots,n_j}R_j/\bar f_{ij}R_j\) für \(\bar f_{ij}\in R_j\). wähle Lifts \(f_{ij}\in R\) und \(g_{ji}\in R\) mit \((g_{ji})=(f_j,f_{ji})\). Dann ist \[M\cong\bigoplus R/g_{ji}R\] als \(R\)-Modul.
 \end{proof}
 \begin{Lemma}
-    Sei $R$ ein Hauptidealring und $a\in R\setminus\{0\}$.
+    Sei \(R\) ein Hauptidealring und \(a\in R\setminus\{0\}\).
     \begin{enumerate}
-        \item Es ist $\length(R/aR)$ gleich der Anzahl der Primfaktoren in der Primfaktorzerlegung von $a$.
-        \item Wenn $M$ endlich erzeugter $R$-Modul ist und $M[a]=\{m\in M\mid am=0\}$ dann sei $$h_a(M)=\length(M/aM)-\length(M[a]).$$ Alle Zahlen in der Gleichung sind endlich.
-        \item Wenn $0\to M'\to M\to M''\to 0$ exakt ist von endlichen $R$-Moduln, dann ist $h_a(M)=h_a(M')+h_a(M'')$.
-        \item Sei $K=\Quot(R)$ und $M$ ein endlich-erzeugter $R$-Modul. Dann ist 
-        $$h_a(M)=\dim_K(M\otimes_RK)\cdot\length(R/aR)$$
+        \item Es ist \(\length(R/aR)\) gleich der Anzahl der Primfaktoren in der Primfaktorzerlegung von \(a\).
+        \item Wenn \(M\) endlich erzeugter \(R\)-Modul ist und \(M[a]=\{m\in M\mid am=0\}\) dann sei \[h_a(M)=\length(M/aM)-\length(M[a]).\] Alle Zahlen in der Gleichung sind endlich.
+        \item Wenn \(0\to M'\to M\to M''\to 0\) exakt ist von endlichen \(R\)-Moduln, dann ist \(h_a(M)=h_a(M')+h_a(M'')\).
+        \item Sei \(K=\Quot(R)\) und \(M\) ein endlich-erzeugter \(R\)-Modul. Dann ist 
+        \[h_a(M)=\dim_K(M\otimes_RK)\cdot\length(R/aR)\]
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
     \begin{enumerate}
-        \item Sei $a=p_1\cdots p_r$ die Primfaktorzerlegung. Dann ist $$(p_1)\supseteq (p_1p_2)\supseteq \dots\supseteq (p_1\cdots p_r)=(a)$$ und 
-        $$(p_1\cdots p_k)/(p_1\cdots p_{k+1})\cong R/p_{k+1}R$$ ein Körper, hat also keine echten Untermoduln ungleich $0$.
-        Somit ist $$\bar{(p_1)}\supseteq \bar{(p_1p_2)}\supseteq \dots\supseteq \bar{(p_1\cdots p_r)}=0$$ Kompositionsreihe in $R/aR$. Also ist $\length(R/aR)=r$.
-        \item Da $M$ endlich erzeugt ist, ist $M$ noethersch. Also ist $M[a]$ auch endlich erzeugt. Es ist 
-        $$M[a]\cong R^d\oplus\bigoplus R/a_iR$$ und da $M[a]$ Torsionsmodul ist, ist $d=0$.
-        Nach 1. ist $\length(R/a_iR)<\infty$ also auch die $\length(M[a])<\infty$.
-        $M/aM$ ist auch endlich erzeugt und Torsionsmodul. Also ist analog die Länge auch endlich.
+        \item Sei \(a=p_1\cdots p_r\) die Primfaktorzerlegung. Dann ist \[(p_1)\supseteq (p_1p_2)\supseteq \dots\supseteq (p_1\cdots p_r)=(a)\] und 
+        \[(p_1\cdots p_k)/(p_1\cdots p_{k+1})\cong R/p_{k+1}R\] ein Körper, hat also keine echten Untermoduln ungleich \(0\).
+        Somit ist \[\bar{(p_1)}\supseteq \bar{(p_1p_2)}\supseteq \dots\supseteq \bar{(p_1\cdots p_r)}=0\] Kompositionsreihe in \(R/aR\). Also ist \(\length(R/aR)=r\).
+        \item Da \(M\) endlich erzeugt ist, ist \(M\) noethersch. Also ist \(M[a]\) auch endlich erzeugt. Es ist 
+        \[M[a]\cong R^d\oplus\bigoplus R/a_iR\] und da \(M[a]\) Torsionsmodul ist, ist \(d=0\).
+        Nach 1. ist \(\length(R/a_iR)<\infty\) also auch die \(\length(M[a])<\infty\).
+        \(M/aM\) ist auch endlich erzeugt und Torsionsmodul. Also ist analog die Länge auch endlich.
         \item Betrachte kommutatives Diagramm 
         $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKACzkqtRizYduvbHgJEyARjH1mrROy48QGOQKIiV1NZM3Sde-gpRLRJiRpABZAOTbZ1wcgBM98epszh66fPLeAMz+pk5u7jKh+jbIdsYBZi7xlmEGKH5pMUEhVuFEUQWOQa7xYjBQAObwRKAAZgBOEAC2SGQgOBBIQgntXYPU-UgArMMd3YiT4wOIAGwzoyuLSEprc359SwDsO0gHm4gAHMcXZwCcVzdnEVci+ycOgZoAOp8AxlAQOAABHQQiM5gtXtd0k5vn8AcDQbMkMtbu8MrD-kCQZwKJwgA
 \begin{tikzcd}
@@ -731,272 +735,272 @@ Sei $R$ ein Hauptidealring. Dann ist jeder endliche $R$-Modul $M$ isomorph zu ei
 0 \arrow[r] & M' \arrow[r]                      & M \arrow[r]                      & M'' \arrow[r]                      & 0
 \end{tikzcd}$$
 Nach Schlangenlemma gibt das eine exakte Sequenz 
-$$0\to M'[a]\to M[a]\to M''[a]\to M'/aM'\to M/aM\to M''/aM''\to 0$$
-Es gilt $$0=\length(M'[a])-\length(M[a])+\length(M''[a])-\length(M'/aM')+\length(M/aM)-\length(M''/aM'')\to 0$$ 
+\[0\to M'[a]\to M[a]\to M''[a]\to M'/aM'\to M/aM\to M''/aM''\to 0\]
+Es gilt \[0=\length(M'[a])-\length(M[a])+\length(M''[a])-\length(M'/aM')+\length(M/aM)-\length(M''/aM'')\to 0\] 
 Also gilt die Aussage.
-\item Nach 3. reich es, die Aussage für $M=R$ und $M$ Torsionsmodul zu zeigen wegen Struktursatz ???.
-Es ist $\dim(R\otimes_RK)=1$ und $R[a]=0$ also ist $h_a(R)=\length(R/aR)=\dim(R\otimes_RK)\cdot\length(R/aR)$.
-Wenn $M$ Torsionsmodul ist, dann hat $M$ endliche Länge nach Struktursatz und somit ergibt die exakte Sequenz 
-$$0\to M[a]\to M\stackrel{\cdot a}{\to}M\to M/aM\to 0$$ dass 
-$$0=\length(M[a])-\length(M)+\length(M)-\length(M/aM)=h_a(M)$$.
-und $$\dim(M\otimes _RK)=0$$
+\item Nach 3. reich es, die Aussage für \(M=R\) und \(M\) Torsionsmodul zu zeigen wegen Struktursatz ???.
+Es ist \(\dim(R\otimes_RK)=1\) und \(R[a]=0\) also ist \(h_a(R)=\length(R/aR)=\dim(R\otimes_RK)\cdot\length(R/aR)\).
+Wenn \(M\) Torsionsmodul ist, dann hat \(M\) endliche Länge nach Struktursatz und somit ergibt die exakte Sequenz 
+\[0\to M[a]\to M\stackrel{\cdot a}{\to}M\to M/aM\to 0\] dass 
+\[0=\length(M[a])-\length(M)+\length(M)-\length(M/aM)=h_a(M)\].
+und \[\dim(M\otimes _RK)=0\]
     \end{enumerate}
 \end{proof}
 \begin{Def}
-    Sei $\varphi\colon R\to R'$ ein Ringhomomorphismus. $x\in R'$ heißt ganz über $R$, wenn es eine Ganzheitsgleichung $x^n+a_1x^{n-1}+\dots+a_n=0$ erfüllt für $a_1,\dots,a_n\in R$.
-    $R'$ heißt ganz über $R$, falls jedes $x\in R'$ ganz ist. $\varphi$ heißt endlich, wenn es $R'$ mit einer endlichen $R$-Modulstruktur versieht.
+    Sei \(\varphi\colon R\to R'\) ein Ringhomomorphismus. \(x\in R'\) heißt ganz über \(R\), wenn es eine Ganzheitsgleichung \(x^n+a_1x^{n-1}+\dots+a_n=0\) erfüllt für \(a_1,\dots,a_n\in R\).
+    \(R'\) heißt ganz über \(R\), falls jedes \(x\in R'\) ganz ist. \(\varphi\) heißt endlich, wenn es \(R'\) mit einer endlichen \(R\)-Modulstruktur versieht.
 \end{Def}
 \begin{Bsp}
-    Wenn $R=K, R'=K'$ Körper sind, dann ist $K'/K$ algebraisch wenn es ganz ist über $K$.
+    Wenn \(R=K, R'=K'\) Körper sind, dann ist \(K'/K\) algebraisch wenn es ganz ist über \(K\).
 \end{Bsp}
 \begin{Lemma}\label{Lem:GanzheitKörper}
-    Sei $\varphi\colon R\to R'$ injektive und $R,R'$ Integritätsbereiche und $R'$ ganz über $R$. Dann ist $R$ ein Körper genau dann wenn $R'$ ein Körper ist. 
+    Sei \(\varphi\colon R\to R'\) injektive und \(R,R'\) Integritätsbereiche und \(R'\) ganz über \(R\). Dann ist \(R\) ein Körper genau dann wenn \(R'\) ein Körper ist. 
 \end{Lemma}
-\begin{Bps}
-     Sei $K/\QQ$ eine endliche Körpererweiterung und $a\in K$. Für einen Körperhomomorphismus $\sigma\colon K\to\bar K$ gilt $a$ ist ganz über $\ZZ$ genau dann wenn $\sigma(a)$ ganz ist über $\ZZ$ und $a$ ist ganz über $\ZZ$ genau dann wenn das Minimalpolynom von $a$ in $\ZZ[X]$ ist. Wenn $K=\QQ(\sqrt{n})$ wobei $n>1$ quadratfrei ist, dann ist $a+b\sqrt{n}$ mit $a,b\in \QQ$ ganz über $\ZZ$ genau dann, wenn $a,b\in\ZZ$ oder $a,b\in\frac 1 2+\ZZ$ und $n=1\mod 4$.
-\end{Bps}
+\begin{Bsp}
+     Sei \(K/\QQ\) eine endliche Körpererweiterung und \(a\in K\). Für einen Körperhomomorphismus \(\sigma\colon K\to\bar K\) gilt \(a\) ist ganz über \(\ZZ\) genau dann wenn \(\sigma(a)\) ganz ist über \(\ZZ\) und \(a\) ist ganz über \(\ZZ\) genau dann wenn das Minimalpolynom von \(a\) in \(\ZZ[X]\) ist. Wenn \(K=\QQ(\sqrt{n})\) wobei \(n>1\) quadratfrei ist, dann ist \(a+b\sqrt{n}\) mit \(a,b\in \QQ\) ganz über \(\ZZ\) genau dann, wenn \(a,b\in\ZZ\) oder \(a,b\in\frac 1 2+\ZZ\) und \(n=1\mod 4\).
+\end{Bsp}
 \begin{proof}
-    Wenn $a^n+b_1a^{n-1}+\dots+b_n=0$ mit $b_i\in\ZZ$ dann ist auch $\sigma(a)^n+b_1\sigma(a)^{n-1}+\dots+b_n=0$ also ist $\sigma(a)$ ganz. Die Rückrichtung geht genauso unter Verwendung dass $\sigma$ injektiv ist.
-    Wenn $a$ ganz ist, Sei $F\in \ZZ[X]$ Ganzheitsgleichung. Sei $\mu$ das Minimalpolynom von $a$. Dann ist $F=\mu g$
-    Nach Lemma von Gauß ??? ist $\mu\in\ZZ[X]$.
+    Wenn \(a^n+b_1a^{n-1}+\dots+b_n=0\) mit \(b_i\in\ZZ\) dann ist auch \(\sigma(a)^n+b_1\sigma(a)^{n-1}+\dots+b_n=0\) also ist \(\sigma(a)\) ganz. Die Rückrichtung geht genauso unter Verwendung dass \(\sigma\) injektiv ist.
+    Wenn \(a\) ganz ist, Sei \(F\in \ZZ[X]\) Ganzheitsgleichung. Sei \(\mu\) das Minimalpolynom von \(a\). Dann ist \(F=\mu g\)
+    Nach Lemma von Gauß ??? ist \(\mu\in\ZZ[X]\).
     Andere Richtung ist klar.
-    Mipol von $a+b\sqrt{n}$ ist $(X-(a-b\sqrt{n}))(X-(a+b\sqrt n))=X²-2aX+a²-b²n$.
-    Also ist $a\in \ZZ$ oder $a\in  \frac 1 2+\ZZ$.
-    Wenn $a\in\ZZ$ dann ist $b²n\in\ZZ$ und da $n$ quadratfrei ist, ist $b\in\ZZ$. 
-    Wenn $a\in \frac 1 2+\ZZ$ Dann ist $a=\frac 1 2+x$ für ein $x\in\ZZ$.
-    also ist $a^2=\frac 1 4+x+x^2$ und somit $b^2n\in \frac 1 4+\ZZ$ also $b\in \frac 1 2+\ZZ$ und außerdem $b²n\in \frac 1 4+\ZZ\implies n=1\mod 4.$
+    Mipol von \(a+b\sqrt{n}\) ist \((X-(a-b\sqrt{n}))(X-(a+b\sqrt n))=X^2-2aX+a^2-b^2n\).
+    Also ist \(a\in \ZZ\) oder \(a\in  \frac 1 2+\ZZ\).
+    Wenn \(a\in\ZZ\) dann ist \(b^2n\in\ZZ\) und da \(n\) quadratfrei ist, ist \(b\in\ZZ\). 
+    Wenn \(a\in \frac 1 2+\ZZ\) Dann ist \(a=\frac 1 2+x\) für ein \(x\in\ZZ\).
+    also ist \(a^2=\frac 1 4+x+x^2\) und somit \(b^2n\in \frac 1 4+\ZZ\) also \(b\in \frac 1 2+\ZZ\) und außerdem \(b²n\in \frac 1 4+\ZZ\implies n=1\mod 4.\)
 \end{proof}
 \begin{proof}
-    Sei $R'$ ein Körper und $x\in R\setminus\{0\}$ Es ist $x^{-1}=x\in R'$ und es gibt $a_1,\dots,a_n\in R$ sodass $$y^n+a_1y^{n-1}+\dots+a_n=0$$ ist. Also ist 
-    $$y^n=-a_1y^{n-1}-\dots-a_n$$ und somit $$y=x^{n-1}y^n=-a_1y^{n-1}x^{n-1}-\dots -a_nx^{n-1}\in R$$.
-    also ist $R$ Körper.
-    Sei andersrum $R$ ein Körper und $x\in R'$ mit $x\neq 0$.
-    Dann gibt es $x^n+a_1x^{n-1}+\dots+a_n=0$ mit $a_i\in R$.
-    Da $R'$ Integritätsbereich ist ohne Einschränkung $a_n\neq 0$.
-    Im Quotientenkörper gilt $$-x^{-1}a_n=x^{n-1}+a_1x^{n-2}+\dots+a_{n-1}\in R'$$. Also ist $$x^{-1}=-a_n^{-1}(x^{n-1}+\dots +a_{n-1})\in R'$$ also ist $R'$ ein Körper.
+    Sei \(R'\) ein Körper und \(x\in R\setminus\{0\}\) Es ist \(x^{-1}=x\in R'\) und es gibt \(a_1,\dots,a_n\in R\) sodass \[y^n+a_1y^{n-1}+\dots+a_n=0\] ist. Also ist 
+    \[y^n=-a_1y^{n-1}-\dots-a_n\] und somit \[y=x^{n-1}y^n=-a_1y^{n-1}x^{n-1}-\dots -a_nx^{n-1}\in R\].
+    also ist \(R\) Körper.
+    Sei andersrum \(R\) ein Körper und \(x\in R'\) mit \(x\neq 0\).
+    Dann gibt es \(x^n+a_1x^{n-1}+\dots+a_n=0\) mit \(a_i\in R\).
+    Da \(R'\) Integritätsbereich ist ohne Einschränkung \(a_n\neq 0\).
+    Im Quotientenkörper gilt \[-x^{-1}a_n=x^{n-1}+a_1x^{n-2}+\dots+a_{n-1}\in R'\]. Also ist \[x^{-1}=-a_n^{-1}(x^{n-1}+\dots +a_{n-1})\in R'\] also ist \(R'\) ein Körper.
 \end{proof}
 \begin{Lemma}
-    Sei $\varphi\colon R\to R'$ ein ganzer (bzw. endlicher) Ringhomomorphismus.
+    Sei \(\varphi\colon R\to R'\) ein ganzer (bzw. endlicher) Ringhomomorphismus.
     \begin{enumerate}
-        \item Seien $I\subseteq R,J\subseteq R'$ Ideale mit $\varphi(I)\subseteq J$. Dann ist $R/I\to R'/J$ ganz (bzw. endlich)
-        \item Sei $S\subseteq R$ eine multiplikative Menge. dann ist $R_S\to R'_S$ ganz (bzw. endlich)
+        \item Seien \(I\subseteq R,J\subseteq R'\) Ideale mit \(\varphi(I)\subseteq J\). Dann ist \(R/I\to R'/J\) ganz (bzw. endlich)
+        \item Sei \(S\subseteq R\) eine multiplikative Menge. dann ist \(R_S\to R'_S\) ganz (bzw. endlich)
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
     Klar
 \end{proof}
 \begin{Lemma}
-    Sei $\varphi\colon R\to R'$ ein Ringhom und $x\in R'$. Es ist äquivalent
+    Sei \(\varphi\colon R\to R'\) ein Ringhom und \(x\in R'\). Es ist äquivalent
     \begin{enumerate}
-        \item $x$ ist integralt über $R$.
-        \item Der Unterring $R[x]\subseteq R'$ ist endlich erzeugt als $R$-Modul.
-        \item Es gibt endlich-erzeugten $R$-Untermodul $M\subseteq R'$ sodass $1\in M$ und $xM\subseteq M$.
-        \item Es gibt eine $R[x]$-Modul $M$ sodss $M$ ein endlicher $R$-Modul ist und $aM=0\implies a=0$ für alle $a\in R[x]$.
+        \item \(x\) ist integralt über \(R\).
+        \item Der Unterring \(R[x]\subseteq R'\) ist endlich erzeugt als \(R\)-Modul.
+        \item Es gibt endlich-erzeugten \(R\)-Untermodul \(M\subseteq R'\) sodass \(1\in M\) und \(xM\subseteq M\).
+        \item Es gibt eine \(R[x]\)-Modul \(M\) sodss \(M\) ein endlicher \(R\)-Modul ist und \(aM=0\implies a=0\) für alle \(a\in R[x]\).
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
-    Gelte 1. Die Ganzheitsgleichung $x^n+a_1x^{n-1}+\dots a_n=0$ zeigt, dass $x^n$ Element ist von $M=\sum_{i=0}^{n-1}Rx^i$ und per Induktion ist $x^m\in M$ für alle $m$.
-    Also ist $M=R[x]$ und $R[x]$ ist endlich erzeugt. Die Richtung von 2 nach 3 und von 3 nach 4 ist klar.
-    Gelte 4. Sei $M$ ein $R[x]$-Modul mit $y_1,\dots,y_n\in M$ Erzeuger über $R$.
-    Es ist $xM\subseteq M$ also gibt es Gleichungen 
-    $$xy_i=a_{i1}y_1+\dots a_{in}y_n$$ für alle $i$ mit $a_{ji}\in R$.
-    Sei also $\Delta$ die Matrix über $R[x]$ sodass 
+    Gelte 1. Die Ganzheitsgleichung \(x^n+a_1x^{n-1}+\dots a_n=0\) zeigt, dass \(x^n\) Element ist von \(M=\sum_{i=0}^{n-1}Rx^i\) und per Induktion ist \(x^m\in M\) für alle \(m\).
+    Also ist \(M=R[x]\) und \(R[x]\) ist endlich erzeugt. Die Richtung von 2 nach 3 und von 3 nach 4 ist klar.
+    Gelte 4. Sei \(M\) ein \(R[x]\)-Modul mit \(y_1,\dots,y_n\in M\) Erzeuger über \(R\).
+    Es ist \(xM\subseteq M\) also gibt es Gleichungen 
+    \[xy_i=a_{i1}y_1+\dots a_{in}y_n\] für alle \(i\) mit \(a_{ji}\in R\).
+    Sei also \(\Delta\) die Matrix über \(R[x]\) sodass 
     $$\Delta\cdot\begin{pmatrix}
         y_1\\ \vdots \\ y_n
     \end{pmatrix}=0$$
-    Es ist $\Delta^{adj}\Delta=\det(\Delta)E_n$ und somit 
+    Es ist \(\Delta^{adj}\Delta=\det(\Delta)E_n\) und somit 
     $$\det(\Delta)\begin{pmatrix}
         y_1\\ \vdots \\y_n
     \end{pmatrix}=\Delta^{adj}\Delta\begin{pmatrix}
         y_1\\ \vdots \\y_n
-    \end{pmatrix}=0$$ also ist $\det(\Delta)y_i=0$ für alle $i$.
-    Also ist $\det(\Delta)M=0$ und somit $\det(\Delta)=0$.
-    Also ist $\det(\delta_{ij}X-a_{ij})$ Poylon über $R$ das bei $x$ verschwindet.
+    \end{pmatrix}=0\($ also ist \)\det(\Delta)y_i=0\( für alle \)i$.
+    Also ist \(\det(\Delta)M=0\) und somit \(\det(\Delta)=0\).
+    Also ist \(\det(\delta_{ij}X-a_{ij})\) Poylon über \(R\) das bei \(x\) verschwindet.
     
 \end{proof}
 \begin{Kor}
-    Jeder endliche Ringhomomorphismus $R\to R'$ ist ganz 
+    Jeder endliche Ringhomomorphismus \(R\to R'\) ist ganz 
 \end{Kor}
 \begin{proof}
-    sei $M=R'$ Dann ist $M$ endlich erzeugt. Nach Teil 3 von ?? ist $R\to R'$ ganz.
+    sei \(M=R'\) Dann ist \(M\) endlich erzeugt. Nach Teil 3 von ?? ist \(R\to R'\) ganz.
 \end{proof}
 \begin{Kor}
-    sei $\varphi\colon R\to R'$ Ringhomomorphismus und $y_1,\dots,y_r\in R'$ ganz über $R$ sodass $R'=R[y_1,\dots,y_n]$.
-    dann ist $\varphi$ endlich und insbesondere ganz.
+    sei \(\varphi\colon R\to R'\) Ringhomomorphismus und \(y_1,\dots,y_r\in R'\) ganz über \(R\) sodass \(R'=R[y_1,\dots,y_n]\).
+    dann ist \(\varphi\) endlich und insbesondere ganz.
 \end{Kor}
 \begin{proof}
-    Es ist $\varphi(R)\subseteq\varphi(R)[y_1]\subseteq\dots\subseteq \varphi(R)[y_1,\dots,y_r]=R'$ und alle Inklusionen sind endlich nach Lemma ??. Also ist inst $R'$ endlich.
+    Es ist \(\varphi(R)\subseteq\varphi(R)[y_1]\subseteq\dots\subseteq \varphi(R)[y_1,\dots,y_r]=R'\) und alle Inklusionen sind endlich nach Lemma ??. Also ist inst \(R'\) endlich.
 \end{proof}
 \begin{Kor}
-    Seien $\varphi\colon R\to R'$ und $\varphi'\colon R'\to R''$ endlich (bzw ganz). dann ist die Komposition $\varphi'\varphi$ auch endlich (bzw ganz)
+    Seien \(\varphi\colon R\to R'\) und \(\varphi'\colon R'\to R''\) endlich (bzw ganz). dann ist die Komposition \(\varphi'\varphi\) auch endlich (bzw ganz)
 \end{Kor}
 \begin{proof}
     Endlich ist klar wie zuvor. Seien beide ganz.
-    $z\in R''$ erfüllt Ganzheitsgleichung $z^n+b_1z^{n-1}+\dots+b_n=0$ mit $b_i\in R'$.
-    also ist $z$ ganz über $R[b_1,\dots,b_n]$ und $R[b_1,\dots,b_n,z]$ ist endlich über $R[b_1,\dots,b_n]$ was endlich ist über $R$ da alle $b_i$ ganz über $R$. Also ist $R\to R[b_1,\dots,b_n,z]$ endlich und damit ganz.
-    Also ist $R\to R''$ ganz.
+    \(z\in R''\) erfüllt Ganzheitsgleichung \(z^n+b_1z^{n-1}+\dots+b_n=0\) mit \(b_i\in R'\).
+    also ist \(z\) ganz über \(R[b_1,\dots,b_n]\) und \(R[b_1,\dots,b_n,z]\) ist endlich über \(R[b_1,\dots,b_n]\) was endlich ist über \(R\) da alle \(b_i\) ganz über \(R\). Also ist \(R\to R[b_1,\dots,b_n,z]\) endlich und damit ganz.
+    Also ist \(R\to R''\) ganz.
 \end{proof}
 \begin{proof}
-    Sei $R\to R'$ injektiv und $\bar R=\{x\in R'\mid x \text{ ganz}\}$ Dann ist $R\subseteq \bar R\subseteq R'$ Unterring, gennant der ganze Abschluss von $R$ in $R'$. $\bar R$ ist ganzabgeschlossen in $R'$
+    Sei \(R\to R'\) injektiv und \(\bar R=\{x\in R'\mid x \text{ ganz}\}\) Dann ist \(R\subseteq \bar R\subseteq R'\) Unterring, gennant der ganze Abschluss von \(R\) in \(R'\). \(\bar R\) ist ganzabgeschlossen in \(R'\)
 \end{proof}
 \begin{proof}
-    Seien $x,y\in R'$ ganz. Dann ist $R[x,y]$ ganz über $R$ also sind $x+y,x\cdot y\in \bar R$. Es ist $R\to \bar R\to \bar{\bar R}$ ganz also $\bar R=\bar{\bar R}$.
+    Seien \(x,y\in R'\) ganz. Dann ist \(R[x,y]\) ganz über \(R\) also sind \(x+y,x\cdot y\in \bar R\). Es ist \(R\to \bar R\to \bar{\bar R}\) ganz also \(\bar R=\bar{\bar R}\).
 \end{proof}
 \begin{Def}
-    Ein Integritätsbereich $R$ heißt normal, falls $R$ ganz-abgeschlossen ist in seinem Quotientenkörper.
+    Ein Integritätsbereich \(R\) heißt normal, falls \(R\) ganz-abgeschlossen ist in seinem Quotientenkörper.
 \end{Def}
 \begin{Bem}
     Ein faktorieller Ring ist normal.
 \end{Bem}
 \begin{Lemma}
-    Sei $S\subseteq R\setminus\{0\}$ eine multiplikative Menge und $R$ normal. Dann ist $R_S$ normal.
+    Sei \(S\subseteq R\setminus\{0\}\) eine multiplikative Menge und \(R\) normal. Dann ist \(R_S\) normal.
 \end{Lemma}
 \begin{proof}
-    Es ist $R\subseteq R_S\subseteq \Quot(R)$ und $\Quot(R_S)=Q(R)$.
-    Sei $x\in \Quot(R)$ ganz über $R_S$ und $$x^n+\frac{a_1}{s_1}x^{n-1}+\dots \frac{a_n}{s_n}=0$$ Ganzheitsgleichung. Sei $s=s_1\cdots s_n$
-    Dann ist $sx$ ganz über $R$ also $sx\in R$ und somit $x=\frac 1 s sx\in R_S$ und somit $R_S$ normal.
+    Es ist \(R\subseteq R_S\subseteq \Quot(R)\) und \(\Quot(R_S)=Q(R)\).
+    Sei \(x\in \Quot(R)\) ganz über \(R_S\) und \[x^n+\frac{a_1}{s_1}x^{n-1}+\dots \frac{a_n}{s_n}=0\] Ganzheitsgleichung. Sei \(s=s_1\cdots s_n\)
+    Dann ist \(sx\) ganz über \(R\) also \(sx\in R\) und somit \(x=\frac 1 s sx\in R_S\) und somit \(R_S\) normal.
 \end{proof}
 \begin{Lemma}
-    Sei $A$ nullteilerfrei und $K=\Quot(A)$ und $L/K$ eine Körpererweiterung. sei $B\subseteq L$ der ganze Abschluss von $A$ in $L$ und $S\subseteq A$ eine multiplikative Menge. Dann ist $S^{-1}B$ der ganze Abschluss von $S^{-1}A$ in $L$.
+    Sei \(A\) nullteilerfrei und \(K=\Quot(A)\) und \(L/K\) eine Körpererweiterung. sei \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\) und \(S\subseteq A\) eine multiplikative Menge. Dann ist \(S^{-1}B\) der ganze Abschluss von \(S^{-1}A\) in \(L\).
 \end{Lemma}
 \begin{proof}
-    sei $x=\frac bs \in S^{-1}B$ dann ist $sx=b$ ganz über $A$ also gibt es $$b^n+a_1b^{n-1}+\dots+a_0=0$$ dann ist $$x^n+\frac{a_1}{s}x^{n-1}+\dots+\frac{a_n}{s^n}=0$$ und somit $x$ ganz über $S^{-1}A$.
-    Sei $x\in L$ ganz über $S^{-1}A$
-    $$x^n+\frac{a_1}{s_1}x^{n-1}+\dots+\frac{a_0}{s_0}=0$$ sei $s=s_1\cdots s_n$ dann ist $sx$ ganz über $A$ also $sx\in B$ und $x\in S^{-1}B$.
+    sei \(x=\frac bs \in S^{-1}B\) dann ist \(sx=b\) ganz über \(A\) also gibt es \[b^n+a_1b^{n-1}+\dots+a_0=0\] dann ist \[x^n+\frac{a_1}{s}x^{n-1}+\dots+\frac{a_n}{s^n}=0\] und somit \(x\) ganz über \(S^{-1}A\).
+    Sei \(x\in L\) ganz über \(S^{-1}A\)
+    \[x^n+\frac{a_1}{s_1}x^{n-1}+\dots+\frac{a_0}{s_0}=0\] sei \(s=s_1\cdots s_n\) dann ist \(sx\) ganz über \(A\) also \(sx\in B\) und \(x\in S^{-1}B\).
 \end{proof}
 
 \begin{Satz}
-    Für einen Integritätsbereich $R$ ist äquivalent:
+    Für einen Integritätsbereich \(R\) ist äquivalent:
     \begin{enumerate}
-        \item $R$ ist normal
-        \item $R_\frakp$ ist normal für alle primideale $\frakp\subseteq R$.
-        \item $R_\frakm$ ist noraml für alle $\frakm\subseteq R$ maximal.
+        \item \(R\) ist normal
+        \item \(R_\frakp\) ist normal für alle primideale \(\frakp\subseteq R\).
+        \item \(R_\frakm\) ist noraml für alle \(\frakm\subseteq R\) maximal.
     \end{enumerate}
 \end{Satz}
 \begin{proof}
     1 impliziert 2 nach Lemma ??
     2 nach 3 ist klar.
-    Gelte 3. und Sei $x\in\Quot(R)$ ganz über $R$. Da $R_\frakm$ normal ist, ist $x\in\bigcap_\frakm R_\frakm$. Zeige also $\bigcap_\frakm R_\frakm=R$.
-    sei $x\in \bigcap R_\frakm$.
-    Wähle $a_\frakm\in R$ und $b_\frakm \in R\setminus\frakm$ sodass $x=\frac{a_\frakm}{b_\frakm}$. Es ist $\sum(b_\frakm)=R$ da es in keinem maximalen Ideal enthalten ist. Also gibt es Gleichung $\sum_\frakm c_\frakm b_\frakm=1$ mit $c_\frakm\in R$ und $c_\frakm=0$ fast immer $0$.
-    Also ist $$x=(\sum_\frakm c_\frakm b_\frakm)x=\sum_\frakm c_\frakm a_\frakm\in R.$$ Also ist $R$ normal.
+    Gelte 3. und Sei \(x\in\Quot(R)\) ganz über \(R\). Da \(R_\frakm\) normal ist, ist \(x\in\bigcap_\frakm R_\frakm\). Zeige also \(\bigcap_\frakm R_\frakm=R\).
+    sei \(x\in \bigcap R_\frakm\).
+    Wähle \(a_\frakm\in R\) und \(b_\frakm \in R\setminus\frakm\) sodass \(x=\frac{a_\frakm}{b_\frakm}\). Es ist \(\sum(b_\frakm)=R\) da es in keinem maximalen Ideal enthalten ist. Also gibt es Gleichung \(\sum_\frakm c_\frakm b_\frakm=1\) mit \(c_\frakm\in R\) und \(c_\frakm=0\) fast immer \(0\).
+    Also ist \[x=(\sum_\frakm c_\frakm b_\frakm)x=\sum_\frakm c_\frakm a_\frakm\in R.\] Also ist \(R\) normal.
 \end{proof}
 \begin{Def}
-    Sei $K$ ein Körper und $R$ eine $K$-Algebra. $y_1,\dots,y_n\in R$ heißen algebraisch unabhängig über $K$, falls die Surjektion $$K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]$$ ein Isomorphismus ist.
+    Sei \(K\) ein Körper und \(R\) eine \(K\)-Algebra. \(y_1,\dots,y_n\in R\) heißen algebraisch unabhängig über \(K\), falls die Surjektion \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] ein Isomorphismus ist.
 \end{Def}
 \begin{Lemma}[Horrible Lemma]
-    Sei $I$ eine endliche Menge von Tupeln $m=(m_1,\dots,m_n)\in \NN^n$.
-    Es gibt $r_1,\dots,r_{n-1}\in\NN$ und $r_n=1$ sodass 
-    $m\neq m'\in I\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'$
+    Sei \(I\) eine endliche Menge von Tupeln \(m=(m_1,\dots,m_n)\in \NN^n\).
+    Es gibt \(r_1,\dots,r_{n-1}\in\NN\) und \(r_n=1\) sodass 
+    \(m\neq m'\in I\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'\)
 \end{Lemma}
 \begin{proof}
-    Wenn $n=1$ dann ist das klar.
-    Sei $\bar I=\{\bar m=(m_2,\dots,m_n)\mid \exists m_1\colon (m_1,m_2,\dots,m_n)\in I\}$
-    Nach Induktion gibt es $r_2,\dots r_n$ mit $r_n=1$ sodass $$(m_2,\dots,m_n)\neq (m_2',\dots,m_n')\implies \sum_{i=2}^nr_im_i\neq \sum_{i=2}^nr_im_i'$$
-    Wähle $r_1>\max\{\sum_{i=2}^nr_im_i\mid \bar m=(m_2,\dots,m_n)\in \bar I\}$.
-    Dann ist für $m\neq m'$ entweder $m_1\neq m_1'$ oder $\bar m_=(m_2,\dots,m_n)\neq \bar m'=(m_2',\dots,m_n')$.
-    In beiden Fällen ist $\sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_i m_i'$.
+    Wenn \(n=1\) dann ist das klar.
+    Sei \(\bar I=\{\bar m=(m_2,\dots,m_n)\mid \exists m_1\colon (m_1,m_2,\dots,m_n)\in I\}\)
+    Nach Induktion gibt es \(r_2,\dots r_n\) mit \(r_n=1\) sodass \[(m_2,\dots,m_n)\neq (m_2',\dots,m_n')\implies \sum_{i=2}^nr_im_i\neq \sum_{i=2}^nr_im_i'\]
+    Wähle \(r_1>\max\{\sum_{i=2}^nr_im_i\mid \bar m=(m_2,\dots,m_n)\in \bar I\}\).
+    Dann ist für \(m\neq m'\) entweder \(m_1\neq m_1'\) oder \(\bar m_=(m_2,\dots,m_n)\neq \bar m'=(m_2',\dots,m_n')\).
+    In beiden Fällen ist \(\sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_i m_i'\).
 \end{proof}
 \begin{Lemma}
-    sei $K$ ein Körper und $A=K[y_1,\dots,y_n]$ sodass $$K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]$$ kein Isomorphismus ist. Dann gibt es $y_1^*,\dots,y_{n-1}^*\in A$ sodass $y_n$ ganz über $A^*=K[y_1^*,\dots,y_{n-1}^*]$ und $A=A^*[y_n]$
+    sei \(K\) ein Körper und \(A=K[y_1,\dots,y_n]\) sodass \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] kein Isomorphismus ist. Dann gibt es \(y_1^*,\dots,y_{n-1}^*\in A\) sodass \(y_n\) ganz über \(A^*=K[y_1^*,\dots,y_{n-1}^*]\) und \(A=A^*[y_n]\)
 \end{Lemma}
 \begin{proof}
-    seien $r_1,\dots,r_{n-1}\geq 1$ mit $r_i\in\ZZ$ und setzte $r_n=1$. Setze $$y_i^*=y_i-y_n^{r_i}$$ für $i=1,\dots,n-1$. Sei $F$ im Kern von 
-    $$K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]$$. Definiere Relation $G$ über $K[y_1^*,\dots,y_{n-1}^*]$ durch 
-    $$G(y_1^*,\dots,y_{n-1}^*,y_n)=F(y_1^*+y_n^{r_i},\dots,y_{n-1}+y_n^{r_{n-1}},y_n)=F(y_1,\dots,y_n)=0$$
-    Schreibe $F=\sum_{m=(m_1,\dots,m_n)\in I} a_mY^m=\sum_ma_m\prod Y_i^{m_i}$.
+    seien \(r_1,\dots,r_{n-1}\geq 1\) mit \(r_i\in\ZZ\) und setzte \(r_n=1\). Setze \[y_i^*=y_i-y_n^{r_i}\] für \(i=1,\dots,n-1\). Sei \(F\) im Kern von 
+    \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\]. Definiere Relation \(G\) über \(K[y_1^*,\dots,y_{n-1}^*]\) durch 
+    \[G(y_1^*,\dots,y_{n-1}^*,y_n)=F(y_1^*+y_n^{r_i},\dots,y_{n-1}+y_n^{r_{n-1}},y_n)=F(y_1,\dots,y_n)=0\]
+    Schreibe \(F=\sum_{m=(m_1,\dots,m_n)\in I} a_mY^m=\sum_ma_m\prod Y_i^{m_i}\).
     Dann ist 
     \begin{align*}
         G&=\sum a_my_n^{m_n}\prod_{i\neq n}(y_i^*+y_n^{r_i})\\
         &=\sum_ma_m(y_n^{\sum_{i=1}^n r_im_i}+\text{Rest}_m)
-    \end{align*} wobei der Rest ein Poylnom in $y_n$ ist von Grad echt kleiner als $m_n+\sum r_im_i$.
-    Nach Lemma ??? kann man $r_i$ so wählen, dass $m\neq m'\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'$.
-    Dann wird $\max\{\sum r_im_i\mid a_m\neq 0\}$ nur in einem Summanden angenommen, sodass sich nicht alle Terme wegheben.
-    Da $a_m\neq 0$ wo das Maximum angenommen wird und $a_m\in K$ ist, folgt dass $y_n$ ganz ist über $K[y_1^*,\dots,y_{n-1}^*]$
+    \end{align*} wobei der Rest ein Poylnom in \(y_n\) ist von Grad echt kleiner als \(m_n+\sum r_im_i\).
+    Nach Lemma ??? kann man \(r_i\) so wählen, dass \(m\neq m'\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'\).
+    Dann wird \(\max\{\sum r_im_i\mid a_m\neq 0\}\) nur in einem Summanden angenommen, sodass sich nicht alle Terme wegheben.
+    Da \(a_m\neq 0\) wo das Maximum angenommen wird und \(a_m\in K\) ist, folgt dass \(y_n\) ganz ist über \(K[y_1^*,\dots,y_{n-1}^*]\)
 \end{proof}
 \begin{Satz}[Noether Normalisierung]\label{Satz:NoetherNor}
-Sei $K$ ein Körper und $A$ eine $K$-Algebra von endlichem Typ. Dann gibt es $z_1,\dots,z_m\in A$ sodass
+Sei \(K\) ein Körper und \(A\) eine \(K\)-Algebra von endlichem Typ. Dann gibt es \(z_1,\dots,z_m\in A\) sodass
 \begin{enumerate}
-    \item $z_1,\dots,z_m$ algebraisch unabhängig über $K$ sind und
-    \item $A$ ist endlich über $K[z_1,\dots,z_m]\subseteq A$
+    \item \(z_1,\dots,z_m\) algebraisch unabhängig über \(K\) sind und
+    \item \(A\) ist endlich über \(K[z_1,\dots,z_m]\subseteq A\)
 \end{enumerate}
 \end{Satz}
 \begin{proof}
-    Es ist $A=K[y_1,\dots,y_n]$. Wenn $n=0$ ist, ist nichts zu zeigen.
-    Sei $n>0$ Wenn $y_1,\dots,y_n$ algebraisch unabhängig sind über $K$, dann ist nichts zu zeigen.
-    Seien $y_1,\dots,y_n$ also algebraisch abhängig. Das heißt $$K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]$$ hat nicht triviale Kern.
-    Nach Lemma ?? gibt es also $y_1^*,\dots,y_{n-1}^*\in A$ sodass $y_n$ ganz über $A^*=K[y_1^*,\dots,y_{n-1}^*]$ und $A=A^*[y_n]$. Nach Induktion gibt es $z_1,\dots,z_m\in A^*$ algebraisch unabhängig sodass $A^*$ endlich ist über $B=K[z_1,\dots,z_m]$ da $y_n$ ganz über $A^*$ ist ist $A^*[y_n]$ endlich über $A$ sodass $A$ endlich über $B$ ist.
+    Es ist \(A=K[y_1,\dots,y_n]\). Wenn \(n=0\) ist, ist nichts zu zeigen.
+    Sei \(n>0\) Wenn \(y_1,\dots,y_n\) algebraisch unabhängig sind über \(K\), dann ist nichts zu zeigen.
+    Seien \(y_1,\dots,y_n\) also algebraisch abhängig. Das heißt \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] hat nicht triviale Kern.
+    Nach Lemma ?? gibt es also \(y_1^*,\dots,y_{n-1}^*\in A\) sodass \(y_n\) ganz über \(A^*=K[y_1^*,\dots,y_{n-1}^*]\) und \(A=A^*[y_n]\). Nach Induktion gibt es \(z_1,\dots,z_m\in A^*\) algebraisch unabhängig sodass \(A^*\) endlich ist über \(B=K[z_1,\dots,z_m]\) da \(y_n\) ganz über \(A^*\) ist ist \(A^*[y_n]\) endlich über \(A\) sodass \(A\) endlich über \(B\) ist.
 \end{proof}
 \begin{Satz}[Schwacher Nullstellensatz]\label{Satz:WeakNst}
-Sei $K$ ein Körper, $L$ eine $K$-Algebra von endlichem Typ die ein Körper ist.
-Dann ist $L/K$ endlich.
+Sei \(K\) ein Körper, \(L\) eine \(K\)-Algebra von endlichem Typ die ein Körper ist.
+Dann ist \(L/K\) endlich.
     
 \end{Satz}
 \begin{Def}
-    Ein Ring $R$ heißt lokal, wenn es genau ein maximales Ideal gibt.
+    Ein Ring \(R\) heißt lokal, wenn es genau ein maximales Ideal gibt.
 \end{Def}
 \begin{Satz}
-    Sei $\frakm\subsetneq R$ ein Ideal. Es ist äquivalent:
+    Sei \(\frakm\subsetneq R\) ein Ideal. Es ist äquivalent:
     \begin{enumerate}
-        \item $R$ ist lokal mit maximalem Ideal $\frakm$
-        \item $\forall a\in R\setminus \frakm: a\in R^*$
-        \item $\frakm$ ist maximales Ideal und jedes Element $a=1+m$ mit $m\in\frakm$ ist eine Einheit.
+        \item \(R\) ist lokal mit maximalem Ideal \(\frakm\)
+        \item \(\forall a\in R\setminus \frakm: a\in R^*\)
+        \item \(\frakm\) ist maximales Ideal und jedes Element \(a=1+m\) mit \(m\in\frakm\) ist eine Einheit.
     \end{enumerate}
 \end{Satz}
 \begin{proof}
-    Gelte 1. Wenn $a$ keine Einheit, dann ist $a$ in einem maximalen Ideal enthalten. Also in $\frakm$.
-    Gelte 3. Sei $a\not \in\frakm$ das heißt $a+\frakm$ ist Einheit in $R/\frakm$. Also gibt es $x$ sodass $ax+\frakm=1+\frakm$ also ist $1=ax+m$ für ein $m\in\frakm$. Dann ist $ax\in R^*$ also auch $a$.
+    Gelte 1. Wenn \(a\) keine Einheit, dann ist \(a\) in einem maximalen Ideal enthalten. Also in \(\frakm\).
+    Gelte 3. Sei \(a\not \in\frakm\) das heißt \(a+\frakm\) ist Einheit in \(R/\frakm\). Also gibt es \(x\) sodass \(ax+\frakm=1+\frakm\) also ist \(1=ax+m\) für ein \(m\in\frakm\). Dann ist \(ax\in R^*\) also auch \(a\).
 \end{proof}
 \begin{Lemma}
-    $\ZZ/n\ZZ$ ist lokal genau dann wenn $n=p^r$ für eine primzahl $p$ und $r>1$.
+    \(\ZZ/n\ZZ\) ist lokal genau dann wenn \(n=p^r\) für eine primzahl \(p\) und \(r>1\).
 \end{Lemma}
 \begin{proof}
-    Sei $n=p^r$. Primideale in $\ZZ/n\ZZ$ sind Primideale in $\ZZ$ die $n\ZZ$ enthalten. Das ist nur $(p)$. Also ist der Ring lokal.
-    Andersrum wenn $n=p_1^{e_1}\cdots p_s^{e_s}$ die Primfaktorzerlegung von $n$ ist mit $p_i\neq p_j$ für $i\neq j$ dann korrespondier mit selber Begründung jedes $(p_i)$ zu einem maximalen Ideal in $\ZZ/n\ZZ$.
+    Sei \(n=p^r\). Primideale in \(\ZZ/n\ZZ\) sind Primideale in \(\ZZ\) die \(n\ZZ\) enthalten. Das ist nur \((p)\). Also ist der Ring lokal.
+    Andersrum wenn \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung von \(n\) ist mit \(p_i\neq p_j\) für \(i\neq j\) dann korrespondier mit selber Begründung jedes \((p_i)\) zu einem maximalen Ideal in \(\ZZ/n\ZZ\).
 \end{proof}
 \begin{Satz}[Schwacher Nullstellensatz]\label{Satz:WeakNst}
-Sei $K$ ein Körper, $L$ eine $K$-Algebra von endlichem Typ die ein Körper ist.
-Dann ist $L/K$ endlich.
+Sei \(K\) ein Körper, \(L\) eine \(K\)-Algebra von endlichem Typ die ein Körper ist.
+Dann ist \(L/K\) endlich.
     
 \end{Satz}
 
 \begin{proof}
-    Nach \hyperref[Satz:NoetherNor]{Noether Normalisierung} gibt es $z_1,\dots,z_m\in L$ algebraisch unabhängig sodass $L$ endlich ist über $A=K[z_1,\dots,z_m]$.
-    Dann ist $A\subseteq L$ ganz und da $L$ ein Körper ist, ist $A$ ein Körper.
-    Da $Z_1,\dots,z_m$ algebraisch unabhängig sind, ist $A$ ein Polynomring in $m$ Variablen. Also ist $m=0$ und $L$ ist endlich über $K$.
+    Nach \hyperref[Satz:NoetherNor]{Noether Normalisierung} gibt es \(z_1,\dots,z_m\in L\) algebraisch unabhängig sodass \(L\) endlich ist über \(A=K[z_1,\dots,z_m]\).
+    Dann ist \(A\subseteq L\) ganz und da \(L\) ein Körper ist, ist \(A\) ein Körper.
+    Da \(Z_1,\dots,z_m\) algebraisch unabhängig sind, ist \(A\) ein Polynomring in \(m\) Variablen. Also ist \(m=0\) und \(L\) ist endlich über \(K\).
 \end{proof}
 \begin{Kor}
-    Sei $K$ ein Körper und $f\colon A\to B$ ein Homomorphismus von $K$-algebren sodass $B$ eine $K$-Algebra vom endlichen Typ ist. sei $\frakm\subseteq B$ ein maximales Ideal. Dann ist $f^{-1}(\frakm)$ maximal.
+    Sei \(K\) ein Körper und \(f\colon A\to B\) ein Homomorphismus von \(K\)-algebren sodass \(B\) eine \(K\)-Algebra vom endlichen Typ ist. sei \(\frakm\subseteq B\) ein maximales Ideal. Dann ist \(f^{-1}(\frakm)\) maximal.
 \end{Kor}
 \begin{proof}
-    Es ist $K\to A/f^{-1}(\frakm)\to B/\frakm$ injektiv, da $B\frak m$ eine endliche Körpererweiterung nach Schwachen NstSatz. Dann sind $K\to A/f^{-1}(\frakm)\to B/\frakm$ alle ganz und damit $A/f^{-1}(\frakm)$ %TODO
+    Es ist \(K\to A/f^{-1}(\frakm)\to B/\frakm\) injektiv, da \(B\frakm\) eine endliche Körpererweiterung nach Schwachen NstSatz. Dann sind \(K\to A/f^{-1}(\frakm)\to B/\frakm\) alle ganz und damit \(A/f^{-1}(\frakm)\) %TODO
 \end{proof}
 \begin{Bsp}
-    Sei $K$ ein Körper und $R=K[X_1,\dots,X_m]$ und $\frakm\subseteq R$ ein maximales Ideal und $L=R/\frakm$.
-    Nach Schwachem Nullstellensatz ist $L/K$ endliche,algebraische Erweiterung.
+    Sei \(K\) ein Körper und \(R=K[X_1,\dots,X_m]\) und \(\frakm\subseteq R\) ein maximales Ideal und \(L=R/\frakm\).
+    Nach Schwachem Nullstellensatz ist \(L/K\) endliche,algebraische Erweiterung.
     
 \end{Bsp}
 \begin{Kor}
-    Sei $K$ algebraisch abgeschlossen und $\frakm\subseteq R=K[X_1,\dots,X_m]$ ein maximales Ideal. Dann ist $\frakm=(X_1-a_1,\dots,X_n-a_n)$ für $a_1,\dots,a_n$ in $K$ und die Projektion $\pi\colon R\to R/\frakm$ ist $f\mapsto f(a_1,\dots,a_n)$.
-    Das heißt es gibt Bijektion $K^n\to \Specm(R),\, (a_1,\dots,a_n)\mapsto (X-a_1,\dots,X_n-a_n)$.
+    Sei \(K\) algebraisch abgeschlossen und \(\frakm\subseteq R=K[X_1,\dots,X_m]\) ein maximales Ideal. Dann ist \(\frakm=(X_1-a_1,\dots,X_n-a_n)\) für \(a_1,\dots,a_n\) in \(K\) und die Projektion \(\pi\colon R\to R/\frakm\) ist \(f\mapsto f(a_1,\dots,a_n)\).
+    Das heißt es gibt Bijektion \(K^n\to \Specm(R),\, (a_1,\dots,a_n)\mapsto (X-a_1,\dots,X_n-a_n)\).
 \end{Kor}
 \begin{proof}
-    Sei $L=K[X_1,\dots,X_n]/\frakm$. Dann ist nach ??? $L/K$ algebraisch also $L=K$.
-    Das heißt $\pi\colon K[X_1,\dots,X_n]\to K$ und sei $a_i=\pi(X_i)$.
-    Dann ist $\pi(X_i-a_i)=0$ also $X_i-a_i\in\frakm$ für alle $i$.
-    Also ist $\frakm\supseteq (X_1-a_1,\dots,,X_n-a_n)$ und letzteres ist maximal denn die Abbildung $K[X_1,\dots,X_n]\to K, f\mapsto f(a_1,\dots,a_n)$ hat dieses Ideal als Kern.
+    Sei \(L=K[X_1,\dots,X_n]/\frakm\). Dann ist nach ??? \(L/K\) algebraisch also \(L=K\).
+    Das heißt \(\pi\colon K[X_1,\dots,X_n]\to K\) und sei \(a_i=\pi(X_i)\).
+    Dann ist \(\pi(X_i-a_i)=0\) also \(X_i-a_i\in\frakm\) für alle \(i\).
+    Also ist \(\frakm\supseteq (X_1-a_1,\dots,,X_n-a_n)\) und letzteres ist maximal denn die Abbildung \(K[X_1,\dots,X_n]\to K, f\mapsto f(a_1,\dots,a_n)\) hat dieses Ideal als Kern.
 \end{proof}
 \begin{Def}
-    Sei $K$ ein Körper. Eine Varietät $V\subseteq K^n$ ist eine Teilmenge $V=V(J)=\{p=(a_1,\dots,a_n)\in K^n\mid f(p)=0\, \forall f\in J\}$  für ein Ideal $J\subseteq K[X_1,\dots,X_n]$ ein Ideal. Da $J=(f_1,\dots,f_m)$ endlich erzeugt ist, ist $V$ definiert durch $f_1(p)=\dots=f_m(p)=0$.
+    Sei \(K\) ein Körper. Eine Varietät \(V\subseteq K^n\) ist eine Teilmenge \(V=V(J)=\{p=(a_1,\dots,a_n)\in K^n\mid f(p)=0\, \forall f\in J\}\)  für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\) ein Ideal. Da \(J=(f_1,\dots,f_m)\) endlich erzeugt ist, ist \(V\) definiert durch \(f_1(p)=\dots=f_m(p)=0\).
 \end{Def}
 \begin{Satz}
-    Sei $K$ algebraisch abgeschlossen und $A=K[X_1,\dots,X_n]/J$ für ein Ideal $J\subseteq K[X_1,\dots,X_n]$.
-    Dann hat jedes maximale Ideal von $A$ die Form $$(X-a_1,\dots,X_n-a_n)$$ für ein $(a_1,\dots,a_n)\in V(J)$.
-    Das heißt es gibt Bijektion von Varietäten und $\Specm A$ gegeben durch $(a_1,\dots,a_n)\leftrightarrow (X_1-a_1,\dots,X_n-a_n)$.
+    Sei \(K\) algebraisch abgeschlossen und \(A=K[X_1,\dots,X_n]/J\) für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\).
+    Dann hat jedes maximale Ideal von \(A\) die Form \[(X-a_1,\dots,X_n-a_n)\] für ein \((a_1,\dots,a_n)\in V(J)\).
+    Das heißt es gibt Bijektion von Varietäten und \(\Specm A\) gegeben durch \((a_1,\dots,a_n)\leftrightarrow (X_1-a_1,\dots,X_n-a_n)\).
 \end{Satz}
 \begin{proof}
-    Ideal von $A$ sind Ideale in $K[X_1,\dots,X_n]$ die $J$ enthalten. Also haben alle maximalen Ideale von $A$ die Form $(X_1-a_1,\dots,X_n-a_n)$ für $a_1,\dots,a_n$ sodass $J\subseteq (X_1-a_1,\dots,X_n-a_n)$. Da jedoch 
-    $$(X_1-a_1,\dots,X_n-a_n)=\ker(f\mapsto f(a_1,\dots,a_n))$$ ist, ist $J\subseteq (X_1-a_1,\dots,X_n-a_n)\iff f(a_1,\dots,a_n)=0\, \forall f\in J$ also ist $(a_1,\dots,a_n)\in V(J)$.
+    Ideal von \(A\) sind Ideale in \(K[X_1,\dots,X_n]\) die \(J\) enthalten. Also haben alle maximalen Ideale von \(A\) die Form \((X_1-a_1,\dots,X_n-a_n)\) für \(a_1,\dots,a_n\) sodass \(J\subseteq (X_1-a_1,\dots,X_n-a_n)\). Da jedoch 
+    \[(X_1-a_1,\dots,X_n-a_n)=\ker(f\mapsto f(a_1,\dots,a_n))\] ist, ist \(J\subseteq (X_1-a_1,\dots,X_n-a_n)\iff f(a_1,\dots,a_n)=0\, \forall f\in J\) also ist \((a_1,\dots,a_n)\in V(J)\).
 \end{proof}
 \begin{Bem}
     Es gibt zwei Abbildungen
@@ -1004,78 +1008,78 @@ Dann ist $L/K$ endlich.
 \begin{tikzcd}
 {\{J\subseteq K[X_1,\dots,X_n] \text{ Ideal}\}} \arrow[rr, "V", shift left=2] &  & \{X\subseteq K^n\text{ Teilmenge}\} \arrow[ll, "I", shift left=2]
 \end{tikzcd}$$
-wobei $I(X)=\{f\in K[X_1,\dots,X_n]\mid f(p)=0\, \forall p\in X\}$ ein Ideal ist.
+wobei \(I(X)=\{f\in K[X_1,\dots,X_n]\mid f(p)=0\, \forall p\in X\}\) ein Ideal ist.
 Es gilt 
 \begin{enumerate}
-    \item $J\subseteq J'\implies V(J)\supseteq V(J')$
-    \item $X\subseteq Y\implies I(X)\supseteq I(Y)$
-    \item $X\subseteq V(I(X))$
-    \item $X \text{ ist Varietät } \iff X=V(I(X))$
-    \item $J\subseteq I(V(J))$.
+    \item \(J\subseteq J'\implies V(J)\supseteq V(J')\)
+    \item \(X\subseteq Y\implies I(X)\supseteq I(Y)\)
+    \item \(X\subseteq V(I(X))\)
+    \item \(X \text{ ist Varietät } \iff X=V(I(X))\)
+    \item \(J\subseteq I(V(J))\).
 \end{enumerate}
 \end{Bem}
 \begin{Bem}
-    Sei $K$ algebraisch abgeschlossen und $R=K[X_1,\dots,X_n]$ und $Y\subseteq R$ eine Teilmenge. Dann gilt
+    Sei \(K\) algebraisch abgeschlossen und \(R=K[X_1,\dots,X_n]\) und \(Y\subseteq R\) eine Teilmenge. Dann gilt
     \begin{enumerate}
-        \item $V(Y)=V((Y))$
-        \item $V(f)=V(f^n)$
-        \item $I\subseteq R$ Ideal $\implies V(\sqrt{J})=V(J)$
-        \item $Y\subseteq Y'\subseteq R\implies V(Y')\subseteq V(Y)$
-        \item $Y_i\subseteq R\implies V(\bigcup_iY_i)=\bigcap_iV(Y_i)$
+        \item \(V(Y)=V((Y))\)
+        \item \(V(f)=V(f^n)\)
+        \item \(I\subseteq R\) Ideal \(\implies V(\sqrt{J})=V(J)\)
+        \item \(Y\subseteq Y'\subseteq R\implies V(Y')\subseteq V(Y)\)
+        \item \(Y_i\subseteq R\implies V(\bigcup_iY_i)=\bigcap_iV(Y_i)\)
         
     \end{enumerate}
 \end{Bem}
 \begin{Satz}[Nullstellensatz]
-    Sei $K$ ein algebraisch abgeschlossenere Körper.
+    Sei \(K\) ein algebraisch abgeschlossenere Körper.
     \begin{enumerate}
-        \item wenn $J\subsetneq K[X_1,\dots,X_n]$ dann ist $V(J)\neq\emptyset$.
-        \item $I(V(J))=\rad(J)$
+        \item wenn \(J\subsetneq K[X_1,\dots,X_n]\) dann ist \(V(J)\neq\emptyset\).
+        \item \(I(V(J))=\rad(J)\)
     \end{enumerate}
 \end{Satz}
 \begin{proof}
-    Sei $J\subseteq\frakm$ für ein maximales Ideal $\frakm=(X_1-a_1,\dots,X_n-a_n)$.
-    Dann ist $P=(a_1,\dots,a_n)\in V(J)$
-    Angenommen $f\in K[X_1,\dots,X_n]$ sodass $f(p)=0$ für alle $p\in V(J)$. Sei $J'=(J,fY-1)\subseteq K[X_1,\dots,X_n,Y]$. Ein Punkt $p\in V(J')$ ist $(n+1)$-Tupel $(a_1,\dots,a_n,b)\in K^{n+1}$. Angenommen $V(J')\neq \emptyset$.
-    Dann gibt es so einen Punkt $p$ und $p'=(a_1,\dots,a_n)$ ist dann in $V(J)$. Da aber $bf(a_1,\dots,a_n)=1$ ist, ist das ein Widerspruch. Also ist $V(J')=\emptyset$ und somit $J'=K[X_1,\dots,X_n,Y]$
+    Sei \(J\subseteq\frakm\) für ein maximales Ideal \(\frakm=(X_1-a_1,\dots,X_n-a_n)\).
+    Dann ist \(P=(a_1,\dots,a_n)\in V(J)\)
+    Angenommen \(f\in K[X_1,\dots,X_n]\) sodass \(f(p)=0\) für alle \(p\in V(J)\). Sei \(J'=(J,fY-1)\subseteq K[X_1,\dots,X_n,Y]\). Ein Punkt \(p\in V(J')\) ist \((n+1)\)-Tupel \((a_1,\dots,a_n,b)\in K^{n+1}\). Angenommen \(V(J')\neq \emptyset\).
+    Dann gibt es so einen Punkt \(p\) und \(p'=(a_1,\dots,a_n)\) ist dann in \(V(J)\). Da aber \(bf(a_1,\dots,a_n)=1\) ist, ist das ein Widerspruch. Also ist \(V(J')=\emptyset\) und somit \(J'=K[X_1,\dots,X_n,Y]\)
     Also gibt es Gleichung 
-    $$1=\sum g_ih_i+g_0(fY-1)$$ mit $g_i\in K[X_1,\dots,X_n,Y]$ und $h_1\in J$.
-    Multipliziere die Gleichung mit $f^m$ sodass $Y$ nur in Kombination mit $f$ auftritt und erhalte
-    $$f^m=\sum G_i(X_1,\dots,X_n,fY)h_1+G_0(X_1,\dots,X_n,fY)(fY-1)$$ Gleichung gilt auch mod $(fY-1)$ was zeigt, dass $f^m\in J$.
-    Wenn $f^n(a)=0$ ist dann ist $f(a)=0$ also $\rad(J)\subseteq I(V(J))$ Denn wenn $f^n\in J$ dann ist $f^n\in I(V(J))$ also $f^n(p)=0$ für alle $p\in V(J)$. also $f(p)=0$ also $f\in I(V(J))$.
+    \[1=\sum g_ih_i+g_0(fY-1)\] mit \(g_i\in K[X_1,\dots,X_n,Y]\) und \(h_1\in J\).
+    Multipliziere die Gleichung mit \(f^m\) sodass \(Y\) nur in Kombination mit \(f\) auftritt und erhalte
+    \[f^m=\sum G_i(X_1,\dots,X_n,fY)h_1+G_0(X_1,\dots,X_n,fY)(fY-1)\] Gleichung gilt auch mod \((fY-1)\) was zeigt, dass \(f^m\in J\).
+    Wenn \(f^n(a)=0\) ist dann ist \(f(a)=0\) also \(\rad(J)\subseteq I(V(J))\) Denn wenn \(f^n\in J\) dann ist \(f^n\in I(V(J))\) also \(f^n(p)=0\) für alle \(p\in V(J)\). also \(f(p)=0\) also \(f\in I(V(J))\).
 \end{proof}
 
 \begin{Bem}
     \begin{enumerate}
-        \item Der Satz hat den Namen wegen 1. Sei $M$ eine Menge von Poylonomen in $K[X_1,\dots,X_n]$ gegeben. Dann gibt es eine gemeinsame Nullstelle. Der Satz ist falsch, wenn $K$ nicht algebraisch abgeschlossen ist, denn wenn $f$ ein Polynom $K[X]$ ohne Nullstelle ist, dann ist $(f)\neq K[X]$ aber $V(f)=\emptyset$ und $I(V(f))=K[X]$.
-        \item Es ist $\rad J=\bigcap_{J\subset \frakp\in \Spec(A)}\frakp$ aber der Nullstellensatz ist stärker, denn 2. sagt es reichen die maximalen Ideale, die $J$ enthalten.
+        \item Der Satz hat den Namen wegen 1. Sei \(M\) eine Menge von Poylonomen in \(K[X_1,\dots,X_n]\) gegeben. Dann gibt es eine gemeinsame Nullstelle. Der Satz ist falsch, wenn \(K\) nicht algebraisch abgeschlossen ist, denn wenn \(f\) ein Polynom \(K[X]\) ohne Nullstelle ist, dann ist \((f)\neq K[X]\) aber \(V(f)=\emptyset\) und \(I(V(f))=K[X]\).
+        \item Es ist \(\rad J=\bigcap_{J\subset \frakp\in \Spec(A)}\frakp\) aber der Nullstellensatz ist stärker, denn 2. sagt es reichen die maximalen Ideale, die \(J\) enthalten.
     \end{enumerate}
     
 \end{Bem}
 \begin{Bem}
-    Sei $K$ ein Körper und $R=K[X_1,\dots,X_n]$. Dann ist für   $J,J'$ Ideale von $R$
-    $$V(J)=V(J')\iff \sqrt{J}=\sqrt{J'}$$
-    Denn $V(J)=V(J')\implies I(V(J))=I(V(J'))$ und wenn $\sqrt{J}=\sqrt{J'}$ dann ist $I(V(J))=I(V(J'))$ also $V(J)=V(I(V(J))=\dots=V(J')$
+    Sei \(K\) ein Körper und \(R=K[X_1,\dots,X_n]\). Dann ist für   \(J,J'\) Ideale von \(R\)
+    \[V(J)=V(J')\iff \sqrt{J}=\sqrt{J'}\]
+    Denn \(V(J)=V(J')\implies I(V(J))=I(V(J'))\) und wenn \(\sqrt{J}=\sqrt{J'}\) dann ist \(I(V(J))=I(V(J'))\) also \(V(J)=V(I(V(J))=\dots=V(J')\)
 \end{Bem}
 \subsection{Körper}
 \begin{Def}
     Ein Körper ist ein Ring, über dem jeder Modul frei ist. Ein Modul über einem Körper heißt Vektorraum.
 \end{Def}
 \begin{Satz}[Hauptsatz über endlich erzeugte Moduln über Hauptidealringen]\label{Satz:HauptEndlMod}
-    Sei $R$ ein Hauptidealring. Jeder endlich erzeugte $R$-Modul $M$ hat die Form
-    $$M=R^d\oplus\bigoplus_{i=1}^rR/a_iR$$
-    mit $a_1,\dots,a_r\in R$ sodass $a_i\neq 0$ und $a_i\not\in R^*$ und $a_1\mid a_2\mid\dots\mid a_r$. Die Zahlen $d,r$ und die Ideale $a_iR$ sind eindeutig durch M bestimmt.
+    Sei \(R\) ein Hauptidealring. Jeder endlich erzeugte \(R\)-Modul \(M\) hat die Form
+    \[M=R^d\oplus\bigoplus_{i=1}^rR/a_iR\]
+    mit \(a_1,\dots,a_r\in R\) sodass \(a_i\neq 0\) und \(a_i\not\in R^*\) und \(a_1\mid a_2\mid\dots\mid a_r\). Die Zahlen \(d,r\) und die Ideale \(a_iR\) sind eindeutig durch M bestimmt.
 \end{Satz}
 \begin{proof}
-    Existenz: Wähle surjektiven Morphismus $\pi\colon R^n\to M$. Da $R$ Hauptidealring ist, ist $R$ noethersch und somit ist $\ker(\pi)$ endlich erzeugt. 
+    Existenz: Wähle surjektiven Morphismus \(\pi\colon R^n\to M\). Da \(R\) Hauptidealring ist, ist \(R\) noethersch und somit ist \(\ker(\pi)\) endlich erzeugt. 
     Das gibt exakte Sequenz 
-    $$R^m\stackrel{f}{\to} R^n\to M\to 0.$$
-    Sei $f$ gegeben durch Matrix, also $f(x)=A\cdot x$ für alle $x\in R^m$.
+    \[R^m\stackrel{f}{\to} R^n\to M\to 0.\]
+    Sei \(f\) gegeben durch Matrix, also \(f(x)=A\cdot x\) für alle \(x\in R^m\).
     Elementarteiler Satz besagt:
-    Es gibt $S\in\GL_n(R)$ und $T\in \GL_m(R)$ sodass 
-    $$SAT=D$$ Matrix mit $a_i$ auf der Diagonalen sodass $a_1\mid a_2\mid\dots$ wobei $a_i=0$ und $a_i\in R^*$ vorkommen kann. Seien $f,g,h,f'$ durch $A,S,T,D$ gegeben. und $M'=\coker(f')$. Dann kommutiert % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUA9AWxAF9S6TLnyEUARnJVajFmy6EBQ7HgJEATFOr1mrRCACy-QSAwrRRAMxaZutsWPKRalGXHSdc-V15LTw1TFkSXdtWT0OTkUTM2cgzVDbL0MAckd-cxdka0TPCIc+aRgoAHN4IlAAMwAnCF5EMhAcCCRJJIjK9Jq61upmpHU-bvrNJpbESyHa+oAWPvGAVjC7fUq0qZ7EJbGkADYN+t35pAB2A6RG-sQ59rYACy7p3p2t5eSS-go+IA
+    Es gibt \(S\in\GL_n(R)\) und \(T\in \GL_m(R)\) sodass 
+    \[SAT=D\] Matrix mit \(a_i\) auf der Diagonalen sodass \(a_1\mid a_2\mid\dots\) wobei \(a_i=0\) und \(a_i\in R^*\) vorkommen kann. Seien \(f,g,h,f'\) durch \(A,S,T,D\) gegeben. und \(M'=\coker(f')\). Dann kommutiert % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUA9AWxAF9S6TLnyEUARnJVajFmy6EBQ7HgJEATFOr1mrRCACy-QSAwrRRAMxaZutsWPKRalGXHSdc-V15LTw1TFkSXdtWT0OTkUTM2cgzVDbL0MAckd-cxdka0TPCIc+aRgoAHN4IlAAMwAnCF5EMhAcCCRJJIjK9Jq61upmpHU-bvrNJpbESyHa+oAWPvGAVjC7fUq0qZ7EJbGkADYN+t35pAB2A6RG-sQ59rYACy7p3p2t5eSS-go+IA
 $$\begin{tikzcd}
 R^m \arrow[r, "f"] \arrow[d, "h"] & R^n \arrow[r] \arrow[d, "g"] & M \arrow[r]  & 0 \\
 R^m \arrow[r, "f'"]               & R^n \arrow[r]                & M' \arrow[r] & 0
-\end{tikzcd}$$ und somit ist $M\cong M'$.
-Da $D$ diagonal ist, folgt $M'\cong R^d\oplus\bigoplus_{i=1}^rR/a_iR$ mit $r=\min(n,m)$ und $d=0$ wenn $n\leq m$ bzw $d=n-m$ wenn $n\geq m$. Wenn $a_i$ Einheit ist, dann ist $R/a_iR=0$ und wenn $a_i=0$ dann ist $R/a_iR\cong R$. Damit kann man $M'$ in Gestalt der Aussage des Satzes umwandeln wobei $d$ größer und $r$ kleiner werden kann.
+\end{tikzcd}\($ und somit ist \)M\cong M'$.
+Da \(D\) diagonal ist, folgt \(M'\cong R^d\oplus\bigoplus_{i=1}^rR/a_iR\) mit \(r=\min(n,m)\) und \(d=0\) wenn \(n\leq m\) bzw \(d=n-m\) wenn \(n\geq m\). Wenn \(a_i\) Einheit ist, dann ist \(R/a_iR=0\) und wenn \(a_i=0\) dann ist \(R/a_iR\cong R\). Damit kann man \(M'\) in Gestalt der Aussage des Satzes umwandeln wobei \(d\) größer und \(r\) kleiner werden kann.
 \end{proof}

@@ -474,11 +474,12 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
 \end{Satz}
 \begin{proof}
     Angenommen \(\length(M)=1\). Dann ist \(M\cong R/\frakp\) für ein maximales Ideal \(\frakp\). Sei \(\frakq\) ein maximales Ideal. Wenn \(\frakp=\frakq\) dann ist \(M_\frakq=(R/\frakp)_\frakq=R/\frakp=M\).
-    Wenn \(\frakp\neq\frakq\) dann ist \((R/\frakp)_\frakq=0\). Somit ist \((M_\frakq)_{\frakq'}=0\) für zwei verschiedene maximalen Ideale \(\frakq,\frakq'\). Allgemein für \(\length(M)=n\) gilt dass die Kompositionsreihe \(M=M_0\supsetneq \dots\supsetneq M_n=0\) gibt \(M_\frakq=(M_0)_\frakq\supsetneq \dots\supsetneq (M_n)_\frakq=0\) und \(\length(M_i/M_i+1)=1\). Also ist 
-      (M_i/M_{i+1})_\frakq=\begin{cases}
+    Wenn \(\frakp\neq\frakq\) dann ist \((R/\frakp)_\frakq=0\). Somit ist \((M_\frakq)_{\frakq'}=0\) für zwei verschiedene maximalen Ideale \(\frakq,\frakq'\).
+     Allgemein für \(\length(M)=n\) gilt dass die Kompositionsreihe \(M=M_0\supsetneq \dots\supsetneq M_n=0\) gibt \(M_\frakq=(M_0)_\frakq\supsetneq \dots\supsetneq (M_n)_\frakq=0\) und \(\length(M_i/M_i+1)=1\). Also ist 
+      \[(M_i/M_{i+1})_\frakq=\begin{cases}
         M_i/M_{i+1}, & M_i/M_{i+1}\cong R/\frakq\\
         0 , &\text{ sonst}
-    \end{cases}  
+    \end{cases}\]
     Behalte in Reihe nur die \((M_i)_\frakq\) aus oberen Fall, das gibt Kompositionsreihe von \(M_\frakq\).
     Sei \(\alpha\colon M\to \bigoplus M_\frakp\) Summe der Lokalisierungsabbildugen. Sei \(Q\subseteq R\) maximales Ideal. Es ist \(\alpha_\frakq\colon M_\frakq\to (\bigoplus M_\frakq)_\frakq\) die Identität für alle \(Q\).
 \end{proof}

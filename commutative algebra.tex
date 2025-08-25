@@ -109,7 +109,7 @@ testtest hallo
     Für ein maximales Ideal \(\frakm\subseteq R\) hat der Ring \(R/\frakm^n\) genau ein Primideal und ist insbesondere lokal.
 \end{Kor}
 \begin{proof}
-    Primideale in \(R/\frakm\) entsprechen den Primidealen \(\frakm'\) in \(R\) mit \(\frakm^n\subseteq \frakm'\). Nach \Cref{Lem:PrimidealEig}} folgt \(\frakm\subseteq \frakm'\) also \(\frakm=\frakm'\). 
+    Primideale in \(R/\frakm\) entsprechen den Primidealen \(\frakm'\) in \(R\) mit \(\frakm^n\subseteq \frakm'\). Nach \Cref{Lem:PrimidealEig} folgt \(\frakm\subseteq \frakm'\) also \(\frakm=\frakm'\). 
 \end{proof}
 \begin{Bsp}
     Es sei \(R\) der Ring der stetigen Funktionen \(f:\RR\to \RR\). Für jedes \(x\in \RR\) ist \(\frakm_x=\{f\in R\mid f(x)=0\}\) ein maximales Ideal von \(R\), denn betrachte Abbildung \(eval_x\colon R\to \RR, f\mapsto f(x)\). Das ist surjektiv mit \(\ker(eval_x)=\frakm_x\). da \(\RR\) ein Körper ist, ist folgt die Behauptung.
@@ -504,7 +504,7 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
     Gelte 1. Sei \(I\subseteq R\) ein Ideal maximal mit der Eigenschaft dass \(R/I\) keine endliche Länge hat. Dann ist \(I\) prim, denn seien \(a\cdot b\in I\) und \(a\not\in I\). Haben exakte Sequenz
     \[0\to R/(I:a)\to R/I\to R/(I+(a))\to 0\] wobei \((I:a)=\{x\in R\mid ax\in I\}\). Da \(I\subsetneq I+(a)\) hat \(R/(I+(a))\) endliche Länge. Falls \(b\not\in I\) dann \(I\subsetneq (I:a)\) also hat \(R/(I:a)\) endliche Länge und damiit auch \(R/I\) was nicht sein kann. Also ist \(I\) prim. Damit ist \(I\) maximal und somit \(R/I\) ein Körper. Ein Körper hat Länge \(=1\) was ein Widerspruch ist.
     Also hat \(R\) endliche Länge.
-    Gelte 2. 3. Folgt mit Satz \Cref{Satz:EndlLenNoethArtin}}. gelte 3. Sei also \(R\) artinsch. Zeige: \(0\) ist Produkt maximaler Ideal von \(R\).
+    Gelte 2. 3. Folgt mit Satz \Cref{Satz:EndlLenNoethArtin}. gelte 3. Sei also \(R\) artinsch. Zeige: \(0\) ist Produkt maximaler Ideal von \(R\).
     sei \(J\subseteq R\) minimal sodass \(J\) Produkt maximaler Ideale ist. Zeige \(J=0\).
     Sei \(\frakm \) maximales Ideal in \(R\). Dann ist \(\frakm J=J\) wegen Minimalität von \(J\) also \(J\subseteq \frakm\). Es ist \(J^2=J\).
     Falls \(J\neq 0\) wähle \(I\) minimal unter Idealen, die \(J\) nicht annihilieren.
@@ -663,7 +663,7 @@ Zeige 4. Wähle Auflösung \(R^m\to R^n\to M_2\to 0\) und Surjektion \(R^k\to M_
 \end{Lemma}
 \begin{proof}
     Sei \(0\to A\to B\to C\to 0\) eine kurze exakte Sequenz von \(R\)-Moduln sodass \(fA=A\cap fB\) für alle \(f\in R\). Nach Lemma \Cref{Lem:SpaltenModDirSum} reicht es, zu zeigen dass \(\Hom_R(M,B)\to \Hom_R(M,C)\) surjektiv ist. Es reicht, dass es surjektiv ist nach lokalisieren an maximalen Idealen \(\frakm\) nach \Cref{Kor:LokSurjInjBij}. Da Lokalisierungnach \Cref{Satz:LokExakt} exakt ist \(0\to A_\frakm\to B_\frakm\to C_\frakm\to 0\) exakt und \(fA_\frakm=A_\frakm\cap fB_\frakm\).
-    Da \(M\) endlich präsentiert ist, gilt \(\Hom_R(M,B)_\frakm=\Hom_{R_\frakm}(M_\frakm,B_\frakm)\) und \(\Hom_R(M,C)_\frakm=\Hom_{R_\frakm}(M_\frakm,C_\frakm)\) nach ???. \(M_\frakm\) ist enldich präsentierter \(R_\frakm\) Modul und nach \Cref{Lem:EndlPräsDirSum}} gilt dass \(M_\frakm\) direkte Summe von Moduln der Form \(R_\frakm/fR_\frakm\) ist. Nach \Cref{Lem:SpaltenModDirSum}} ist ist Abbildung der Lokalisierung surjektiv. Also ist \(M\) direkter Summand von \(\bigoplus_{i\in I'}R/f_iR\). Betrachte \(M\to\bigoplus_{i\in I'}R/f_iR\). Da \(M\) endlich erzeugt ist, ist das Bild von \(M\) in \(\bigoplus_{i\in I}R/f_iR\) für eine endliche Teilmenge \(I\subseteq I'\).
+    Da \(M\) endlich präsentiert ist, gilt \(\Hom_R(M,B)_\frakm=\Hom_{R_\frakm}(M_\frakm,B_\frakm)\) und \(\Hom_R(M,C)_\frakm=\Hom_{R_\frakm}(M_\frakm,C_\frakm)\) nach ???. \(M_\frakm\) ist enldich präsentierter \(R_\frakm\) Modul und nach \Cref{Lem:EndlPräsDirSum} gilt dass \(M_\frakm\) direkte Summe von Moduln der Form \(R_\frakm/fR_\frakm\) ist. Nach \Cref{Lem:SpaltenModDirSum} ist ist Abbildung der Lokalisierung surjektiv. Also ist \(M\) direkter Summand von \(\bigoplus_{i\in I'}R/f_iR\). Betrachte \(M\to\bigoplus_{i\in I'}R/f_iR\). Da \(M\) endlich erzeugt ist, ist das Bild von \(M\) in \(\bigoplus_{i\in I}R/f_iR\) für eine endliche Teilmenge \(I\subseteq I'\).
 \end{proof}
 \begin{Def}
     Sei \(R\) nullteilerfrei.
@@ -712,7 +712,7 @@ Sei \(R\) ein Hauptidealring. Dann ist jeder endliche \(R\)-Modul \(M\) isomorph
     
 \end{Satz}
 \begin{proof}
-    Ein Hauptidealring ist ein noetherscher Bézout Ring. Nach \Cref{Lem:StruktBezoutring} reicht der Fall wo \(M\) torsion ist. Da \(M\) endlich erzeugt, gibt es \(f\in R\setminus\{0\}\) sodass \(fM=0\). Dannist \(M\) ein \(R/fR\) Modul und \(R/fR\) ist noethersch und jedes Primideal ist maximal. Also ist  nach \Cref{Kor:StruktArtinring}} \[R/fR=\prod R_j\] endliches produkt wobei \(R_j\) lokal artinsch. Die Projektion \(R/fR\to R_j\) gibt dass \(R_j=R/f_jR\) für ein \(f_j\). Dann erfüllt \(R_j\) die Bedinugnen von \Cref{Lem:IdealeTotOrd}}. Schreibe \(M=\prod M_j\) mit \(M_j=e_jM\) wobei \(e_j\in R/fR\) das idempotente Element ist dass zu \(1\in R_j\) correspondiert.  Nach Lemma \Cref{Lem:EndlPräsDirSum}} ist \(M_j=\bigoplus_{i=1,\dots,n_j}R_j/\bar f_{ij}R_j\) für \(\bar f_{ij}\in R_j\). wähle Lifts \(f_{ij}\in R\) und \(g_{ji}\in R\) mit \((g_{ji})=(f_j,f_{ji})\). Dann ist \[M\cong\bigoplus R/g_{ji}R\] als \(R\)-Modul.
+    Ein Hauptidealring ist ein noetherscher Bézout Ring. Nach \Cref{Lem:StruktBezoutring} reicht der Fall wo \(M\) torsion ist. Da \(M\) endlich erzeugt, gibt es \(f\in R\setminus\{0\}\) sodass \(fM=0\). Dannist \(M\) ein \(R/fR\) Modul und \(R/fR\) ist noethersch und jedes Primideal ist maximal. Also ist  nach \Cref{Kor:StruktArtinring} \[R/fR=\prod R_j\] endliches produkt wobei \(R_j\) lokal artinsch. Die Projektion \(R/fR\to R_j\) gibt dass \(R_j=R/f_jR\) für ein \(f_j\). Dann erfüllt \(R_j\) die Bedinugnen von \Cref{Lem:IdealeTotOrd}. Schreibe \(M=\prod M_j\) mit \(M_j=e_jM\) wobei \(e_j\in R/fR\) das idempotente Element ist dass zu \(1\in R_j\) correspondiert.  Nach Lemma \Cref{Lem:EndlPräsDirSum} ist \(M_j=\bigoplus_{i=1,\dots,n_j}R_j/\bar f_{ij}R_j\) für \(\bar f_{ij}\in R_j\). wähle Lifts \(f_{ij}\in R\) und \(g_{ji}\in R\) mit \((g_{ji})=(f_j,f_{ji})\). Dann ist \[M\cong\bigoplus R/g_{ji}R\] als \(R\)-Modul.
 \end{proof}
 \begin{Lemma}
     Sei \(R\) ein Hauptidealring und \(a\in R\setminus\{0\}\).

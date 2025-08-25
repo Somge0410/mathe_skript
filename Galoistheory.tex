@@ -753,7 +753,7 @@ K \arrow[r, no head] & K'\cap M \arrow[r, no head] \arrow[u, no head] & K' \arro
     Also \([\FF_7(\zeta_{12}):\FF_7]=|\Gal(..)]=2\) und somit \(\FF_7(\zeta_{12})=\FF_{49}\)
 \end{Bsp}
 \begin{Satz}
-    Der Homomorphismus \(\chi\colon\Gal(\QQ(\zeta_n/\QQ)\to(\ZZ/n\ZZ)^*\) aus \Cref{Kor:ChiGal}} ist bijektiv, das heißt \([\QQ(\zeta_n)\colon \QQ]=\varphi(n)\).
+    Der Homomorphismus \(\chi\colon\Gal(\QQ(\zeta_n/\QQ)\to(\ZZ/n\ZZ)^*\) aus \Cref{Kor:ChiGal} ist bijektiv, das heißt \([\QQ(\zeta_n)\colon \QQ]=\varphi(n)\).
 \end{Satz}
 \begin{proof}
     Sei \(\zeta_n\in\bar\QQ\) eine primitive \(n\)-te Einheitswurzel und \(f\in\QQ[x]\) das Minimalpolynom von \(\zeta_n\).
@@ -764,7 +764,7 @@ K \arrow[r, no head] & K'\cap M \arrow[r, no head] \arrow[u, no head] & K' \arro
     Denn wenn \(m\) eine Einheit ist in \(\ZZ/n\ZZ\) dann ist \(\zeta_n^m\) eine primitve Einheitswurzel.
     Ohne Einschärnkung \(m=p\) prim.
     Sei also \(p\not\mid n\) und \(g\) Minimalpolynom von \(\zeta_n^p\). Angenommen \(f\neq g\).
-    Es ist \(\zeta_n^{pn}-1=0\) also teilt \(f\mid X^n-1,\ g\mid X^n-1\) also \(f\cdot g\mid X^n-1\). Nach \Cref{Lem:RatNst}} folgt \(f,g\in\ZZ[X]\) und außerdem ist \(\zeta_n\) eine Nullstelle von \(g(X^p)\) also \(f\mid g(X^p)\) und \(g(X^P)=f\cdot h\) für ein \(h\in \ZZ[X]\).
+    Es ist \(\zeta_n^{pn}-1=0\) also teilt \(f\mid X^n-1,\ g\mid X^n-1\) also \(f\cdot g\mid X^n-1\). Nach \Cref{Lem:RatNst} folgt \(f,g\in\ZZ[X]\) und außerdem ist \(\zeta_n\) eine Nullstelle von \(g(X^p)\) also \(f\mid g(X^p)\) und \(g(X^P)=f\cdot h\) für ein \(h\in \ZZ[X]\).
     In \(\FF_p[X]\) gilt \(f\mid g(X^p)=g(X)^p\) also sind \(f\) und \(g\) nicht teilerfremd in \(\FF_p[X]\). Da aber \(f\cdot g\mid X^n-1\) kommt ein irreduzibler Faktor von \(X^n-1\) doppelt vor, was ein Widerspruch dazu ist, dass \(X^n-1\) separabel ist über \(\FF_p\).
     Also ist \(f=g\)
 \end{proof}
@@ -776,7 +776,7 @@ K \arrow[r, no head] & K'\cap M \arrow[r, no head] \arrow[u, no head] & K' \arro
      Sei \(\zeta_n\) eine primitive \(n\)-te Einheitswurzel und \(\zeta_m\) primitive \(m\)-te Einehitswurzel und sei \(d=an+bm\) für \(a,b\in\ZZ\).
      Dann ist \(\xi=\zeta_n^b\zeta_m^a\) primitive \(k\)-te Einheitswurzel, denn \(\xi^k=1\) und wenn \(\xi^s=1\)ist, dann ist \(\zeta_n^{sb}=\zeta_m^{-sa}\) woraus \(n\mid sbm\) und somit \(n\mid sd\) folgt. Also \(n/d\mid s\). Analog \(m/d\mid s\) also folgt zusammen \(k\mid s\). Also gilt \[\QQ(\zeta_k)=\QQ(\zeta_n)\QQ(\zeta_m).\] Außerdem gilt
      \(\QQ(\zeta_d)\subseteq \QQ(\zeta_n)\cap\QQ(\zeta_m)\).
-     Für \(M=\QQ(\zeta_n)\), \(K'=\QQ(\zeta_n)\), \(K=\QQ\) und \(M'=MK'\) gilt nach \Cref{Satz:Translat}} 
+     Für \(M=\QQ(\zeta_n)\), \(K'=\QQ(\zeta_n)\), \(K=\QQ\) und \(M'=MK'\) gilt nach \Cref{Satz:Translat}
      \begin{align*}
          \varphi(k)\varphi(d)&=\varphi(n)\varphi(m)\\
          &=[M:K]\cdot [K':K]\\
@@ -1079,8 +1079,8 @@ Erlaubte Konstruktionen: Geraden durch 2 Verschiedene Punkte die gegeben sind un
     \end{enumerate}
 \end{Satz}
 \begin{proof}
-    Gelte \(1\) und sei \(K_n/K\) gegeben. Dann ist \(K_n/K\) ist separabel und nach \Cref{Satz:PrimElt} gilt \(K_n=K(b)\) für ein \(b\in K_n\). Sei \(L/K\) die normale Hülle von \(K_n/K\). Nach Konstruktion ist \(L/K\) der Zerfällungskörper vom Minimalpolynom \(f\) von \(b\). Seien \(b_1,\dots,b_n\) die Nullstellen von \(f\) in \(L\) mit \(b=b_1.\) Es ist \(L=K(b_1)\cdots K(B_n)\) Komposition. Da \(f\) das Minimalpolynom von \(b_i\) ist, ist \(K_n=K(b)=K(b_i)\) für alle \(i\) und somit ist \(K(b_i)/K\) durch Kette quadratischer Erweiterungen erreichbar. Nach \Cref{Lem:KompQuad}} ist \(L\) als Kompositum durch quadratische Kette erreichbar. Gelte 2. und sei \(L/K\) Galoisch vom Grad \(2^r\). Dann ist \(G=\Gal(L/K)\) eine \(p\)-Gruppe für \(p=2\).
-    \(G\) ist auflösbar somit gibt es nach \Cref{Kor:NormIndex}} eine normale Untergruppe \(H\subseteq G\) mit \([G:H]=2\).
+    Gelte \(1\) und sei \(K_n/K\) gegeben. Dann ist \(K_n/K\) ist separabel und nach \Cref{Satz:PrimElt} gilt \(K_n=K(b)\) für ein \(b\in K_n\). Sei \(L/K\) die normale Hülle von \(K_n/K\). Nach Konstruktion ist \(L/K\) der Zerfällungskörper vom Minimalpolynom \(f\) von \(b\). Seien \(b_1,\dots,b_n\) die Nullstellen von \(f\) in \(L\) mit \(b=b_1.\) Es ist \(L=K(b_1)\cdots K(B_n)\) Komposition. Da \(f\) das Minimalpolynom von \(b_i\) ist, ist \(K_n=K(b)=K(b_i)\) für alle \(i\) und somit ist \(K(b_i)/K\) durch Kette quadratischer Erweiterungen erreichbar. Nach \Cref{Lem:KompQuad} ist \(L\) als Kompositum durch quadratische Kette erreichbar. Gelte 2. und sei \(L/K\) Galoisch vom Grad \(2^r\). Dann ist \(G=\Gal(L/K)\) eine \(p\)-Gruppe für \(p=2\).
+    \(G\) ist auflösbar somit gibt es nach \Cref{Kor:NormIndex} eine normale Untergruppe \(H\subseteq G\) mit \([G:H]=2\).
     Sei \(K_r=L\) und \(K_1=L^H\). Dann ist \([K_1:K_0]=2\) und \(K_r/K\) Galoisch von Grad \(2^{r-1}\). Also folgt die Aussage nach Induktion.
 \end{proof}
 \begin{Satz}
@@ -1294,7 +1294,7 @@ Sei \(\alpha=\frac{2\pi}5\) und \(\beta=\frac{\pi-\alpha}2=\frac{3\pi}{16}\) und
 \end{Lemma}
 \begin{proof}
     1):Sei \(L=K(a)\) und seien \(a=a_1,\dots,a_r\in\bar K\) die Nullstellen vom Minimalpolynom von \(a\). Also ist die normale Hülle gegeben durch \(M=K(a_1)\cdots K(a_r)\).
-    Es ist \(K(a_i)\cong K(a)\) Radikalerweiterung über \(K\). Nach \Cref{Lem:KompRad}} ist also \(M/K\) eine Radikalerweiterung.\\
+    Es ist \(K(a_i)\cong K(a)\) Radikalerweiterung über \(K\). Nach \Cref{Lem:KompRad} ist also \(M/K\) eine Radikalerweiterung.\\
     2): Sei \(L=K(a_1)/K\) auflösbar durch Radikale, dh. es gibt \(L'/L\) sodass \(L'/K\) Radikalerweiterung ist. Sei \(M/K\) bzw \(M'/K\) die normale Hülle von \(L/K\) bzw \(L'/K\). Dann ist \(M\subseteq M'\). Nach 1) ist \(M'/K\) Radikalerweiterung also \(M/K\) auflösbar durch Radikale.
     Sei andersrum \(M/K\) die normale Hülle von \(L/K\) und \(M/K\) auflösbar durch Radikale, dh. Es gibt \(M'/M\) sodass \(M'/K\) Radikalerweiterung. Dann ist \(L/K\) auflösbar durch Radikale nach Definition.
 \end{proof}

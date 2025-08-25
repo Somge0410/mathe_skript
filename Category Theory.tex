@@ -91,7 +91,7 @@ Dabei fordern wir, dass folgende Bedingung erfüllt ist:
 \begin{tikzcd}
 F(x) \arrow[r, "\tau_x"] \arrow[d, "F(f)"] & G(x) \arrow[d, "G(f)"] \\
 F(y) \arrow[r, "\tau_y"]                   & G(y)                  
-\end{tikzcd}\($ Wir schreibe \)\Nat(F,G)\( für die Klasse der natürlichen Transformationen \)\tau\colon F\to G$.
+\end{tikzcd} Wir schreiben \(\Nat(F,G)\) für die Klasse der natürlichen Transformationen \(\tau\colon F\to G$.
 \end{enumerate}
 \begin{Def}[Funktorkategorie]
     Seien \(\mathcal{C}\) und \(\mathcal{D}\) Kategorien. Dann definieren wir die Funktorkategorie \(\Fun(\calC,\calD)\) wie folgt
@@ -173,7 +173,7 @@ Falls ein Quasiinverses existiert dann nennen wir \(F\) eine Kategorienäquivale
 \end{Kor}
 \begin{proof}
     Seien \(x,y\in\calC\). Zeige 
-    \[\Mor_\calC(x,y)\to\Nat(\Mor_\calC(-,x),\Mor_\calC(-,y)),\; f\mapsto f_*\] ist eine Bijektion. Das ist aber genau die Inverse Abbildung aus dem \hyperref[Lem:Yoneda]{Yoneda Lemma \ref{Lem:Yoneda}} für den Funktor \(F=\Mor_\calC(-,y).\)
+    \[\Mor_\calC(x,y)\to\Nat(\Mor_\calC(-,x),\Mor_\calC(-,y)),\; f\mapsto f_*\] ist eine Bijektion. Das ist aber genau die Inverse Abbildung aus dem \nameref{Lem:Yoneda}} für den Funktor \(F=\Mor_\calC(-,y).\)
 \end{proof}
 \begin{Bem}
     Es gibt eine duale Version vom Yoneda Lemma. Sei \(\calC\) eine lokal kleine Kategorie und \(F\colon\calC\to\Sets\) ein Funktor und \(x\in\calC\). Dann ist die Abbildung 
@@ -225,7 +225,7 @@ mus \(f\colon x\to y\) in \(\calC\) definiere \(F(f)\colon F(x) F(y)\) als das e
  Dann ist ein partieller Linksadjungierter \(F\colon\calC'\to \calD\) von \(G\) das Gleiche wie eine Faktorisierung des Funktors
  \[\calC'\to\Fun(\calD,\Sets)^\op,\; x\mapsto\Mor_\calC(x,G(-))\]
  durch die (volltreue) duale Yoneda-Einbettung \[Y^{\calD,\op}\colon \calD\to\Fun(\calD,\Sets)^\op.\] In dieser Situation
- ist also \hyperref[Satz:AdjFun]{Satz \ref{Satz:AdjFun}} eine Folgerung aus \hyperref[Satz:BildFunktor]{Satz \ref{Satz:BildFunktor}}.
+ ist also \Cref{Satz:AdjFun} eine Folgerung aus \Cref{Satz:BildFunktor}.
 \end{Bem}
 \begin{Def}\label{Def:ArrowCat}
     Sei \(\calC\) eine Kategorie. Wir definieren die Pfeilkategorie von \(\calC\) als \[\Arr(\calC)=\Fun(N[1],\calC).\]

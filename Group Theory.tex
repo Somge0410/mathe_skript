@@ -217,11 +217,11 @@ Sei \(P\subseteq G\) eine \(P\)-Sylowgruppe und \(H\subseteq G\) eine \(p\)-Grup
 \end{Lemma}
 \begin{proof}
      Sei % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAJEAX1PU1z5CKchWp0mrdgDkAOrIBOeALbwA+vKZoAFvQAEXXv2x4CRMgCZxDFm0ScA5Dz4gMJoUVFWaNqfelORq4CpsLIosTWknYg0jziMFAA5vBEoABmChDKSBY0OBBIAMw+0ezyOljOGVk5iGQgBbmltuzpaoYumdlIDU2Ioo30WIzs2hAQANYgLX4gWB3VIN11g-0lEq327cByiirwBtxLK0gALPmFA-nDo-bjUzObcwtx3JTcQA
-\begin{tikzcd}
+\begin{tikzfigure}
                                           & N \arrow[d, "i_N", hook,dashed]                      \\
 H \arrow[d, "f_H"] \arrow[r, "i_H", hook] & N\rtimes_\alpha H \arrow[d, "f_{{N\rtimes H}}"] \\
 H' \arrow[r, "\phi"]                      & N'                                           
-\end{tikzcd} ein kommutatives Diagramm von Gruppen.
+\end{tikzfigure} ein kommutatives Diagramm von Gruppen.
      Definiere \(f_N=i_N\circ f_{N\rtimes H}\colon N\to N'\) und sei \((H',N',\alpha')=R(\phi)\).
      Dann ist \[(f_H,f_{N\rtimes H}\circ i_N)\colon (H,N,\alpha)\to (H',N',\alpha')\] ein Morphismus in \(\Grpact\), denn
      \[\alpha'(f_H(h))(f_{N\rtimes H}(n,e))=f_{N\rtimes H}((e,h)\cdot (n,e)\cdot (e,h)^{-1})\]
@@ -230,10 +230,10 @@ H' \arrow[r, "\phi"]                      & N'
       Wenn andersrum \(\phi\colon H'\to N'\) Gruppenhomomorphismus ist und \[(f_H,f_N)\colon(H,N,\alpha)\to R(\phi)=(H',N',\alpha')\] ein Morphismus in \(\Grpact\) ist, dann definiere \(f_{N\rtimes H}\colon N\rtimes_\alpha H\to N'\) durch \[f_{N\rtimes H}(n,h)=f_N(n)\phi(f_H(h)).\]
       Man prüft dass das folgende Diagramm kommutiert, das heißt wir haben einen Morphismus in \(\Arr(Grp)\):
       % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbAHIAdWQCc8AW3gB9eYzQALOgAJOPPtjwEiZYePrNWiDgHJuvEBhOCioy9WtS70x1ziMFAA5vBEoABmChDKSABM1DgQSADM3pK2IPI6WE5RMXGIZCDJCRk2bJFqhs7RsUglZYiipXRYDGzaEBAA1iAVviBYNfkg9UWtzekSlXbVwHKKKvAGXNwUXEA
-\begin{tikzcd}
+\begin{tikzfigure}
 H \arrow[d, "f_H"] \arrow[r, "i_H", hook] & N\rtimes_\alpha H \arrow[d, "f_{N\rtimes H}"] \\
 H' \arrow[r, "\phi"]                      & N'                                           
-\end{tikzcd} Man prüft das diese Zuordnungen einen natürlichen Isomorphismus der \(\Hom\)-Funktoren definieren.
+\end{tikzfigure} Man prüft das diese Zuordnungen einen natürlichen Isomorphismus der \(\Hom\)-Funktoren definieren.
       
      \end{proof}
 \begin{Lemma}

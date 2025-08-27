@@ -33,7 +33,28 @@ testtest hallo
 \end{Lemma}
 \begin{Def}
     Sei \(R\) ein kommutativer Ring. Sei \(n\in \NN\) gegeben sodass \((n)=\ker(\ZZ\to R)\).Dann heißt \(n\) die Charakteristik von \(R\). Wenn \(R\) nullteilerfrei ist, dann ist \(n=0\) oder \(n\) eine Primzahl.
+\end{Def}\begin{Def}
+    Ein Ring \(R\) heißt lokal, wenn es genau ein maximales Ideal gibt.
 \end{Def}
+\begin{Satz}
+    Sei \(\frakm\subsetneq R\) ein Ideal. Es ist äquivalent:
+    \begin{enumerate}
+        \item \(R\) ist lokal mit maximalem Ideal \(\frakm\)
+        \item \(\forall a\in R\setminus \frakm: a\in R^*\)
+        \item \(\frakm\) ist maximales Ideal und jedes Element \(a=1+m\) mit \(m\in\frakm\) ist eine Einheit.
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Gelte 1. Wenn \(a\) keine Einheit, dann ist \(a\) in einem maximalen Ideal enthalten. Also in \(\frakm\).
+    Gelte 3. Sei \(a\not \in\frakm\) das heißt \(a+\frakm\) ist Einheit in \(R/\frakm\). Also gibt es \(x\) sodass \(ax+\frakm=1+\frakm\) also ist \(1=ax+m\) für ein \(m\in\frakm\). Dann ist \(ax\in R^*\) also auch \(a\).
+\end{proof}
+\begin{Lemma}
+    \(\ZZ/n\ZZ\) ist lokal genau dann wenn \(n=p^r\) für eine primzahl \(p\) und \(r>1\).
+\end{Lemma}
+\begin{proof}
+    Sei \(n=p^r\). Primideale in \(\ZZ/n\ZZ\) sind Primideale in \(\ZZ\) die \(n\ZZ\) enthalten. Das ist nur \((p)\). Also ist der Ring lokal.
+    Andersrum wenn \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung von \(n\) ist mit \(p_i\neq p_j\) für \(i\neq j\) dann korrespondier mit selber Begründung jedes \((p_i)\) zu einem maximalen Ideal in \(\ZZ/n\ZZ\).
+\end{proof}
 \subsection{Euklidische Ringe, Hauptidealringe und faktorielle Ringe}
 \begin{Def}
     Sei \(R\) ein Ring. \(R\) ist Euklidisch wenn \(R\) ein Integritätsbereich ist und es eine Abbildung \(\delta\colon R\setminus\Set 0\to\NN\) gibt sodass für \(a,q\in R\) mit \(q\neq 0\) es \(b,c\in R\) gibt mit \(a=bq+c\) und \(\delta(x)<\delta(q)\) oder \(c=0\).
@@ -937,33 +958,8 @@ Sei \(K\) ein Körper und \(A\) eine \(K\)-Algebra von endlichem Typ. Dann gibt 
     Seien \(y_1,\dots,y_n\) also algebraisch abhängig. Das heißt \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] hat nicht triviale Kern.
     Nach Lemma ?? gibt es also \(y_1^*,\dots,y_{n-1}^*\in A\) sodass \(y_n\) ganz über \(A^*=K[y_1^*,\dots,y_{n-1}^*]\) und \(A=A^*[y_n]\). Nach Induktion gibt es \(z_1,\dots,z_m\in A^*\) algebraisch unabhängig sodass \(A^*\) endlich ist über \(B=K[z_1,\dots,z_m]\) da \(y_n\) ganz über \(A^*\) ist ist \(A^*[y_n]\) endlich über \(A\) sodass \(A\) endlich über \(B\) ist.
 \end{proof}
-\begin{Satz}[Schwacher Nullstellensatz]\label{Satz:WeakNst2}
-Sei \(K\) ein Körper, \(L\) eine \(K\)-Algebra von endlichem Typ die ein Körper ist.
-Dann ist \(L/K\) endlich.
-    
-\end{Satz}
-\begin{Def}
-    Ein Ring \(R\) heißt lokal, wenn es genau ein maximales Ideal gibt.
-\end{Def}
-\begin{Satz}
-    Sei \(\frakm\subsetneq R\) ein Ideal. Es ist äquivalent:
-    \begin{enumerate}
-        \item \(R\) ist lokal mit maximalem Ideal \(\frakm\)
-        \item \(\forall a\in R\setminus \frakm: a\in R^*\)
-        \item \(\frakm\) ist maximales Ideal und jedes Element \(a=1+m\) mit \(m\in\frakm\) ist eine Einheit.
-    \end{enumerate}
-\end{Satz}
-\begin{proof}
-    Gelte 1. Wenn \(a\) keine Einheit, dann ist \(a\) in einem maximalen Ideal enthalten. Also in \(\frakm\).
-    Gelte 3. Sei \(a\not \in\frakm\) das heißt \(a+\frakm\) ist Einheit in \(R/\frakm\). Also gibt es \(x\) sodass \(ax+\frakm=1+\frakm\) also ist \(1=ax+m\) für ein \(m\in\frakm\). Dann ist \(ax\in R^*\) also auch \(a\).
-\end{proof}
-\begin{Lemma}
-    \(\ZZ/n\ZZ\) ist lokal genau dann wenn \(n=p^r\) für eine primzahl \(p\) und \(r>1\).
-\end{Lemma}
-\begin{proof}
-    Sei \(n=p^r\). Primideale in \(\ZZ/n\ZZ\) sind Primideale in \(\ZZ\) die \(n\ZZ\) enthalten. Das ist nur \((p)\). Also ist der Ring lokal.
-    Andersrum wenn \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung von \(n\) ist mit \(p_i\neq p_j\) für \(i\neq j\) dann korrespondier mit selber Begründung jedes \((p_i)\) zu einem maximalen Ideal in \(\ZZ/n\ZZ\).
-\end{proof}
+
+
 \begin{Satz}[Schwacher Nullstellensatz]\label{Satz:WeakNst}
 Sei \(K\) ein Körper, \(L\) eine \(K\)-Algebra von endlichem Typ die ein Körper ist.
 Dann ist \(L/K\) endlich.
@@ -1002,7 +998,7 @@ Dann ist \(L/K\) endlich.
 \begin{Satz}
     Sei \(K\) algebraisch abgeschlossen und \(A=K[X_1,\dots,X_n]/J\) für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\).
     Dann hat jedes maximale Ideal von \(A\) die Form \[(X-a_1,\dots,X_n-a_n)\] für ein \((a_1,\dots,a_n)\in V(J)\).
-    Das heißt es gibt Bijektion von Varietäten und \(\Specm A\) gegeben durch \((a_1,\dots,a_n)\leftrightarrow (X_1-a_1,\dots,X_n-a_n)\).
+    Das heißt es gibt Bijektion von \( V ( J ) \) und \(\Specm A\) gegeben durch \((a_1,\dots,a_n)\leftrightarrow (X_1-a_1,\dots,X_n-a_n)\).
 \end{Satz}
 \begin{proof}
     Ideal von \(A\) sind Ideale in \(K[X_1,\dots,X_n]\) die \(J\) enthalten. Also haben alle maximalen Ideale von \(A\) die Form \((X_1-a_1,\dots,X_n-a_n)\) für \(a_1,\dots,a_n\) sodass \(J\subseteq (X_1-a_1,\dots,X_n-a_n)\). Da jedoch 
@@ -1041,6 +1037,11 @@ Es gilt
         \item wenn \(J\subsetneq K[X_1,\dots,X_n]\) dann ist \(V(J)\neq\emptyset\).
         \item \(I(V(J))=\rad(J)\)
     \end{enumerate}
+    Das heißt \( I \) und \( V \) induzieren inverse Bijektionen 
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13gApTuJgEZwYOGAEcABAGlkADQD6ARlKcoEHHFIKwFCZ1EAPHMAkBJWIwC+nSyEul0mXPkIoATOSq1GLNp2CyfILCopJSAHpg+jBGJgAqMFgMALYwYADmMNbstpZeMFCZCCigAGYAThDJSGQgOBBIyiBwABZYpThIALQe3sysiCAAanYOIBVVjdT1NdSt7Z2IPdT0-WymdhSWQA
+\begin{tikzfigure}
+\{\text{Radikale } J=\sqrt{J}\subseteq K[X_1,\dots,X_n]\} \arrow[rr, "V", shift left=2] &  & \{\text{ Varietäten } V \subseteq K^n\} \arrow[ll, "I", shift left=2]
+\end{tikzfigure} 
 \end{Satz}
 \begin{proof}
     Sei \(J\subseteq\frakm\) für ein maximales Ideal \(\frakm=(X_1-a_1,\dots,X_n-a_n)\).
@@ -1061,34 +1062,275 @@ Es gilt
     \end{enumerate}
     
 \end{Bem}
+\begin{Def} Seien \( X \subseteq K^n \) und \( Y \subseteq K^m \) abgeschlossene Teilmengen. Eine Abbildung 
+\( \varphi \colon X \to Y \) heißt polynomiell, wenn es \( f_1 , \dots ,f_m \in K [ X_1, \dots ,X_m ] \) gibt sodas
+\( \varphi ( x ) = ( f_1 ( x ) , \dots , f_m ( x ) ) \) für alle \( x \in X \).
+Die Polynome \( f_i \) sind nicht eindeutig, denn sie können um ein Element von \( I ( X ) \) verändert werden.
+Für eine Teilmenge \( X\subseteq K ^ n \) definiere \( A ( X ) = K [ X_1, \dots , X_n] / I(X) \).
+\end{Def}
+\begin{Lem} Für abgeschlossene \( X \subseteq K^n \) und \( Y \subseteq K^m \) gibt es Bijektion 
+\[ \{ \varphi\colon X \to Y \text{ polynomiell } \} \to \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \]
+
+\end{Lem}
+\begin{proof}
+Angenommen \( g \in \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \) gegeben. Betrachte 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGlkANAfQEZSAHUFQIOOKV4BbCiAC+pdJlz5CKAZWr1mrRB278hIsROmyFS7HgJEyfKrUYs2AQQAUATQCU8xSAxWqkQC9lpOuiDuXD5yDjBQAObwRKAAZgBOEFJIAiA4EEgAzBYgGVlIZHkFiABMJWXZtdT5RWE6bAm+aZmNlS2IuQxYYBGiODjx8hRyQA
+\begin{tikzfigure}
+{K[X_1,\dots,X_m]} \arrow[d] \arrow[r, dotted] & {K[X_1,\dots,X_m]} \arrow[d] \\
+A(Y) \arrow[r, "g"]                            & A(X)                        
+\end{tikzfigure}
+Sei \( f_i \in K[X_1,\dots,X_n] \) ein Urbild von \( g ( \bar{ X_i } ) \). Dann definieren \( f_1, \dots, f_m \) eine 
+polynomielle Abbildung \( \varphi \colon X \to Y, x\mapsto ( f_1 ( x ) , \dots , f_m ( x ) ) \).
+Wenn andersrum \( \varphi \) gegeben ist, dann ist \( \varphi^* \colon A(Y) \to A(X), \varphi^*(f)=f\circ \varphi \)
+eine Abbildung von \( K \) -Algebren.
+\end{proof}
 \begin{Bem}
     Sei \(K\) ein Körper und \(R=K[X_1,\dots,X_n]\). Dann ist für   \(J,J'\) Ideale von \(R\)
     \[V(J)=V(J')\iff \sqrt{J}=\sqrt{J'}\]
     Denn \(V(J)=V(J')\implies I(V(J))=I(V(J'))\) und wenn \(\sqrt{J}=\sqrt{J'}\) dann ist \(I(V(J))=I(V(J'))\) also \(V(J)=V(I(V(J))=\dots=V(J')\)
 \end{Bem}
-\subsection{Körper}
-\begin{Def}
-    Ein Körper ist ein Ring, über dem jeder Modul frei ist. Ein Modul über einem Körper heißt Vektorraum.
+\begin{Def} Sei \( K \) algebraisch abgeschlossener Körper. Eine Varietät \( X \subseteq K^n \) ist irreduzibel,
+falls \( X \neq \emptyset \) und nicht die Vereinigung zweier echter Untervarietäten ist.
 \end{Def}
-\begin{Satz}[Hauptsatz über endlich erzeugte Moduln über Hauptidealringen]\label{Satz:HauptEndlMod}
-    Sei \(R\) ein Hauptidealring. Jeder endlich erzeugte \(R\)-Modul \(M\) hat die Form
-    \[M=R^d\oplus\bigoplus_{i=1}^rR/a_iR\]
-    mit \(a_1,\dots,a_r\in R\) sodass \(a_i\neq 0\) und \(a_i\not\in R^*\) und \(a_1\mid a_2\mid\dots\mid a_r\). Die Zahlen \(d,r\) und die Ideale \(a_iR\) sind eindeutig durch M bestimmt.
+\begin{Satz} Eine Varietät \( X \) ist irreduzibel genau dann wenn \( I ( X ) \) prim ist.
+
 \end{Satz}
 \begin{proof}
-    Existenz: Wähle surjektiven Morphismus \(\pi\colon R^n\to M\). Da \(R\) Hauptidealring ist, ist \(R\) noethersch und somit ist \(\ker(\pi)\) endlich erzeugt. 
-    Das gibt exakte Sequenz 
-    \[R^m\stackrel{f}{\to} R^n\to M\to 0.\]
-    Sei \(f\) gegeben durch Matrix, also \(f(x)=A\cdot x\) für alle \(x\in R^m\).
-    Elementarteiler Satz besagt:
-    Es gibt \(S\in\GL_n(R)\) und \(T\in \GL_m(R)\) sodass 
-    \[SAT=D\] Matrix mit \(a_i\) auf der Diagonalen sodass \(a_1\mid a_2\mid\dots\) wobei \(
-    (a_i=0\) und \(a_i\in R^*\) vorkommen kann. Seien \(f,g,h,f'\) durch \(A,S,T,D\) gegeben. 
-    und \(M'=\coker(f')\). 
-    Dann kommutiert % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUA9AWxAF9S6TLnyEUARnJVajFmy6EBQ7HgJEATFOr1mrRCACy-QSAwrRRAMxaZutsWPKRalGXHSdc-V15LTw1TFkSXdtWT0OTkUTM2cgzVDbL0MAckd-cxdka0TPCIc+aRgoAHN4IlAAMwAnCF5EMhAcCCRJJIjK9Jq61upmpHU-bvrNJpbESyHa+oAWPvGAVjC7fUq0qZ7EJbGkADYN+t35pAB2A6RG-sQ59rYACy7p3p2t5eSS-go+IA
-  \begin{tikzfigure}
-R^m \arrow[r, "f"] \arrow[d, "h"] & R^n \arrow[r] \arrow[d, "g"] & M \arrow[r]  & 0 \\
-R^m \arrow[r, "f'"]               & R^n \arrow[r]                & M' \arrow[r] & 0
-\end{tikzfigure}  und somit ist \(M\cong M'\) .
-Da \(D\) diagonal ist, folgt \(M'\cong R^d\oplus\bigoplus_{i=1}^rR/a_iR\) mit \(r=\min(n,m)\) und \(d=0\) wenn \(n\leq m\) bzw \(d=n-m\) wenn \(n\geq m\). Wenn \(a_i\) Einheit ist, dann ist \(R/a_iR=0\) und wenn \(a_i=0\) dann ist \(R/a_iR\cong R\). Damit kann man \(M'\) in Gestalt der Aussage des Satzes umwandeln wobei \(d\) größer und \(r\) kleiner werden kann.
+Sei \( I = I ( X ) \). Angenommen es gibt \( f , g \in A = K [ X_1 , \dots , X_n ] \setminus I \) sodass \( f g \in I \)
+Sei \( J_1 = (I , f )\) und \( J_2 = ( I , g ) \). Es ist \( V ( J_1 ) = X \cap V ( f ) \) und da \( f \not\in I ( X ) \)
+ist \( V ( J_1 ) \subsetneq X \) und analog \( V ( J_2 ) \subsetneq X \).
+Es ist also \[ X = V ( J_1 ) \cup V ( J_2 ) \] reduzibel.
+Wenn \( I ( X ) \) primist und \[ X = V ( J_1 ) \cup V ( J_2) = V ( J_1 J_2 ) \] ist, dann ist \( J_1 J_2 \subseteq I ( X ) \)
+Also ist \( J_1 \subseteq I ( X ) \) oder \( J_2 \subseteq I ( X ) \), d.h. \( X = V ( J_1 )\) oder \( X = V ( J_2 ) \).
 \end{proof}
+
+\begin{Bsp} \begin{enumerate}
+\item[]
+\item Primideale in \( K [ X ] \) sind \( ( 0 ) \) und \( ( X-a ) \) für \( a \in K\). Die Zugehörigen irreduziblen 
+Varietäten sind \( K \) bzw. \( \{ 0 \} \).
+\item Primideale in \( K [ X , Y ] \) sind \( ( 0 ) \), \( f \) für irreduzible Polynome \( f \) und \( ( X - a , X - b ) \)
+für \( a , b \in K \). Zugehörige irreduzible Varietäten sind \( K^2 \), die durch \( f = 0 \) definierte Kurve und die
+Einpunktmenge \( ( a , b ) \). 
+\end{enumerate}
+\end{Bsp}
+
+\begin{Kor} Sei \( K \) algebraisch abgeschlossen. Dann gibt es mit \( V , I \) bijektive Korrespondenz
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12GYAzHT4AAJOOGAA8cQgEp0oWANaMYggL6CAUoIC8w9nACOAJ0kbVnOEwBGcGKP2CA0sgAaAfQCMpTlAg44g0kE3MApdQywAcwALfnYVEBVSdExcfEIUACZyKlpGFjZObj4BXVEJIQA1OnDbABPRMFUg3QtrWxh7BwA9Rs5w6Nj4xOTsPAIiMncc+mZWRA4uXljgEXETAAVwgFssWCUmzh5DOnk0cysbO0cXDy92Hz9SYIo+yJjOIaSQDFG0oiyptQZvl5oUlgJVuVBFhDIYYFAmAAvLCWbiCKo1HD1GCNNTOc5tK7dMCvAYfBI5eEReBEUBHCBbJBkEA4CBITwgOBRLB8JAAWiyuVmbAqCS+9MZiA5rKZ1BwdCwDDYkDArGoXJ5OH5guBcxAAEkxXTDAykIKZYgAMzq7m8xAC4YgCVIa0stmIQUau0O8UmyXm93M+WKthRCAQeRGp1+l1y93ShVK+ZhiMUlRAA
+\begin{tikzfigure}
+{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq K[X_1,\dots , X_n] \right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ Varietäten } X \subseteq K^n \right\} \arrow[ll, "I", shift left=2]                     \\
+{\left\{\text{ Primideale } \frakp\subseteq K[X_1,\dots,X_n]\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{\text{ irreduzible Varietäten } X\subseteq K^n\right\} \arrow[ll, shift left=2] \arrow[u, hook]
+\end{tikzfigure}
+Also ist \( \Spec K [ X_1 , \dots , X_n ] = \{ \text{ irreduzible Varietäten } X \subseteq K^n \} \).
+\end{Kor}
+\begin{Satz} Sei \( K \) algebraisch abgeschlossen und \( A = K [ X_1 , \dots , X_n ] / J \) für ein Ideal 
+\( J \subseteq K [ X_1 , \dots , X_n ] \).
+Dann gibt es Bijektive Korrespondenz \[ \Spec A \leftrightarrow \{ \text{ irreduzible Varietäten } X \subseteq V( J ) \} \]
+
+\end{Satz}
+\begin{Def}[ Zariski Topologie ]
+Die Varietäten \( X \subseteq K^n \) bilden abgeschlossene Mengen einer Topologie auf \( K^n\).
+
+\end{Def}
+\begin{Bem} Auf \( \RR ^ n \) oder \( \CC ^ n \) ist das nicht die Standardtopologie. Zwar sind Varietäten in der 
+Standardtopologie abgeschlossen, da Polynome stetig sind, aber \( B_\epsilon ( o ) \) ist nicht Zariski-offen.
+\end{Bem}
+\begin{Bsp} Ideale \( \neq 0 \) in \( K [ X ] \) sind von der Form \( (f ) \) und \( V ( f ) \) ist endlich. Die Zariski
+Topologie entspricht heir der Co-endlichen Topologie.
+Die Zariski-Topologie ist nicht Hausdorf, für \( X = V ( J ) \) irreduzibel ist \( X \) nicht die Vereinigung von zwei echten
+abgeschlossenen Teilmengen. Also haben zwei nicht-leere offene Teilmengen von \( X \) nicht-leeren Schnitt.
+Somit \( X \) nicht Hausdorff und damit auch nicht \( K ^ n \).
+\end{Bsp}
+\begin{Satz}[ Zariski Topologie ist noethersch]
+\begin{enumerate}
+\item[]
+\item Jede absteigende Kette \( V_1 \supseteq V_2 \supseteq \dots \) von Varietäten von \( K ^ n \) wird stationär.
+\item Eine nicht-leere Menge von Varietäten von \( K ^ n \) hat minimales Element.
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+1 und 2 sind äquivalent. Zeige also 1. Die absteigende Kette der Varietäten korrespondiert zu absteigender Kette von Idealen
+in \( K [ X_1 , \dots , X_n ] \) und das ist noethersch, wird also stationär.
+\end{proof}
+
+\begin{Satz} Sei \( X \subseteq K ^ n \) Varietät. Dann hat \( X \) Zerlegung 
+\[ X = X_1 \cup X_2 \cup \dots \cup X_k \] wobei jedes \( X_i \) irreduzibel ist und \( X_i \subsetneq \bigcup_{i\neq j} X_j \).
+\end{Satz}
+\begin{proof}
+Wenn \( X \) nicht irreduzibel ist, dann ist \( X = X_1 \cup X_2 \) mit \( X_1, X_2 \subsetneq X \). Fahre so fort mit 
+\( X_1 \) und \( X_2 \) und erhalte absteigende Kette von Untervaritäten von \( X \). Da \( X \) noethersch ist, muss diese 
+abbrechen.
+\end{proof}
+\begin{Kor} Ein Radikal Ideal \( J \) von \( K[ X_1, \dots, X_n ] \) ist Schnitt von endlich vielen Primidealen.
+\end{Kor}
+\begin{proof}
+Irreduzible Zerlegung von \( V ( J ) \) entspricht Schnitt von Primidealen da \( I (V ( J ) ) = \sqrt{J} = J\)
+\end{proof}
+\begin{Def} Sei \( A \) ein Ring. Die Zariski-Topologie auf \( \Spec A \) ist gegeben durch die abgeschlossenen 
+Mengen \( V ( J ) = \{ \frakp \in \Spec A \mid J \subseteq \frak p \}\) wobei \( J \subseteq A \) ein Ideal ist.
+\end{Def}
+
+
+\begin{Bem} \( J \subseteq \frakp \) bedeutet, dass \( f \in J \) auf \( 0 \) geschickt wird durch \( A \to A / \frak p \).
+\end{Bem}
+
+\end{Bsp}
+\begin{Lem} Sei \( R \) ein Ring und \(\frakp \in\Spec(R)\). Es gilt
+\begin{enumerate}
+\item \( V(\frakp )\) ist der Abschluss von \( \{ \frakp \} \).
+\item \( \{\frakp \} \subseteq \Spec(R) \) ist abgeschlossen genau dann wenn \( \frakp \) maximal ist.
+\end{enumerate}
+\end{Lem}
+\begin{proof}
+Sei \( V = V (J)\) abgeschlossen mit \( \{ \frakp \} \subseteq V \), d.h. \(J\subseteq \frakp \). Dann ist 
+\(V(\frakp)\subseteq V(J)\) und somit \( V(\frakp \) der Abschluss. Die zweite Aussage folgt aus der ersten.
+\end{proof}
+\begin{Bem} Sei \( X \subseteq \Spec A \) und \( I ( X ) \coloneq \bigcap_{\frakp \in X } \frak p \). Es gilt 
+\[ \sqrt{J} = \bigcap_{ J \subseteq \frakp \text{ prim}} \frakp = \bigcap_{\frakp \in V ( J ) } \frakp = I ( V ( J ) ) \]
+Wenn \( J , J' \) Radikale Ideale, dann \[ V ( I ) = V ( J' ) \implies J = \sqrt{J} = \sqrt{J'} = J' \].
+Das gibt Bijektionen
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12GYAzHT4AAJOOGAA8cQgEp0oWANaMYggL6CAUoIC8w9nACOAJ0kbVnOEwBGcGKP2CA0sgAaAfQCMpTlAg44g0kE3MApdQywAcwALfnYVEBVSdExcfEIUACZyKlpGFjZObj4BXVEJITpLCPgAYyiGTBswZTVnXQtrWxh7TgBlNBgawQBBMMiYznjE5Ow8AiIydxz6ZlZEDi5eWOARcRMABXCAWyxYJVVdHkM6eTRzKxs7RxcPL3YfP1Jgik5w6NipkkQBhZmkiFkltQVvl1oUtgJnPdOk8+gMhqNduVBFhDIYYFAmAAvLCWGAMMzsP4TOIJHL46oIFCgK4QI5IMggHAQJCeXKrNgANRA1AYlTJ+xSc3SICKOGFIDgUSwfCQAFoMtMQCy2YheVz2VC8msQABJeWi0kMCWg+brWXyxXKuWIdWa7VILKc7mIADMhv5iDATAYDBFYqtkrBdq2DqVKpdGqB7sQnv1iA50LWQZDYct1tStplMeoODoWAYbCiEAg8gSScMrKQfq9Hv9MOzoZl4fzUrY9uojvjrvrjd9Je9vMzSA7ufFkcL-c5ZYr6yrNdpKiAA
+\begin{tikzfigure}
+{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq K[X_1,\dots , X_n] \right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ abgeschlossene } X \subseteq \Spec A \right\} \arrow[ll, "I", shift left=2]      \\
+{\left\{\text{ Primideale } \frakp\subseteq K[X_1,\dots,X_n]\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{X\subseteq \Spec A \text{ irreduzibel }\right\} \arrow[ll, shift left=2] \arrow[u, hook]
+\end{tikzfigure}
+und analog impliziert \( A \) noethersch, dass \( \Spec A \) noethersch ist und in dem Fall jede abgeschlossene 
+Menge von \( \Spec A \) Vereinigung endlich vieler irreduziblen Mengen ist.
+\end{Bem}
+\begin{Kor}  Sei \( A \) noethersch. 
+\begin{enumerate}
+\item \( J \subseteq A \) Ideal dann hat \( V ( J )\) endliche Anzahl minimaler Elemente.
+\item \( \rad J \) ist Schnitt endlich vieler Primideale.
+\item Wenn \( A \) Nullteiler hat, dann hat \( A \) entweder nicht-triviale nilpotente Elemente oder endliche Anzahl \( \geq 2\)
+von minimalen Primidealen
+\end{enumerate}
+
+\end{Kor}
+\begin{proof}
+1 und 2 sind klar. Angenommen \( \rad A = 0 \). Es ist \( \rad A = \bigcap \frakp_i \) wobei \( \frakp_i \) die minimalen
+Primideale von \( A \) sind. Fall es nur ein \( \frakp \) gibt, dann ist \( \frakp = 0 \) also \( A \) nullteilerfrei.
+ 
+\end{proof}
+\begin{Lem}
+Ein Topologischer Raum \( X \) ist noethersch genau dann, wenn jede offene Menge quasi-kompakt ist.
+\end{Lem}
+\begin{proof}
+Sei \( X \) noethersch und \( U\subseteq X \) offen mit \( U= \bigcup_i U_i \).
+Sei \( V_1 = U_{i_1}^c\). Angenommen \( V_1 ,\dots, V_k \) gegeben. Wenn \( U = \bigcup_{i=1}^k U_{i_k}\) dann ist man fertig.
+Sonst wähle \( U_{i_{k+1}} \) mit \[ \bigcup_{i=1}^kU_{i_k}\subsetneq \bigcup_{i=1}^{k+1}U_{i_k}\] und setze 
+\[ V_{k+1}=(\bigcup_{i=1}^{k+1}U_{i_k})^c\subsetneq V_k \]. Das ist abgeschlossen und gibt absteigende Kette abgeschlossener Mengen
+\( V_1\supsetneq V_2 \supsetneq \dots\) was stationär wird.
+Also ist \( U \) quasi-kompakt.
+Wenn andersrum jede offene Menge quasi-kompakt ist und \( V_1\supsetneq \dots\) Kette von abgeschlossenen Mengen ist,
+dann setze \( U_i= V_i^c\). Dann hat \( \bigcup U_i\) endliche Teilüberdeckung und die Kette wird stationär.
+\end{proof}
+\begin{Lem}
+Sei \( R \) ein Ring. Dann ist \( \Spec R \) quasi-kompakt.
+\end{Lem}
+\begin{proof}
+Sei \( \Spec R = \bigcup U_i \) offene Überdeckung. Dann ist 
+\begin{align*}
+\emptyset & = \bigcap U_i^c\\
+&= \bigcap V(J_i)\\
+&= \bigcap ( \Sum J_i )
+\end{align*}
+Dann gibt es also Darstellung
+\[ 1 = \sum_{k=1}^n f_{i_k}x_{i_k} \] mit \( f_{i_k}\in R\) und \( x_{i_k}\in J_{i_k}\).
+Also ist schon 
+\[ \emptyset=V(\sum_{i=1}^n J_{i_k})\]
+und somit \( \Spec R=\bigcup_{i=1}^nU_{i_k}\)
+\end{proof}
+\begin{Bsp} Sei \( R = K[X_1,X_2,\dots]/J^2\) mit \( J= (X_1,X_2,\dots\). Es ist \[\Spec(R)=\{ J/J² \}\] noethersch aber
+ \(R\) ist nicht noethersch da \((X_1)\subsetneq (X_1,X_2)\subsetneq \dots\) aufsteigende Kette ist, die nicht stationär wird.
+
+\end{Bsp}
+\begin{Def}[Dimension] 
+\begin{enumerate}
+\item[]
+\item Die Dimension einer Varietät \( X \subseteq K ^ n \) ist das Supremum aller Längen von Ketten von
+irreduziblen Varietäten \( V_0 \subsetneq \dots \subsetneq V_d \subseteq X \).
+\item Die Krull-Dimension eines Ringes \( R \) ist das Supremun aller Längen \( d \) von Ketten von Primidealen 
+\( P_0 \subsetneq \dots \subsetneq P_d \) in \( R \).
+\end{enumerate}
+\end{Def}
+\begin{Bsp} Körper haben die Dimension \( 0 \). Es ist \( \dim ( \ZZ ) = 1 \) und \( \dim ( K [ X ] ) = 1 \). Ein 
+artinscher Ring ist ein noetherscher Ring mit Krull-Dimension \( 0 \)
+
+\end{Bsp}
+\begin{Lem}
+Für einen Körper \( K \) gilt \[ \dim ( K [ X_1 , \dots , X_n ] ) = n . \]
+\end{Lem}
+\begin{proof}
+Primideale \( \frakp_i=(X_1,\dots, X_i )\) bilden Kette der Länge \( n \).
+Der Fall \( n = 0 \) ist klar. Sei \( R = K [ X_1 , \dots , X_n ] \) und \( d = \dim ( R ) \).
+Wenn \( n \geq 1 \) dann ist \( d \geq 1\) und sei \( \frakp_0 \subsetneq \frakp_d \) eine Kette von Primidealen. 
+Sei \( \frakq = \frakp_{ d - 1 } \) und \( R_i = K [ X_i ] \subseteq R \) und \( \frakq_i = \frakq \cap R_i \).
+Angenommen \( \frakq_i \neq 0 \) für alle \( i \). Dann enthält \( \frakq_i \) ein Polynom \( g_i ( X_i ) \) mit 
+\( g_i \neq 0 \) für alle \( i \).
+Sei \( J = ( g_1 , \dots , g_n ) \). Es ist \( R / J \) ein endlich-dimensionaler \( K \)-Vektorraum, also ist 
+\( R / J \) artinscher Ring also null-dimensional. Wir haben aber eine Kette \[ \frakp_{d-1} / J \subsetneq \frakp_d / J \]
+in \( R / J \). Also muss es in \( i \) gegeben sodass \( \frakq_i = 0 \). Nach Umordnen ist das ohne Einschränkung 
+\( \frakq_n \). Sei \( S = R_n \setminus \{ 0 \} \) multiplikative Menge. Dann ist \( S \cap \frakp_{ d- 1 } = \emptyset \).
+Also gibt es Kette \( \frakp_0 \subsetneq \dots \subsetneq \frakp_{ d - 1 } \) von Primidealen der Länge \( d - 1 \)
+in Lokalisierung
+\[ S^{-1} R = ( S^{-1} K [ X_n ] ) [X_1 , \dots , X_{ n - 1 } ] = K ( X_n ) [ X_1 , \dots, X_{n-1} ]. \]
+Das ist Polynomring in \( n - 1 \) Variablen über Körper. Nach Induktion ist also \( d-1 \leq n -1 \) also \( d \leq n \).
+
+\end{proof}
+\begin{Lem}
+\begin{enumerate}
+\item[]
+\item Ein Hauptidealring, der kein Körper ist hat Dimension 1.
+\item \( R = K[X_1,X_s,\dots] \) hat Dimension \( \infty \).
+\end{enumerate}
+\end{Lem}
+
+\begin{Def} 
+Sei \( \frakp\in \Spec R \). Dann ist \( \ht(\frakp) \) definiert als die Länge der absteigenden Ketten von Primidealen,
+die bei \( \frakp \) beginnnen.
+\end{Def}
+\begin{Lem}
+Es ist \( \ht(\frakp)=\dim(R_\frakp)\) für jedes Primideal \( \frakp\in \Spec R\) und 
+\[\dim (R)=\sup_{\frakp\in\Spec R} (R_\frakp) = \sup_{\frakp \in \Specm} (R_\frakp))\]
+\end{Lem}
+\begin{proof}
+1. ist klar. 
+Ohne Einschränkung sei \( \dim (R)<\infty\)\) und \(\frakp_0\subsetneq \dots \subsetneq \frakp_d\) maximale Kette.
+Dann ist \( \dim(R)=d\) und 
+\[\sup \dim(R_\frakp)=\sup\ht(\frakp)=\ht(\frakp_d)=d\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

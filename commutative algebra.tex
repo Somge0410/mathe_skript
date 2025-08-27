@@ -1068,10 +1068,10 @@ Es gilt
 Die Polynome \( f_i \) sind nicht eindeutig, denn sie können um ein Element von \( I ( X ) \) verändert werden.
 Für eine Teilmenge \( X\subseteq K ^ n \) definiere \( A ( X ) = K [ X_1, \dots , X_n] / I(X) \).
 \end{Def}
-\begin{Lem} Für abgeschlossene \( X \subseteq K^n \) und \( Y \subseteq K^m \) gibt es Bijektion 
+\begin{Lemma} Für abgeschlossene \( X \subseteq K^n \) und \( Y \subseteq K^m \) gibt es Bijektion 
 \[ \{ \varphi\colon X \to Y \text{ polynomiell } \} \to \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \]
 
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 Angenommen \( g \in \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \) gegeben. Betrachte 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGlkANAfQEZSAHUFQIOOKV4BbCiAC+pdJlz5CKAZWr1mrRB278hIsROmyFS7HgJEyfKrUYs2AQQAUATQCU8xSAxWqkQC9lpOuiDuXD5yDjBQAObwRKAAZgBOEFJIAiA4EEgAzBYgGVlIZHkFiABMJWXZtdT5RWE6bAm+aZmNlS2IuQxYYBGiODjx8hRyQA
@@ -1104,7 +1104,8 @@ Wenn \( I ( X ) \) primist und \[ X = V ( J_1 ) \cup V ( J_2) = V ( J_1 J_2 ) \]
 Also ist \( J_1 \subseteq I ( X ) \) oder \( J_2 \subseteq I ( X ) \), d.h. \( X = V ( J_1 )\) oder \( X = V ( J_2 ) \).
 \end{proof}
 
-\begin{Bsp} \begin{enumerate}
+\begin{Bsp} 
+\begin{enumerate}
 \item[]
 \item Primideale in \( K [ X ] \) sind \( ( 0 ) \) und \( ( X-a ) \) für \( a \in K\). Die Zugehörigen irreduziblen 
 Varietäten sind \( K \) bzw. \( \{ 0 \} \).
@@ -1167,25 +1168,25 @@ abbrechen.
 Irreduzible Zerlegung von \( V ( J ) \) entspricht Schnitt von Primidealen da \( I (V ( J ) ) = \sqrt{J} = J\)
 \end{proof}
 \begin{Def} Sei \( A \) ein Ring. Die Zariski-Topologie auf \( \Spec A \) ist gegeben durch die abgeschlossenen 
-Mengen \( V ( J ) = \{ \frakp \in \Spec A \mid J \subseteq \frak p \}\) wobei \( J \subseteq A \) ein Ideal ist.
+Mengen \( V ( J ) = \{ \frakp \in \Spec A \mid J \subseteq \frakp \}\) wobei \( J \subseteq A \) ein Ideal ist.
 \end{Def}
 
 
-\begin{Bem} \( J \subseteq \frakp \) bedeutet, dass \( f \in J \) auf \( 0 \) geschickt wird durch \( A \to A / \frak p \).
+\begin{Bem} \( J \subseteq \frakp \) bedeutet, dass \( f \in J \) auf \( 0 \) geschickt wird durch \( A \to A / \frakp \).
 \end{Bem}
 
-\end{Bsp}
-\begin{Lem} Sei \( R \) ein Ring und \(\frakp \in\Spec(R)\). Es gilt
+
+\begin{Lemma} Sei \( R \) ein Ring und \(\frakp \in\Spec(R)\). Es gilt
 \begin{enumerate}
 \item \( V(\frakp )\) ist der Abschluss von \( \{ \frakp \} \).
 \item \( \{\frakp \} \subseteq \Spec(R) \) ist abgeschlossen genau dann wenn \( \frakp \) maximal ist.
 \end{enumerate}
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 Sei \( V = V (J)\) abgeschlossen mit \( \{ \frakp \} \subseteq V \), d.h. \(J\subseteq \frakp \). Dann ist 
 \(V(\frakp)\subseteq V(J)\) und somit \( V(\frakp \) der Abschluss. Die zweite Aussage folgt aus der ersten.
 \end{proof}
-\begin{Bem} Sei \( X \subseteq \Spec A \) und \( I ( X ) \coloneq \bigcap_{\frakp \in X } \frak p \). Es gilt 
+\begin{Bem} Sei \( X \subseteq \Spec A \) und \( I ( X ) \coloneq \bigcap_{\frakp \in X } \frakp \). Es gilt 
 \[ \sqrt{J} = \bigcap_{ J \subseteq \frakp \text{ prim}} \frakp = \bigcap_{\frakp \in V ( J ) } \frakp = I ( V ( J ) ) \]
 Wenn \( J , J' \) Radikale Ideale, dann \[ V ( I ) = V ( J' ) \implies J = \sqrt{J} = \sqrt{J'} = J' \].
 Das gibt Bijektionen
@@ -1211,9 +1212,9 @@ von minimalen Primidealen
 Primideale von \( A \) sind. Fall es nur ein \( \frakp \) gibt, dann ist \( \frakp = 0 \) also \( A \) nullteilerfrei.
  
 \end{proof}
-\begin{Lem}
+\begin{Lemma}
 Ein Topologischer Raum \( X \) ist noethersch genau dann, wenn jede offene Menge quasi-kompakt ist.
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 Sei \( X \) noethersch und \( U\subseteq X \) offen mit \( U= \bigcup_i U_i \).
 Sei \( V_1 = U_{i_1}^c\). Angenommen \( V_1 ,\dots, V_k \) gegeben. Wenn \( U = \bigcup_{i=1}^k U_{i_k}\) dann ist man fertig.
@@ -1224,15 +1225,15 @@ Also ist \( U \) quasi-kompakt.
 Wenn andersrum jede offene Menge quasi-kompakt ist und \( V_1\supsetneq \dots\) Kette von abgeschlossenen Mengen ist,
 dann setze \( U_i= V_i^c\). Dann hat \( \bigcup U_i\) endliche Teilüberdeckung und die Kette wird stationär.
 \end{proof}
-\begin{Lem}
+\begin{Lemma}
 Sei \( R \) ein Ring. Dann ist \( \Spec R \) quasi-kompakt.
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 Sei \( \Spec R = \bigcup U_i \) offene Überdeckung. Dann ist 
 \begin{align*}
 \emptyset & = \bigcap U_i^c\\
 &= \bigcap V(J_i)\\
-&= \bigcap ( \Sum J_i )
+&= \bigcap ( \sum J_i )
 \end{align*}
 Dann gibt es also Darstellung
 \[ 1 = \sum_{k=1}^n f_{i_k}x_{i_k} \] mit \( f_{i_k}\in R\) und \( x_{i_k}\in J_{i_k}\).
@@ -1240,7 +1241,7 @@ Also ist schon
 \[ \emptyset=V(\sum_{i=1}^n J_{i_k})\]
 und somit \( \Spec R=\bigcup_{i=1}^nU_{i_k}\)
 \end{proof}
-\begin{Bsp} Sei \( R = K[X_1,X_2,\dots]/J^2\) mit \( J= (X_1,X_2,\dots\). Es ist \[\Spec(R)=\{ J/J² \}\] noethersch aber
+\begin{Bsp} Sei \( R = K[X_1,X_2,\dots]/J^2\) mit \( J= (X_1,X_2,\dots\). Es ist \[\Spec(R)=\{ J/J^2 \}\] noethersch aber
  \(R\) ist nicht noethersch da \((X_1)\subsetneq (X_1,X_2)\subsetneq \dots\) aufsteigende Kette ist, die nicht stationär wird.
 
 \end{Bsp}
@@ -1257,9 +1258,9 @@ irreduziblen Varietäten \( V_0 \subsetneq \dots \subsetneq V_d \subseteq X \).
 artinscher Ring ist ein noetherscher Ring mit Krull-Dimension \( 0 \)
 
 \end{Bsp}
-\begin{Lem}
+\begin{Lemma}
 Für einen Körper \( K \) gilt \[ \dim ( K [ X_1 , \dots , X_n ] ) = n . \]
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 Primideale \( \frakp_i=(X_1,\dots, X_i )\) bilden Kette der Länge \( n \).
 Der Fall \( n = 0 \) ist klar. Sei \( R = K [ X_1 , \dots , X_n ] \) und \( d = \dim ( R ) \).
@@ -1277,27 +1278,28 @@ in Lokalisierung
 Das ist Polynomring in \( n - 1 \) Variablen über Körper. Nach Induktion ist also \( d-1 \leq n -1 \) also \( d \leq n \).
 
 \end{proof}
-\begin{Lem}
+\begin{Lemma}
 \begin{enumerate}
 \item[]
 \item Ein Hauptidealring, der kein Körper ist hat Dimension 1.
 \item \( R = K[X_1,X_s,\dots] \) hat Dimension \( \infty \).
 \end{enumerate}
-\end{Lem}
+\end{Lemma}
 
 \begin{Def} 
-Sei \( \frakp\in \Spec R \). Dann ist \( \ht(\frakp) \) definiert als die Länge der absteigenden Ketten von Primidealen,
+Sei \( \frakp\in \Spec R \). Dann ist \( \oht(\frakp) \) definiert als die Länge der absteigenden Ketten von 
+Primidealen,
 die bei \( \frakp \) beginnnen.
 \end{Def}
-\begin{Lem}
-Es ist \( \ht(\frakp)=\dim(R_\frakp)\) für jedes Primideal \( \frakp\in \Spec R\) und 
+\begin{Lemma}
+Es ist \( \oht(\frakp)=\dim(R_\frakp)\) für jedes Primideal \( \frakp\in \Spec R\) und 
 \[\dim (R)=\sup_{\frakp\in\Spec R} (R_\frakp) = \sup_{\frakp \in \Specm} (R_\frakp))\]
-\end{Lem}
+\end{Lemma}
 \begin{proof}
 1. ist klar. 
-Ohne Einschränkung sei \( \dim (R)<\infty\)\) und \(\frakp_0\subsetneq \dots \subsetneq \frakp_d\) maximale Kette.
+Ohne Einschränkung sei \( \dim (R)<\infty\) und \(\frakp_0\subsetneq \dots \subsetneq \frakp_d\) maximale Kette.
 Dann ist \( \dim(R)=d\) und 
-\[\sup \dim(R_\frakp)=\sup\ht(\frakp)=\ht(\frakp_d)=d\]
+\[\sup \dim(R_\frakp)=\sup\oht(\frakp)=\oht(\frakp_d)=d\]
 \end{proof}
 
 

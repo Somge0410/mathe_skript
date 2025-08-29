@@ -1117,22 +1117,29 @@ sodass die Höhen gleich sind.
     In beiden Fällen ist \(\sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_i m_i'\).
 \end{proof}
 \begin{Lemma}
-    sei \(K\) ein Körper und \(A=K[y_1,\dots,y_n]\) sodass \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] kein Isomorphismus ist. Dann gibt es \(y_1^*,\dots,y_{n-1}^*\in A\) sodass \(y_n\) ganz über \(A^*=K[y_1^*,\dots,y_{n-1}^*]\) und \(A=A^*[y_n]\)
+Sei \( K \) ein Körper und \( A \) eine \( K \)-Algebra vom endlichen Typ, \( A=K[x_1,\dots,x_n\) und sei 
+\( \varphi \colon K[X_1,\dots,X_n]\to A \) die natürliche Abbildung und \( y = \varphi (F) \) für ein \( F\neq 0\).
+Dann gibt es Elemente \( y_1 , \dots , y_{n-1} \in A \) sodass \( K[y_1,\dots,y_{n-1},y]\to A \) endlich ist und 
+\( A=K[y_1,\dots,y_{n-1},y,x_n]\)
 \end{Lemma}
 \begin{proof}
-    seien \(r_1,\dots,r_{n-1}\geq 1\) mit \(r_i\in\ZZ\) und setzte \(r_n=1\). Setze \[y_i^*=y_i-y_n^{r_i}\] für \(i=1,\dots,n-1\). Sei \(F\) im Kern von 
-    \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\]. Definiere Relation \(G\) über \(K[y_1^*,\dots,y_{n-1}^*]\) durch 
-    \[G(y_1^*,\dots,y_{n-1}^*,y_n)=F(y_1^*+y_n^{r_i},\dots,y_{n-1}+y_n^{r_{n-1}},y_n)=F(y_1,\dots,y_n)=0\]
-    Schreibe \(F=\sum_{m=(m_1,\dots,m_n)\in I} a_mY^m=\sum_ma_m\prod Y_i^{m_i}\).
-    Dann ist 
-    \begin{align*}
-        G&=\sum a_my_n^{m_n}\prod_{i\neq n}(y_i^*+y_n^{r_i})\\
-        &=\sum_ma_m(y_n^{\sum_{i=1}^n r_im_i}+\text{Rest}_m)
-    \end{align*} wobei der Rest ein Poylnom in \(y_n\) ist von Grad echt kleiner als \(m_n+\sum r_im_i\).
-    Nach Lemma ??? kann man \(r_i\) so wählen, dass \(m\neq m'\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'\).
-    Dann wird \(\max\{\sum r_im_i\mid a_m\neq 0\}\) nur in einem Summanden angenommen, sodass sich nicht alle Terme wegheben.
-    Da \(a_m\neq 0\) wo das Maximum angenommen wird und \(a_m\in K\) ist, folgt dass \(y_n\) ganz ist über \(K[y_1^*,\dots,y_{n-1}^*]\)
+Setze \( y_i = x_i - x_n^{r_i} \) für \( i=1,\dots n-1\) wobei \( r_i \in \ZZ \) später bestimmtwerden und setze \(r_n=1\).
+Definiere Relation \( G \) über \( K[y_1,\dots,y_{n-1}] \) durch 
+\[ G(y_1,\dots,y_{n-1},x_n) = F(y_1+x_n^{r_i},\dots,y_{n-1}+x_n^{r_{n-1}},x_n)=F(x_1,\dots,x_n)=y \]
+Schreibe \( F = \sum\limits_{m=(m_1,\dots,m_n)\in I } a_m X^m = \sum_m a_m \prod X_i^{m_i} \). Dann ist 
+\begin{align*}
+G &= \sum_m a_mx_n^{m_n}\prod_{i\neq n } (y_i +x_n^{r_i} )\\
+& = \sum_m a_m(x_n^{\sum_{i=1}^nr_im_i} + \text{ Rest}_m)
+\end{align*}
+wobei der Rest ein Polynom in \( x_n \) ist von Grad  echt kleiner als \(\sum_{i=1}^nr_im_i\). Nach Lemma ??? kann man \( r_i\) so wählen,
+dass \(m\neq m' \implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im'_i \). Dann wird \( \max\{\sum r_im_i\mid a_m \neq 0\} \) genau in einem 
+Summanden angenommen, sodass sich nciht alle Terme wegheben. Da \(  a_m\neq 0 \) wo das Maximum angenommen wird, ist \( x_n\) ganz über 
+\(K[y_1,\dots,y_{n-1},y]\).
 \end{proof}
+\begin{Bem} Wenn in ?? \( y=0 \), das heißt \[x_1,\dots,x_n \] algebraisch abhängig sind, 
+dann gibt es \(y_1,\dots,y_{n-1}\) sodass \(K[y_1,\dots,y_{n-1}]\to K[x_1,\dots,x_n]\) endlich ist.
+
+\end{Bem}
 \begin{Satz}[Noether Normalisierung]\label{Satz:NoetherNor}
 Sei \(K\) ein Körper und \(A\) eine \(K\)-Algebra von endlichem Typ. Dann gibt es \(z_1,\dots,z_m\in A\) sodass
 \begin{enumerate}
@@ -1174,7 +1181,7 @@ Wenn \( d=0 \) dann ist \(A\) ganz über \( K \) also Körper, da stimmt die Aus
 Wenn \( \frakp =0 \) dann stimmt die Aussage auch.
 Sei also \(d\geq 1\) und \( \frakp\neq 0 \).
 Wähle \( y \in \frakp \cap K[x_1,\dots,x_d] \) mit \( y \neq 0 \). Das existiert da
- \(\frakp\neq 0 \implies \frakp \cap K[x_1,\dots,x_d]\neq 0 \) nach Satz ???. Ähnlich wie in Lemma ???
+ \(\frakp\neq 0 \implies \frakp \cap K[x_1,\dots,x_d]\neq 0 \) nach Satz ???. Nach Lemma ???
  gibt es \( y_1, \dots, y_{d-1} \in K[x_1,\dots, x_d\) such that \( K[y_1,\dots,y_{d-1},y] \to K[x_1,\dots,x_d] \) ist
  endlich und injektiv und \( y_1,\dots,y_{d-1},y \) algebraisch unabhängig. Dann ist \(K[y_1,\dots,y_{d-1},y]\to A\) endlich
  und da \(K[y_1,\dots,y_{d-1},y]\) normal nach ??? (faktoriell impliziert normal ). Nach \nameref{Satz:GoingDown} gibt es Ideal
@@ -1184,10 +1191,10 @@ Wähle \( y \in \frakp \cap K[x_1,\dots,x_d] \) mit \( y \neq 0 \). Das existier
  Da \( \oht \frakp \geq \oht (\frakp/\frakp_0 )+1 \) und \(\coht(\frakp)=\coht(\frakp/\frakp_0)\)
  ist \[ \oht(\frakp)+\coht(\frakp)\geq d \] und somit \(=d\). 
  \end{proof}
- \begin{Bem} Es gilt \( \oht(\frakp)=\dim(R_\frakp)=\transdeg_K(\Quot(R_\frakp))=\transdeg_K(\Quot(A))\) Nach Satz ???
+ \begin{Bem} Es gilt \[ \oht(\frakp)=\dim(R_\frakp)=\transdeg_K(\Quot(R_\frakp))=\transdeg_K(\Quot(A))\] Nach Satz ???
  und \( \coht(\frakp)=\transdeg_K(\Quot(A/\frakp) \) 
  Also haben wir 
- \( \oht(\frakp)=\transdeg_K(\Quot(A))-\transdeg_K(k(\frakp))\) mit \(k(\frakp)=\Quot(A)\).
+ \[ \oht(\frakp)=\transdeg_K(\Quot(A))-\transdeg_K(k(\frakp))\) mit \(k(\frakp)=\Quot(A)\].
  
  \end{Bem}
 \begin{Satz} Jede maximale Kette von Primidealen \( \frakq\frakp_0 \subsetneq \dots \subsetneq \frakp_d =\frakp \)
@@ -1237,7 +1244,8 @@ Dann ist \(L/K\) endlich.
     Also ist \(\frakm\supseteq (X_1-a_1,\dots,,X_n-a_n)\) und letzteres ist maximal denn die Abbildung \(K[X_1,\dots,X_n]\to K, f\mapsto f(a_1,\dots,a_n)\) hat dieses Ideal als Kern.
 \end{proof}
 \begin{Def}
-    Sei \(K\) ein Körper. Eine Varietät \(V\subseteq K^n\) ist eine Teilmenge \(V=V(J)=\{p=(a_1,\dots,a_n)\in K^n\mid f(p)=0\, \forall f\in J\}\)  für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\) ein Ideal. Da \(J=(f_1,\dots,f_m)\) endlich erzeugt ist, ist \(V\) definiert durch \(f_1(p)=\dots=f_m(p)=0\).
+    Sei \(K\) ein Körper. Eine Varietät \(V\subseteq K^n\) ist eine Teilmenge 
+    \[V=V(J)=\{p=(a_1,\dots,a_n)\in K^n\mid f(p)=0\, \forall f\in J\}\]  für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\) ein Ideal. Da \(J=(f_1,\dots,f_m)\) endlich erzeugt ist, ist \(V\) definiert durch \(f_1(p)=\dots=f_m(p)=0\).
 \end{Def}
 \begin{Satz}
     Sei \(K\) algebraisch abgeschlossen und \(A=K[X_1,\dots,X_n]/J\) für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\).
@@ -1288,7 +1296,7 @@ Es gilt
 \end{tikzfigure} 
 \end{Satz}
 \begin{proof}
-    Sei \(J\subseteq\frakm\) für ein maximales Ideal \(\frakm=(X_1-a_1,\dots,X_n-a_n)\).
+    Sei \(J\subseteq\frakm\) für ein maximales Ideal \(\frakm=(X_1-a_1,\dots,X_n-a_n)\).\\
     Dann ist \(P=(a_1,\dots,a_n)\in V(J)\)
     Angenommen \(f\in K[X_1,\dots,X_n]\) sodass \(f(p)=0\) für alle \(p\in V(J)\). Sei \(J'=(J,fY-1)\subseteq K[X_1,\dots,X_n,Y]\). Ein Punkt \(p\in V(J')\) ist \((n+1)\)-Tupel \((a_1,\dots,a_n,b)\in K^{n+1}\). Angenommen \(V(J')\neq \emptyset\).
     Dann gibt es so einen Punkt \(p\) und \(p'=(a_1,\dots,a_n)\) ist dann in \(V(J)\). Da aber \(bf(a_1,\dots,a_n)=1\) ist, ist das ein Widerspruch. Also ist \(V(J')=\emptyset\) und somit \(J'=K[X_1,\dots,X_n,Y]\)
@@ -1436,8 +1444,8 @@ Wenn \( J , J' \) Radikale Ideale, dann \[ V ( I ) = V ( J' ) \implies J = \sqrt
 Das gibt Bijektionen
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12GYAzHT4AAJOOGAA8cQgEp0oWANaMYggL6CAUoIC8w9nACOAJ0kbVnOEwBGcGKP2CA0sgAaAfQCMpTlAg44g0kE3MApdQywAcwALfnYVEBVSdExcfEIUACZyKlpGFjZObj4BXVEJITpLCPgAYyiGTBswZTVnXQtrWxh7TgBlNBgawQBBMMiYznjE5Ow8AiIydxz6ZlZEDi5eWOARcRMABXCAWyxYJVVdHkM6eTRzKxs7RxcPL3YfP1Jgik5w6NipkkQBhZmkiFkltQVvl1oUtgJnPdOk8+gMhqNduVBFhDIYYFAmAAvLCWGAMMzsP4TOIJHL46oIFCgK4QI5IMggHAQJCeXKrNgANRA1AYlTJ+xSc3SICKOGFIDgUSwfCQAFoMtMQCy2YheVz2VC8msQABJeWi0kMCWg+brWXyxXKuWIdWa7VILKc7mIADMhv5iDATAYDBFYqtkrBdq2DqVKpdGqB7sQnv1iA50LWQZDYct1tStplMeoODoWAYbCiEAg8gSScMrKQfq9Hv9MOzoZl4fzUrY9uojvjrvrjd9Je9vMzSA7ufFkcL-c5ZYr6yrNdpKiAA
 \begin{tikzfigure}
-{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq K[X_1,\dots , X_n] \right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ abgeschlossene } X \subseteq \Spec A \right\} \arrow[ll, "I", shift left=2]      \\
-{\left\{\text{ Primideale } \frakp\subseteq K[X_1,\dots,X_n]\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{X\subseteq \Spec A \text{ irreduzibel }\right\} \arrow[ll, shift left=2] \arrow[u, hook]
+{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq A\right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ abgeschlossene } X \subseteq \Spec A \right\} \arrow[ll, "I", shift left=2]      \\
+{\left\{\text{ Primideale } \frakp\subseteq A\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{X\subseteq \Spec A \text{ irreduzibel }\right\} \arrow[ll, shift left=2] \arrow[u, hook]
 \end{tikzfigure}
 und analog impliziert \( A \) noethersch, dass \( \Spec A \) noethersch ist und in dem Fall jede abgeschlossene 
 Menge von \( \Spec A \) Vereinigung endlich vieler irreduziblen Mengen ist.
@@ -1498,22 +1506,173 @@ irreduziblen Varietäten \( V_0 \subsetneq \dots \subsetneq V_d \subseteq X \).
 \( P_0 \subsetneq \dots \subsetneq P_d \) in \( R \).
 \end{enumerate}
 \end{Def}
+\begin{Def} Sei \( M \) ein \( A \)-Modul. Der Träger von \( M \) ist die Teilmenge 
+\[ \Supp(M)=\{ \frakp\in\Spec(A)\mid M_\frakp \neq 0 \} \subseteq \Spec(A). \]
+Für \( m\in M \) ist der Annihilator das Ideal \( \Ann(m)\coloneq \{ f\in A \mid fm=0\}\).
+Es ist \( \Ann(M)=\{ f\in A \mid fM=0\}\). \(f\in A \) heißt Nullteiler von \( M \) falls \(fm=0\) für ein \(m\neq 0\) in \(M\).
+\end{Def}
+\begin{Satz} Sei \( M \) ein \( R\)-Modul.
+\begin{enumerate}
+\item Wenn \( M=Rx \) für ein \(x\in M\) dann ist \(\Supp(M)=V(\Ann(x))\).
+\item Wenn \(M=\sum_{i\in J\} M_i\), dann ist \( \Supp(M)=\bigcup_{i\in J}\Supp M_j \)
+\item Wenn \(L\subseteq M\) und \(N=M/L\) dann ist \(\Supp(M)=\Supp(L)\cup \Supp(N)\)
+\item wenn \(M \) endlich erzeugt ist, dann ist \(\Supp(M)=V(\Ann(M))\) eine abgeschlossene Menge.
+\item Wenn \(\frakp\in\Supp(M)\), dann ist \(V(\frakp)\subseteq\Supp(M)\).
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+\begin{enumerate}
+\item[]
+\item Es ist \begin{align*}
+\frac x 1 =0  \in M_\frakp & \iff sx=0 \text{ für ein } s\in R\setminus\frakp\\
+& \iff (A\setminus\frakp)\cap\Ann(x)\neq\emptyset
+\end{align*}
+Also \(\frac x 1\neq 0 \iff \Ann(x)\subseteq\frakp \iff \frakp\in V(\Ann(x))\)
+\item Klar, da \(M_i\subseteq M\implies (M_i)_\frakp\subseteq M_\frakp\)
+\item Folgt, da Lokalisierung exakt ist.
+\item Folgt aus 1 und 2
+\item Sei \(\frakp\subseteq\frakq\) Primideal. Es ist \(M_\frakp=(M_\frakq)_\frakp\). Also ist \(M_\frakq\neq 0\).
+\end{enumerate}
+\end{proof}
+\begin{Def} Sei \(M\) ein \(R\)-Modul.
+Ein assoziertes Primideal von \(M\) ist ein Primideal \(\frakp\subseteq R\) sodass es Untermodul \(N\subseteq M\) gibt
+sodass \(N\cong R/\frakp\). Äquivalent ist, dass es \(x\in M\) gibt sodass \(\frakp=Ann(x)\) Primideal ist. Sei \(\Ass(M)\)
+die Menge der assozierten Primideale.
+\end{enumerate}
+
+\end{Def}
+\begin{Bem} Wenn \(\frakp\in\Ass(M)\) dann \(\Ann(M)=\bigcap_{x\in M}\Ann(x)\subseteq\frakp\)
+
+\end{Bem}
+\begin{Bsp} Sei \(n=p^\alpha q^\beta\in\ZZ\) mit zwei verschiedenen Primzahlen \(p,q\) und \(\alpha,\beta\geq 1\).
+Dann ist \(\Ass(\ZZ/n\ZZ)=\{(p),[q]\}\), denn \(m)p^{\alpha-1}q^\beta+n\ZZ\) hat \(Ann(m)=\frakp\) und ähnlich fpr \(q\).
+
+\end{Bsp}
+\begin{Satz} Sei \(M\) ein \(R\)-Modul.
+\begin{enumerate}
+\item Sei  \(\frakp=Ann x\) prim für \(x\in M\). Dann gilt \[0\neq y\in Rx\implies \Ann(y)=\frakp \]
+\item Jedes maximale Element der Menge \(\{\Ann x \mid 0\neq x\in M \}\) ist Primideal, also in \(\Ass(M)\).
+\item Wenn \(R\) noethersch ist, dann ist \(\Ass(M)\neq \emptyset\) falls \(M\neq 0\).
+\item Wenn \(L\subseteq M, N=M/L\) dann ist \(\Ass(M) \subseteq \Ass(L)\cup \Ass(N) \).
+\end{enumerate} 
+\end{Satz}
+\begin{proof}
+\begin{enumerate}
+\item 
+Es ist \(Rx\cong R/\frakp\) Integritätsbereich. Wenn also \(y\neq o\in R/\frakp\) Dann ist \(\Ann(y)=\frakp\).
+\item Angenommen \(\frakp=\Ann(x)\) maximal und \(f\cdot g\in\Ann(x)\).
+Dann ist \(fgx=0\). Wenn \(gx=0\) dann ist \(g\in\frakp\).
+wenn \(0\neq gx\), dann ist \(Ann(x)\subseteq Ann(gx)\) also \(\Ann(gx)=\Ann(x)\) und dan \(f\in\Ann(gx)=\Ann(x)\).
+\item folgt mit 2.
+\item Angenommen \(R/\frakp\subseteq M\) Untermodul. Wenn \( R/\frakp \cap L = 0\), dann ist \(R/\frakp +N \) Untermodul 
+von \(N\) also \(\frakp\in Ass(N)\).
+Andernfalls gilt für alle \(x\neq 0 \in (R/\frakp)\cap L\colon \Ann(x) = \frakp \) nach 1. Also ist \(\frakp\in \Ass(L)\).
+
+\end{enumerate}
+\end{proof}
+\begin{Kor} wenn \(R\) noethersch ist, dann ist
+\[ \{ \text{ Nullteiler von } M \}=\bigcup_{\frakp\in\Ass(M)}\frakp \]
 
 
+\end{Kor}
+
+\begin{proof}
+Sei \( 0 \neq m\in M\). Jedes \( a \in \Ann(m)\) ist in einem Ideal \(Ann(x)\) enthalten wobei \(\Ann(x)\) maximal unter 
+Annihilatoren. Also in \(\Ass(M)\) nach ???
+\end{proof}
+\begin{Bsp} \(N=M/L\) kann assozierte Primideale haben, die nicht in \(\Ass(M)\) liegen, zum Beispiel ist
+\(\Ass(\ZZ/2\ZZ)=\{(2)\}\) aber \((2)\not\in \Ass(\ZZ)\).
+
+\end{Bsp}
+\begin{Satz} Es ist \(\Ass(M)\subseteq \Supp(M)\) Insbesondere \(\frakp\in\Ass(M) \implies V(\frakp\subseteq \Supp(M)\)
+Wenn außerdem \(R\) noch noethersch, dann ist minimales Element \(\frakp\in\Supp(M)\) in \(\Ass(M)\). Insbesondere wenn 
+\(V(\frakp)\subseteq\Supp M\)  irreduzible Komponente ist, dann ist \(\frakp\in \Ass(M)\).
+
+\end{Satz}
+\begin{proof}
+Es ist \[ (R/\frakp)_\frakp\cong\Quot(R/\frakp)=\colon k(\frakp)\]
+Da \(R/\frakp \subseteq M\) folgt \( 0\neq k(\frakp)=(R\/frakp)_\frakp\subseteq M_\frakp\).
+Somit ist \(\frakp\in\Supp(M)\).
+Sei nun \( R \) noethersch. \(M_\frakp\) ist \(R_\frakp\)-Modul, \(M_\frakp\neq 0\). Also ist \(\Ass_{R_\frakp}M_\frakp\neq \emptyset\).
+Sei \(\frakq'\subseteq R_\frakp\) ein Primideal ungleich \(\frakp R_\frakp\). Dann ist \(\frakq'=\frakq R_\frakp\) für
+Primideal \(\frakq\subseteq \frakp \).
+Also ist \(M_\frakp)_{\frakq'}=M_\frakq=0\) für \(\frakq\neq \frakp \) da \(\frakp\) minimal.
+Also ist \(\Supp_{R_\frakp}M_\frakp=\{\frakp R_\frakp\}\) und dann
+\[ 0\neq \Ass_{R_\frakp}M_\frakp \subseteq \Supp_{R_\frakp}M_\frakp = \{ \frakp R_\frakp\}\] und also 
+\(\Ass_{R_\frakp}M_\frakp = \{ \frakp R_\frakp \}\). Das heißt es gibt \(0\neq \frac m s \in M_\frakp \) sodass
+\(\Ann(\frac m s )=\frakp R_\frakp\). 
+Das heißt für alle \(f\in\frakp\) gilt \(\frac f 1\cdot \frac m s=0\). Also gibt es ein \(t\in R\setminus \frakp \) sodass
+\(ftm=tfm=0\). Da \(\frakp=(f_1,\dots,f_n)\) endlich erzeugt ist, gibt es \(t_i\in R\setminus\frakp\) sodass
+\(f_it_im=0\). Dann ist \(t=\prod t_i\) ein Element in \(R\setminus\frakp\) sodass \(ftm=0\). Also ist \(\frakp\subseteq \Ann(tm)\).
+Andersrum wenn \(u\in R\setminus\frakp\) mit \(utm=0\) dann ist 
+\(\frac u 1 \cdot \frac t 1 \frac m 1 =0\) und da erstere beide eine Einheit sind, ist das ein Widerspruch. 
+Also ist  \(\Ann(tm)\subseteq\frakp \) und damit \(\frakp=\Ann(tm)\).
+\end{proof}
+\begin{Kor} Wenn \(R\) noethersch und \(M\) endlicher \(R\)-Modul ist, dann ist \[\Supp(M)=\bigcup_{i=1}^nV(\frakp_i)\]
+wobei die \(\frakp_i\) endlich viele minimale Primideale sind, die \(\Ann(M)\) enthalten. Jedes \(\frakp_i\) ist assoziertes
+Primideal.
+
+\end{Kor}
+\begin{proof}
+\(\Supp(M)=V(\Ann(M))\) und \(V(\Ann(M)\) hat endlich viele minimale Elemente \(\{\frakp_i,\dots,\frakp_k\}\)
+und \(V(\Ann(M))=\bigcup V(\frakp_i)\) Nach letztem Satz ?? sind diese in \(Ass(M)\).
+\end{proof}
+\begin{Satz} Sei \( R \) noethersch und \(M\) endlicher \(A\)-Modul. Es gibt Kette
+\[0=M_0\subseteq M_1\subseteq\dots\subseteq M_n=M\) Untermodul sodass
+\(M_i/M_{i-1} \cong R/\frakp_i \) mit \(\frakp_i\in\Spec(A)\).
+Dann ist \(Ass(M)=\{\frakp_1,\dots,\frakp_n\}\).
+
+\end{Satz}
+\begin{proof}
+Es ist \(\Ass(M)\neq 0\) also gibt es \(M_1\subseteq M\) sodass \(M_1=R/\frakp_1\).
+Fahre so fort mit \(M/M_i\).
+Bekomme Kette in \(M\) durch Urbild nehmen von von den enstehenden Moduln. Kette muss abrechen, da \(A\) noethersch.
+\end{proof}
+\begin{Satz} Sie \(A,\frakm\) lokaler Integritätsbereich und \(\frakm=(t)\) für ein \(t\neq 0\).
+Wenn \[\bigcap_{n=1}^\infty(t^n)=0\] Dann gilt
+\begin{enumerate}
+\item Jedes \(0\neq x\in A\) hat die Form \(x=t^nu\) mit \(n\geq 0\) und \(u\) Einheit.
+\item Definiere \(\nu(x)=n\) wenn \(x=t^nu\) und \(\nu(\frac x y )=\nu(x)-\nu(y)\) für alle \(\frac x,y \in \Quot(A)\).
+Dann ist \(nu\) diskrete Berwertung mit DBR \(A\).
+\item Jedes \(I\neq o\) hat die Form \(I=(t^n)\).
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+\begin{enumerate}
+\item[]
+\item wenn \(x\in (t^n)\setminus (t^{n+1})\) dann ist \(x=t^n\¢dot u\) mit \(u\neq\frakm\) also Einheit
+\item Klar da \(\nu(t^n)=n\in\ZZ\).
+\item Sei \(n=\min\{k\mid t^n\in I\}\). Dann ist \(I=(t^n)\).
+\end{enumerate}
+\end{proof}
+\begin{Def} Sei \(A\) Integritätsbereich und \(K=\Quot(A)\).
+\(A\) heißt Bewertungsring, falls für alle \(x\in K^*\) gilt dass \(x\in A\) oder \(x^{-1}\in A\).
+Sei \(\Gamma=K^*/A^*\).  Das ist abelsche Gruppe mit \([a]+[b]=[a+b]\). Definiere partielle Ordnung durch 
+\(p\geq 0 \iff p=[a]\) für ein \(a\in A\), also \([b]\geq [a] \iff \frac b a \in A\).
+
+\end{Def}
+
+\begin{Satz} \(A\) ist Bewertungsrings genau dann, wenn \(>\) totale Ordnung auf \(\Gamma\) ist.
+Falls das gilt ist \(\nu\colon K^*\to\Gamma\) eine Abbildung sodass
+\begin{enumerate}
+\item \(\nu(xy)=\nu(x)+\nu(y)\)
+\item \(\nu(x+y)=\min\{\nu(x),\nu(y)\}\)
+\end{enumerate}
+Insebsondere wenn \(\nu\colon K^*\to \Gamma\) eine surjektive Abbildung wie oben ist und \(\Gamma\) geordnete Gruppe (dh Ordnung stabil under \(+\)),
+Dann ist \(A=\{a\in K\mid \nu(a)\geq 0\}\cup\{0\}\) Bewertungsring und \(\Gamma=K^*/A^*\).
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+\end{Satz}
+\begin{proof}
+\(>\) ist totale Ordnung wenn einer der drei Fälle gilt
+\begin{enumerate}
+\item \(\frac a b \in A\) aber \(\frac b a \not\in A\)
+\item \(\frac a b \in A^*\)
+\item \(\frac b a \in A \) aber \(\frac a b \not\in A\).
+\end{enumerate}
+\end{proof}
 
 
 

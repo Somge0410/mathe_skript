@@ -1,0 +1,121 @@
+%% PACKAGES
+
+% unicode
+\usepackage[utf8]{inputenc}
+
+% typographical perfection
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% bibliography
+% \usepackage[backend=bibtex, style=alphabetic, maxbibnames=10, maxalphanames=10]{biblatex}
+% \addbibresource{bibliography.bib}
+
+% ams-packages (mathtools extends amsmath and thmtools extends amsthm)
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amscd,amsfonts,bbm,mathrsfs,stmaryrd}
+
+% commutative diagrams
+\usepackage{tikz-cd,tikz}
+\usetikzlibrary{babel}
+\usepackage[arrow, matrix, curve]{xy}
+\usetikzlibrary{intersections,angles, quotes, calc}
+
+% quotation marks
+\usepackage{csquotes}
+
+% more blackboard-bold symbols
+\DeclareMathAlphabet{\mathmybb}{U}{bbold}{m}{n}
+
+% show page-layout
+% \usepackage{showframe}
+
+% todo-notes
+\usepackage{todonotes}
+
+% referencing
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cyan,
+    filecolor=cyan,
+    citecolor = cyan,      
+    urlcolor=cyan,
+}
+\usepackage[capitalise, noabbrev]{cleveref}
+\crefname{Satz}{Satz}{Sätze}
+\Crefname{Satz}{Satz}{Sätze}
+\crefname{Lemma}{Lemma}{Lemmata}
+\Crefname{Lemma}{Lemma}{Lemmata}
+\crefname{Bsp}{Beispiel}{Beispiele}
+\Crefname{Bsp}{Beispiel}{Beispiele}
+\crefname{Kor}{Korollar}{Korollare}
+\Crefname{Kor}{Korollar}{Korollare}
+\crefname{Bem}{Bemerkung}{Bemerkungen}
+\Crefname{Bem}{Bemerkung}{Bemerkungen}
+\crefname{figure}{Diagramm}{Diagramme}
+\Crefname{figure}{Diagramm}{Diagramme}
+\usepackage{xparse}
+\usepackage{float}
+%% SETTINGS
+
+%page layout with amsart
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-2in}
+%\addtolength{\paperwidth}{+2.6in}
+\addtolength{\marginparwidth}{-0.4in}
+\calclayout
+
+% prevent bad things
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+\widowpenalty=\maxdimen
+\displaywidowpenalty=\maxdimen
+\emergencystretch=1em
+%tikz environment
+
+\NewDocumentEnvironment{tikzfigure}{o o}{% The 'o o' means two optional arguments
+  \begin{figure}[H]
+  \centering
+  \begin{tikzcd}
+}{%
+  \end{tikzcd}
+  \IfNoValueTF{#1}{}{ \caption{#1} }% If caption is given, use it
+  \IfNoValueTF{#2}{}{ \label{#2} }%   If label is given, use it
+  \end{figure}
+}
+
+% define theorems, etc
+%\newcounter{everything}[section]
+%\renewcommand{\theeverything}{\thesection.\arabic{everything}}
+% plain-style environments
+%\declaretheorem[sibling=everything, style=plain]{theorem, lemma, proposition, corollary}
+% definition-style environments
+%\declaretheorem[sibling=everything, style=definition]{definition}
+% definition-style unnumbered environments
+%\declaretheorem[numbered=no, style=definition]{question}
+\newcounter{everything}[section]
+\renewcommand{\theeverything}{\thesection.\arabic{everything}}
+% plain-style environments
+\theoremstyle{plain}
+\newtheorem{Satz}[everything]{Satz}
+\newtheorem{theorem}[everything]{Theorem}
+\newtheorem{Lemma}[everything]{Lemma}
+\newtheorem{Kor}[everything]{Korollar}
+% definition-style environments
+\theoremstyle{definition}
+\newtheorem{Bem}[everything]{Bemerkung}
+\newtheorem{Def}[everything]{Definition}
+\newtheorem{Bsp}[everything]{Beispiel}
+
+
+%toc formatting
+\setcounter{tocdepth}{1}
+

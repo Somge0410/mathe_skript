@@ -632,7 +632,7 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
     Das ist insebsondere erfüllt durch einen Bewertungsring
 \end{Lemma}
 \begin{proof}
-    Angenommen 2. gilt und \(a,b\in R\). Dann ist \((a,b)=(c)\). Wenn \(c=0\) ist, dann ist \(a=b=0\) und \(a\) teilt \(b\). Wenn \(c\neq 0\) sei \(c=ua+vb\) und \(a=wc\) und \(b=zc\). Dann ist \(c(1-uw-vz)=0\). Da \(R\) lokal ist, ist \(1-uw-vz\in\frakm\). Also ist entweder \(w\) oder \(z\) eine Einheit. Also gilt 1.
+    Angenommen 2. gilt und \(a,b\in R\). Dann ist \((a,b)=(c)\). Wenn \(c=0\) ist, dann ist \(a=b=0\) und \(a\) teilt \(b\). Wenn \(c\neq 0\) sei \(c=ua+vb\) und \(a=wc\) und \(b=zc\). Dann ist \(c(1-uw-vz)=0\). Da \(R\) lokal ist, ist \(1-uw-vz\in\frakm\) denn sonst wäre es Einheit und \(c=0\). Also ist entweder \(w\) oder \(z\) eine Einheit. Also gilt 1.
     Wenn 1. gilt und \(R\) hat zwei maximale Ideal \(\frakm,\frakn\) Dann wähle \(a\in \frakm\setminus\frakn\) und \(b\in\frakn\setminus\frakm\). Dann teilen \(a\) und \(b\) einander nicht. Also hat \(R\) nur ein maximales Ideal und ist lokal.
     Sei \(I=(f_1,\dots,f_n)\) und \(I'=(f_2,\dots f_n)\). Es ist nach Induktion \(I'=(c)\) und somit \(I=(f_1,c)=(c')\).
     Es ist klar dass 1 und 3 äquivalent sind.
@@ -878,8 +878,9 @@ und \[\dim(M\otimes _RK)=0\]
 \begin{Def}
     Ein Integritätsbereich \(R\) heißt normal, falls \(R\) ganz-abgeschlossen ist in seinem Quotientenkörper.
 \end{Def}
-\begin{Bem}
-    Ein faktorieller Ring ist normal.
+\begin{Bem}\label{Bem:FaktNormal}
+    Ein faktorieller Ring ist normal. Denn sei \(q=\frac a b\) ganz mit\(b\) keine Einheit und ohen Einschränkung- \(a,b\) teilerfremd.
+    Dann führt eine Ganzheitsgleichung für \(q\) zu \(a^n=bx\) also sind \(a\) und \(b\) nicht teilerfremd. Also ist \(q\in R\).
 \end{Bem}
 \begin{Lemma}
     Sei \(S\subseteq R\setminus\{0\}\) eine multiplikative Menge und \(R\) normal. Dann ist \(R_S\) normal.
@@ -1549,7 +1550,7 @@ die Menge der assozierten Primideale.
 Dann ist \(\Ass(\ZZ/n\ZZ)=\{(p),[q]\}\), denn \(m)p^{\alpha-1}q^\beta+n\ZZ\) hat \(Ann(m)=\frakp\) und ähnlich fpr \(q\).
 
 \end{Bsp}
-\begin{Satz} Sei \(M\) ein \(R\)-Modul.
+\begin{Satz}\label{Satz:NoetASSNonZero} Sei \(M\) ein \(R\)-Modul.
 \begin{enumerate}
 \item Sei  \(\frakp=Ann x\) prim für \(x\in M\). Dann gilt \[0\neq y\in Rx\implies \Ann(y)=\frakp \]
 \item Jedes maximale Element der Menge \(\{\Ann x \mid 0\neq x\in M \}\) ist Primideal, also in \(\Ass(M)\).
@@ -1559,7 +1560,7 @@ Dann ist \(\Ass(\ZZ/n\ZZ)=\{(p),[q]\}\), denn \(m)p^{\alpha-1}q^\beta+n\ZZ\) hat
 \end{Satz}
 \begin{proof}
 \begin{enumerate}
-\item 
+\item[]
 Es ist \(Rx\cong R/\frakp\) Integritätsbereich. Wenn also \(y\neq o\in R/\frakp\) Dann ist \(\Ann(y)=\frakp\).
 \item Angenommen \(\frakp=\Ann(x)\) maximal und \(f\cdot g\in\Ann(x)\).
 Dann ist \(fgx=0\). Wenn \(gx=0\) dann ist \(g\in\frakp\).
@@ -1579,7 +1580,7 @@ Andernfalls gilt für alle \(x\neq 0 \in (R/\frakp)\cap L\colon \Ann(x) = \frakp
 
 \begin{proof}
 Sei \( 0 \neq m\in M\). Jedes \( a \in \Ann(m)\) ist in einem Ideal \(Ann(x)\) enthalten wobei \(\Ann(x)\) maximal unter 
-Annihilatoren. Also in \(\Ass(M)\) nach ???
+Annihilatoren. Also in \(\Ass(M)\) nach \cref{Satz:NoetASSNonZero}.
 \end{proof}
 \begin{Bsp} \(N=M/L\) kann assozierte Primideale haben, die nicht in \(\Ass(M)\) liegen, zum Beispiel ist
 \(\Ass(\ZZ/2\ZZ)=\{(2)\}\) aber \((2)\not\in \Ass(\ZZ)\).
@@ -1619,7 +1620,7 @@ Primideal.
 und \(V(\Ann(M))=\bigcup V(\frakp_i)\) Nach letztem Satz ?? sind diese in \(Ass(M)\).
 \end{proof}
 \begin{Satz} Sei \( R \) noethersch und \(M\) endlicher \(A\)-Modul. Es gibt Kette
-\[0=M_0\subseteq M_1\subseteq\dots\subseteq M_n=M\) Untermodul sodass
+\[0=M_0\subseteq M_1\subseteq\dots\subseteq M_n=M\] Untermodul sodass
 \(M_i/M_{i-1} \cong R/\frakp_i \) mit \(\frakp_i\in\Spec(A)\).
 Dann ist \(Ass(M)=\{\frakp_1,\dots,\frakp_n\}\).
 
@@ -1629,53 +1630,119 @@ Es ist \(\Ass(M)\neq 0\) also gibt es \(M_1\subseteq M\) sodass \(M_1=R/\frakp_1
 Fahre so fort mit \(M/M_i\).
 Bekomme Kette in \(M\) durch Urbild nehmen von von den enstehenden Moduln. Kette muss abrechen, da \(A\) noethersch.
 \end{proof}
-\begin{Satz} Sie \(A,\frakm\) lokaler Integritätsbereich und \(\frakm=(t)\) für ein \(t\neq 0\).
-Wenn \[\bigcap_{n=1}^\infty(t^n)=0\] Dann gilt
-\begin{enumerate}
-\item Jedes \(0\neq x\in A\) hat die Form \(x=t^nu\) mit \(n\geq 0\) und \(u\) Einheit.
-\item Definiere \(\nu(x)=n\) wenn \(x=t^nu\) und \(\nu(\frac x y )=\nu(x)-\nu(y)\) für alle \(\frac x,y \in \Quot(A)\).
-Dann ist \(nu\) diskrete Berwertung mit DBR \(A\).
-\item Jedes \(I\neq o\) hat die Form \(I=(t^n)\).
-\end{enumerate}
 
-\end{Satz}
-\begin{proof}
-\begin{enumerate}
-\item[]
-\item wenn \(x\in (t^n)\setminus (t^{n+1})\) dann ist \(x=t^n\¢dot u\) mit \(u\neq\frakm\) also Einheit
-\item Klar da \(\nu(t^n)=n\in\ZZ\).
-\item Sei \(n=\min\{k\mid t^n\in I\}\). Dann ist \(I=(t^n)\).
-\end{enumerate}
-\end{proof}
 \begin{Def} Sei \(A\) Integritätsbereich und \(K=\Quot(A)\).
 \(A\) heißt Bewertungsring, falls für alle \(x\in K^*\) gilt dass \(x\in A\) oder \(x^{-1}\in A\).
 Sei \(\Gamma=K^*/A^*\).  Das ist abelsche Gruppe mit \([a]+[b]=[a+b]\). Definiere partielle Ordnung durch 
 \(p\geq 0 \iff p=[a]\) für ein \(a\in A\), also \([b]\geq [a] \iff \frac b a \in A\).
 
 \end{Def}
-
-\begin{Satz} \(A\) ist Bewertungsrings genau dann, wenn \(>\) totale Ordnung auf \(\Gamma\) ist.
-Falls das gilt ist \(\nu\colon K^*\to\Gamma\) eine Abbildung sodass
+\begin{Def} Sei \(K\) ein Körper und \(\Gamma\) eine total geordnete abelsche Gruppe. Eine Bewertung von \(K\) ist eine 
+surjektive Abbildung \(\nu\colon K^*\to \Gamma\) sodass \(\nu(xy)=\nu(x)+\nu(y)\) und \(\nu(x+y)\geq \mid\{\nu(x),\nu(y)\}\) ist für alle
+\(x,y\in K^*\).
+Es gilt die Konvention  \(\nu(0)=\infty\).
+\(\nu\) heißt diskrete Bewertung falls \(\Gamma\cong\ZZ\) ist.
+\end{Def}
+\begin{Satz} Sei \(A\) ein Integritätsbereich und \(K=\Quot(A)\).
+Dann ist äquivalent:
 \begin{enumerate}
-\item \(\nu(xy)=\nu(x)+\nu(y)\)
-\item \(\nu(x+y)=\min\{\nu(x),\nu(y)\}\)
+\item \(\forall x\in K^*\colon x\in A \text{ or } x^{-1}\in A\).
+\item Für zwei Ideale \(I,J\subseteq A\) gilt \(I\subseteq J\) oder \(J\subseteq I\).
+\item Das gleiche wie 2. nur für Hauptideale.
+\item Es gibt eine total geordnete abelsche Gruppe \(\Gamma\) (Bewertungsgruppe genannt)
+und eine Bewertung \(\nu\colon K^*\to \Gamma\) sodass \(A=\{x\in K^*\mid \nu(x)\geq 0\}\cup\{0\}\).
+\item \(A\) ist ein lokaler Bézout Ring.
 \end{enumerate}
-Insebsondere wenn \(\nu\colon K^*\to \Gamma\) eine surjektive Abbildung wie oben ist und \(\Gamma\) geordnete Gruppe (dh Ordnung stabil under \(+\)),
-Dann ist \(A=\{a\in K\mid \nu(a)\geq 0\}\cup\{0\}\) Bewertungsring und \(\Gamma=K^*/A^*\).
-
-
+In diesem Fall heißt \(A\) diskreter Bewertungsring mit Bewertungsgruppe \(\Gamma\) und Bewertung \(\nu\).
+Ist \(\nu\) zusätzlich eine diskrete Bewertung, so heißt \(A\) diskreter Bewertungsring.
 \end{Satz}
 \begin{proof}
-\(>\) ist totale Ordnung wenn einer der drei Fälle gilt
+Zeige 1 nach 2: Sei \(x\in I\) mit \(x\not\in J\) und sei \(y\in J\). Sei ohne Einschränkung \(y\neq 0\).
+Aus \(\frac x y\in A\) folgt \(x\in J\), also ist \(\frac y x\in A\) und damit \(y\in I\).
+Also ist \(J\subseteq I\).\\
+2. nach 3. ist klar.
+Gelte 3. Sei \(\Gamma=K^*/A^*\) mit \([a]+[b]=[ab]\). Das ist abelsche Gruppe. Definiere partielle Ordnung durch
+\[[b]\geq [a] \iff \frac b a \in A\] und sei \(nu\colon K^*\to \Gamma\) die Projektion. 
+Seien \(x=\frac{a}{b},y=\frac{c}{d}\in K^*\) mit \(a,b,c,d\in A\setminus\{0\}\). Dann ist \((ad)\subseteq (bc)\) oder \((bc)\subseteq (ad)\).
+das heißt \(\frac x y \in A\) oder \(\frac y x\in A\) also ist die Ordnung total.
+Wenn 3. gilt dann ist \(x\in K^*\) eine Einheit von \(A\) genau dann wenn \(nu(x)=0\) ist da \(\nu(x^{-1})=-\nu(x)\).
+Also ist \(\frakm=\{x\in A\mid \nu(x)>0\}\) das maximale Ideal von \(A\).
+Sei \(I\subseteq A\) ein endlich erzeugtes Ideal und seien \(x_1,\dots,x_n\) Erzeuger sodass \(\nu(x_1)<\dots<\nu(x_n)\). Da \(\nu\) 
+surjektiv ist, gibt es zu \(k>1\) ein \(t\in K^*\) sodass \(\nu(t)=\nu(x_k)-\nu(x_1)>0\). Dann ist \(t\in A\) und \(\nu(tx_1)=\nu(x_k)\) woraus folgt
+dass \(x_k=tux_1\) ist für eine Einheit \(u\in A\). Also ist \(I=(x_1)\) und somit \(A\) ein Bézout Ring.
+Gelte 4 und sei \(x=\frac a b \in K^*\) mit \(a,b\in A^*\). Es ist \(a,b)=(c)\) nach 4 und somit \(c=ua+vb\) und \(a=wc\) und \(b=zc\).
+Dann ist \(c(1-uw-vz)=0\). Da \(A\) lokal ist, ist \(1-uw-vz\) im maximalen Ideal denn sonst wäre es Einheit und damit \(c=0\).
+Also ist \(w\) oder \(z\) eine Einheit und \(a,b)=(a)\) oder \(a,b)=(b)\) und somit \(x\in A\) oder \(x^{-1}\in A\).
+\end{proof}
+\begin{Bem} Ein Bewertungsring \(A\) ist lokal mit maximalem Ideal \(\frakm=\{x\in K\mid \nu(x)> 0\}\).
+
+\end{Bem}
+\begin{Lemma}\label{Lem:NoethIntIntersect}
+Sei \(A\) ein noetherscher Integritätsbereich und \(t\in A\) keine Einheit. Dann ist \[\bigcap_{n=1}^\infty (t^n)=0.\]
+
+\end{Lemma}
+\begin{proof}
+Angenommen \(0\neq x\in \bigcap _{n=1}^\infty (t^n)=0\).
+Dann ist \(x=tx_1=t^2x_2=\dots=t^nx_n=\dots\) und somit \((x)\subsetneq (x_1)\subsetneq \dots\). Da \(A\) noethersch ist,
+muss die Kette stoppen.
+\end{proof}
+\begin{Satz}\label{Satz:DBRIntersect} Sei \(A\) ein Integritätsbereich. Es ist äquivalent:
 \begin{enumerate}
-\item \(\frac a b \in A\) aber \(\frac b a \not\in A\)
-\item \(\frac a b \in A^*\)
-\item \(\frac b a \in A \) aber \(\frac a b \not\in A\).
+\item \(A\) ist ein diskreter Bewertungsbereich.
+\item \(A\) ist lokal mit maximalem Ideal \(\frakm=(t)\) für \(t\neq 0\) und \(\bigcap_{n=1}^\infty (t^n)=0\)
 \end{enumerate}
+In dem Fall hat jedes Element \(0\neq x\in A\) die Darstellung \(x=t^nu\) mit \(n\geq 0\) und \(u\) eine Einheit in \(A\) und jedes Ideal
+\(I\neq 0\) ist von der Form \(I=(t^n\). Insbesondere ist \(A\) noethersch.
+\end{Satz}
+\begin{proof}
+Gelte 1. Es gibt \(t\in A\) mit \(\nu(t)=1\). Wenn also \(x\in\frakm\) dann ist \(\nu(x)\geq \nu(t^n)\geq 1\) und also \(x=t^nu\) für
+eine Einheit \(u\). Somit ist \(\frakm=(t)\). Wenn \(x=t^nu\) ist für eine Einheit \(u\) dann ist \(\nu(x)=n\) also ist \(\bigcap_{n=1}^\infty(t^n)=0\).
+Gelte 2. Dann gibt es für jedes \(x\in A\) ein \(n\) sodass \(x\in (t^n)\setminus(t^{n+1}\). Also hat \(x\) Darstellung \(x=t^n\cdot u\).
+Definiere \(\nu(x)=n\) und \(\nu(\frac x y)=\nu(x)-\nu(y)\). Das ist eine diskrete Bewertung sodass \(A\) diskreter Bewertungsring ist.
+Sei \(I\) ein Ideal und \(n=\min\{k\mid t^n\in I\}\). Dann ist \(I=(t^n)\).
 \end{proof}
 
 
+\begin{Satz} Sei \(A\) ein Bewertungsring. Dann ist äquivalent:
+\begin{enumerate}
+\item \(A\) ist noethersch
+\item \(A\) ist Hauptidealring.
+\end{enumerate}
+Wenn zusätzlich \(A\) kein Körper ist, ist auch äquivalent:
+\begin{enumerate}
+\item[(3)] \(A\) ist diskreter Bewertungsring.
+\end{enumerate}
+\begin{proof}
+Da Jedes Ideal in einem noetherschen Ring endlich erzeugt ist, ist jedes Ideal ein Hauptideal.
+Ein Hauptidealring ist auch noethersch.
+Zeige also das 3. aus den Bedingen folgt.
+Wenn \(A\) noethersch ist, dann folgt mit \cref{Lem:NoethIntIntersect}
+dass \(\bigcap_{n=1}^\infty (t^n)=0\) für \((t)=\frakm\). Der Rest ist Satz \cref{Satz:DBRIntersect}.
+\end{proof}
+\end{Satz}
+\begin{Satz} Sei \(A\) Integritätsbereich. \(A\) ist diskreter Bewertungsring genau dann, wenn \(A\) noethersch,
+normal und \(\Spec(A)=\{0,\frakm\}\) ist wobei \(\frakm\neq 0\).
 
+\end{Satz}
+\begin{proof}
+Nach \cref{Satz:DBRIntersect} sind diskrete Bewertungsringe noethersch und faktoriell, also normal (\cref{Bem:FaktNormal}) und \(\Spec(0,\frakm)\) klar.
+Sei also \(A\) gegeben wie im Satz.
+Wir zeigen dass \(\frakm\) ein Hauptideal ist. Der Rest folgt dann aus \cref{Lem:NoethIntIntersect} und \cref{Satz:DBRIntersect}.
+Sei \(I\subseteq A\) ein Ideal. Das ist endlich erzeugter \(A\)-Modul. Nach \nameref{Lem:Nakayama}
+gilt \(\frakm I=I\implies I=0\). Also ist \(\frakm^2\neq \frakm\).
+Sei also \(x\in \frakm\setminus \frakm^2\).
+Sei \(M=\frakm/(x)\). Wenn \(M\neq 0\) dann ist \(\Ass(M)\neq 0\) nach \cref{Satz:NoetASSNonZero}.
+Das heißt es gibt esin \(0\neq y\in \frakm\setminus (x)\) sodass \(my\subseteq (x)\).
+Dann ist \(\frak x y\in A\) also \(\frac y x\not\in A\) aber \(\frac y x\frakm\subseteq A\) ein Ideal.
+Angenommen \(\frac y x\frakm A=A\). Dann ist \(\frac{yy'}{x}=1\) für ein \(y'\in \frakm\) also wäre
+\(x\in\frakm^2\) was ein Widerspruch ist. Also ist \(\frac y x\frakm \subseteq \frakm\).
+Multiplikation mit \(\frak x y\) ist Lineare Abbildung \(\varphi\colon\frakm\to\frakm\) zwischen endlichen
+\(A\)-Moduln. Wähle also Surjektion \(\pi\colon R^n\to M, e_i\mapsto x_i\) und sei \(B=(b_{ij})\) die Matrix mit
+\(\varphi(x_i)=\sum b_{ij}x_j\). Nach Cayley Hamilton ??? gibt es Polynom \(P=X^n+a_{n-1}X^n+\dots+a_0\) mit 
+\(P(B)=0\) also ist \(P(\varphi)=0\).  Für \(0\neq z\in\frakm\) ist also
+\[((\frak x y)^n+\dots+a_0)z=0\] Also ist \(\frac x y\) integral. Da \(A\) normal ist, ist \(\frax x y\in A\) was Ein Widerspruch ist.
+Also ist \(\frakm=(x)\).
+\end{proof}
 
 
 

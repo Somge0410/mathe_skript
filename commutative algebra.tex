@@ -590,6 +590,15 @@ R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
 \begin{Def}
     Sei \(M\) ein \(R\)-Modul. Dann ist \(\Supp M=\{\frakp\in\Spec(R)\mid M_\frakp\neq 0\}\) der Support von \(M\).
 \end{Def}
+\begin{Bsp}
+    \begin{enumerate}
+        \item Wenn \(R=\ZZ\) ist und \(M=\QQ\) dann ist \(\QQ_\frakp=\QQ\) also ist \(\Supp(M)=\Spec(\ZZ)\).
+        \item Wenn \(M=\QQ/\ZZ\) ist dann ist \((\QQ/\ZZ)_p=\QQ_p/\ZZ_p=\begin{cases}
+            0 & p=0\\
+            \neq 0 & p\neq 0
+        \end{cases}\) Also ist \(\Supp(M)=(\Spec(\ZZ)\setminus\{0\}\).
+    \end{enumerate}
+    \end{Bsp}
 \begin{Lemma}
     Sei \(R\) ein Ring \(M\) ein \(R\)-Modul.
     \begin{enumerate}
@@ -1067,6 +1076,21 @@ Sei \( I \) ein Ideal von \( R \). Definiere \( \oht(I) \) als das Supremum von 
 und \( \coht \) als das Supremum von Lägen von Ketten von Primidealen in \( R\) die \( I \) enthalten.
 \end{Def}
 \begin{Lemma}
+    Sei \(R\) ein faktorieller Ring. 
+    \begin{enumerate}
+        \item Die Primideale der Höhe 1 sind genau die Ideale \(p\) für Primideale von \(R\).
+        \item In \(K=\Quot(R)\) ist \(R=\bigcap_{\coht\frakp=1 \text{ prim}}R_\frakp\).
+    \end{enumerate}
+\end{Lemma}
+\begin{proof}
+    Es ist \((0)\subseteq (p)\) also \(oht(p)\geq 1\). Wenn \(\frakp\subseteq (p)\) ein Primideal ungleich \(0\) dann
+    gibt es Primzahl \(q\in \frakp\) also \(q=xp\) und somit \(\frakp=(p)\). Also \(\oht(p)=1\).
+    Genauso zeigt man, dass jedes Primideal der Höhe 1 von dieser Form ist.
+    Klar ist, dass \(R\subseteq \bigcap R_\frakp\). Sei also \(x\in \bigcap R_p\) mit \(x=\frac a b\) vollständig gekürzt.
+    Wenn \(b\neq 1\) dann ist \(b=p_1\cdots p_r\) und somit \(b\in p_1\).
+    Also ist \(\frac a b\) nicht in \(R_{p_1}\). Also muss \(b=1\) sein und somit \(x\in R\).
+\end{proof}
+\begin{Lemma}
 Sei \( I \subseteq R \) ein Ideal. Es gilt
 \begin{enumerate}
 \item \( \oht(\frakp)=\dim(R_\frakp) \) für ein Primideal \( \frakp \) von \( R \) und \(\coht(I)=\dim(R/I)\)
@@ -1542,6 +1566,16 @@ sodass \(N\cong R/\frakp\). Äquivalent ist, dass es \(x\in M\) gibt sodass \(\f
 die Menge der assozierten Primideale.
 
 \end{Def}
+\begin{Bsp}
+    \begin{enumerate}
+        \item[]
+        \item Wenn \(R=\ZZ\) und \(M=\QQ\) dann ist \(\Ass(M)=0\) da es keine Inklusion \(\FF_p\subseteq \QQ\) gibt.
+        \item Wenn \(M=\QQ/\ZZ\) ist, dann ist für \(p\neq 0\) \[p\cdot \frac 1 p =0\] sodass
+        \(p=\Ann(x)\). Somit \(Ass(M)=\Spec(\ZZ)\setmins\{0\}=\Supp(M).\)
+        \item Wenn \(R=k[X,Y]\) und \(M=R/(X^2,XY)\) dann sei \(a\in M\) sodass \(\Ann(a)\) prim ist.
+        Wenn \(a\in (x)\) dann ist \(\Ann(a)=(X,Y)\) und wenn \(a\not\in (x)\) dann ist \(\Ann(a)=(x)\).
+        Also ist \(\Ass(M)=\{(X),(X,Y)\}\).
+    \end{enumerate}\end{Bsp}
 \begin{Bem} Wenn \(\frakp\in\Ass(M)\) dann \(\Ann(M)=\bigcap_{x\in M}\Ann(x)\subseteq\frakp\)
 
 \end{Bem}
@@ -1629,7 +1663,15 @@ Es ist \(\Ass(M)\neq 0\) also gibt es \(M_1\subseteq M\) sodass \(M_1=R/\frakp_1
 Fahre so fort mit \(M/M_i\).
 Bekomme Kette in \(M\) durch Urbild nehmen von von den enstehenden Moduln. Kette muss abrechen, da \(A\) noethersch.
 \end{proof}
-
+\begin{Bsp}
+    Wenn \(R\) faktoriell ist und \(M=R/aR\) für ein \(a\in R\) dann gibt es drei Fälle. 
+        Wenn \(a\) eine Einheit ist, dann ist \(M=0\) und also \(\Ass(M)=0\). Wenn \(a=0\) dann ist
+        \(M=R\) und dann \(\Ass(M)=\{0\}\).
+        Wenn \(a\) weder \(0\) noch Einheit ist, ist \(a=p_1\dots p_r\) für Primelemente \(p_i\).
+        sei \(M_i=p_1\cdots p_i\cdot R/aR\). Diese bilden absteigende Kette mit 
+        \[M_{i-1}/M_i\cong R/p_iR.\]
+        Also ist \(\Ass(M)=\{p_1,\dots,p_r\}=\Supp(M)\).
+\end{Bsp}
 \begin{Def} Sei \(A\) Integritätsbereich und \(K=\Quot(A)\).
 \(A\) heißt Bewertungsring, falls für alle \(x\in K^*\) gilt dass \(x\in A\) oder \(x^{-1}\in A\).
 Sei \(\Gamma=K^*/A^*\).  Das ist abelsche Gruppe mit \([a]+[b]=[a+b]\). Definiere partielle Ordnung durch 
@@ -1742,11 +1784,135 @@ Multiplikation mit \(\frak x y\) ist Lineare Abbildung \(\varphi\colon\frakm\to\
 \[((\frac x y)^n+\dots+a_0)z=0\] Also ist \(\frac x y\) integral. Da \(A\) normal ist, ist \(\frac x y\in A\) was Ein Widerspruch ist.
 Also ist \(\frakm=(x)\).
 \end{proof}
+\begin{Lemma}
+    Lokalisierungen von Bewertungsringen sind wieder Bewertungsringe. Quotienten mit Primidealen von Bewertungsringen
+    sind wieder Bewertungsringe.
+\end{Lemma}
+\begin{proof}
+    Klar wegen Beschreibung durch Ordnung der Ideale.
+\end{proof}
+\begin{Lemma}
+    Sei \(R\) ein Bewertungsring mit maximalem Ideal \(\frakm\) und sei \(A\subbseteq R/\frakm\) ein Bewertungsring
+    mit Quotientenkörper \(R/\frakm\). Sei \(R\to R/\frakm\) die Projektion.
+    Dann ist \(\pi^(-1)(A)\) Bewertungsring. 
+\end{Lemma}
+\begin{proof}
+    
+    Wenn \(R\) Körper ist, ist alles klar. Sei \(R\) kein Körper. Wähle \(t\in \frakm\) ungleich \(0\).
+    Dann ist für alle \(a\in R\) \[a=\frac{ta}{t}\] und \(ta\in R'=\pi^{-1}(A)\).
+    Also ist \(\Quot(R)=\Quot(R')\).
+    Sei \(x\in\Quot(R')\) nicht \(0\). Es ist \(x\in R\) oder \(x^{-1}\in R\).
+    Wenn einer der beiden in \(\frakm\) dann ist einer der beiden in \(R'\).
+    Sei also \(x\) in \(R\) aber nicht in \(\frakm\). Dann \(\pi(x)\in A\) oder \(\pi(x)^{-1}\in A\).
+    Also \(x\in R'\) oder \(x^{-1}\in R'\).
+\end{proof}
 
+\begin{Bsp}
+    Sei \(R\) ein Ring und \(R[[X]]\) der Ring der formalen Potenzreihen. Ein Element 
+    \(f=\sum_{i=0}^\infty a_iX^i\in R[[X]]\) ist eine Einheit, genau dann wenn \(a_0\) eine Einheit ist. Wenn
+    \(R=K\) ein Körper ist, dann ist \(K[[x]]\) ein Bewertungsring.
+\end{Bsp}
+\begin{proof}
+    Wenn \(f\) Einheit, dann gibt es \(g=b_0+b_1X+\dots\) sodass 
+    \(1=gf=a_0b_0\) also ist \(a_0\) eine Einheit.
+    Wenn \(a_0\) Einheit ist, dann ist \(a_o^{-1}f=1+\dots\) also ohne Einschränkung \(a_0=1\).
+    Setze \(b_0=1\) und rekursiv \(b_n=-\sum_{i=1}^na_ib_{n-1}\). Dann ist 
+    \[f\cdot \sum_{i=0}^\infty b_iX^i=1\].
+    Definiere \(\nu(f)=\min\{n\in\NN\mid a_n\neq 0\}\) für \(f\neq 0\).
+    und für \(\frac f g \in \Quot(K[[X]])\) setze \(\nu(\rac f g)=\nu(f)-\nu(g)\).
+    dann ist \(\nu\) eine diskrete Bewertung und \(K[[X]]=\{ y \mid \nu(y)\geq 0\}\).
+\end{proof}
+\begin{Bsp}
+    Das letzte Lemma ist erfüllt für \(R=\QQ[[x]]\) und \(\frakm=(x)\) und \(A=\ZZ_p\)
+    In dem Fall ist \(\pi^{-1}A=\{\sum_{i=0}^\infty a_iX^i\mid a_0\in\ZZ_p\}\).
+\end{Bsp}
+\begin{Satz}
+    Sei \(L/K\) eine endliche Körpererweiterung. Es ist äquivalent:
+    \begin{enumerate}
+        \item \(L/K\) ist separable
+        \item \(Tr_{L/K}\colon L\to K\) ist nicht die Nullabbildung
+        \item Die Abbildung \((x,y)\mapsto Tr_{L/K}(xy)\) ist nicht-ausgeartete Bilinearform \(L\times L\o K\).
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Die Äquivalenz von (2) und (3) ist klar.
+    Ohne Einschränkung hat \(K\) die Charakteristik \(p\) denn in Charakteristik \(0\) Fall sind alle
+    Erweiterungen separabel und \(Tr_{L/K}(1)=[L:K]\neq 0\).
+    Es gilt \(Tr\neq 0\) genau dann wenn \(Tr\) surjektiv, denn \(Tr\) ist \(K\)-linear.
+    Wenn \(L/K\) separabel, dann ist \(L=K(\alpha)\) für ein \(\alpha\in L\) nach ????.
+    Wenn \(L/K\) inseperabel, dann gibt es \(\alpha\in L\) inseperabel über \(K\).
+    Da \(Tr_{L/K}=Tr_{K(\alpha)/K}\circ Tr_{L/K(\alphha)}\) ist ohne Einschränkung \(L=K(\alpha)\).
+    Sei \(P\) das Minimalpolynom von \(\alpha\) in \(K[X]\).
+    Dann ist \(P(X)=\tilde P(X^{p^m})\) für ein maximales \(m\) sodass \(\tilde P\) separabel da irreduzibel und 
+    \(P\) ist genau dann separabel, wenn \(m=0\).
+    Sei \(n=\deg(P)=p^md\) with \(d=\deg(\tilde P)\).
+    In \(\bar K\) gilt \(\tilde P(X)=(X-\beta_1)\dotts (X-\beta_d)\) für paarweise verschiedene 
+    \(\beta_i\). 
+    Dann ist 
+    \[P(X)=\tilde P(X^{p^m})=\prod (X^{p^m}-\beta_i)=\prod (X-\gamma_i)^{p^m}\]
+    for \(\gamma_i\in\bar K\).
+    Da Körpererweiterungen treuflach sind nach ??? ist \(Tr_{L/K}\colon L\to K\) surjektiv genau dann wenn 
+    \(\bar{Tr}=\id_{\bar K}\otimes Tr_{L/K}\) surjektiv ist.
+    Da \(L=K(\alpha)=K[X]/P\) ist \(\bar K\otimes_KL=\prod \bar{K[X]}/(X^{p^m}-\beta_i)\) und die Spur ist die Summe
+    der Spuren auf \(\bar K[X]/(X^{p^m}-\beta_i)\).
+    Es ist \(\bar K[X]/(X^{p^m}-\beta_i)\cong \bar K[Y]/(Y^{p^m})\) unter der Substitution
+    \(Y=X-\gamma_i\).
+    Wenn \(m=0\) dann ist \(\bar K[Y]/(Y^{p^m})=\bar K\) und die SPur ist die Identität.
+    Wenn \(m>0\) dann ist jedes Element in \(\bar K[Y]/(Y^{p^m})\) Summe von etwas Konstantem und etwas nilpotenten.
+    Jede Konstante hat Spur \(0\) denn \(p^m=0\) in \(\bar K\).
+    Jedes nilpotente Element hat auch Spur \(0\). Also hat jedes Element in \(\bar K[Y]/(Y^{p^m})\) Spur \(0\).
+\end{proof}
+\begin{Satz}
+    Sei \(L/K\) eine endliche Galoiserweiterung und \(A\subseteq K\) noethersch und normal.
+    Sei \(B\) der ganze Abschluss von \(A\) in \(L\).
+    Es gilt
+    \begin{enumerate}
+        \item Wenn \(b\in B\) dann ist \(Tr(b)\in A\).
+        \item Die Abbildung \((x,y)\mapsto Tr(xy)\) definiert eine nicht ausgeartete Bilinearform \(L\times L\to K\).
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Sei \(\varphi(x)=\prod_{g\in G}(X-g(b))\) mit \(G=\Gal(L/K)\). Das ist das Charakterisitsche Polynom.
+    Alle Koefffizienten von \(\varphi\) sind in \(K\). Da \(B\) ganz ist über \(A\) ist auch \(g(b)\) ganz.
+    Also sind alle Koeffizienten ganz über \(A\) und damit in \(A\) da \(A\) normal.
+    Also ist \(Tr(b)\in A\) da \(Tr(b)\) einer der Koeffienten ist.
+    Der Zweite Teil ist klar nach ??? da \(L/K\) separabel.
+\end{proof}
+\begin{Lemma}
+    Sei \(A\) normaler Integritätsbereich und \(K=\Quot(A)\). Sei \(L/K\) eine endliche Körpererweiterung 
+    und \(B\) der ganze Abschluss von \(A\) in \(L\).
+    Dann ist \(B\) normal und für alle \(x\in L\) gilt \(x=\rac b a\) für ein \(b\in B\) und 
+    \(a\in A\).
+\end{Lemma}
+\begin{proof}
+    Sei \(a_nx^n+\dots+a_1x+a_0=0\) mit \(a_i\in A\) und \(a_n=0\). Sowas findet man immer,
+    wähle zum Beispiel Minimalpolynom über \(K\) und Multipliziere mit allen Nennern.
+    Dann ist \((a_nx)^n+\dots+a'_1(a_nx)+a_0'=0\) mit \(a'_i\in A\).
+    Also ist \(a_nx\) ganz über \(A\) und damit in \(B\).
+    Also ist \(x=\frac b a\) wie oben.
+    Somit ist \(\Quot(B)=L\) und \(B\) normal.
+\end{proof}
+\begin{Satz}
+    Sei \(A\) noethersch und normal und \(K=\Quot(A)\). Sei \(L/K\) eine endliche, separable Körpererweiterung
+    und \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\).
+    Dann ist \(B\) ein endlicher \(A\)-Modul und insbesondere noethersch.
+\end{Satz}
+\begin{proof}
+    Zeige dass \(B\) ein Untermodul ist von \(\sum_{i=1}^{n}Ax_i\subseteq L\). Dann ist \(B\) als Untermodul von endlichem Modul
+    endlich, da \(A\) noethersch ist.
+    Ohne Einschränkung ist \(L/K\) Galois, denn sonst sei \(L_1/K\) Galois-Hülle von \(L/K\) und \(B_1\) der
+    ganze Abschluss von \(A\) in \(L_1\). Wenn \(B_1\) endlicher \(A\)-Modul dann ist auch \(B\).
+    Sei also \(G=\Gal(L/K)\).
+    Für \(x\in L\) ist \(Tr(x)=\sum_{g\in G}g(x)\).
+    Sei \(\frac{y_1}{x_1},\dots,\frac{y_n}{x_n}\) Basis von \(L\) über \(K\) mit \(x_i\in A\) und \(y_i\in B\) wie
+    in ????.
+    Dann ist auch \(y_1,\dots,y_n\) eine Basis von \(L\).
+    Da \(Tr\) nicht-ausgeartet ist nach ??? definiert \(y\mapsto (x\mapsto Tr(xy))\) eine injektive Abbildung 
+    \(L\to L^\vee=\Hom(L,K)\), die somit ein Isomorphismus ist. Wähle also \(x_i\) in \(L\) sodass die Bilder von \(y_i\) genau die 
+    duale Basis sind von \(y_i\), das heißt \(Tr(x_iy_j)=\delta_{ij}\).
+    
 
-
-
-
+\end{proof}
 
 
 

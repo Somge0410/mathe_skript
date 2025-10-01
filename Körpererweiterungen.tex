@@ -142,7 +142,7 @@ Gelte 3. und sei \(f\) irreduzible. Dann ist \(L=K[X]/(f)\cong K\). Also ist \(\
     Sei \(K\) ein Körper. Ein algebraischer Abschluss von \(K\) ist eine algebraische Körpererweiterung \(L/K\) sodass \(L\) algebraisch abgeschlossen ist. Notation \(L=\bar K\)
 \end{Def}
 
-\subsection{Körperhomomorphismen}
+\section{Körperhomomorphismen}
 \begin{Def}
     Ein Körperhomomorphismus ist ein Ringhomomorphismus zwischen Körpern. Seien \(L/K\) und \(M/K\) zwei Körpererweiterungen. Ein \(K\)-Homomorphismus ist ein Homomorphismus von \(K\)-Algebren.
     \(\Aut_K(L)=\Aut(L/K)\) sei die Menge der invertierbaren \(K\)-Homomorphismen \(f\colon L\to L\)
@@ -182,7 +182,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 \begin{proof}
     Nach \Cref{Satz:AlgAbMor} gibt es \(K\)-Homomorphismus \(\sigma\colon L\to M\). Dadurch wird \(M\) eine algebraische Erweiterung von \(L\). Also ist \(M/L\) triviale Erweiterung, dh. \(\sigma\) ist bijektiv.
 \end{proof}
-\subsection{Zerfällungskörper und Algebraischer Abschluss}
+\section{Zerfällungskörper und Algebraischer Abschluss}
 \begin{Satz}[Existenz algebraischer Abschluss]
     Jeder Körper hat einen algebraischen Abschluss
 \end{Satz}
@@ -220,6 +220,8 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
     Also ist der Zerfällungskörper \(L=\QQ(a,\zeta a,\zeta^2 a)=\QQ(a,\zeta)\)
     Es ist \(\QQ\subsetneq \QQ(a)\subsetneq \QQ(a,\zeta a)\) und \([\QQ(a):\QQ]=3\) da \(f\) das Minimalpolynom ist. Es ist \(g=(X-\zeta a)(X-\zeta^2 a)\) das Minimalpolynom von \(\zeta a\) über \(\QQ(a)\), also ist \([\QQ(a,\zeta a):\QQ]=6\)
 \end{Bsp}
+\section{Normale und Separable Erweiterungen}
+\subsection{Normale Erweiterungen}
 \begin{Def}
     Eine algebraische Körpererweiterung \(L/K\) ist normal, wenn jedes irreduzible Polynom in \(K[X]\), das in \(L\) eine Nullstelle hat in \(L[X]\) in Linearfaktoren zerfällt.
 \end{Def}
@@ -331,7 +333,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
     Es gilt 
     \[\abs{\Set{K-\Hom L\to\bar K}}=\abs{{\set{b\in\bar K}{ f(b)=0}}}\leq \deg(f)\] und "\(=\)" genau dann, wenn \(f\) separable. 
 \end{proof}
-\begin{Lemma}
+\begin{Lemma}\label{Lem:SeparabilitätsgradKörpererw}
     Sei \(M/L/K\) endlich. Dann ist \([M:L]_s\cdot [L:K]_s=[M:K]_S\)
 \end{Lemma}
 \begin{proof}
@@ -391,42 +393,96 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 \begin{proof}
     Folgt aus der Konstruktion der normalen Hülle.
 \end{proof}
-\subsection{Endliche Körper}
+\section{Spur und Norm}
+\begin{Def}
+	Sei \(L/K\) eine endliche Körpererweiterung und \(b\in K\).
+	Dann ist \[Tr_{L/K}(b)=Tr(b\cdot \colon L\to L)\] die Spur und
+	\[N_{L/K}(b)=\det(b\cdot\colon L\to L)\] die Norm von \(b\).
+\end{Def}
+\begin{Bem}
+	Es ist für \(a\in K\)
+	\[Tr_{L/K}(a)=[L:K]a\] und
+	\[N_{L/K}(a)=a^{[L:K]}\]
+\end{Bem}
 \begin{Lemma}
-    Sei \(K\) ein beliebiger Körper der Charakteristik \(p>0\). Die Abbildung 
-    \(\phi\colon K\to K,\ \phi(x)=x^p\) ist ein Ringhomomorphismus.
-     Wenn \(K\) endlich ist, dann ist
-     \(\phi\) bijektiv.
+	Sei \(L/K\) eine endliche Körpererweiterung und \(b\in L\). Sei \(P\) das Minimalpolynom von \(b\) über \(K\),
+	\(\deg(P)=d\) und \(e=[L:K(b)]=\frac{[L:K]}{d}\). Dann ist das charackteristische Polynom \[\chi_{b\colon L\to L}=P^e.\]
 \end{Lemma}
 \begin{proof}
-    Es ist \[\phi(x+y)=\sum_{i=0}^p\binom{p}{i}x^iy^{p-i}=y^p+x^p=\phi(x)+\phi(y)\]
-    \(\phi\) ist immer injektiv. Wenn \(K\) endlich ist, dann automatisch bijektiv.
-\end{proof}
-\begin{Def}
-    Sei \(q=p^r\) und \(\FF_q\) ein Zerfällungskörper von \(x^q-x\) über \(\FF_p.\)
-\end{Def}
-\begin{Satz} Sei \(q=p^r\) für eine Primzahl \(p\).
-    \(\FF_q\) ist ein endlicher Körper mit \(q\) Elementen und jeder endlich Körper ist isomorph zu \(\FF_q\) für ein \(q=p^r\) wobei \(p=\chara K\).
-\end{Satz}
-\begin{proof}
-    Sei \(K\) irgendein endlicher Körper der Charakteristik \(p>0\) und \(b\in K\). Es ist \((X^q-X)(b)=0\iff \phi^r(b)=b\). Dann ist \(\set{x\in K}{ \phi^r(x)=x}\) ein Teilkörper von \(K\).
-    In \(\FF_q[X]\) zerfällt \(X^q-X\) in Linearfaktoren. Die Ableitung ist \((X^q-X)'=-1\) was teilerfremd ist zu \(X^q-X\). Also ist \(X^q-X\) separable. Also hat \(X^q-X\) \(q\)-viele verschiedene Nullstellen, die einen Teilkörper \(L\subseteq \FF_q\) bilden. Somit \(\FF_q=L\) und \(|\FF_q|=q\).
-    Sei \(K\) ein endlicher Körper der Charakteristik \(p\). Dann ist \([K:\FF_p]=r<\infty\) und damit \(|K|=p^r=q\).
-    Für \(a\in K\) gilt \(a^q=a\). Denn wenn \(a=0\) dann ist das richtig und wenn \(a\neq 0\) dann ist \(a\in K^*\) und \(|K^*|=q-1\). Nach \nameref{Kor:Lagrange2} gilt \(a^{q-1}=1\) also \(a^q=a\) für alle \(a\in K\). Das heißt \(x^q-x\) zerfällt in \(K[X]\) und somit gibt es Homomorphismus \(\FF_q\to K\) mit \(|\FF_q|=q=|K|\) also ist \(\FF_q\cong K\).
-\end{proof}
-\begin{Satz}
-    Sei \(K\) ein beliebiger Körper und \(G\subseteq K^*\) eine endliche Untergruppe. Dann ist \(G\) zyklisch.
-\end{Satz}
-\begin{proof}
-    Sei \(n=|G|\). Der Struktursatz für endlich abelsche Gruppen impliziert 
-    \[G\cong \ZZ/m_1\ZZ\times \dots\times \ZZ/m_r\ZZ\] mit \(m_1|m_2|\dots| m_r\) und \(n=\prod_{i=1}^rm_i\).
-    Für jedes \(a\in G\) gilt \(a^{m_r}=1\). Sei also \(f=X^{m_r}-1\). Jedes \(a\in G\) ist Nullstelle von \(f\) und \(f\) hat höchstens \(m_r\) verschiedene Nullstellen. Somit ist \(n=m_r\) und \(G\cong \ZZ/m_r\ZZ\) zyklisch.
-
+	Wenn \(L=K(b)\) dann ist \(P\mid \chi_b\) und da beide den gleichen Grad haben sind sie gleich.
+	Allgemein ist \[L=K(b)^e\] als Vektorraum. Multiplikation mit \(b\) respektiert diese Zerlegung also ist
+	\(\chi_{b\colon L\to L}=\chi_{b\colon K(b)\to K(b)}^e=P^e\)
 \end{proof}
 \begin{Kor}
-    Wenn \(K\) ein endlicher Körper ist, dann ist \(K^*\) zyklisch mit \(K^*\cong \ZZ/(q-1)\ZZ\)
+	Sei \(L/K\) endliche Körpererweiterung und \(P=X^d+a_{d-1}X^{d-1}+\dots+a_0\) das Minimalpolynom von \(b\in L\). Dann ist 
+	\[Tr_{L/K}(b)=-ea\] und
+	\[N_{L/K}(b)=(-1)^{[L:K]}a\] wobei \(ed=[L:K]\)
 \end{Kor}
-\begin{Bsp}
-    Sei \(K=\CC\) und \(G=\set{z\in\CC}{ z^n=1}=\mu_n(\CC)\). Dann ist \(G\) zyklisch. \(x^n-1\) ist separable da die Ableitung nicht \(0\) ist. Somit ist \(G\cong \ZZ/n\ZZ\) \(G=\set{e^{2\pi i k/n}}{ 0\leq k\leq n-1}\) erzeugt von \(e^{2\pi i/n}\). 
-    Es gilt: \(e^{2\pi i k/n}\) erzeugt \(\mu_n(\CC)\) genau dann wenn \(\ggT(k,n)=1\).
-\end{Bsp}
+\begin{proof} Klar nach ???.
+\end{proof}
+\begin{Satz} Wenn \(L/K\) eine endliche separable Erweiterung ist, dann ist für \(b\in L\) das Minimalpolynom
+	\[\mu_b(X)=\prod_{\sigma\in\Sigma}(X-\sigma(b))\] und das charackteristische Polynom
+	\[\chi_b(X)=\prod_{\sigma\in\Sigma'}(X-\sigma(b))\]
+	wobei \(\Sigma=\{\sigma\colon K(b)\to \bar K\mid \sigma|_K=\id\}\) und \(\Sigma'=\{\sigma\colon L\to \bar K\mid \sigma|_K=\id\}\).
+\begin{proof}
+	Da \(b\) separabel ist, sind \(\sigma(b)\) die \(deg(\mu_b)\) vielen verschiedenen Nullstellen für \(\sigma\in\Sigma\). Somit \(\mu_b=prod_{\sigma\in\Sigma}(X-\sigma(b))\).
+	Jedes \(\sigma\in\Sigma\) hat genau \(e=[L:K(b)]\) viele
+	Fortsetzungen zu \(\sigma'\in \Sigma'\), denn \(L/K(b)\) ist separabel und \ref{Lem:SeparabilitätsgradKörpererw}.
+	Daher ist 
+	\[\prod_{\sigma\in\Sigma'}(X-\sigma(b))=\prod_{\sigma\in\Sigma}(X-\sigma(b))^e=\mu_b^e=\chi_b\] nach ??.
+\end{proof}
+\begin{Kor}
+	Wenn \(L/K\) endlich separabel ist und \(b\in L\), dann ist 
+	\[Tr_{L/K}(b)=\sum_{\sigma\in\Sigma}\sigma(b)\] und
+	\[N_{L/K}(b)=\prod_{\sigma\in\Sigma}\sigma(b)\] wobei
+	\(\Sigma=\{\sigma\colon L\to\bar K\mid \sigma|_K=\id\}\).
+\end{Kor}
+\begin{proof}
+	Klar nach ???
+\end{proof}
+\begin{Lemma} Sei \(L\) ein Körper und \(a_1,\dots,a_n\) paarweise verschieden. Wenn \(\lambda_1,\dots,\lambda_n\) nicht alle \(0\) sind, dann gibt es ein \(e\geq 0\) sodass \(\sum_{i=1}^n\lambda_i a_i^e\neq 0\).
+\end{Lemma}
+\begin{proof}
+	Wenn \(n=1\) dann ist die Aussage klar.
+	Angenommen die Aussage gilt für \(n-1\). Angenommen die Aussage ist falsch für \(\lambda_1,\dots,\lambda_n\). Ohne Einschränkung \(\lambda_n=-1\) sodass \(a_n^e=\sum_{i=1}^{n-1}\lambda_i a_i ^e\) für alle \(e\).
+	
+	\[a_na_n^e=a_n^{1+e}=\sum_{i=1}^{n-1}\lambda_i a_i^{1+e}=\sum_{i=1}^{n-1}\lambda_i a_ia_i^e\].
+	Die erste Gleichung mit \(a_n\) Multiplizieren und beide Gleichungen voneinander abziehen liefer 
+	\[0=\sum_{i=1}^{n-1}\lambda_i (a_i-a_n)\]
+	Da nicht alle \(\lambda_i=0\) ist \(a_i=a_n\) für ein \(i\) nach Induktion für ein \(e\) was ein Widerspruch ist.
+\begin{Satz}
+	Sei \(L/K\) eine endliche Körpererweiterung. Es ist äquivalent:
+	\begin{enumerate}
+		\item \(L/K\) ist separable
+		\item \(Tr_{L/K}\colon L\to K\) ist nicht die Nullabbildung
+		\item Die Abbildung \((x,y)\mapsto Tr_{L/K}(xy)\) ist nicht-ausgeartete Bilinearform \(L\times L\o K\).
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Die Äquivalenz von (2) und (3) ist klar.
+	Ohne Einschränkung hat \(K\) die Charakteristik \(p\) denn in Charakteristik \(0\) Fall sind alle
+	Erweiterungen separabel und \(Tr_{L/K}(1)=[L:K]\neq 0\).
+	Es gilt \(Tr\neq 0\) genau dann wenn \(Tr\) surjektiv, denn \(Tr\) ist \(K\)-linear.
+	Wenn \(L/K\) separabel, dann ist \(L=K(\alpha)\) für ein \(\alpha\in L\) nach ????.
+	Wenn \(L/K\) inseperabel, dann gibt es \(\alpha\in L\) inseperabel über \(K\).
+	Da \(Tr_{L/K}=Tr_{K(\alpha)/K}\circ Tr_{L/K(\alpha)}\) ist ohne Einschränkung \(L=K(\alpha)\).
+	Sei \(P\) das Minimalpolynom von \(\alpha\) in \(K[X]\).
+	Dann ist \(P(X)=\tilde P(X^{p^m})\) für ein maximales \(m\) sodass \(\tilde P\) separabel da irreduzibel und 
+	\(P\) ist genau dann separabel, wenn \(m=0\).
+	Sei \(n=\deg(P)=p^md\) with \(d=\deg(\tilde P)\).
+	In \(\bar K\) gilt \(\tilde P(X)=(X-\beta_1)\dots (X-\beta_d)\) für paarweise verschiedene 
+	\(\beta_i\). 
+	Dann ist 
+	\[P(X)=\tilde P(X^{p^m})=\prod (X^{p^m}-\beta_i)=\prod (X-\gamma_i)^{p^m}\]
+	for \(\gamma_i\in\bar K\).
+	Da Körpererweiterungen treuflach sind nach ??? ist \(Tr_{L/K}\colon L\to K\) surjektiv genau dann wenn 
+	\(\bar{Tr}=\id_{\bar K}\otimes Tr_{L/K}\) surjektiv ist.
+	Da \(L=K(\alpha)=K[X]/P\) ist \(\bar K\otimes_KL=\prod \bar{K[X]}/(X^{p^m}-\beta_i)\) und die Spur ist die Summe
+	der Spuren auf \(\bar K[X]/(X^{p^m}-\beta_i)\).
+	Es ist \(\bar K[X]/(X^{p^m}-\beta_i)\cong \bar K[Y]/(Y^{p^m})\) unter der Substitution
+	\(Y=X-\gamma_i\).
+	Wenn \(m=0\) dann ist \(\bar K[Y]/(Y^{p^m})=\bar K\) und die SPur ist die Identität.
+	Wenn \(m>0\) dann ist jedes Element in \(\bar K[Y]/(Y^{p^m})\) Summe von etwas Konstantem und etwas nilpotenten.
+	Jede Konstante hat Spur \(0\) denn \(p^m=0\) in \(\bar K\).
+	Jedes nilpotente Element hat auch Spur \(0\). Also hat jedes Element in \(\bar K[Y]/(Y^{p^m})\) Spur \(0\).
+\end{proof}

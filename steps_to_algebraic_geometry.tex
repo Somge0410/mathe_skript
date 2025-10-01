@@ -1,0 +1,296 @@
+\chapter{Schritte zur Algebraischen Geometrie}
+\section{Nullstellensatz}
+\begin{Satz}[Schwacher Nullstellensatz]\label{Satz:WeakNst}
+	Sei \(K\) ein Körper, \(L\) eine \(K\)-Algebra von endlichem Typ die ein Körper ist.
+	Dann ist \(L/K\) endlich.
+	
+\end{Satz}
+
+\begin{proof}
+	Nach \nameref{Satz:NoetherNor} gibt es \(z_1,\dots,z_m\in L\) algebraisch unabhängig sodass \(L\) endlich ist über \(A=K[z_1,\dots,z_m]\).
+	Dann ist \(A\subseteq L\) ganz und da \(L\) ein Körper ist, ist \(A\) ein Körper.
+	Da \(Z_1,\dots,z_m\) algebraisch unabhängig sind, ist \(A\) ein Polynomring in \(m\) Variablen. Also ist \(m=0\) und \(L\) ist endlich über \(K\).
+\end{proof}
+\begin{Kor}
+	Sei \(K\) ein Körper und \(f\colon A\to B\) ein Homomorphismus von \(K\)-algebren sodass \(B\) eine \(K\)-Algebra vom endlichen Typ ist. sei \(\frakm\subseteq B\) ein maximales Ideal. Dann ist \(f^{-1}(\frakm)\) maximal.
+\end{Kor}
+\begin{proof}
+	Es ist \(K\to A/f^{-1}(\frakm)\to B/\frakm\) injektiv, da \(B\frakm\) eine endliche Körpererweiterung nach Schwachen NstSatz. Dann sind \(K\to A/f^{-1}(\frakm)\to B/\frakm\) alle ganz und damit \(A/f^{-1}(\frakm)\) %TODO
+\end{proof}
+\begin{Bsp}
+	Sei \(K\) ein Körper und \(R=K[X_1,\dots,X_m]\) und \(\frakm\subseteq R\) ein maximales Ideal und \(L=R/\frakm\).
+	Nach Schwachem Nullstellensatz ist \(L/K\) endliche,algebraische Erweiterung.
+	
+\end{Bsp}
+\begin{Kor}
+	Sei \(K\) algebraisch abgeschlossen und \(\frakm\subseteq R=K[X_1,\dots,X_m]\) ein maximales Ideal. Dann ist \(\frakm=(X_1-a_1,\dots,X_n-a_n)\) für \(a_1,\dots,a_n\) in \(K\) und die Projektion \(\pi\colon R\to R/\frakm\) ist \(f\mapsto f(a_1,\dots,a_n)\).
+	Das heißt es gibt Bijektion \(K^n\to \Specm(R),\, (a_1,\dots,a_n)\mapsto (X-a_1,\dots,X_n-a_n)\).
+\end{Kor}
+\begin{proof}
+	Sei \(L=K[X_1,\dots,X_n]/\frakm\). Dann ist nach ??? \(L/K\) algebraisch also \(L=K\).
+	Das heißt \(\pi\colon K[X_1,\dots,X_n]\to K\) und sei \(a_i=\pi(X_i)\).
+	Dann ist \(\pi(X_i-a_i)=0\) also \(X_i-a_i\in\frakm\) für alle \(i\).
+	Also ist \(\frakm\supseteq (X_1-a_1,\dots,,X_n-a_n)\) und letzteres ist maximal denn die Abbildung \(K[X_1,\dots,X_n]\to K, f\mapsto f(a_1,\dots,a_n)\) hat dieses Ideal als Kern.
+\end{proof}
+\begin{Def}
+	Sei \(K\) ein Körper. Eine Varietät \(V\subseteq K^n\) ist eine Teilmenge 
+	\[V=V(J)=\{p=(a_1,\dots,a_n)\in K^n\mid f(p)=0\, \forall f\in J\}\]  für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\) ein Ideal. Da \(J=(f_1,\dots,f_m)\) endlich erzeugt ist, ist \(V\) definiert durch \(f_1(p)=\dots=f_m(p)=0\).
+\end{Def}
+\begin{Satz}
+	Sei \(K\) algebraisch abgeschlossen und \(A=K[X_1,\dots,X_n]/J\) für ein Ideal \(J\subseteq K[X_1,\dots,X_n]\).
+	Dann hat jedes maximale Ideal von \(A\) die Form \[(X-a_1,\dots,X_n-a_n)\] für ein \((a_1,\dots,a_n)\in V(J)\).
+	Das heißt es gibt Bijektion von \( V ( J ) \) und \(\Specm A\) gegeben durch \((a_1,\dots,a_n)\leftrightarrow (X_1-a_1,\dots,X_n-a_n)\).
+\end{Satz}
+\begin{proof}
+	Ideal von \(A\) sind Ideale in \(K[X_1,\dots,X_n]\) die \(J\) enthalten. Also haben alle maximalen Ideale von \(A\) die Form \((X_1-a_1,\dots,X_n-a_n)\) für \(a_1,\dots,a_n\) sodass \(J\subseteq (X_1-a_1,\dots,X_n-a_n)\). Da jedoch 
+	\[(X_1-a_1,\dots,X_n-a_n)=\ker(f\mapsto f(a_1,\dots,a_n))\] ist, ist \(J\subseteq (X_1-a_1,\dots,X_n-a_n)\iff f(a_1,\dots,a_n)=0\, \forall f\in J\) also ist \((a_1,\dots,a_n)\in V(J)\).
+\end{proof}
+\begin{Bem}
+	Es gibt zwei Abbildungen
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13gApTuJgEZwYOGAEcABAGlkADQD6ARlKcoEHHFIKwFCZ1EAPHMAkBJWIwC+nSyEul0mXPkIoATOSq1GLNp2CyfILCopJSAHpg+jBGJgAqMFgMALYwYADmMNbstpZeMFCZCCigAGYAThDJSGQgOBBIyiBwABZYpThIALQe3sysiCAAanYOIBVVjdT1NdSt7Z2IPdT0-WymdhSWQA
+	\begin{tikzfigure}
+		{\{J\subseteq K[X_1,\dots,X_n] \text{ Ideal}\}} \arrow[rr, "V", shift left=2] &  & \{X\subseteq K^n\text{ Teilmenge}\} \arrow[ll, "I", shift left=2]
+	\end{tikzfigure}  
+	wobei \(I(X)=\{f\in K[X_1,\dots,X_n]\mid f(p)=0\, \forall p\in X\}\) ein Ideal ist.
+	Es gilt 
+	\begin{enumerate}
+		\item \(J\subseteq J'\implies V(J)\supseteq V(J')\)
+		\item \(X\subseteq Y\implies I(X)\supseteq I(Y)\)
+		\item \(X\subseteq V(I(X))\)
+		\item \(X \text{ ist Varietät } \iff X=V(I(X))\)
+		\item \(J\subseteq I(V(J))\).
+	\end{enumerate}
+\end{Bem}
+\begin{Bem}
+	Sei \(K\) algebraisch abgeschlossen und \(R=K[X_1,\dots,X_n]\) und \(Y\subseteq R\) eine Teilmenge. Dann gilt
+	\begin{enumerate}
+		\item \(V(Y)=V((Y))\)
+		\item \(V(f)=V(f^n)\)
+		\item \(I\subseteq R\) Ideal \(\implies V(\sqrt{J})=V(J)\)
+		\item \(Y\subseteq Y'\subseteq R\implies V(Y')\subseteq V(Y)\)
+		\item \(Y_i\subseteq R\implies V(\bigcup_iY_i)=\bigcap_iV(Y_i)\)
+		
+	\end{enumerate}
+\end{Bem}
+\begin{Satz}[Nullstellensatz]
+	Sei \(K\) ein algebraisch abgeschlossenere Körper.
+	\begin{enumerate}
+		\item wenn \(J\subsetneq K[X_1,\dots,X_n]\) dann ist \(V(J)\neq\emptyset\).
+		\item \(I(V(J))=\rad(J)\)
+	\end{enumerate}
+	Das heißt \( I \) und \( V \) induzieren inverse Bijektionen 
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13gApTuJgEZwYOGAEcABAGlkADQD6ARlKcoEHHFIKwFCZ1EAPHMAkBJWIwC+nSyEul0mXPkIoATOSq1GLNp2CyfILCopJSAHpg+jBGJgAqMFgMALYwYADmMNbstpZeMFCZCCigAGYAThDJSGQgOBBIyiBwABZYpThIALQe3sysiCAAanYOIBVVjdT1NdSt7Z2IPdT0-WymdhSWQA
+	\begin{tikzfigure}
+		\{\text{Radikale } J=\sqrt{J}\subseteq K[X_1,\dots,X_n]\} \arrow[rr, "V", shift left=2] &  & \{\text{ Varietäten } V \subseteq K^n\} \arrow[ll, "I", shift left=2]
+	\end{tikzfigure} 
+\end{Satz}
+\begin{proof}
+	Sei \(J\subseteq\frakm\) für ein maximales Ideal \(\frakm=(X_1-a_1,\dots,X_n-a_n)\).\\
+	Dann ist \(P=(a_1,\dots,a_n)\in V(J)\)
+	Angenommen \(f\in K[X_1,\dots,X_n]\) sodass \(f(p)=0\) für alle \(p\in V(J)\). Sei \(J'=(J,fY-1)\subseteq K[X_1,\dots,X_n,Y]\). Ein Punkt \(p\in V(J')\) ist \((n+1)\)-Tupel \((a_1,\dots,a_n,b)\in K^{n+1}\). Angenommen \(V(J')\neq \emptyset\).
+	Dann gibt es so einen Punkt \(p\) und \(p'=(a_1,\dots,a_n)\) ist dann in \(V(J)\). Da aber \(bf(a_1,\dots,a_n)=1\) ist, ist das ein Widerspruch. Also ist \(V(J')=\emptyset\) und somit \(J'=K[X_1,\dots,X_n,Y]\)
+	Also gibt es Gleichung 
+	\[1=\sum g_ih_i+g_0(fY-1)\] mit \(g_i\in K[X_1,\dots,X_n,Y]\) und \(h_1\in J\).
+	Multipliziere die Gleichung mit \(f^m\) sodass \(Y\) nur in Kombination mit \(f\) auftritt und erhalte
+	\[f^m=\sum G_i(X_1,\dots,X_n,fY)h_1+G_0(X_1,\dots,X_n,fY)(fY-1)\] Gleichung gilt auch mod \((fY-1)\) was zeigt, dass \(f^m\in J\).
+	Wenn \(f^n(a)=0\) ist dann ist \(f(a)=0\) also \(\rad(J)\subseteq I(V(J))\) Denn wenn \(f^n\in J\) dann ist \(f^n\in I(V(J))\) also \(f^n(p)=0\) für alle \(p\in V(J)\). also \(f(p)=0\) also \(f\in I(V(J))\).
+\end{proof}
+
+\begin{Bem}
+	\begin{enumerate}
+		\item Der Satz hat den Namen wegen 1. Sei \(M\) eine Menge von Poylonomen in \(K[X_1,\dots,X_n]\) gegeben. Dann gibt es eine gemeinsame Nullstelle. Der Satz ist falsch, wenn \(K\) nicht algebraisch abgeschlossen ist, denn wenn \(f\) ein Polynom \(K[X]\) ohne Nullstelle ist, dann ist \((f)\neq K[X]\) aber \(V(f)=\emptyset\) und \(I(V(f))=K[X]\).
+		\item Es ist \(\rad J=\bigcap_{J\subset \frakp\in \Spec(A)}\frakp\) aber der Nullstellensatz ist stärker, denn 2. sagt es reichen die maximalen Ideale, die \(J\) enthalten.
+	\end{enumerate}
+	
+\end{Bem}
+\begin{Def} Seien \( X \subseteq K^n \) und \( Y \subseteq K^m \) abgeschlossene Teilmengen. Eine Abbildung 
+	\( \varphi \colon X \to Y \) heißt polynomiell, wenn es \( f_1 , \dots ,f_m \in K [ X_1, \dots ,X_m ] \) gibt sodas
+	\( \varphi ( x ) = ( f_1 ( x ) , \dots , f_m ( x ) ) \) für alle \( x \in X \).
+	Die Polynome \( f_i \) sind nicht eindeutig, denn sie können um ein Element von \( I ( X ) \) verändert werden.
+	Für eine Teilmenge \( X\subseteq K ^ n \) definiere \( A ( X ) = K [ X_1, \dots , X_n] / I(X) \).
+\end{Def}
+\begin{Lemma} Für abgeschlossene \( X \subseteq K^n \) und \( Y \subseteq K^m \) gibt es Bijektion 
+	\[ \{ \varphi\colon X \to Y \text{ polynomiell } \} \to \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \]
+	
+\end{Lemma}
+\begin{proof}
+	Angenommen \( g \in \Hom_{K-\Alg}( A ( Y ) , A ( X ) ) \) gegeben. Betrachte 
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGlkANAfQEZSAHUFQIOOKV4BbCiAC+pdJlz5CKAZWr1mrRB278hIsROmyFS7HgJEyfKrUYs2AQQAUATQCU8xSAxWqkQC9lpOuiDuXD5yDjBQAObwRKAAZgBOEFJIAiA4EEgAzBYgGVlIZHkFiABMJWXZtdT5RWE6bAm+aZmNlS2IuQxYYBGiODjx8hRyQA
+	\begin{tikzfigure}
+		{K[X_1,\dots,X_m]} \arrow[d] \arrow[r, dotted] & {K[X_1,\dots,X_m]} \arrow[d] \\
+		A(Y) \arrow[r, "g"]                            & A(X)                        
+	\end{tikzfigure}
+	Sei \( f_i \in K[X_1,\dots,X_n] \) ein Urbild von \( g ( \bar{ X_i } ) \). Dann definieren \( f_1, \dots, f_m \) eine 
+	polynomielle Abbildung \( \varphi \colon X \to Y, x\mapsto ( f_1 ( x ) , \dots , f_m ( x ) ) \).
+	Wenn andersrum \( \varphi \) gegeben ist, dann ist \( \varphi^* \colon A(Y) \to A(X), \varphi^*(f)=f\circ \varphi \)
+	eine Abbildung von \( K \) -Algebren.
+\end{proof}
+\begin{Bem}
+	Sei \(K\) ein Körper und \(R=K[X_1,\dots,X_n]\). Dann ist für   \(J,J'\) Ideale von \(R\)
+	\[V(J)=V(J')\iff \sqrt{J}=\sqrt{J'}\]
+	Denn \(V(J)=V(J')\implies I(V(J))=I(V(J'))\) und wenn \(\sqrt{J}=\sqrt{J'}\) dann ist \(I(V(J))=I(V(J'))\) also \(V(J)=V(I(V(J))=\dots=V(J')\)
+\end{Bem}
+\begin{Def} Sei \( K \) algebraisch abgeschlossener Körper. Eine Varietät \( X \subseteq K^n \) ist irreduzibel,
+	falls \( X \neq \emptyset \) und nicht die Vereinigung zweier echter Untervarietäten ist.
+\end{Def}
+\begin{Satz} Eine Varietät \( X \) ist irreduzibel genau dann wenn \( I ( X ) \) prim ist.
+	
+\end{Satz}
+\begin{proof}
+	Sei \( I = I ( X ) \). Angenommen es gibt \( f , g \in A = K [ X_1 , \dots , X_n ] \setminus I \) sodass \( f g \in I \)
+	Sei \( J_1 = (I , f )\) und \( J_2 = ( I , g ) \). Es ist \( V ( J_1 ) = X \cap V ( f ) \) und da \( f \not\in I ( X ) \)
+	ist \( V ( J_1 ) \subsetneq X \) und analog \( V ( J_2 ) \subsetneq X \).
+	Es ist also \[ X = V ( J_1 ) \cup V ( J_2 ) \] reduzibel.
+	Wenn \( I ( X ) \) primist und \[ X = V ( J_1 ) \cup V ( J_2) = V ( J_1 J_2 ) \] ist, dann ist \( J_1 J_2 \subseteq I ( X ) \)
+	Also ist \( J_1 \subseteq I ( X ) \) oder \( J_2 \subseteq I ( X ) \), d.h. \( X = V ( J_1 )\) oder \( X = V ( J_2 ) \).
+\end{proof}
+
+\begin{Bsp} 
+	\begin{enumerate}
+		\item[]
+		\item Primideale in \( K [ X ] \) sind \( ( 0 ) \) und \( ( X-a ) \) für \( a \in K\). Die Zugehörigen irreduziblen 
+		Varietäten sind \( K \) bzw. \( \{ 0 \} \).
+		\item Primideale in \( K [ X , Y ] \) sind \( ( 0 ) \), \( f \) für irreduzible Polynome \( f \) und \( ( X - a , X - b ) \)
+		für \( a , b \in K \). Zugehörige irreduzible Varietäten sind \( K^2 \), die durch \( f = 0 \) definierte Kurve und die
+		Einpunktmenge \( ( a , b ) \). 
+	\end{enumerate}
+\end{Bsp}
+
+\begin{Kor} Sei \( K \) algebraisch abgeschlossen. Dann gibt es mit \( V , I \) bijektive Korrespondenz
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12GYAzHT4AAJOOGAA8cQgEp0oWANaMYggL6CAUoIC8w9nACOAJ0kbVnOEwBGcGKP2CA0sgAaAfQCMpTlAg44g0kE3MApdQywAcwALfnYVEBVSdExcfEIUACZyKlpGFjZObj4BXVEJIQA1OnDbABPRMFUg3QtrWxh7BwA9Rs5w6Nj4xOTsPAIiMncc+mZWRA4uXljgEXETAAVwgFssWCUmzh5DOnk0cysbO0cXDy92Hz9SYIo+yJjOIaSQDFG0oiyptQZvl5oUlgJVuVBFhDIYYFAmAAvLCWbiCKo1HD1GCNNTOc5tK7dMCvAYfBI5eEReBEUBHCBbJBkEA4CBITwgOBRLB8JAAWiyuVmbAqCS+9MZiA5rKZ1BwdCwDDYkDArGoXJ5OH5guBcxAAEkxXTDAykIKZYgAMzq7m8xAC4YgCVIa0stmIQUau0O8UmyXm93M+WKthRCAQeRGp1+l1y93ShVK+ZhiMUlRAA
+	\begin{tikzfigure}
+		{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq K[X_1,\dots , X_n] \right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ Varietäten } X \subseteq K^n \right\} \arrow[ll, "I", shift left=2]                     \\
+		{\left\{\text{ Primideale } \frakp\subseteq K[X_1,\dots,X_n]\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{\text{ irreduzible Varietäten } X\subseteq K^n\right\} \arrow[ll, shift left=2] \arrow[u, hook]
+	\end{tikzfigure}
+	Also ist \( \Spec K [ X_1 , \dots , X_n ] = \{ \text{ irreduzible Varietäten } X \subseteq K^n \} \).
+\end{Kor}
+\begin{Satz} Sei \( K \) algebraisch abgeschlossen und \( A = K [ X_1 , \dots , X_n ] / J \) für ein Ideal 
+	\( J \subseteq K [ X_1 , \dots , X_n ] \).
+	Dann gibt es Bijektive Korrespondenz \[ \Spec A \leftrightarrow \{ \text{ irreduzible Varietäten } X \subseteq V( J ) \} \]
+	
+\end{Satz}
+\begin{Def}[ Zariski Topologie ]
+	Die Varietäten \( X \subseteq K^n \) bilden abgeschlossene Mengen einer Topologie auf \( K^n\).
+	
+\end{Def}
+\begin{Bem} Auf \( \RR ^ n \) oder \( \CC ^ n \) ist das nicht die Standardtopologie. Zwar sind Varietäten in der 
+	Standardtopologie abgeschlossen, da Polynome stetig sind, aber \( B_\epsilon ( o ) \) ist nicht Zariski-offen.
+\end{Bem}
+\begin{Bsp} Ideale \( \neq 0 \) in \( K [ X ] \) sind von der Form \( (f ) \) und \( V ( f ) \) ist endlich. Die Zariski
+	Topologie entspricht heir der Co-endlichen Topologie.
+	Die Zariski-Topologie ist nicht Hausdorf, für \( X = V ( J ) \) irreduzibel ist \( X \) nicht die Vereinigung von zwei echten
+	abgeschlossenen Teilmengen. Also haben zwei nicht-leere offene Teilmengen von \( X \) nicht-leeren Schnitt.
+	Somit \( X \) nicht Hausdorff und damit auch nicht \( K ^ n \).
+\end{Bsp}
+\begin{Satz}[ Zariski Topologie ist noethersch]
+	\begin{enumerate}
+		\item[]
+		\item Jede absteigende Kette \( V_1 \supseteq V_2 \supseteq \dots \) von Varietäten von \( K ^ n \) wird stationär.
+		\item Eine nicht-leere Menge von Varietäten von \( K ^ n \) hat minimales Element.
+	\end{enumerate}
+	
+\end{Satz}
+\begin{proof}
+	1 und 2 sind äquivalent. Zeige also 1. Die absteigende Kette der Varietäten korrespondiert zu absteigender Kette von Idealen
+	in \( K [ X_1 , \dots , X_n ] \) und das ist noethersch, wird also stationär.
+\end{proof}
+
+\begin{Satz} Sei \( X \subseteq K ^ n \) Varietät. Dann hat \( X \) Zerlegung 
+	\[ X = X_1 \cup X_2 \cup \dots \cup X_k \] wobei jedes \( X_i \) irreduzibel ist und \( X_i \subsetneq \bigcup_{i\neq j} X_j \).
+\end{Satz}
+\begin{proof}
+	Wenn \( X \) nicht irreduzibel ist, dann ist \( X = X_1 \cup X_2 \) mit \( X_1, X_2 \subsetneq X \). Fahre so fort mit 
+	\( X_1 \) und \( X_2 \) und erhalte absteigende Kette von Untervaritäten von \( X \). Da \( X \) noethersch ist, muss diese 
+	abbrechen.
+\end{proof}
+\begin{Kor} Ein Radikal Ideal \( J \) von \( K[ X_1, \dots, X_n ] \) ist Schnitt von endlich vielen Primidealen.
+\end{Kor}
+\begin{proof}
+	Irreduzible Zerlegung von \( V ( J ) \) entspricht Schnitt von Primidealen da \( I (V ( J ) ) = \sqrt{J} = J\)
+\end{proof}
+\begin{Def} Sei \( A \) ein Ring. Die Zariski-Topologie auf \( \Spec A \) ist gegeben durch die abgeschlossenen 
+	Mengen \( V ( J ) = \{ \frakp \in \Spec A \mid J \subseteq \frakp \}\) wobei \( J \subseteq A \) ein Ideal ist.
+\end{Def}
+
+
+\begin{Bem} \( J \subseteq \frakp \) bedeutet, dass \( f \in J \) auf \( 0 \) geschickt wird durch \( A \to A / \frakp \).
+\end{Bem}
+
+
+\begin{Lemma} Sei \( R \) ein Ring und \(\frakp \in\Spec(R)\). Es gilt
+	\begin{enumerate}
+		\item \( V(\frakp )\) ist der Abschluss von \( \{ \frakp \} \).
+		\item \( \{\frakp \} \subseteq \Spec(R) \) ist abgeschlossen genau dann wenn \( \frakp \) maximal ist.
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Sei \( V = V (J)\) abgeschlossen mit \( \{ \frakp \} \subseteq V \), d.h. \(J\subseteq \frakp \). Dann ist 
+	\(V(\frakp)\subseteq V(J)\) und somit \( V(\frakp \) der Abschluss. Die zweite Aussage folgt aus der ersten.
+\end{proof}
+\begin{Bem} Sei \( X \subseteq \Spec A \) und \( I ( X ) \coloneq \bigcap_{\frakp \in X } \frakp \). Es gilt 
+	\[ \sqrt{J} = \bigcap_{ J \subseteq \frakp \text{ prim}} \frakp = \bigcap_{\frakp \in V ( J ) } \frakp = I ( V ( J ) ) \]
+	Wenn \( J , J' \) Radikale Ideale, dann \[ V ( I ) = V ( J' ) \implies J = \sqrt{J} = \sqrt{J'} = J' \].
+	Das gibt Bijektionen
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12GYAzHT4AAJOOGAA8cQgEp0oWANaMYggL6CAUoIC8w9nACOAJ0kbVnOEwBGcGKP2CA0sgAaAfQCMpTlAg44g0kE3MApdQywAcwALfnYVEBVSdExcfEIUACZyKlpGFjZObj4BXVEJITpLCPgAYyiGTBswZTVnXQtrWxh7TgBlNBgawQBBMMiYznjE5Ow8AiIydxz6ZlZEDi5eWOARcRMABXCAWyxYJVVdHkM6eTRzKxs7RxcPL3YfP1Jgik5w6NipkkQBhZmkiFkltQVvl1oUtgJnPdOk8+gMhqNduVBFhDIYYFAmAAvLCWGAMMzsP4TOIJHL46oIFCgK4QI5IMggHAQJCeXKrNgANRA1AYlTJ+xSc3SICKOGFIDgUSwfCQAFoMtMQCy2YheVz2VC8msQABJeWi0kMCWg+brWXyxXKuWIdWa7VILKc7mIADMhv5iDATAYDBFYqtkrBdq2DqVKpdGqB7sQnv1iA50LWQZDYct1tStplMeoODoWAYbCiEAg8gSScMrKQfq9Hv9MOzoZl4fzUrY9uojvjrvrjd9Je9vMzSA7ufFkcL-c5ZYr6yrNdpKiAA
+	\begin{tikzfigure}
+		{\left\{ \text{ Radikale } J = \sqrt{ J }\subseteq A\right\}} \arrow[rr, "V", shift left=2]  &  & \left\{ \text{ abgeschlossene } X \subseteq \Spec A \right\} \arrow[ll, "I", shift left=2]      \\
+		{\left\{\text{ Primideale } \frakp\subseteq A\right\}} \arrow[rr, shift left=2] \arrow[u, hook] &  & \left\{X\subseteq \Spec A \text{ irreduzibel }\right\} \arrow[ll, shift left=2] \arrow[u, hook]
+	\end{tikzfigure}
+	und analog impliziert \( A \) noethersch, dass \( \Spec A \) noethersch ist und in dem Fall jede abgeschlossene 
+	Menge von \( \Spec A \) Vereinigung endlich vieler irreduziblen Mengen ist.
+\end{Bem}
+\begin{Kor}  Sei \( A \) noethersch. 
+	\begin{enumerate}
+		\item \( J \subseteq A \) Ideal dann hat \( V ( J )\) endliche Anzahl minimaler Elemente.
+		\item \( \rad J \) ist Schnitt endlich vieler Primideale.
+		\item Wenn \( A \) Nullteiler hat, dann hat \( A \) entweder nicht-triviale nilpotente Elemente oder endliche Anzahl \( \geq 2\)
+		von minimalen Primidealen
+	\end{enumerate}
+	
+\end{Kor}
+\begin{proof}
+	1 und 2 sind klar. Angenommen \( \rad A = 0 \). Es ist \( \rad A = \bigcap \frakp_i \) wobei \( \frakp_i \) die minimalen
+	Primideale von \( A \) sind. Fall es nur ein \( \frakp \) gibt, dann ist \( \frakp = 0 \) also \( A \) nullteilerfrei.
+\end{proof}
+\begin{Lemma}
+	Ein Topologischer Raum \( X \) ist noethersch genau dann, wenn jede offene Menge quasi-kompakt ist.
+\end{Lemma}
+\begin{proof}
+	Sei \( X \) noethersch und \( U\subseteq X \) offen mit \( U= \bigcup_i U_i \).
+	Sei \( V_1 = U_{i_1}^c\). Angenommen \( V_1 ,\dots, V_k \) gegeben. Wenn \( U = \bigcup_{i=1}^k U_{i_k}\) dann ist man fertig.
+	Sonst wähle \( U_{i_{k+1}} \) mit \[ \bigcup_{i=1}^kU_{i_k}\subsetneq \bigcup_{i=1}^{k+1}U_{i_k}\] und setze 
+	\[ V_{k+1}=(\bigcup_{i=1}^{k+1}U_{i_k})^c\subsetneq V_k \]. Das ist abgeschlossen und gibt absteigende Kette abgeschlossener Mengen
+	\( V_1\supsetneq V_2 \supsetneq \dots\) was stationär wird.
+	Also ist \( U \) quasi-kompakt.
+	Wenn andersrum jede offene Menge quasi-kompakt ist und \( V_1\supsetneq \dots\) Kette von abgeschlossenen Mengen ist,
+	dann setze \( U_i= V_i^c\). Dann hat \( \bigcup U_i\) endliche Teilüberdeckung und die Kette wird stationär.
+\end{proof}
+\begin{Lemma}
+	Sei \( R \) ein Ring. Dann ist \( \Spec R \) quasi-kompakt.
+\end{Lemma}
+\begin{proof}
+	Sei \( \Spec R = \bigcup U_i \) offene Überdeckung. Dann ist 
+	\begin{align*}
+		\emptyset & = \bigcap U_i^c\\
+		&= \bigcap V(J_i)\\
+		&= \bigcap ( \sum J_i )
+	\end{align*}
+	Dann gibt es also Darstellung
+	\[ 1 = \sum_{k=1}^n f_{i_k}x_{i_k} \] mit \( f_{i_k}\in R\) und \( x_{i_k}\in J_{i_k}\).
+	Also ist schon 
+	\[ \emptyset=V(\sum_{i=1}^n J_{i_k})\]
+	und somit \( \Spec R=\bigcup_{i=1}^nU_{i_k}\)
+\end{proof}
+\begin{Bsp} Sei \( R = K[X_1,X_2,\dots]/J^2\) mit \( J= (X_1,X_2,\dots\). Es ist \[\Spec(R)=\{ J/J^2 \}\] noethersch aber
+	\(R\) ist nicht noethersch da \((X_1)\subsetneq (X_1,X_2)\subsetneq \dots\) aufsteigende Kette ist, die nicht stationär wird.
+	
+\end{Bsp}
+\begin{Def}[Dimension] 
+	\begin{enumerate}
+		\item[]
+		\item Die Dimension einer Varietät \( X \subseteq K ^ n \) ist das Supremum aller Längen von Ketten von
+		irreduziblen Varietäten \( V_0 \subsetneq \dots \subsetneq V_d \subseteq X \).
+		\item Die Krull-Dimension eines Ringes \( R \) ist das Supremun aller Längen \( d \) von Ketten von Primidealen 
+		\( P_0 \subsetneq \dots \subsetneq P_d \) in \( R \).
+	\end{enumerate}
+\end{Def}

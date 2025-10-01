@@ -1,0 +1,470 @@
+\chapter{Ganze Ringerweiterungen und Dimensionstheorie}
+\section{Ganze Ringerweiterungen}
+\begin{Def}
+	Sei \(\varphi\colon R\to R'\) ein Ringhomomorphismus. \(x\in R'\) heißt ganz über \(R\), wenn es eine Ganzheitsgleichung \(x^n+a_1x^{n-1}+\dots+a_n=0\) erfüllt für \(a_1,\dots,a_n\in R\).
+	\(R'\) heißt ganz über \(R\), falls jedes \(x\in R'\) ganz ist. \(\varphi\) heißt endlich, wenn es \(R'\) mit einer endlichen \(R\)-Modulstruktur versieht.
+\end{Def}
+\begin{Bsp}
+	Wenn \(R=K, R'=K'\) Körper sind, dann ist \(K'/K\) algebraisch wenn es ganz ist über \(K\).
+\end{Bsp}
+\begin{Lemma}\label{Lem:GanzheitKörper}
+	Sei \(\varphi\colon R\to R'\) injektive und \(R,R'\) Integritätsbereiche und \(R'\) ganz über \(R\). Dann ist \(R\) ein Körper genau dann wenn \(R'\) ein Körper ist. 
+\end{Lemma}
+\begin{Bsp}
+	Sei \(K/\QQ\) eine endliche Körpererweiterung und \(a\in K\). Für einen Körperhomomorphismus \(\sigma\colon K\to\bar K\) gilt \(a\) ist ganz über \(\ZZ\) genau dann wenn \(\sigma(a)\) ganz ist über \(\ZZ\) und \(a\) ist ganz über \(\ZZ\) genau dann wenn das Minimalpolynom von \(a\) in \(\ZZ[X]\) ist. Wenn \(K=\QQ(\sqrt{n})\) wobei \(n>1\) quadratfrei ist, dann ist \(a+b\sqrt{n}\) mit \(a,b\in \QQ\) ganz über \(\ZZ\) genau dann, wenn \(a,b\in\ZZ\) oder \(a,b\in\frac 1 2+\ZZ\) und \(n=1\mod 4\).
+\end{Bsp}
+\begin{proof}
+	Wenn \(a^n+b_1a^{n-1}+\dots+b_n=0\) mit \(b_i\in\ZZ\) dann ist auch \(\sigma(a)^n+b_1\sigma(a)^{n-1}+\dots+b_n=0\) also ist \(\sigma(a)\) ganz. Die Rückrichtung geht genauso unter Verwendung dass \(\sigma\) injektiv ist.
+	Wenn \(a\) ganz ist, Sei \(F\in \ZZ[X]\) Ganzheitsgleichung. Sei \(\mu\) das Minimalpolynom von \(a\). Dann ist \(F=\mu g\)
+	Nach Lemma von Gauß ??? ist \(\mu\in\ZZ[X]\).
+	Andere Richtung ist klar.
+	Mipol von \(a+b\sqrt{n}\) ist \((X-(a-b\sqrt{n}))(X-(a+b\sqrt n))=X^2-2aX+a^2-b^2n\).
+	Also ist \(a\in \ZZ\) oder \(a\in  \frac 1 2+\ZZ\).
+	Wenn \(a\in\ZZ\) dann ist \(b^2n\in\ZZ\) und da \(n\) quadratfrei ist, ist \(b\in\ZZ\). 
+	Wenn \(a\in \frac 1 2+\ZZ\) Dann ist \(a=\frac 1 2+x\) für ein \(x\in\ZZ\).
+	also ist \(a^2=\frac 1 4+x+x^2\) und somit \(b^2n\in \frac 1 4+\ZZ\) also \(b\in \frac 1 2+\ZZ\) und außerdem \(b^2n\in \frac 1 4+\ZZ\implies n=1\mod 4.\)
+\end{proof}
+\begin{proof}
+	Sei \(R'\) ein Körper und \(x\in R\setminus\{0\}\) Es ist \(x^{-1}=x\in R'\) und es gibt \(a_1,\dots,a_n\in R\) sodass \[y^n+a_1y^{n-1}+\dots+a_n=0\] ist. Also ist 
+	\[y^n=-a_1y^{n-1}-\dots-a_n\] und somit \[y=x^{n-1}y^n=-a_1y^{n-1}x^{n-1}-\dots -a_nx^{n-1}\in R\].
+	also ist \(R\) Körper.
+	Sei andersrum \(R\) ein Körper und \(x\in R'\) mit \(x\neq 0\).
+	Dann gibt es \(x^n+a_1x^{n-1}+\dots+a_n=0\) mit \(a_i\in R\).
+	Da \(R'\) Integritätsbereich ist ohne Einschränkung \(a_n\neq 0\).
+	Im Quotientenkörper gilt \[-x^{-1}a_n=x^{n-1}+a_1x^{n-2}+\dots+a_{n-1}\in R'\]. Also ist \[x^{-1}=-a_n^{-1}(x^{n-1}+\dots +a_{n-1})\in R'\] also ist \(R'\) ein Körper.
+\end{proof}
+\begin{Lemma}
+	Sei \(\varphi\colon R\to R'\) ein ganzer (bzw. endlicher) Ringhomomorphismus.
+	\begin{enumerate}
+		\item Seien \(I\subseteq R,J\subseteq R'\) Ideale mit \(\varphi(I)\subseteq J\). Dann ist \(R/I\to R'/J\) ganz (bzw. endlich)
+		\item Sei \(S\subseteq R\) eine multiplikative Menge. dann ist \(R_S\to R'_S\) ganz (bzw. endlich)
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Klar
+\end{proof}
+\begin{Lemma}
+	Sei \(\varphi\colon R\to R'\) ein Ringhom und \(x\in R'\). Es ist äquivalent
+	\begin{enumerate}
+		\item \(x\) ist integralt über \(R\).
+		\item Der Unterring \(R[x]\subseteq R'\) ist endlich erzeugt als \(R\)-Modul.
+		\item Es gibt endlich-erzeugten \(R\)-Untermodul \(M\subseteq R'\) sodass \(1\in M\) und \(xM\subseteq M\).
+		\item Es gibt eine \(R[x]\)-Modul \(M\) sodss \(M\) ein endlicher \(R\)-Modul ist und \(aM=0\implies a=0\) für alle \(a\in R[x]\).
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Gelte 1. Die Ganzheitsgleichung \(x^n+a_1x^{n-1}+\dots a_n=0\) zeigt, dass \(x^n\) Element ist von \(M=\sum_{i=0}^{n-1}Rx^i\) und per Induktion ist \(x^m\in M\) für alle \(m\).
+	Also ist \(M=R[x]\) und \(R[x]\) ist endlich erzeugt. Die Richtung von 2 nach 3 und von 3 nach 4 ist klar.
+	Gelte 4. Sei \(M\) ein \(R[x]\)-Modul mit \(y_1,\dots,y_n\in M\) Erzeuger über \(R\).
+	Es ist \(xM\subseteq M\) also gibt es Gleichungen 
+	\[xy_i=a_{i1}y_1+\dots a_{in}y_n\] für alle \(i\) mit \(a_{ji}\in R\).
+	Sei also \(\Delta\) die Matrix über \(R[x]\) sodass 
+	\[\Delta\cdot\begin{pmatrix}
+		y_1\\ \vdots \\ y_n
+	\end{pmatrix}=0\]
+	Es ist \(\Delta^{adj}\Delta=\det(\Delta)E_n\) und somit 
+	\[\det(\Delta)\begin{pmatrix}
+		y_1\\ \vdots \\y_n
+	\end{pmatrix}=\Delta^{adj}\Delta\begin{pmatrix}
+		y_1\\ \vdots \\y_n
+	\end{pmatrix}=0\] also ist \(\det(\Delta)y_i=0\) für alle \(i\).
+	Also ist \(\det(\Delta)M=0\) und somit \(\det(\Delta)=0\).
+	Also ist \(\det(\delta_{ij}X-a_{ij})\) Poylon über \(R\) das bei \(x\) verschwindet.
+	
+\end{proof}
+\begin{Kor}
+	Jeder endliche Ringhomomorphismus \(R\to R'\) ist ganz 
+\end{Kor}
+\begin{proof}
+	sei \(M=R'\) Dann ist \(M\) endlich erzeugt. Nach Teil 3 von ?? ist \(R\to R'\) ganz.
+\end{proof}
+\begin{Kor}
+	sei \(\varphi\colon R\to R'\) Ringhomomorphismus und \(y_1,\dots,y_r\in R'\) ganz über \(R\) sodass \(R'=R[y_1,\dots,y_n]\).
+	dann ist \(\varphi\) endlich und insbesondere ganz.
+\end{Kor}
+\begin{proof}
+	Es ist \(\varphi(R)\subseteq\varphi(R)[y_1]\subseteq\dots\subseteq \varphi(R)[y_1,\dots,y_r]=R'\) und alle Inklusionen sind endlich nach Lemma ??. Also ist inst \(R'\) endlich.
+\end{proof}
+\begin{Kor}
+	Seien \(\varphi\colon R\to R'\) und \(\varphi'\colon R'\to R''\) endlich (bzw ganz). dann ist die Komposition \(\varphi'\varphi\) auch endlich (bzw ganz)
+\end{Kor}
+\begin{proof}
+	Endlich ist klar wie zuvor. Seien beide ganz.
+	\(z\in R''\) erfüllt Ganzheitsgleichung \(z^n+b_1z^{n-1}+\dots+b_n=0\) mit \(b_i\in R'\).
+	also ist \(z\) ganz über \(R[b_1,\dots,b_n]\) und \(R[b_1,\dots,b_n,z]\) ist endlich über \(R[b_1,\dots,b_n]\) was endlich ist über \(R\) da alle \(b_i\) ganz über \(R\). Also ist \(R\to R[b_1,\dots,b_n,z]\) endlich und damit ganz.
+	Also ist \(R\to R''\) ganz.
+\end{proof}
+\begin{Lemma}
+	
+	Sei \(R\to R'\) injektiv und \(\bar R=\{x\in R'\mid x \text{ ganz}\}\) Dann ist \(R\subseteq \bar R\subseteq R'\) Unterring, gennant der ganze Abschluss von \(R\) in \(R'\). \(\bar R\) ist ganzabgeschlossen in \(R'\)
+\end{Lemma}
+\begin{proof}
+	Seien \(x,y\in R'\) ganz. Dann ist \(R[x,y]\) ganz über \(R\) also sind \(x+y,x\cdot y\in \bar R\). Es ist \(R\to \bar R\to \bar{\bar R}\) ganz also \(\bar R=\bar{\bar R}\).
+\end{proof}
+\section{Normale Ringerweiterungen}
+\begin{Def}
+	Ein Integritätsbereich \(R\) heißt normal, falls \(R\) ganz-abgeschlossen ist in seinem Quotientenkörper.
+\end{Def}
+\begin{Bem}\label{Bem:FaktNormal}
+	Ein faktorieller Ring ist normal. Denn sei \(q=\frac a b\) ganz mit\(b\) keine Einheit und ohen Einschränkung- \(a,b\) teilerfremd.
+	Dann führt eine Ganzheitsgleichung für \(q\) zu \(a^n=bx\) also sind \(a\) und \(b\) nicht teilerfremd. Also ist \(q\in R\).
+\end{Bem}
+\begin{Lemma}
+	Sei \(S\subseteq R\setminus\{0\}\) eine multiplikative Menge und \(R\) normal. Dann ist \(R_S\) normal.
+\end{Lemma}
+\begin{proof}
+	Es ist \(R\subseteq R_S\subseteq \Quot(R)\) und \(\Quot(R_S)=Q(R)\).
+	Sei \(x\in \Quot(R)\) ganz über \(R_S\) und \[x^n+\frac{a_1}{s_1}x^{n-1}+\dots \frac{a_n}{s_n}=0\] Ganzheitsgleichung. Sei \(s=s_1\cdots s_n\)
+	Dann ist \(sx\) ganz über \(R\) also \(sx\in R\) und somit \(x=\frac 1 s sx\in R_S\) und somit \(R_S\) normal.
+\end{proof}
+\begin{Lemma}
+	Sei \(A\) nullteilerfrei und \(K=\Quot(A)\) und \(L/K\) eine Körpererweiterung. sei \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\) und \(S\subseteq A\) eine multiplikative Menge. Dann ist \(S^{-1}B\) der ganze Abschluss von \(S^{-1}A\) in \(L\).
+\end{Lemma}
+\begin{proof}
+	sei \(x=\frac bs \in S^{-1}B\) dann ist \(sx=b\) ganz über \(A\) also gibt es \[b^n+a_1b^{n-1}+\dots+a_0=0\] dann ist \[x^n+\frac{a_1}{s}x^{n-1}+\dots+\frac{a_n}{s^n}=0\] und somit \(x\) ganz über \(S^{-1}A\).
+	Sei \(x\in L\) ganz über \(S^{-1}A\)
+	\[x^n+\frac{a_1}{s_1}x^{n-1}+\dots+\frac{a_0}{s_0}=0\] sei \(s=s_1\cdots s_n\) dann ist \(sx\) ganz über \(A\) also \(sx\in B\) und \(x\in S^{-1}B\).
+\end{proof}
+
+\begin{Satz}\label{Satz:NormalIntegrit}
+	Für einen Integritätsbereich \(R\) ist äquivalent:
+	\begin{enumerate}
+		\item \(R\) ist normal
+		\item \(R_\frakp\) ist normal für alle primideale \(\frakp\subseteq R\).
+		\item \(R_\frakm\) ist noraml für alle \(\frakm\subseteq R\) maximal.
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	1 impliziert 2 nach Lemma ??
+	2 nach 3 ist klar.
+	Gelte 3. und Sei \(x\in\Quot(R)\) ganz über \(R\). Da \(R_\frakm\) normal ist, ist \(x\in\bigcap_\frakm R_\frakm\). Zeige also \(\bigcap_\frakm R_\frakm=R\).
+	sei \(x\in \bigcap R_\frakm\).
+	Wähle \(a_\frakm\in R\) und \(b_\frakm \in R\setminus\frakm\) sodass \(x=\frac{a_\frakm}{b_\frakm}\). Es ist \(\sum(b_\frakm)=R\) da es in keinem maximalen Ideal enthalten ist. Also gibt es Gleichung \(\sum_\frakm c_\frakm b_\frakm=1\) mit \(c_\frakm\in R\) und \(c_\frakm=0\) fast immer \(0\).
+	Also ist \[x=(\sum_\frakm c_\frakm b_\frakm)x=\sum_\frakm c_\frakm a_\frakm\in R.\] Also ist \(R\) normal.
+\end{proof}
+\section{Going Up}
+\begin{Satz} Sei \( \varphi \colon R \to R' \) ganzer Ringhomomorphismus.
+	\begin{enumerate}
+		\item Ein Primideal \( \frakp \subseteq R' \) ist maximal genau dann, wenn \( \frakq= \frakp \cap R \) maximal ist.
+		\item Seien \( \frakp_1,\frakp_2 \subseteq R' \) Primideale sodass \( \frakp_1 \cap R = \frakp_2 \cap R \). Dann gilt
+		\[ \frakp_1\subseteq \frakp_2 \implies \frakp_1 = \frakp_2 . \]
+	\end{enumerate}
+	
+\end{Satz}
+\begin{proof}
+	Es ist \( R / \frakq \to R'/ \frakp \) ganz und injektiv nach ???. Dann ist 
+	\[ R / \frakq \text{ Körper } \iff R'/ \frakp \text{ Körper } \] nach \Cref{Lem:GanzheitKörper}.
+	Sei nun \( \frakp = \frakp_1 \cap R = \frakp_2 \cap \) wie im Satz sodass \( \frakp_1 \subseteq \frakp_2 \).
+	Dann ist für \( S = R \setminus \frakp \) die Abbildung \( R_S \to R'_{ \varphi ( S ) } \) ganz und \( S ^ { -1 } \frakp \)
+	ist maximal in \( R_S \). Es ist \( S ^ {-1} \frakp_i \) prim in \( R'_{ \varphi ( S ) } \) da 
+	\( \varphi ( S ) \cap \frakp_i = \emptyset \).
+	Also ist \( \frakq_i = S^{-1} \cap R_S \) Primideal in \( R_S \) die \( S^{-1}\frakp \) enthalten.
+	Da \( S^{-1} \frakp \) maximal ist, ist \( S ^ { -1 } \frakp = \frakq_i \) maximal und somit nach 1 \( S ^ { -1 } \frakp_i \)
+	maximal in \( R'_{ \varphi ( S ) } \).
+	Da \( \frakp_1 \subseteq \frakp_2 \) ist \( S ^ { -1 } \frakp_1 = S ^ { -1 } \frakp_2 \) und weil 
+	\( \frakp_i = S ^ { -1 }\frakp_i \cap R \) ist \( \frakp_1 = \frakp_2  \)
+\end{proof}
+\begin{Satz}[Living Over] \label{Satz:LivingOver}
+	Sei \( \varphi \colon R \to R' \) ein ganzer Ringhomomorphismus und \( \frakp\subseteq R \) ein Primideal sodass
+	\(\ker(\varphi)\subseteq \frakp \).
+	dann gibt es ein Primdieal \(\frakq \subseteq R' \) sodass \( \frakq \cap R = \frakp \).
+	
+\end{Satz}
+\begin{proof}
+	Sei \( S = R\setminus \frakp \). Dann ist \( R_S \to R'_{\varphi(S)}\) ganz.
+	Da \( \ker(\varphi)\subseteq \frakp \) gilt, ist \( 0 \not \in \varphi(S) \) also \( R'_{\varphi(S)}\neq 0\).
+	Nach ?? gibt es ein maximales Ideal \( \bar{\frakq} \) in \( R'_{\varphi(S)}\).
+	Nach ??? ist \( \bar{\frakq} \cap R_S = S^{-1}\frakp\) und somit ist \( \frakq= R'_{\varphi(S)}\cap R' \) Primideal mit 
+	\( \frakq \cap R =\frak p \).
+\end{proof}
+\begin{Satz}[Going Up] \label{Satz:GoingUp}
+	Sei \( \varphi \colon R \to R'\) ganzer injektiver Ringhomomorphismus und \[ \frakp_0\subseteq \dots \frakp_n \] Kette
+	von Primidealen in \( R \). Sei \( \frakq_0 \) ein Primideal in \( R ' \) sodass \( \frakq_0 \cap R = \frakp_0 \).
+	Dann existiert eine Kette von Primidealen
+	\[ \frakq_0 \subseteq \frakq_1 \subseteq \dots \subseteq \frakq_n \] in \( R' \) 
+	mit \( \frakq_i \cap R = \frakp_i \) 
+\end{Satz}
+\begin{proof}
+	Es reicht der Fall \( n = 1 \).
+	Es ist \( R / \frakp_0 \to R' / \frakq_0 \) ganz und injektiv.
+	Nach \nameref{Satz:LivingOver} existiert \( \frakq \subseteq R'/ \frakq_0\) über \( \bar{\frakp_0} \).
+	Sei \( \frakq_1 \) Urbild von \( \frakq \) unter \( R'\to R'/\frakq_0 \). Dann ist \( \frakq_n\cap R = \frakp_n \).
+\end{proof}
+\section{Going Down}
+\begin{Lemma}\label{Lem:GanzGlIdeal}
+	Sei \( R \to R' \) endlicher Ringhomomorphismus.. Sei \( I \subseteq R \) ein Ideal und
+	\( x\in IR'\). Dann existiert Ganzheitsgleichung \( h \) mit Koeffizienten in \( I \)
+\end{Lemma}
+\begin{proof}
+	Sei \( R'\) erzeugt von \( y_1,\dots,y_n\). Es ist \( y_i x\in IR'\) also gibt es Darstellung
+	\[ y_i x= \sum_{j=1}^nr_{ij}y_j\] mit \( r_{ij}\in I\).
+	Also ist für \( A= (R_{ij}\)
+	\[ (x\cdot E_n-A)\cdot \begin{pmatrix}
+		y_1 \\ \vdots \\ y_n
+	\end{pmatrix} =0.\]
+	Also ist wie in ??? \[ \det(x\cdot E_n-A)\cdot \begin{pmatrix}
+		y_1 \\ \vdots \\ y_n
+	\end{pmatrix} =0\] also \(\det(xE_n-A)R'=0 \) und somit \(\det(xE_n-A)=0 \). Das ist Ganzheitsgleichung mit Koeffizeinten in \(I\).
+\end{proof}
+\begin{Lemma}
+	Sei \( \varphi \colon R \to R' \) injektiv und \( s \in R'\) ganz. Seien \( R,R'\) Integritätsrings und \( R \) normal.
+	Es gilt
+	\begin{enumerate}
+		\item Das Minimalpolynom \( f \in \Quot(R)[X] \) von \( s \) ist in \( R[X] \).
+		\item Wenn \( R' \) endlich erzeugter \( R\)-Modul und \( s \in \frakp R'\) für ein Primideal \( \frakp\subseteq R \)
+		Dann sind alle Koeffizienten von \( f \) in \( \frakp \).
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Sei \( K = \Quot(R) \) und \( L= \Quot (R')\) und \( h \) Ganzheitsgleichung von \( s \). Es ist 
+	\[ f = \prod_{i=1}^n(X-S_i)\in \bar{K}[X].\]
+	Da \( f \mid h \) folgt dass \( h(s_i)=0 \) und somit \( s_i \) ganz über \( R \) ist.
+	Die Koeffizienten von \( f \) sind in \( K \cap R[S_1,\dots,s_n]\) also sind die Koeffizienten ganz. Da \( R \) normal ist
+	sind die Koeffienten in \( R \).
+	Für den zweiten Teil wähle nach Lemma ??? \( h \) so, dass Koeffizeinten in \( \frakp \) liegen.
+	Dann ist wie oben \( h(s_i)=0 \) also \(s_i^n\in\frakp R'\) für alle \( i \).
+	nach \nameref{Satz:LivingOver} gibt es Primdieal \( \mathfrak{P}\subseteq R' \) sodass \( \mathfrak{P} \cap R = \frakp \).
+	Also ist \( \frakp R' \subseteq \mathfrak{P} \) und \( s_i \in \mathfrak{P} \).
+	Damit sind auch alle Koeffizienten von \( f \) in \( \mathfrak{P} \cap R = \frakp \).
+	
+\end{proof}
+\begin{Satz}[Going Down]\label{Satz:GoingDown} 
+	Sei \( \varphi \colon R \to R' \) ganz und injektiv und \( R \) und \( R' \) Integritätsringe sodass \( R \) normal ist.
+	Für eine Kette von Primidealen \[ R \supseteq \frakp_o \supseteq \dots \supseteq \frakp_n \] und einem Primideal
+	\( \frakq_0 \subseteq R' \) mit \( \frakq_0 \cap R = \frakp_0 \) gibt es Kette von Primidealen
+	\[ R' \supseteq \frakq_0 \supseteq \dots \supseteq \frakq_n \] sodass \( \frakq_i \cap R = \frakp_i \).
+\end{Satz}
+\begin{proof}
+	Es reicht der Fall \( n = 1 \).
+	Sei \( S = R \setminus \frakp_1 \) und \( S' = R' \setminus \frakq_0 \). Sei \( T= S\cdot S' \). Dann ist \( \frakp_1 \cdot R' \cap T = \emptyset \).
+	Sei nämlich \( x \in \frakp_1R' \cap R \), \( x = u\cdot v \) mit \( u \in S , v \in S'\) und 
+	\( x = \sum_{i=1}^ka_is_i \) mit \( a_i \in \frakp_1, s_i \in R' \).
+	Ersetze \( R' , \frakq_0 , R'\setminus \frakq_0 \) durch \( R[ v , s_1, \dots , s_k ] , \frakq_0 \cap R[ v , s_1, \dots , s_k ] \) und deren Komplement.
+	Also ist \( R'\) ohne Einschränkung von endlichem Typ und da \( R' \) ganz ist, ist \( R' \) endlich erzeugt als \( R \)-Modul.
+	Sei \( f \) das Minimalpolynom von \( v \) über \( K = \Quot ( R ) \).
+	Nach ??? ist \( f = Z^d+r_{d-1}Z^{d-1}+\dots+r_0\in R[X] \) da \( R \) normal ist.
+	Sei \( g = Z^d+u \cdot r_{d-1}Z^{d-1}+\dots+u ^ d \cdot r_0\).
+	Dann ist \( g ( u v ) = u ^ d \cdot f ( v ) = 0 \). Da \( u \in R\setminus \{ 0 \}\subseteq K^* \), ist
+	\[ K[uv] = K [ v ] \] und somit ist der Grad der Erweiterung \( d = \deg ( f ) \).
+	Also ist \( g \) das Minimalpolynom von \( uv \).
+	Nach Lemma ??? ist wegen \( x \in \frakp_1R' \) alle Koeffizienten von \( g \) in \( \frakp_1 \). Also ist auch 
+	\( r_{d-i} \in \frakp_1 \) und somit \( v ^ d \) und auch \( v \in \frakp_1 \).
+	Dann ist aber \( v \in \frakp_0 \subseteq \frakq_o \) was nicht sein kann. Also ist \( \frakp_1R' \cap T = \emptyset \)
+	Wähle also \( \frakp_1R' \subseteq \frakq_1 \) mit \( \frakq_1 \subseteq R' \) prim und \( \frakq_1\cap T = \emptyset \).
+	( Betrachte \( R'_T\) ).
+	Dann ist \( \frakp_1 \subseteq \frakp_1 R' \cap R \subseteq \frakq_1 \cap R \).
+	Wenn \( a \in \frakq_1 \cap R \) aber \( a \not \in \frakp_1 \) dann wäre \( a \in \mathfrak{P} \cap T =\emptyset\)
+	Also ist \( \frakq_1 \cap R = \frakp_1\) und \(\frakq_1\subseteq\frakq_0\) denn \( S' = R' \setminus \frakq0 \).
+\end{proof}
+
+
+
+
+
+
+
+\section{Noether Normalisierung}
+\begin{Def}
+	Sei \(K\) ein Körper und \(R\) eine \(K\)-Algebra. \(y_1,\dots,y_n\in R\) heißen algebraisch unabhängig über \(K\), falls die Surjektion \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] ein Isomorphismus ist.
+	Wenn \(R=L\) ein Körper ist, so heißt eine maximal algebraisch unabhängige Teilmege Transzendenzbasis der Körpererweiterung \(L/K\).
+\end{Def}
+\begin{Lemma}[Horrible Lemma]
+	Sei \(I\) eine endliche Menge von Tupeln \(m=(m_1,\dots,m_n)\in \NN^n\).
+	Es gibt \(r_1,\dots,r_{n-1}\in\NN\) und \(r_n=1\) sodass 
+	\(m\neq m'\in I\implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im_i'\)
+\end{Lemma}
+\begin{proof}
+	Wenn \(n=1\) dann ist das klar.
+	Sei \(\bar I=\{\bar m=(m_2,\dots,m_n)\mid \exists m_1\colon (m_1,m_2,\dots,m_n)\in I\}\)
+	Nach Induktion gibt es \(r_2,\dots r_n\) mit \(r_n=1\) sodass \[(m_2,\dots,m_n)\neq (m_2',\dots,m_n')\implies \sum_{i=2}^nr_im_i\neq \sum_{i=2}^nr_im_i'\]
+	Wähle \(r_1>\max\{\sum_{i=2}^nr_im_i\mid \bar m=(m_2,\dots,m_n)\in \bar I\}\).
+	Dann ist für \(m\neq m'\) entweder \(m_1\neq m_1'\) oder \(\bar m_=(m_2,\dots,m_n)\neq \bar m'=(m_2',\dots,m_n')\).
+	In beiden Fällen ist \(\sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_i m_i'\).
+\end{proof}
+\begin{Lemma}
+	Sei \( K \) ein Körper und \( A \) eine \( K \)-Algebra vom endlichen Typ, \( A=K[x_1,\dots,x_n\) und sei 
+	\( \varphi \colon K[X_1,\dots,X_n]\to A \) die natürliche Abbildung und \( y = \varphi (F) \) für ein \( F\neq 0\).
+	Dann gibt es Elemente \( y_1 , \dots , y_{n-1} \in A \) sodass \( K[y_1,\dots,y_{n-1},y]\to A \) endlich ist und 
+	\( A=K[y_1,\dots,y_{n-1},y,x_n]\)
+\end{Lemma}
+\begin{proof}
+	Setze \( y_i = x_i - x_n^{r_i} \) für \( i=1,\dots n-1\) wobei \( r_i \in \ZZ \) später bestimmtwerden und setze \(r_n=1\).
+	Definiere Relation \( G \) über \( K[y_1,\dots,y_{n-1}] \) durch 
+	\[ G(y_1,\dots,y_{n-1},x_n) = F(y_1+x_n^{r_i},\dots,y_{n-1}+x_n^{r_{n-1}},x_n)=F(x_1,\dots,x_n)=y \]
+	Schreibe \( F = \sum\limits_{m=(m_1,\dots,m_n)\in I } a_m X^m = \sum_m a_m \prod X_i^{m_i} \). Dann ist 
+	\begin{align*}
+		G &= \sum_m a_mx_n^{m_n}\prod_{i\neq n } (y_i +x_n^{r_i} )\\
+		& = \sum_m a_m(x_n^{\sum_{i=1}^nr_im_i} + \text{ Rest}_m)
+	\end{align*}
+	wobei der Rest ein Polynom in \( x_n \) ist von Grad  echt kleiner als \(\sum_{i=1}^nr_im_i\). Nach Lemma ??? kann man \( r_i\) so wählen,
+	dass \(m\neq m' \implies \sum_{i=1}^nr_im_i\neq \sum_{i=1}^nr_im'_i \). Dann wird \( \max\{\sum r_im_i\mid a_m \neq 0\} \) genau in einem 
+	Summanden angenommen, sodass sich nciht alle Terme wegheben. Da \(  a_m\neq 0 \) wo das Maximum angenommen wird, ist \( x_n\) ganz über 
+	\(K[y_1,\dots,y_{n-1},y]\).
+\end{proof}
+\begin{Bem} Wenn in ?? \( y=0 \), das heißt \[x_1,\dots,x_n \] algebraisch abhängig sind, 
+	dann gibt es \(y_1,\dots,y_{n-1}\) sodass \(K[y_1,\dots,y_{n-1}]\to K[x_1,\dots,x_n]\) endlich ist.
+	
+\end{Bem}
+\begin{Satz}[Noether Normalisierung]\label{Satz:NoetherNor}
+	Sei \(K\) ein Körper und \(A\) eine \(K\)-Algebra von endlichem Typ. Dann gibt es \(z_1,\dots,z_m\in A\) sodass
+	\begin{enumerate}
+		\item \(z_1,\dots,z_m\) algebraisch unabhängig über \(K\) sind und
+		\item \(A\) ist endlich über \(K[z_1,\dots,z_m]\subseteq A\)
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Es ist \(A=K[y_1,\dots,y_n]\). Wenn \(n=0\) ist, ist nichts zu zeigen.
+	Sei \(n>0\) Wenn \(y_1,\dots,y_n\) algebraisch unabhängig sind über \(K\), dann ist nichts zu zeigen.
+	Seien \(y_1,\dots,y_n\) also algebraisch abhängig. Das heißt \[K[Y_1,\dots,Y_n]\to K[y_1,\dots,y_n]\] hat nicht triviale Kern.
+	Nach Lemma ?? gibt es also \(y_1^*,\dots,y_{n-1}^*\in A\) sodass \(y_n\) ganz über \(A^*=K[y_1^*,\dots,y_{n-1}^*]\) und \(A=A^*[y_n]\). Nach Induktion gibt es \(z_1,\dots,z_m\in A^*\) algebraisch unabhängig sodass \(A^*\) endlich ist über \(B=K[z_1,\dots,z_m]\) da \(y_n\) ganz über \(A^*\) ist ist \(A^*[y_n]\) endlich über \(A\) sodass \(A\) endlich über \(B\) ist.
+\end{proof}
+\section{Krull-Dimension und Höhe}
+
+\begin{Def} Die Krull-Dimension eines Rings \(R\) ist das Supremum aller Längen \( d \) von 
+	Ketten von Primidealen \( \frakp_0\subsetneq \dots \subsetneq \frakp_d \) in \( R \) .
+	
+\end{Def}
+\begin{Bsp} Körper haben die Dimension \( 0 \). Es ist \( \dim ( \ZZ ) = 1 \) und \( \dim ( K [ X ] ) = 1 \). Ein 
+	artinscher Ring ist ein noetherscher Ring mit Krull-Dimension \( 0 \)
+	
+\end{Bsp}
+\begin{Lemma}
+	Für einen Körper \( K \) gilt \[ \dim ( K [ X_1 , \dots , X_n ] ) = n . \]
+\end{Lemma}
+\begin{proof}
+	Primideale \( \frakp_i=(X_1,\dots, X_i )\) bilden Kette der Länge \( n \).
+	Der Fall \( n = 0 \) ist klar. Sei \( R = K [ X_1 , \dots , X_n ] \) und \( d = \dim ( R ) \).
+	Wenn \( n \geq 1 \) dann ist \( d \geq 1\) und sei \( \frakp_0 \subsetneq \frakp_d \) eine Kette von Primidealen. 
+	Sei \( \frakq = \frakp_{ d - 1 } \) und \( R_i = K [ X_i ] \subseteq R \) und \( \frakq_i = \frakq \cap R_i \).
+	Angenommen \( \frakq_i \neq 0 \) für alle \( i \). Dann enthält \( \frakq_i \) ein Polynom \( g_i ( X_i ) \) mit 
+	\( g_i \neq 0 \) für alle \( i \).
+	Sei \( J = ( g_1 , \dots , g_n ) \). Es ist \( R / J \) ein endlich-dimensionaler \( K \)-Vektorraum, also ist 
+	\( R / J \) artinscher Ring also null-dimensional. Wir haben aber eine Kette \[ \frakp_{d-1} / J \subsetneq \frakp_d / J \]
+	in \( R / J \). Also muss es in \( i \) gegeben sodass \( \frakq_i = 0 \). Nach Umordnen ist das ohne Einschränkung 
+	\( \frakq_n \). Sei \( S = R_n \setminus \{ 0 \} \) multiplikative Menge. Dann ist \( S \cap \frakp_{ d- 1 } = \emptyset \).
+	Also gibt es Kette \( \frakp_0 \subsetneq \dots \subsetneq \frakp_{ d - 1 } \) von Primidealen der Länge \( d - 1 \)
+	in Lokalisierung
+	\[ S^{-1} R = ( S^{-1} K [ X_n ] ) [X_1 , \dots , X_{ n - 1 } ] = K ( X_n ) [ X_1 , \dots, X_{n-1} ]. \]
+	Das ist Polynomring in \( n - 1 \) Variablen über Körper. Nach Induktion ist also \( d-1 \leq n -1 \) also \( d \leq n \).
+	
+\end{proof}
+\begin{Lemma}
+	\begin{enumerate}
+		\item[]
+		\item Ein Hauptidealring, der kein Körper ist hat Dimension 1.
+		\item \( R = K[X_1,X_s,\dots] \) hat Dimension \( \infty \).
+	\end{enumerate}
+\end{Lemma}
+
+\begin{Def} 
+	Sei \( I \) ein Ideal von \( R \). Definiere \( \oht(I) \) als das Supremum von Längen von Ketten von Primidealen in \( I \)
+	und \( \coht \) als das Supremum von Lägen von Ketten von Primidealen in \( R\) die \( I \) enthalten.
+\end{Def}
+\begin{Lemma}
+	Sei \(R\) ein faktorieller Ring. 
+	\begin{enumerate}
+		\item Die Primideale der Höhe 1 sind genau die Ideale \(p\) für Primideale von \(R\).
+		\item In \(K=\Quot(R)\) ist \(R=\bigcap_{\coht\frakp=1 \text{ prim}}R_\frakp\).
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Es ist \((0)\subseteq (p)\) also \(oht(p)\geq 1\). Wenn \(\frakp\subseteq (p)\) ein Primideal ungleich \(0\) dann
+	gibt es Primzahl \(q\in \frakp\) also \(q=xp\) und somit \(\frakp=(p)\). Also \(\oht(p)=1\).
+	Genauso zeigt man, dass jedes Primideal der Höhe 1 von dieser Form ist.
+	Klar ist, dass \(R\subseteq \bigcap R_\frakp\). Sei also \(x\in \bigcap R_p\) mit \(x=\frac a b\) vollständig gekürzt.
+	Wenn \(b\neq 1\) dann ist \(b=p_1\cdots p_r\) und somit \(b\in p_1\).
+	Also ist \(\frac a b\) nicht in \(R_{p_1}\). Also muss \(b=1\) sein und somit \(x\in R\).
+\end{proof}
+\begin{Lemma}
+	Sei \( I \subseteq R \) ein Ideal. Es gilt
+	\begin{enumerate}
+		\item \( \oht(\frakp)=\dim(R_\frakp) \) für ein Primideal \( \frakp \) von \( R \) und \(\coht(I)=\dim(R/I)\)
+		\item \( \oht(I)=\min_{I\subset\frakp\in\Spec(R)} \oht(\frakp)\)
+		\item \(\dim (R)=\sup_{\frakp\in\Spec R} (R_\frakp) = \sup_{\frakp \in \Specm} (R_\frakp))\)
+	\end{enumerate}
+	
+\end{Lemma}
+\begin{proof}
+	1. und 2. sind klar. 
+	Ohne Einschränkung sei \( \dim (R)<\infty\) und \(\frakp_0\subsetneq \dots \subsetneq \frakp_d\) maximale Kette.
+	Dann ist \( \dim(R)=d\) und 
+	\[\sup \dim(R_\frakp)=\sup\oht(\frakp)=\oht(\frakp_d)=d\]
+\end{proof}
+\begin{Satz} \label{Satz:GanzDim}
+	Sei \( R \to R' \) ganz und injektiv. Sei \( I' \subseteq R'\) ein Ideal und \( I = I' \cap R \). Dann gilt
+	\begin{enumerate}
+		\item \( \dim(R')=\dim(R) \)
+		\item \( \oht(I)\leq \oht(I) \) und \( \oht(I)= \oht(I) \) wenn \( R, R' \) Integritätsbereiche und \( R \) normal ist.
+		\item \( \coht(I)=\coht(I')\).
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Nach \nameref{Satz:GoingUp} kann jede aufsteigende Kette in \(R\) zu einer in \(R'\) erweitert werden. Jede Kette in \(R'\)
+	schränkt sich nach Satz ??? zu einer Kette ein. Also gilt 1. und dann folgt 3. direkt.
+	Wenn \(I'\) Primideal ist, dann lässt sich genauso eine zu \( I' \) aufsteigende Kette einschränken und gibt eine zu \( I \) aufsteigende Kette.
+	Also ist \( \oht(I')\leq \oht(I) \).
+	Wenn \( I'\) nicht prim ist, wähle \( \frakp \) minimal mit \(I\subseteq \frakp \). Nach \nameref{Satz:LyingOver} zu 
+	\( R/I \to R'/I' \) gibt es minimales \(I'\subseteq \frakq \) prim das über \( \frakp \) liegt.
+	also ist \( \oht(\frakq) \leq \oht(\frakp\) und somit \(\oht(I') \leq \oht(I)\).
+	Wenn \(R,R'\) Integritätsbereiche mit \( R \) normal, dann lässt sich auch jede Kette mit \nameref{Satz:GoingUp} heben,
+	sodass die Höhen gleich sind.
+\end{proof}
+
+\begin{Satz} Sei \( A \) eine \( K \)- Algebra von endlichem Typ und \( A \) ein Integritätsbereich. Dann ist 
+	\[ \dim(A)=\transdeg_K(\Quot(A) \]
+	
+\end{Satz}
+\begin{proof}
+	Nach \nameref{Satz:NoetherNor} gibt es injektiven endlichen Morphismus \( K[X_1,\dots,X_d] \to A\). Nach \Cref{Satz:GanzDim}
+	ist \( \dim(A) = \dim(  K[x_1,\dots,X_d] ) = d \).
+	Außerdem ist
+	\begin{align*}
+		d & = \transdeg_K(\Quot(K[X_1,\dots,X_d]))\\
+		&= \transdeg_K(\Quot(A))
+	\end{align*} da \( \Quot(A) / \Quot(K[X_1,\dots,X_d])\) algebraisch ist.
+\end{proof}
+\begin{Satz} Sei \( A \) eine \( K \) - Algebra von endlichem Typ, \(A \) ein Integritätsbereich.
+	Dann ist \begin{enumerate}
+		\item \( \oht(\frakp) + \coht(\frakp) = \dim(A) \) für alle primdieale \(\frakp\subseteq A \)
+		\item \( \oht \frakm = \dim (A) \) für alle maximalen Ideale.
+	\end{enumerate}
+	
+\end{Satz}
+\begin{proof}
+	2 folgt aus 1.
+	Nach ??? gibt es endlichen Monomorphismus \( K[x_1,\dots,x_d] \to A \) mit \( \dim(A)=d\) und \( x_1,\dots,x_d\) algebraisch
+	unabhängig.
+	Wenn \( d=0 \) dann ist \(A\) ganz über \( K \) also Körper, da stimmt die Aussage.
+	Wenn \( \frakp =0 \) dann stimmt die Aussage auch.
+	Sei also \(d\geq 1\) und \( \frakp\neq 0 \).
+	Wähle \( y \in \frakp \cap K[x_1,\dots,x_d] \) mit \( y \neq 0 \). Das existiert da
+	\(\frakp\neq 0 \implies \frakp \cap K[x_1,\dots,x_d]\neq 0 \) nach Satz ???. Nach Lemma ???
+	gibt es \( y_1, \dots, y_{d-1} \in K[x_1,\dots, x_d\) such that \( K[y_1,\dots,y_{d-1},y] \to K[x_1,\dots,x_d] \) ist
+	endlich und injektiv und \( y_1,\dots,y_{d-1},y \) algebraisch unabhängig. Dann ist \(K[y_1,\dots,y_{d-1},y]\to A\) endlich
+	und da \(K[y_1,\dots,y_{d-1},y]\) normal nach ??? (faktoriell impliziert normal ). Nach \nameref{Satz:GoingDown} gibt es Ideal
+	\(\frakp_0 \subseteq \frakp \subseteq A \) mit \(\frakp_0 \cap K[y_1,\dots,y_{d-1},y]= (y_d) \).
+	Betrachte Monomorphismus \( K[Y_1,\dots,Y_{d-1} \to A/\frakp_0 \) und Ideal \(\frakp/\frakp_0 \).
+	Nach Induktion ist \[\oht(\frakp/\frakp_0)+\coht(\frakp/\frakp_0)=d-1\]
+	Da \( \oht \frakp \geq \oht (\frakp/\frakp_0 )+1 \) und \(\coht(\frakp)=\coht(\frakp/\frakp_0)\)
+	ist \[ \oht(\frakp)+\coht(\frakp)\geq d \] und somit \(=d\). 
+\end{proof}
+\begin{Bem} Es gilt \[ \oht(\frakp)=\dim(R_\frakp)=\transdeg_K(\Quot(R_\frakp))=\transdeg_K(\Quot(A))\] Nach Satz ???
+	und \( \coht(\frakp)=\transdeg_K(\Quot(A/\frakp) \) 
+	Also haben wir 
+	\[ \oht(\frakp)=\transdeg_K(\Quot(A))-\transdeg_K(k(\frakp))\] mit \(k(\frakp)=\Quot(A)\).
+	
+\end{Bem}
+\begin{Satz} Jede maximale Kette von Primidealen \( \frakq\frakp_0 \subsetneq \dots \subsetneq \frakp_d =\frakp \)
+	hat Länge 
+	\[ d = \transdeg_K(k(\frakq))-\transdeg_K(k(\frakp))\]
+	
+\end{Satz}
+\begin{proof}
+	Sei \( n=\transdeg_K(k(\frakq)),\, m\transdeg_K(k(\frakp))\). Da \( \dim(A/\frakp)=n \) nach Satz ??
+	gibt es \( \frakp=\frakp_d\subsetneq \dots \subsetneq \frakp_{d+n}\) in \(A\). Da \( \dim(A/\frakq = m\) folgt, dass
+	\( d+n \leq m \) also \( d\leq m-n \).
+	Sei \(\frakq=\frakp_0\subsetneq \dots \subsetneq \frakp_m \) aufsteigende Kette.
+	Da \( \oht(\frakp/\frakq)+\coht(\frakp/\frakq)=\dim(A/\frakq)\) nach ??? gibt es maximale Kette, die \(\frakp \) beinhaltet.
+	Der Teil hinter \( \frakp \) hat Länge \(\leq n \) der Teil Zwischen \(\frakp \) und \(\frakq \) hat Länge \(\geq mn\).
+	Also ist \( = m-n\).
+\end{proof}

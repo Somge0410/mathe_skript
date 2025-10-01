@@ -1,0 +1,430 @@
+\chapter{Bewertungsringe und Dedekindringe}
+\section{Bewertungsringe}
+\begin{Def} Sei \(A\) Integritätsbereich und \(K=\Quot(A)\).
+	\(A\) heißt Bewertungsring, falls für alle \(x\in K^*\) gilt dass \(x\in A\) oder \(x^{-1}\in A\).
+	Sei \(\Gamma=K^*/A^*\).  Das ist abelsche Gruppe mit \([a]+[b]=[a+b]\). Definiere partielle Ordnung durch 
+	\(p\geq 0 \iff p=[a]\) für ein \(a\in A\), also \([b]\geq [a] \iff \frac b a \in A\).
+	
+\end{Def}
+\begin{Def} Sei \(K\) ein Körper und \(\Gamma\) eine total geordnete abelsche Gruppe. Eine Bewertung von \(K\) ist eine 
+	surjektive Abbildung \(\nu\colon K^*\to \Gamma\) sodass \(\nu(xy)=\nu(x)+\nu(y)\) und \(\nu(x+y)\geq \mid\{\nu(x),\nu(y)\}\) ist für alle
+	\(x,y\in K^*\).
+	Es gilt die Konvention  \(\nu(0)=\infty\).
+	\(\nu\) heißt diskrete Bewertung falls \(\Gamma\cong\ZZ\) ist.
+\end{Def}
+\begin{Satz} Sei \(A\) ein Integritätsbereich und \(K=\Quot(A)\).
+	Dann ist äquivalent:
+	\begin{enumerate}
+		\item \(\forall x\in K^*\colon x\in A \text{ or } x^{-1}\in A\).
+		\item Für zwei Ideale \(I,J\subseteq A\) gilt \(I\subseteq J\) oder \(J\subseteq I\).
+		\item Das gleiche wie 2. nur für Hauptideale.
+		\item Es gibt eine total geordnete abelsche Gruppe \(\Gamma\) (Bewertungsgruppe genannt)
+		und eine Bewertung \(\nu\colon K^*\to \Gamma\) sodass \(A=\{x\in K^*\mid \nu(x)\geq 0\}\cup\{0\}\).
+		\item \(A\) ist ein lokaler Bézout Ring.
+	\end{enumerate}
+	In diesem Fall heißt \(A\) diskreter Bewertungsring mit Bewertungsgruppe \(\Gamma\) und Bewertung \(\nu\).
+	Ist \(\nu\) zusätzlich eine diskrete Bewertung, so heißt \(A\) diskreter Bewertungsring.
+\end{Satz}
+\begin{proof}
+	Zeige 1 nach 2: Sei \(x\in I\) mit \(x\not\in J\) und sei \(y\in J\). Sei ohne Einschränkung \(y\neq 0\).
+	Aus \(\frac x y\in A\) folgt \(x\in J\), also ist \(\frac y x\in A\) und damit \(y\in I\).
+	Also ist \(J\subseteq I\).\\
+	2. nach 3. ist klar.
+	Gelte 3. Sei \(\Gamma=K^*/A^*\) mit \([a]+[b]=[ab]\). Das ist abelsche Gruppe. Definiere partielle Ordnung durch
+	\[[b]\geq [a] \iff \frac b a \in A\] und sei \(nu\colon K^*\to \Gamma\) die Projektion. 
+	Seien \(x=\frac{a}{b},y=\frac{c}{d}\in K^*\) mit \(a,b,c,d\in A\setminus\{0\}\). Dann ist \((ad)\subseteq (bc)\) oder \((bc)\subseteq (ad)\).
+	das heißt \(\frac x y \in A\) oder \(\frac y x\in A\) also ist die Ordnung total.
+	Wenn 3. gilt dann ist \(x\in K^*\) eine Einheit von \(A\) genau dann wenn \(nu(x)=0\) ist da \(\nu(x^{-1})=-\nu(x)\).
+	Also ist \(\frakm=\{x\in A\mid \nu(x)>0\}\) das maximale Ideal von \(A\).
+	Sei \(I\subseteq A\) ein endlich erzeugtes Ideal und seien \(x_1,\dots,x_n\) Erzeuger sodass \(\nu(x_1)<\dots<\nu(x_n)\). Da \(\nu\) 
+	surjektiv ist, gibt es zu \(k>1\) ein \(t\in K^*\) sodass \(\nu(t)=\nu(x_k)-\nu(x_1)>0\). Dann ist \(t\in A\) und \(\nu(tx_1)=\nu(x_k)\) woraus folgt
+	dass \(x_k=tux_1\) ist für eine Einheit \(u\in A\). Also ist \(I=(x_1)\) und somit \(A\) ein Bézout Ring.
+	Gelte 4 und sei \(x=\frac a b \in K^*\) mit \(a,b\in A^*\). Es ist \(a,b)=(c)\) nach 4 und somit \(c=ua+vb\) und \(a=wc\) und \(b=zc\).
+	Dann ist \(c(1-uw-vz)=0\). Da \(A\) lokal ist, ist \(1-uw-vz\) im maximalen Ideal denn sonst wäre es Einheit und damit \(c=0\).
+	Also ist \(w\) oder \(z\) eine Einheit und \(a,b)=(a)\) oder \(a,b)=(b)\) und somit \(x\in A\) oder \(x^{-1}\in A\).
+\end{proof}
+\begin{Bem} Ein Bewertungsring \(A\) ist lokal mit maximalem Ideal \(\frakm=\{x\in K\mid \nu(x)> 0\}\).
+	
+\end{Bem}
+\begin{Lemma}\label{Lem:NoethIntIntersect}
+	Sei \(A\) ein noetherscher Integritätsbereich und \(t\in A\) keine Einheit. Dann ist \[\bigcap_{n=1}^\infty (t^n)=0.\]
+	
+\end{Lemma}
+\begin{proof}
+	Angenommen \(0\neq x\in \bigcap _{n=1}^\infty (t^n)=0\).
+	Dann ist \(x=tx_1=t^2x_2=\dots=t^nx_n=\dots\) und somit \((x)\subsetneq (x_1)\subsetneq \dots\). Da \(A\) noethersch ist,
+	muss die Kette stoppen.
+\end{proof}
+\begin{Satz}\label{Satz:DBRIntersect} Sei \(A\) ein Integritätsbereich. Es ist äquivalent:
+	\begin{enumerate}
+		\item \(A\) ist ein diskreter Bewertungsbereich.
+		\item \(A\) ist lokal mit maximalem Ideal \(\frakm=(t)\) für \(t\neq 0\) und \(\bigcap_{n=1}^\infty (t^n)=0\)
+	\end{enumerate}
+	In dem Fall hat jedes Element \(0\neq x\in A\) die Darstellung \(x=t^nu\) mit \(n\geq 0\) und \(u\) eine Einheit in \(A\) und jedes Ideal
+	\(I\neq 0\) ist von der Form \(I=(t^n\). Insbesondere ist \(A\) noethersch.
+\end{Satz}
+\begin{proof}
+	Gelte 1. Es gibt \(t\in A\) mit \(\nu(t)=1\). Wenn also \(x\in\frakm\) dann ist \(\nu(x)\geq \nu(t^n)\geq 1\) und also \(x=t^nu\) für
+	eine Einheit \(u\). Somit ist \(\frakm=(t)\). Wenn \(x=t^nu\) ist für eine Einheit \(u\) dann ist \(\nu(x)=n\) also ist \(\bigcap_{n=1}^\infty(t^n)=0\).
+	Gelte 2. Dann gibt es für jedes \(x\in A\) ein \(n\) sodass \(x\in (t^n)\setminus(t^{n+1}\). Also hat \(x\) Darstellung \(x=t^n\cdot u\).
+	Definiere \(\nu(x)=n\) und \(\nu(\frac x y)=\nu(x)-\nu(y)\). Das ist eine diskrete Bewertung sodass \(A\) diskreter Bewertungsring ist.
+	Sei \(I\) ein Ideal und \(n=\min\{k\mid t^n\in I\}\). Dann ist \(I=(t^n)\).
+\end{proof}
+
+
+\begin{Satz} Sei \(A\) ein Bewertungsring. Dann ist äquivalent:
+	\begin{enumerate}
+		\item \(A\) ist noethersch
+		\item \(A\) ist Hauptidealring.
+	\end{enumerate}
+	Wenn zusätzlich \(A\) kein Körper ist, ist auch äquivalent:
+	\begin{enumerate}
+		\item[(3)] \(A\) ist diskreter Bewertungsring.
+	\end{enumerate}
+	\begin{proof}
+		Da Jedes Ideal in einem noetherschen Ring endlich erzeugt ist, ist jedes Ideal ein Hauptideal.
+		Ein Hauptidealring ist auch noethersch.
+		Zeige also das 3. aus den Bedingen folgt.
+		Wenn \(A\) noethersch ist, dann folgt mit \cref{Lem:NoethIntIntersect}
+		dass \(\bigcap_{n=1}^\infty (t^n)=0\) für \((t)=\frakm\). Der Rest ist Satz \cref{Satz:DBRIntersect}.
+	\end{proof}
+\end{Satz}
+\begin{Satz}\label{Satz:DBRNormNoeth1dim} Sei \(A\) Integritätsbereich. \(A\) ist diskreter Bewertungsring genau dann, wenn \(A\) noethersch,
+	normal und \(\Spec(A)=\{0,\frakm\}\) ist wobei \(\frakm\neq 0\).
+	
+\end{Satz}
+\begin{proof}
+	Nach \cref{Satz:DBRIntersect} sind diskrete Bewertungsringe noethersch und faktoriell, also normal (\cref{Bem:FaktNormal}) und \(\Spec(0,\frakm)\) klar.
+	Sei also \(A\) gegeben wie im Satz.
+	Wir zeigen dass \(\frakm\) ein Hauptideal ist. Der Rest folgt dann aus \cref{Lem:NoethIntIntersect} und \cref{Satz:DBRIntersect}.
+	Sei \(I\subseteq A\) ein Ideal. Das ist endlich erzeugter \(A\)-Modul. Nach \nameref{Lem:Nakayama}
+	gilt \(\frakm I=I\implies I=0\). Also ist \(\frakm^2\neq \frakm\).
+	Sei also \(x\in \frakm\setminus \frakm^2\).
+	Sei \(M=\frakm/(x)\). Wenn \(M\neq 0\) dann ist \(\Ass(M)\neq 0\) nach \cref{Satz:NoetASSNonZero}.
+	Das heißt es gibt esin \(0\neq y\in \frakm\setminus (x)\) sodass \(my\subseteq (x)\).
+	Dann ist \(\frak x y\in A\) also \(\frac y x\not\in A\) aber \(\frac y x\frakm\subseteq A\) ein Ideal.
+	Angenommen \(\frac y x\frakm A=A\). Dann ist \(\frac{yy'}{x}=1\) für ein \(y'\in \frakm\) also wäre
+	\(x\in\frakm^2\) was ein Widerspruch ist. Also ist \(\frac y x\frakm \subseteq \frakm\).
+	Multiplikation mit \(\frak x y\) ist Lineare Abbildung \(\varphi\colon\frakm\to\frakm\) zwischen endlichen
+	\(A\)-Moduln. Wähle also Surjektion \(\pi\colon R^n\to M, e_i\mapsto x_i\) und sei \(B=(b_{ij})\) die Matrix mit
+	\(\varphi(x_i)=\sum b_{ij}x_j\). Nach Cayley Hamilton ??? gibt es Polynom \(P=X^n+a_{n-1}X^n+\dots+a_0\) mit 
+	\(P(B)=0\) also ist \(P(\varphi)=0\).  Für \(0\neq z\in\frakm\) ist also
+	\[((\frac x y)^n+\dots+a_0)z=0\] Also ist \(\frac x y\) integral. Da \(A\) normal ist, ist \(\frac x y\in A\) was Ein Widerspruch ist.
+	Also ist \(\frakm=(x)\).
+\end{proof}
+\begin{Lemma}
+	Lokalisierungen von Bewertungsringen sind wieder Bewertungsringe. Quotienten mit Primidealen von Bewertungsringen
+	sind wieder Bewertungsringe.
+\end{Lemma}
+\begin{proof}
+	Klar wegen Beschreibung durch Ordnung der Ideale.
+\end{proof}
+\begin{Lemma}
+	Sei \(R\) ein Bewertungsring mit maximalem Ideal \(\frakm\) und sei \(A\subseteq R/\frakm\) ein Bewertungsring
+	mit Quotientenkörper \(R/\frakm\). Sei \(R\to R/\frakm\) die Projektion.
+	Dann ist \(\pi^(-1)(A)\) Bewertungsring. 
+\end{Lemma}
+\begin{proof}
+	
+	Wenn \(R\) Körper ist, ist alles klar. Sei \(R\) kein Körper. Wähle \(t\in \frakm\) ungleich \(0\).
+	Dann ist für alle \(a\in R\) \[a=\frac{ta}{t}\] und \(ta\in R'=\pi^{-1}(A)\).
+	Also ist \(\Quot(R)=\Quot(R')\).
+	Sei \(x\in\Quot(R')\) nicht \(0\). Es ist \(x\in R\) oder \(x^{-1}\in R\).
+	Wenn einer der beiden in \(\frakm\) dann ist einer der beiden in \(R'\).
+	Sei also \(x\) in \(R\) aber nicht in \(\frakm\). Dann \(\pi(x)\in A\) oder \(\pi(x)^{-1}\in A\).
+	Also \(x\in R'\) oder \(x^{-1}\in R'\).
+\end{proof}
+
+\begin{Bsp}
+	Sei \(R\) ein Ring und \(R[[X]]\) der Ring der formalen Potenzreihen. Ein Element 
+	\(f=\sum_{i=0}^\infty a_iX^i\in R[[X]]\) ist eine Einheit, genau dann wenn \(a_0\) eine Einheit ist. Wenn
+	\(R=K\) ein Körper ist, dann ist \(K[[x]]\) ein Bewertungsring.
+\end{Bsp}
+\begin{proof}
+	Wenn \(f\) Einheit, dann gibt es \(g=b_0+b_1X+\dots\) sodass 
+	\(1=gf=a_0b_0\) also ist \(a_0\) eine Einheit.
+	Wenn \(a_0\) Einheit ist, dann ist \(a_o^{-1}f=1+\dots\) also ohne Einschränkung \(a_0=1\).
+	Setze \(b_0=1\) und rekursiv \(b_n=-\sum_{i=1}^na_ib_{n-1}\). Dann ist 
+	\[f\cdot \sum_{i=0}^\infty b_iX^i=1\].
+	Definiere \(\nu(f)=\min\{n\in\NN\mid a_n\neq 0\}\) für \(f\neq 0\).
+	und für \(\frac f g \in \Quot(K[[X]])\) setze \(\nu(\frac f g)=\nu(f)-\nu(g)\).
+	dann ist \(\nu\) eine diskrete Bewertung und \(K[[X]]=\{ y \mid \nu(y)\geq 0\}\).
+\end{proof}
+\begin{Bsp}
+	Das letzte Lemma ist erfüllt für \(R=\QQ[[x]]\) und \(\frakm=(x)\) und \(A=\ZZ_p\)
+	In dem Fall ist \(\pi^{-1}A=\{\sum_{i=0}^\infty a_iX^i\mid a_0\in\ZZ_p\}\).
+\end{Bsp}
+\begin{Satz}
+	Sei \(L/K\) eine endliche Körpererweiterung. Es ist äquivalent:
+	\begin{enumerate}
+		\item \(L/K\) ist separable
+		\item \(Tr_{L/K}\colon L\to K\) ist nicht die Nullabbildung
+		\item Die Abbildung \((x,y)\mapsto Tr_{L/K}(xy)\) ist nicht-ausgeartete Bilinearform \(L\times L\o K\).
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Die Äquivalenz von (2) und (3) ist klar.
+	Ohne Einschränkung hat \(K\) die Charakteristik \(p\) denn in Charakteristik \(0\) Fall sind alle
+	Erweiterungen separabel und \(Tr_{L/K}(1)=[L:K]\neq 0\).
+	Es gilt \(Tr\neq 0\) genau dann wenn \(Tr\) surjektiv, denn \(Tr\) ist \(K\)-linear.
+	Wenn \(L/K\) separabel, dann ist \(L=K(\alpha)\) für ein \(\alpha\in L\) nach ????.
+	Wenn \(L/K\) inseperabel, dann gibt es \(\alpha\in L\) inseperabel über \(K\).
+	Da \(Tr_{L/K}=Tr_{K(\alpha)/K}\circ Tr_{L/K(\alpha)}\) ist ohne Einschränkung \(L=K(\alpha)\).
+	Sei \(P\) das Minimalpolynom von \(\alpha\) in \(K[X]\).
+	Dann ist \(P(X)=\tilde P(X^{p^m})\) für ein maximales \(m\) sodass \(\tilde P\) separabel da irreduzibel und 
+	\(P\) ist genau dann separabel, wenn \(m=0\).
+	Sei \(n=\deg(P)=p^md\) with \(d=\deg(\tilde P)\).
+	In \(\bar K\) gilt \(\tilde P(X)=(X-\beta_1)\dots (X-\beta_d)\) für paarweise verschiedene 
+	\(\beta_i\). 
+	Dann ist 
+	\[P(X)=\tilde P(X^{p^m})=\prod (X^{p^m}-\beta_i)=\prod (X-\gamma_i)^{p^m}\]
+	for \(\gamma_i\in\bar K\).
+	Da Körpererweiterungen treuflach sind nach ??? ist \(Tr_{L/K}\colon L\to K\) surjektiv genau dann wenn 
+	\(\bar{Tr}=\id_{\bar K}\otimes Tr_{L/K}\) surjektiv ist.
+	Da \(L=K(\alpha)=K[X]/P\) ist \(\bar K\otimes_KL=\prod \bar{K[X]}/(X^{p^m}-\beta_i)\) und die Spur ist die Summe
+	der Spuren auf \(\bar K[X]/(X^{p^m}-\beta_i)\).
+	Es ist \(\bar K[X]/(X^{p^m}-\beta_i)\cong \bar K[Y]/(Y^{p^m})\) unter der Substitution
+	\(Y=X-\gamma_i\).
+	Wenn \(m=0\) dann ist \(\bar K[Y]/(Y^{p^m})=\bar K\) und die SPur ist die Identität.
+	Wenn \(m>0\) dann ist jedes Element in \(\bar K[Y]/(Y^{p^m})\) Summe von etwas Konstantem und etwas nilpotenten.
+	Jede Konstante hat Spur \(0\) denn \(p^m=0\) in \(\bar K\).
+	Jedes nilpotente Element hat auch Spur \(0\). Also hat jedes Element in \(\bar K[Y]/(Y^{p^m})\) Spur \(0\).
+\end{proof}
+\begin{Satz}
+	Sei \(L/K\) eine endliche Galoiserweiterung und \(A\subseteq K\) noethersch und normal.
+	Sei \(B\) der ganze Abschluss von \(A\) in \(L\).
+	Es gilt
+	\begin{enumerate}
+		\item Wenn \(b\in B\) dann ist \(Tr(b)\in A\).
+		\item Die Abbildung \((x,y)\mapsto Tr(xy)\) definiert eine nicht ausgeartete Bilinearform \(L\times L\to K\).
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Sei \(\varphi(x)=\prod_{g\in G}(X-g(b))\) mit \(G=\Gal(L/K)\). Das ist das Charakterisitsche Polynom.
+	Alle Koefffizienten von \(\varphi\) sind in \(K\). Da \(B\) ganz ist über \(A\) ist auch \(g(b)\) ganz.
+	Also sind alle Koeffizienten ganz über \(A\) und damit in \(A\) da \(A\) normal.
+	Also ist \(Tr(b)\in A\) da \(Tr(b)\) einer der Koeffienten ist.
+	Der Zweite Teil ist klar nach ??? da \(L/K\) separabel.
+\end{proof}
+\begin{Lemma}
+	Sei \(L/K\) endlich separable Körpererweiterung. Dann ist \[Tr_{L/K}(a)=\sum_{\sigma\in\Sigma}\sigma(a)\]
+	wobei \(\Sigma=\{\sigma\colon L\to \bar{K}\mid \sigma|_K=\id\}\)
+\end{Lemma}
+\begin{proof}
+	Nach Satz vom Primitiven Element ??? ist \(L=K(\alpha)\) für ein \(\alpha\in L\). Sei \(f\) das Minimalpolynom.
+	
+	Sei \(K'\) der algebraische Abschluss. Dann ist \(L'=L\otimes_K'= K'\times\dots K'\) als \(K'\)-Algebra da \(f\) in \(K'\) in Linearfaktoren zerfällt.
+	Jeder lineare Homomorphismus \(\varphi\colon L'\to K'\) ist eine der Projektionen, denn der Kern ist maximales Ideal
+	und das ist gegeben dadurch das genau einer der Faktoren 0 ist und die anderen \(K'\) siehe ???.
+	Daher gilt die Aussage des Satzes für \(L'/K'\) für denn Multiplikation mit \(a=(a_1,\dots,a_n)\) ist gegeben durch 
+	Matrix \(diag(a_1,\dots,a_n)\).
+	
+	Jedes \(\sigma\colon L\to K'\) gibt \(\sigma'(a\otimes b)=\sigma(a)b\), \(\sigma'\colon L'\to K'\). Sei 
+	\(\Sigma'\) wie im Satz für \(L'/K'\).
+	Da alles separabel ist, ist \(|\Sigma|=[L:K]=[L':K']=|\Sigma'|\). Daher ensteht jedes \(\varphi\) wie oben auf diese Art.
+	Wenn \(x_i\) Basis von \(L\) über \(K\) ist dann ist \(x_i\otimes 1\) Basis von \(L'\) über \(K'\).
+	Multiplikation mit \(a\) und \(a\otimes 1\) haben daher die gleiche Abbildungsmatrix und daher die gleiche Spur.
+	Außerdem \(\sigma'(a\otimes 1)=\sigma(a)\). Deshalbt gilt die Aussage auch für \(L/K\).
+\end{proof}
+\begin{Lemma}
+	Sei \(A\) normaler Integritätsbereich und \(K=\Quot(A)\). Sei \(L/K\) eine endliche Körpererweiterung 
+	und \(B\) der ganze Abschluss von \(A\) in \(L\).
+	Dann ist \(B\) normal und für alle \(x\in L\) gilt \(x=\frac b a\) für ein \(b\in B\) und 
+	\(a\in A\).
+\end{Lemma}
+\begin{proof}
+	Sei \(a_nx^n+\dots+a_1x+a_0=0\) mit \(a_i\in A\) und \(a_n=0\). Sowas findet man immer,
+	wähle zum Beispiel Minimalpolynom über \(K\) und Multipliziere mit allen Nennern.
+	Dann ist \((a_nx)^n+\dots+a'_1(a_nx)+a_0'=0\) mit \(a'_i\in A\).
+	Also ist \(a_nx\) ganz über \(A\) und damit in \(B\).
+	Also ist \(x=\frac b a\) wie oben.
+	Somit ist \(\Quot(B)=L\) und \(B\) normal.
+\end{proof}
+\begin{Satz}
+	Sei \(A\) noethersch und normal und \(K=\Quot(A)\). Sei \(L/K\) eine endliche, separable Körpererweiterung
+	und \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\).
+	Dann ist \(B\) ein endlicher \(A\)-Modul und insbesondere noethersch.
+\end{Satz}
+\begin{proof}
+	Zeige dass \(B\) ein Untermodul ist von \(\sum_{i=1}^{n}Ax_i\subseteq L\). Dann ist \(B\) als Untermodul von endlichem Modul
+	endlich, da \(A\) noethersch ist.
+	Ohne Einschränkung ist \(L/K\) Galois, denn sonst sei \(L_1/K\) Galois-Hülle von \(L/K\) und \(B_1\) der
+	ganze Abschluss von \(A\) in \(L_1\). Wenn \(B_1\) endlicher \(A\)-Modul dann ist auch \(B\).
+	Sei also \(G=\Gal(L/K)\).
+	Für \(x\in L\) ist \(Tr(x)=\sum_{g\in G}g(x)\).
+	Sei \(\frac{y_1}{x_1},\dots,\frac{y_n}{x_n}\) Basis von \(L\) über \(K\) mit \(x_i\in A\) und \(y_i\in B\) wie
+	in ????.
+	Dann ist auch \(y_1,\dots,y_n\) eine Basis von \(L\).
+	Da \(Tr\) nicht-ausgeartet ist nach ??? definiert \(y\mapsto (x\mapsto Tr(xy))\) eine injektive Abbildung 
+	\(L\to L^\vee=\Hom(L,K)\), die somit ein Isomorphismus ist. Wähle also \(x_i\) in \(L\) sodass die Bilder von \(y_i\) genau die 
+	duale Basis sind von \(y_i\), das heißt \(Tr(x_iy_j)=\delta_{ij}\).
+	Jedes ¸\(b\in B\) kann geschrieben werden als 
+	\(b=\sum c_ix_i\) mit \(c_i\in K\) also dann \(c_j=Tr(by_j)\in A\)
+	Also ist \(B\subseteq \sum Ax_i\).
+	
+\end{proof}
+\section{Dedekindringe}
+\begin{Def} Ein Dedekindring ist ein normaler, neotherscher Integritätsring der Dimension  \(leq 1\).
+	
+	
+\end{Def}
+\begin{Bsp} Jeder Hauptidealring ist Dedekindring.
+	
+\end{Bsp}
+\begin{Satz} Sei \(R\) ein Ring- es ist äquivalent:
+	\begin{enumerate}
+		\item \(R\) ist Dedekindring
+		\item Jedes Ideal \((0)\neq I\subseteq I\) kann geschrieben werden als Produkt \(I=\frakp_1\dots \frakp_r\) von 
+		bis auf Reihenfolge eindeutigen Primidealen \(\frakp_i\neq 0\).
+		\item \(R\) ist noethersch und für jedes maximale Ideal \(\frakm\neq 0\) ist \(R_\frakm\) ein diskreter Bewertungsring.
+		
+	\end{enumerate}
+	\begin{Lemma}
+		Sei \(R\) ein Ring und \(I,J\) Ideale ungleich \(0\) sodass \(IJ=(f)\) für ein Nichtnullteiler \(f\in A\).
+		Dann sind \(I\) und \(J\) endlich erzeugt und endlich lokal frei vom Rang 1 als \(A\)-Modul.
+	\end{Lemma}
+	\begin{proof}
+		Endlich lokal frei impliziert endlich erzeugt nach ???.
+		Sei also \(f=\sum_{i=1}^nx_iy_i\) mit \(x_i\in I\) und \(y_i\in J\) und \(x_iy_i=a_if\) für ein \(a_i\in A\).
+		Da \(f\) Nichtnulleiler ist \(\sum a_i=1\). Es reicht also, dass \(I_{a_i},J_{a_i}\) frei von Rank 1 über \(A_{a_i}\).
+		Ersetze also \(A\) durch \(A_{a_i}\). Dann ist \(f=xy\) für \(x\in I\) und \(y\in J\).
+		Wenn \(x'\in I\) dann ist \(x'y=af=axy\) für \(a\in A\). Da \(y\) Nichtnullteiler ist \(x'=ax\) und \(I=(x)\). Analog ist
+		\(J=(y)\).
+	\end{proof}
+	\begin{Lemma}
+		Sei \(R\) ein Ring.
+		\begin{enumerate}
+			\item Jedes Ideal \(I\subseteq R\) mit der Eigenschaft maximal unter nicht-endlich erzeugten Idealen ist ein ein Primideal.
+			\item Wenn jedes Primideal von \(R\) endlich erzeugt ist, dann ist jedes Ideal endlich erzeugt.
+		\end{enumerate}
+	\end{Lemma}
+	\begin{proof}
+		Sei \(I\) maximal mit der Eigenschaft. Angenommen \(ab\in I\) aber \(a\not\in I\) und \(b\not\in I\).
+		Dann ist \((I,a)\neq I\) und \(b\in (I:a)\) sodass \(I\neq (I:a)\). Also enthalten \(I,a\) und \(I:a\) beide echt 
+		\(I\) und sind damit endlich erzeugt. Wenn aber \(I:a)\) erzeugt ist von \(a_i\) und \((I,a)\) erzeugt ist von
+		\(a\) und \(b_i\) dann ist \(I\) erzeugt von \(aa_i\) und \(b_i\). Also ist \(I\) prim.
+		Angenommen es gibt ein Ideal \(I\) das nicht endlich erzeugt ist.
+		Die Vereinigung einer total geordneten Familie nicht-endlich erzeugter Ideale ist nicht endlich erzeugt.
+		Also gibt es nach Lemma von Zorn?? ein Ideal maximal mit der Eigenschaft nicht endlich erzeugt zu sein. Nach Teil 1
+		ist das dann prim, was ein Widerspruch ist.
+	\end{proof}
+\end{Satz}
+\begin{proof}
+	Die Äquivalenz von 1 und 3 ist \cref{Satz:NormalIntegrit} zusammen mit \cref{Satz:DBRNormNoeth1dim}.
+	Gelte also 2. Wegen Eindeutigkeit der Primzerlegung ist \(\frakp\neq \frakp^2\) für jedes Primideal \(\frakp\subseteq R\).
+	Sei \(x\in \frakp\setminus\frakp^2\) und \(y\in\frakp\). Dann ist \((x,y)=\frakp_1\dots\frakp_r\) und da 
+	\((x,y)\subseteq\frakp\) muss \(\frakp_i\subseteq \frakp\) für ein \(i\). Da aber \(x\not\in\frakp^2\) kann 
+	das höchstens für ein \(i\) geschehen. OE ist also \(\frakp_1\subseteq \frakp\).
+	Also ist \((x,y)R_\frakp=\frakp_1R_\frakp\) prim für jede Wahl von \(y\), also auch für \(y^2\).
+	Also ist \(x,y^2R_\frakp\) prim und somit \(y\in (x,y^2)R_\frakp\). Dann gibt es Darstellung 
+	\(y=ax+by^2\) in \(R_\frakp\) und somit ist \[(1-by)y=ax\in (x)R_\frakp\] Also ist \(y\in (x)R_\frakp\) und \((x)R_\frakp=\frakp_1R_\frakp=\frakp R_\frakp\).
+	Nach Lemma ?? ist jedes primideal also endlich erzeugt und damit ist \(R\) noethersch. Also ist jede lokalisierung ein diskreter Bewertungsring.
+	Gelten jetzt 1 und 3. Definiere für ein Ideal \(I\neq 0\) 
+	\[\nu_\frakm(I)=\min\{\nu_\frakm(I)\mid a\in I\}\] wobei \(\nu_\frakm\) diskrete Bewertung von \(A_\frakm\) ist.
+	Es gilt \(I\subseteq J\iff \nu_\frakm(I)\geq \nu_\frakm(J)\). Denn wenn \(a\in I\) dann gibt es \(b_\frakm\in J\)
+	sodas \(\nu_\frakm(a)\geq\nu_\frakm(b)\).
+	Also ist \(a\in J_\frakm\) für alle \(m\) also \(a\in J\) nach ????.
+	Eine Rechnung zeigt, dass \(\nu(IJ)=\nu(I)+\nu(J)\).
+	Es ist \(\nu_\frakm(I)>0 \iff \frakm\supseteq I\) und da \(\frakm/I\) minimales Primideal in \(A/a\)
+	und da Ring noethersch ist folgt, dass das nur für endlich viele maximale Ideale \(\frakm\) passieren kann.
+	Es ist 
+	\[\nu_\frakm(\prod_\frakn \frakn^{\nu_\frakn(I)}=\sum\nu_\frakm(frakn^{\nu_\frakn(I)})=
+	\sum_\frakn \nu_\frakn(I)\nu_\frakm(\frakn)=\nu_\frakn(I)\]
+	Also \(I=\prod_\frakn \frakn^{\nu_\frakn(I)}\).
+\end{proof}
+\begin{Lemma}
+	Sei \(A\) Dedekindring. Zu jedem Ideal \(I\) gib es ein Ideal \(J\) sodass \(IJ\) ein Hauptideal ist.
+\end{Lemma}
+\begin{proof}
+	OE \(I\neq 0\) und \((0)\neq (x)\subseteq I\).
+	Sei \(I=\prod \frakm_i^{e_i}\) und \((x)=\prod \frakm_i^{f_i}\).
+	Dann ist \(r_i-n_i\geq 0\) nach obigem.
+	Definiere also \(J=\prod \frakm_i^{f_i-e_i}\). Dann ist \(IJ=(x)\).
+\end{proof}
+\begin{Lemma}
+	Sei \(R\) noetherscher Integritätsbereich der Dimension \(1\) mit Quotientenkörper \(K\) und sei \(L/K\) eine endliche
+	Erweiterung. Dann ist jeder Ring \(R\subseteq A\subseteq L\) noethersch.
+\end{Lemma}
+\begin{proof}
+	Sei \(I\subseteq A\) ein Ideal ungleich \((0)\) und \(x\in I\setminus\{0\}\). Wähle \(r_nx^n+\dots+r_0=0\) mit \(r_i\in R\).
+	und \(r_0,r_n\neq 0\). Dann ist \(r_0\in R\cap I\).
+	Also ist \(I/r_0A\subseteq A/r_0A\).
+\end{proof}
+\begin{Satz}[Krull-Akizuki]
+	Sei \(A\) noetherscher Integritätsbereich der Dimension \(1\) mit Quotientenkörper \(K\) und sei \(L/K\) eine endliche
+	Erweiterung. Sei \(B\) der ganze Abschluss of von \(A\) in \(L\).
+	Dann ist \(B\) ein Dedekindring.
+	
+\end{Satz}
+\begin{proof}
+	
+\end{proof}
+\section{Idealklassengruppe}
+\begin{Def} Ein gebrochenes Ideal von einem Dedekindring \(R\) ist ein endlich erzeugter \(R\)-Untermodul von 
+	\(K=\Quot(R)\).
+	Für zwei gebrochene Ideale \(I,J\) ist \(IJ\) der \(R\)-Modul der erzeugt ist von allen \(xy\).
+	
+\end{Def}
+\begin{Satz} Die Menge der gebrochenen Ideale ungleich Null ist mit diesem Produkt eine abelsche Gruppe \(J_R\).
+	
+\end{Satz}
+\begin{proof}
+	Sei \(I\) gebrochenes Ideal erzeugt durch \(\frac{1}{x_1},\dots,\frac{1}{x_n}\).
+	Sei \(x=\prod x_i\) das heißt \(xI\subseteq R\) Ideal.
+	Sei \(xI=\frakp_1\dots\frakp_r\) Primzerlegung.
+	Sei \(\fraka=\frakp_2\dots\frakp_r\). Dann ist \(\frakp\fraka=(x)\) und \(\frakp(\frac 1 x)\fraka=(1)\)
+	Also ist \(\frakp_i\) invertierbar für alle \(i\).
+	Dann ist \[x\frakp_i^{-1}\dots\frakp_r^{-1}I=(1)\] und somit \(I\) invertierbar.
+\end{proof}
+\begin{Def} sei \(a\in K^*\). Dann ist \(aR\) gebrochenes Ideal. Gebrochene Ideale von der Form nennt man 
+	gebrochene Hauptideale. 
+	Wir haben exakte Sequenz
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAlAHoAqLjxAZseAkQBMo6vWatEIANLzFvVQKIBmbeL1sAUgH0pp5XzWDkAFhu7JBgGEGAAopAEpXFX51FABWXwl9di4xGCgAc3giUAAzACcIAFskMhAcCCQhblyC4sQRMorEDWqQfKKkLUaka1t-EDoAHUHCujQ4coACOhdW9rre8qQvOdrl6iXEWM4KTiA
+	
+	\begin{tikzfigure} 
+		0 \arrow[r] & R^* \arrow[r] & K^* \arrow[r, "a\mapsto aR"] & J_R \arrow[r] & Cl(R) \arrow[r] & 0
+	\end{tikzfigure} und der Quotient \(Cl(R)\) heißt Idealklassengruppe.
+\end{Def}
+\begin{Bsp} sei \(R=\ZZ[\sqrt{-5}\). Es ist \(6=2\cdot 3=(1+\sqrt{-5})(1-\sqrt{-5})\)
+	Also ist  \(R\) nicht faktoriell. Da \(-5\equiv 3 \mod 4\) ist, ist \(R=\OO_K\) Ring der ganzen Zahlen in 
+	\(K=\QQ[\sqrt{-5}]\). Also ein Dedekindring, der kein Hauptidealring ist.
+	Es gibt unter anderen die maximalen Ideale 
+	\(\frakp_1=(2,1+\sqrt{-5})\),\(\frakp_2=(3,1+\sqrt{-5})\) und \(\frakp_3=(3,1-\sqrt{-5})\).
+	Das Minimalpolynom von \(1+\sqrt{-5}\) ist nämlich \(\mu=(X-1)^2+5=X^2-2X+6\) was irreduzibel ist nach Eisenstein. ???
+	also ist \(R=\ZZ[X]/(\mu)\) woibe i \(X\leftrightarrow 1+\sqrt{-5}\) und \(R/\frakp_1\cong \FF_2\) Körper.
+	Genauso ist \(R/\frakp_i=\FF_3\) Körper für \(i=2,3\).
+	Es gilt \((2)=\frakp_1^2\) und \(1+\sqrt{-5})=\frakp_1\frakp_2\) und \((3)=\frakp_2\frakp_3\) und 
+	\((1-\sqrt{-5})=\frakp_1\frakp_3\). Also ist \((6)=\frakp_1\frakp_2\frakp_3\frakp_4\) die Eindeutige Zerlegung.
+	
+\end{Bsp}
+
+\begin{Lemma}
+	Sei \(R\) ein Dedekindring. Es ist äquivalent
+	\begin{enumerate}
+		\item \(R\) ist ein Hauptidealring
+		\item Jedes Primideal ist ein Hauptideal 
+		\item \(Cl(R)\) hat nur ein Element.
+		\item \(R\) ist faktoriell
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	1 nach 2 ist klar. Gelte 1. Sei \(I\) gebrochenes Ideal. Es gibt \(d\in R\) sodass \(dR\subseteq R\) ein Ideal ist.
+	Dann ist \(dI=(x)\) und \(I=\frac x d R\) gebrochenes Hauptideal. Rest ist einfach.
+\end{proof}
+\begin{Satz} Sei \(R\) ein Dedekindring und \(M\) ein endlich erzeugter \(R\)-Modul der Torsionsmodul ist.
+	Dann ist \(\Supp(M)\) endlich und \(M\cong \bigoplus_{i\in I}R/\frakm_i^{n_i}\) wobei \(I\) endlich und \(\frakm_i\) maximal.
+	
+\end{Satz}
+\begin{proof}
+	Da \(R\) noethersch ist ist der Support endlich nach??
+	Betrachte \(\varphi\colon M\to \bigoplus_{\frakp\in\Supp(M)}M_\frakp\). 
+	Für \(\frakq\in\Spec(R)\) ist \[M_\frakp\otimes R_\frakq=M\otimes (R_\frakp)_\frakq)=
+	\begin{cases} 0 & \frakp\neq \frakq\\ 
+		M_\frakp & \frakp=\frakq\\
+	\end{cases}\]
+	wobei oberes gilt da \(M\) ein Torsionsmodul ist und \(\frakp\cap\frakq=(0)\).
+	Somit ist \(\varphi\) ein Isomorphismus.
+	Da \(R_\frakp\) Hauptidealring ist folgt mit Struktursatz, dass jeder Torsionsmodul von der Form
+	\(\bigoplus_{n\in J}R_p/(\frakp R_\frakp)^nR_\frakp=\bigoplus (R/\frakp^n)_\frakp\) ist.
+	Da \(R/\frakp^n\) lokal ist, ist \(R/\frakp^n)_\frakp\cong R/\frakp^n\). Also gilt die Aussage.
+\end{proof}

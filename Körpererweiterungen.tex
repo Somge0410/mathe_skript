@@ -1,0 +1,432 @@
+\chapter{Körpererweiterungen}
+\section{Grundlagen}
+\begin{Def}
+    Sei \(K\) ein Körper. Der Primkörper von \(K\) ist der Schnitt aller Teilkörper von \(K\).
+    Es gibt \(\ZZ/(p)\subseteq K\) für \(p=\chara K\).
+Wenn \(p=0\), dann ist \(\QQ\subseteq K\) und \(\QQ\) ist der Primkörper. Wenn \(p\neq 0\), dann ist \(\mathbb F_p\subset K\) der Primkörper.
+\end{Def}
+\begin{Def}
+    Seien \(L,K\) Körper sodass \(K\subseteq L\) Teilring ist. Dann heißt \(K\) Teilkörper von \(L\) und \(L\) eine Erweiterung von \(K\). Wir setzen \([L:K]=\dim_K(L)\).
+\end{Def}
+\begin{Satz}
+    Sei \(L/K\) eine Körpererweiterung und \(V\) ein \(L\)-Vektorraum. Dann ist \[\dim_K(V)=\dim_L(V)\cdot [L:K].\]
+\end{Satz}
+\begin{proof}
+    Wenn \(\dim_L(V)=\infty\) dann ist alles klar. Sonst wähle Isomorphismus \(V=L^n\). Das ist Isomorphismus von \(K\)-Vektorräumen. Also gilt die Aussage.
+\end{proof}
+\begin{Kor}
+    Wenn \(M/L/K\) Körpererweiterungen sind, dann ist 
+    \[[M:K]=[M:L]\cdot[L:K]\]
+\end{Kor}
+\section{Algebraische und transzendente Erweiterungen}
+\begin{Def}Sei \(L/K\) eine Körpererweiterung und \(a\in L\) und \(\phi\colon K[X]\to L\) der Ringhomomorphismus gegeben durch \(\phi(f)=f(a)\).
+    \begin{enumerate}
+        \item []
+        \item  Das Element \(a\) heißt algebraisch, falls \(\ker(\phi)\neq 0\). Andereseits nennen wir \(a\) transzendental über \(K\).
+        \item \(L/K\) heißt algebraisch, wenn jedes \(a\in L\) algebraisch über \(K\) ist.
+        \item  \(K[X]\) ist Euklidisch, somit Hauptidealring. Also ist \(\ker(\phi)=(f)\) für ein normiertes Polynom \(f\). Das Polynom \(f\) heißt das Minimalpolynom von \(a\).
+    \end{enumerate}
+\end{Def}
+\begin{Def}
+    Sei \(L/K\) eine Körpererweiterung und \(a_1,\dots,a_r\in L\).
+    \begin{enumerate}
+        \item Die Algebra erzeugt von \(a_1,\dots,a_r\) ist \begin{align*} 
+        K[a_1,\dots,a_r]&=\bigcap\limits_{R\in M}R\\
+        &=\Image(\phi\colon K[X_1,\dots,X_R]\to L,\ X_i\mapsto a_i)
+        \end{align*} wobei \(M\) die Menge aller Unterringe von \(L\) ist, die \(K\) und die Elemente \(a_1,\dots,a_r\) enthalten.
+        \item Der Körper erzeugt von \(a_1,\dots,a_r\) ist \begin{align*} 
+        K(a_1,\dots,a_r)&=\bigcap\limits_{K'\in M'}K'\\
+        &=\Quot(K[a_1,\dots,a_r])
+        \end{align*} wobei \(M'\) die Menge aller Teilkörper von \(L\) ist, die \(K\) und die Elemente \(a_1,\dots,a_r\) enthalten.
+    \end{enumerate}
+\end{Def}
+\begin{Satz}
+    Sei \(L/K\) Körpererweiterung und \(a\in L\).
+    \begin{enumerate}
+        \item \(a \text{ ist algebraisch über }K \iff K[a]=K(a)\iff \dim_K(K[a])<\infty\)
+        \item Wenn \(a\) algebraisch über \(K\) ist, dann ist \(K[a]=K(a)\cong K[X]/(f)\) wobei \(f\) (irreduzibel) das Minimalpolynom von \(a\) ist und \[\deg(f)=[K(a):K].\]
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Sei \(a\) algebraisch. Dann ist das Minimalpoylon \(f\) irreduzibel sodass 
+        \[(f)=Ker(\phi\colon K[X]\to L, x\mapsto a).\] Dann ist \(K[a]\cong K[X]/(f)\) ein Körper, also ist auch \(K[a]=K(a)\). 
+        Wenn \(K[a]\cong K[X]/(f)\) ein Körper ist, dann ist \(f\) irreduzibel also \(f\neq 0\) und \(f(a)=0\). Also ist \(a\) algebraisch.
+        In dem Fall ist \(\infty>deg(f)=[K[a]:K]\).
+        Wenn \(a\) nicht algebraisch ist, dann ist \(K[a]\cong K[X]\) und \(\dim_K(K[X])=\infty.\)
+\end{proof}
+\begin{Bsp}
+    \(\CC=\RR[i]\cong \RR[X]/(X^2+1)\)
+\end{Bsp}
+\begin{Satz}\label{Satz:EndlAlg}
+    Sei \(L/K\) eine Körpererweiterung.
+    \begin{align*}
+        L/K\text{ ist endlich } &\iff L/K\text{ ist algebraisch und } L=K(a_1,\dots,a_n)\\
+        &\iff L=K(a_1,\dots,a_n) \text{ für \(K\)-algebraische \(a_i\in L\)}
+    \end{align*}
+    In dem Fall gilt \(K(a_1,\dots,a_n)=K[a_1,\dots,a_n]\)
+\end{Satz}
+\begin{proof}
+    Sei \(L/K\) endlich. Dann ist \(L\) als \(K\)-Vektorraum erzeugt und insbesondere als Körpererweiterung. Für \(a\in L\) gilt \(K[a]\subseteq L\) und \[\dim_K(K[a])\leq\dim_KL<\infty\] also ist \(a\) algebraisch.
+    Sei \(L=K(a_1,\dots,a_n)\) sodass \(a_i\) algebraisch über \(K\) ist.
+    Wenn \(n=0\) ist, dann ist \(L=K\) also ist \(L/K\) endlich.
+    Sei \(K[a_1]=K'\). Das ist ein Körper und somit endlich über \(K\) und \(L=K'[a_1,\dots,a_n]\). Nach Induktion folgt \(K'[a_2,\dots,a_n]=K'(a_2,\dots,a_n)\).
+\end{proof}
+\begin{Kor} Sei \(L/K\) eine Körpererweiterung und \(a_1,\dots,a_n\in L\). Es gilt
+    \[a_1,\dots a_n \text{ algebraisch über }K \iff K(a_1,\dots,a_n)=K[a_1,\dots,a_n]\]
+\end{Kor}
+\begin{proof}
+    Die eine Richtung folgt aus \Cref{Satz:EndlAlg}, die andere aus dem \Cref{Satz:WeakNst}.
+\end{proof}
+\begin{Kor}
+    Seien \(M/L/K\) Körpererweiterungen. Es gilt \[M/L \text{ und }L/K \text{ algebraisch }\iff M/K\text{ algebraisch}\]
+\end{Kor}
+\begin{proof}
+    Sei \(a\in M\) algebraisch über \(L\) und \(f\in L[X]\) ein Polynom mit \(f(a)=0\). Sei \[f=\sum\limits_{i=0}^nb_iX^i\] für \(b_i\in L\) und \(b_n=1\).
+    Dann ist \(L'=K[b_0,\dots,b_{n-1}]\) ein Körper sodass \(L'/K\) endlich ist.
+    Da \(a\) algebraisch ist über \(L'\), ist \(L'(a)\) endlich über \(L'\). Also ist \(L'(a)\) endlich über \(K\) und somit algebraisch.
+\end{proof}
+\begin{Satz}
+    Sei \(K\) Körper und \(f\in K[X]\) irreduzibel. Dann gibt es eine Körpererweiterung \(L/K\) mit \([L:K]=\deg(f)\) und \(a\in L\) mit \(f(a)=0\).
+    
+\end{Satz}
+\begin{proof}
+    Klar, \(L=K[X]/(f)\).
+\end{proof}
+\begin{Kor}\label{Kor:ExZerfall}
+    Zu endlich vielen \(f_1,\dots,f_r\in K[X]\) mit \(deg(f_i)\geq 1\) gibt es eine endliche Erweiterung \(L/K\), sodass \(f_i\in L[X]\) in Linearfaktoren zerfällt.
+\end{Kor}
+\begin{proof}
+    Angenommen es gibt \(L/K\) sodass \(f_1\) in \(L[X]\) zerfällt und \(L_r/L_1\) sodass \(f_2,\dots,f_r\) in \(L_r[X]\) zerfällt. Dann zerfällt \(f_1,\dots,f_r\) in \(L_r/K\).
+    Also sei nach Induktion \(r=1\).
+    Sei \(f=g_1,\dots,g_s\) mit \(g_i\) irreduzibel.
+    Nach letztem Satz gibt es \(L'/K\) endlich und \(a\in L'\) mit \(g_1(a)=0\).
+    In \(L'[X]\) gilt \(f=(X-a)f_1\).
+    Induktion über \(\deg(f)\) gibt die Aussage.
+\end{proof}
+\begin{Bsp}
+    \(f=X^3-2\in\QQ[X]\) ist irreduzibel nach Eisenstein.
+    \[L_1=\QQ[X]/(f)\cong \QQ(\sqrt[3]{2}).\] In \(L_1[X]\) ist \(f=(X-a)\cdot g\) wobei \(a=\sqrt[3]{2}\) und \(g\) irreduzibel ist (Irreduzibel in \(\RR\) also in \(L_1\)).
+    Wenn \(L=L_1[X]/(g)\) dann hat \(L/\QQ\) hat Grad \(6\) und \(x^3-2\) zerfällt in Linearfaktoren in \(L\).
+\end{Bsp}
+\begin{Lemma}[Algebraisch Abgeschlossen]
+
+ Für einen Körper \(K\) ist äquivalent:
+
+\begin{enumerate}
+
+ \item Jedes nicht-konstante Polynom \(f\in K[X]\) hat eine Nullstelle
+
+\item Jedes irreduzible Polynom \(f\in K[X]\) hat Grad 1
+
+\item Für jede algebraische Erweiterung \(L/K\) gilt \(L=K\)
+
+\end{enumerate}
+
+In dem Fall heißt \(K\) algebraisch abgeschlossen.
+
+\end{Lemma}
+
+\begin{proof}
+
+\(1\implies 2\) ist klar.
+
+Gelte \(2\). Dann sei \(f\) nicht-konstant. Also gibt es ein irreduzibles Polynom \(P\) mit \(P|f\). Da \(P=aX+b\) für ein \(a\neq 0\), ist \(P(\frac{-b}{a})=0\) also hat \(f\) eine Nullstelle.
+
+Gelte 2 und sei \(a\in L\) algebraisch mit Minimalpolynom \(f\in K[X]\). \(f\) ist irreduzibel, also ist \(f=X-a\) und somit \(a\in K\).
+
+Gelte 3. und sei \(f\) irreduzible. Dann ist \(L=K[X]/(f)\cong K\). Also ist \(\deg(f)=1\) und \(f\) linear.
+
+\end{proof}
+
+\begin{Def}
+    Sei \(K\) ein Körper. Ein algebraischer Abschluss von \(K\) ist eine algebraische Körpererweiterung \(L/K\) sodass \(L\) algebraisch abgeschlossen ist. Notation \(L=\bar K\)
+\end{Def}
+
+\subsection{Körperhomomorphismen}
+\begin{Def}
+    Ein Körperhomomorphismus ist ein Ringhomomorphismus zwischen Körpern. Seien \(L/K\) und \(M/K\) zwei Körpererweiterungen. Ein \(K\)-Homomorphismus ist ein Homomorphismus von \(K\)-Algebren.
+    \(\Aut_K(L)=\Aut(L/K)\) sei die Menge der invertierbaren \(K\)-Homomorphismen \(f\colon L\to L\)
+\end{Def}
+\begin{Lemma}
+ Seien \(L=K(a)/K\) eine Körpererweiterungen und sei \(f\) das Minimalpolynom von \(a\). Sei \(M\) ein Körper mit einem Homomorphismus \(\sigma\colon K\to M\). Sei \[\Sigma=\Set{K-\text{Homomorphismen } \sigma'\colon L\to M}.\] Dann ist die Abbildung 
+    \[\Sigma\to\set{b\in M}{ f(b)=0},\ \sigma'\mapsto \sigma'(a)=b\] bijektiv
+\end{Lemma}
+\begin{proof}
+    Wir haben die Abbildung \(\phi\colon K[X]\to M, X\mapsto b\). Es gilt \(\phi\) lässt sich eindeutig fortsetzen zu \(\sigma'\colon K[X]/(f)\to M\) genau dann, wenn \(f\in \Ker(\phi)\) ist, das heißt wenn \(f(b)=0\). Dann ist \(\sigma'(a)=\sigma'(\bar X)=b\).
+\end{proof}
+\begin{Bsp}
+    \(L=M=\CC\) und \(K=\RR\). Dann ist
+    \[\{\RR-\Hom \sigma'\colon\CC\to\CC\} \stackrel{\sim}{\to}\set{b\in\CC}{b^2+1=0},\ \sigma'\mapsto \sigma'(i)\]
+    also \(\Aut(\CC/\RR)=\{\id,\sigma'\}\) wobei \(\sigma'\) komplexe Konjugation ist.
+\end{Bsp}
+\begin{Satz}\label{Satz:AlgAbMor}
+    Sei \(L/K\) eine algebraische Erweiterung und \(M\) ein algebraisch abgeschlossener Körper. Sei weiter \(\sigma\colon K\to M\) ein Körperhomomorphismus. Dann existiert eine Fortsetzung von \(\sigma\) zu einem Körperhomomorphismus \(\sigma'\colon L\to M\) sodass
+     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABkQBfU9TXfIRQAmclVqMWbALLdeIDNjwEiARlKrx9Zq0QgA0t3EwoAc3hFQAMwBOEALZJRIHBCTqJOtgB1v2U-Z0INQMdABGMAwACvzKQiA2WKYAFjhy1naOiM6uSGQudFgMbMkQEADW6SC2DnnUuYge2lJ6vv6BAORGXEA
+\begin{tikzfigure}
+L \arrow[rr, "\sigma'"] &                                          & M \\
+                        & K \arrow[ru, "\sigma"'] \arrow[lu, hook] &  
+\end{tikzfigure} kommutiert
+\end{Satz}
+\begin{proof}
+    Fall 1: Sei \(L=K(a)=K[a]=K[X]/(f)\). Die Menge der \(\sigma'\) ist bijektiv zur Menge der Nullstellen von \(f\) in \(M\). Also existiert \(\sigma'\).
+    
+    Fall 2: Sei \(L/K\) allgemein. Sei \(X\) die Menge der Paare \((L',\sigma')\) wobei \(L'\) ein Körper ist mit \(K\subseteq L'\subseteq L\) und \(\sigma'\) eine Fortsetzung von \(\sigma\).
+    Definiere partielle Ordnung \((L',\sigma')\leq (L'',\sigma'')\) durch \(L'\subseteq L''\) und \(\sigma''|_{L'}=\sigma'\).
+    Sei \(X'\subseteq X\) total geordnet. Dann ist \[\tilde L=\bigcup\limits_{(L',\sigma')\in X'}L'\] ein Körper und zusammen mit \(\tilde\sigma\colon\tilde L\to M\) definiert durch \(\tilde\sigma(b)=\sigma'(b)\) für \(b\in L'\) eine obere Schranke von \(X'\).
+    Nach \nameref{Satz:Zorn} hat \(X\) ein maximales Element \((L',\sigma')\).
+    Angenommen \(L'\neq L\). Dann wähle \(a\in L\setminus L'\) und setze \(L''=L'(a)\). Nach Fall 1 existiert eine Fortsetzung \(\sigma''\colon L''\to M\) was ein Widerspruch ist. Also ist \(L'=L\). 
+\end{proof}
+\begin{Kor}
+    Seien \(L/K\) und \(M/K\) zwei algebraische Abschlüsse von \(K\). Dann gibt es einen \(K\)-Isomorphismus \(L\to M\)
+\end{Kor}
+\begin{proof}
+    Nach \Cref{Satz:AlgAbMor} gibt es \(K\)-Homomorphismus \(\sigma\colon L\to M\). Dadurch wird \(M\) eine algebraische Erweiterung von \(L\). Also ist \(M/L\) triviale Erweiterung, dh. \(\sigma\) ist bijektiv.
+\end{proof}
+\subsection{Zerfällungskörper und Algebraischer Abschluss}
+\begin{Satz}[Existenz algebraischer Abschluss]
+    Jeder Körper hat einen algebraischen Abschluss
+\end{Satz}
+\begin{proof}
+    Sei \(I\) die Menge aller irreduziblen Polynome \(f\in K[X]\) und sei \(R=K\polring{X_f}{f\in I}\). Sei \(J\subseteq R\) das ideal, das von allen Elementen der Form \(f(X_f)\) mit \(f\in I\) erzeugt wird.
+    
+    Es gilt die Behauptung \(J\subsetneq R\). Denn angenommen \(J=R\), dann ist \(1\in J\) also gibt es Darstellung 
+    \begin{align} 1=\sum_{j=1}^rg_jf_j(X_{f_j})\label{Eq:1}
+    \end{align} wobei \(g_j\in R\) und \(f_1,\dots,f_r\in I\). In \(g_1,\dots,g_r\) kommen nur endlich viele \(X_{f_i}\) vor, somit gibt es eine endliche Menge \(I'\subseteq I\), sodass die Gleichung \ref{Eq:1} in \(R'=K[X_f| f\in I']\) stattfindet.
+    Nach \Cref{Kor:ExZerfall} gibt es eine endliche Erweiterung \(M/K\), sodass jedes \(f\in I'\) in \(M\) eine Nullstelle \(a_f\) hat. Betrachte die Abbildung \[\phi\colon R'\to M,\ \phi(X_f)=a_f.\]
+    Dann ist \(\phi(f(X_f))=f(a_f)=0\) also \(f(X_f)\in \Ker(\phi)\). Die Gleichung \ref{Eq:1} würde zeigen, dass \(1\in \Ker(\phi)\), was ein Widerspruch ist zu \(1\neq 0\) in \(M\).
+    Also ist gilt die Behauptung \(J\subsetneq R\).
+    
+    Also ist \(\bar R=R/J\neq 0\) und nach \Cref{Satz:ExMaxId} gibt es maximales Ideal \(\frakm\subseteq \bar R\). Für den Quotienten \(L=\bar R/m\), ist \(L/K\) eine Körpererweiterung und \(L\) ist erzeugt von \(\bar X_f\) für \(f\in I\). Es ist \(f(X_f)=0\) in \(\bar R\) und somit auch in \(L\). Also ist \(\bar X_f\in L\) algebraisch über \(K\) und damit ist auch \(L/K\) algebraisch und jedes \(f\in I\) hat in \(L\) eine Nullstelle, nämlich \(\bar X_f\).
+    Sei \(L_1=L\). \(L_1/K\) ist algebraisch, sodass jedes irreduzible Polynom \(f\in K[X]\) in \(L_1\) eine Nullstelle hat.
+    Konstruiere Analog \(K\subseteq L_1\subseteq L_2\subseteq L_3\dots\) sodass jedes irreduzible Polynom in \(L_i\) in \(L_{i+1}\) eine Nullstelle hat. Sei \(\tilde L= \bigcup\limits_{i\geq 1}L_i\). Das ist  ein Körper und \(\tilde L/K\) ist algebraisch.
+    Der Körper \(\tilde L\) ist algebraisch abgeschlossen, denn wenn \(f\in \tilde L[X]\) irreduzibel dann gibt es \(i\in\NN\) sodass \(f\in L_i[X]\) und dann hat \(f\) in \(L_{i+1}\) eine Nullstelle. Also hat \(f\) in \(\tilde L\) eine Nullstelle.
+\end{proof}
+\begin{Def}
+    Sei \(K\) ein Körper und \(\mathcal F\subseteq K[X]\) eine Menge von nicht-konstanten Polynomen. Ein Zerfällungskörper ist eine Körpererweiterung \(L/K\) sodass jedes \(f\in\mathcal F\) in \(L[X]\) in Linearfaktoren zerfällt und \(L=K(a\in\bar K\mid f(a)=0 \text{ für ein } f\in\mathcal F)\)
+\end{Def}
+\begin{Lemma}
+    Für eine Menge \(\mathcal F\subseteq K[X]\) nicht-konstanter Polynome existiert ein Zer\-fäl\-lungs\-kör\-per und ein Zer\-fäl\-lungs\-kör\-per ist eindeutig bist auf \(K\)-Isomorphismus.
+\end{Lemma}
+\begin{proof}
+    Sei \(L=K(a\in\bar K\mid f(a)=0 \text{ für ein } f\in\mathcal F)\subseteq \bar K\). Dann ist \(L\) ein Zerfällungskörper.
+    Sei \(M\) ein weiterer Zerfällungskörper. Dann gibt es nach \Cref{Satz:AlgAbMor} einen \(K\)-Homomorphismus \(\sigma\colon M\to\bar K\). Seien \(f\in\mathcal F\) und \(a_1,\dots, a_n\) die Nullstellen in \(\bar K\) von \(f\) und \(b_1,\dots,b_n\) die Bilder der Nullstellen von \(f\) in \(M\) unter \(\sigma\).
+    Da \(\prod_{i=1}^n(X-a_i)=f=\prod_{i=1}^n(X-b_i)\) in \(\bar K[X]\) ist ohne Einschränkung \(a_i=b_i\) für alle \(i\). Somit ist \(\sigma(M)=L\) und \(\sigma\) ist ein Isomorphismus \(M\to L\).
+\end{proof}
+\begin{Bem}
+    Das zeigt: Alle \(K\)-Homomorphismen \(\sigma\colon M\to \bar K\) haben Bild \(L\).
+\end{Bem}
+\begin{Bsp}
+    Sei \(K=\QQ\) und \(f=X^3-2\). In \(\bar\QQ[X]\) gilt \(f=(X-a)(X-\zeta a)(X-\zeta^2a)\) für \(a=\sqrt[3]{2}\) und \(\zeta=e^{2\pi i/3}\).
+    Also ist der Zerfällungskörper \(L=\QQ(a,\zeta a,\zeta^2 a)=\QQ(a,\zeta)\)
+    Es ist \(\QQ\subsetneq \QQ(a)\subsetneq \QQ(a,\zeta a)\) und \([\QQ(a):\QQ]=3\) da \(f\) das Minimalpolynom ist. Es ist \(g=(X-\zeta a)(X-\zeta^2 a)\) das Minimalpolynom von \(\zeta a\) über \(\QQ(a)\), also ist \([\QQ(a,\zeta a):\QQ]=6\)
+\end{Bsp}
+\begin{Def}
+    Eine algebraische Körpererweiterung \(L/K\) ist normal, wenn jedes irreduzible Polynom in \(K[X]\), das in \(L\) eine Nullstelle hat in \(L[X]\) in Linearfaktoren zerfällt.
+\end{Def}
+\begin{Lemma}
+    Sei \(L/K\) algebraisch und \(\varphi\colon L\to L\) ein \(K\)-Homomorphismus. Dann ist \(\phi\) bijektiv.
+\end{Lemma}
+\begin{proof}
+    Immer ist \(\phi\) injektiv.
+    Sei \(a\in L\). Dann gibt es \(f\in K[X]\) sodass \(K(a)=K[X]/(f)\). Seien \(a=a_1,\dots,a_n\) die Nullstellen von \(f\) in \(L\).
+    \(\varphi|_{K(a_i)}\colon K(a_i)\to L\) gibt \(n\) verschiedene \(K\)-Homomorphismen \(K[X]/(f)\to L\) da \(\varphi(a_i)\neq \varphi(a_j)\) für \(i\neq j\). Da diese in Bijektion zu der Menge der \(\{a_1,\dots,a_n\}\) stehen gilt für ein \(i\): \(\varphi|_{a_i}(a_i)=a_1=a\). Also ist \(\varphi\) bijektiv.
+\end{proof}
+\begin{Satz}
+    Sei \(L/K\) algebraisch. Dann ist äquivalent:
+    \begin{enumerate}
+        \item \(L/K\) ist normal
+        \item \(L/K\) ist Zerfällungskörper einer Menge \(\mathcal F\subseteq K[X]\).
+        \item Für jede Körpererweiterung \(M/L\) und jeden \(K\)-Homomorphismus \(\varphi\colon L\to M\) gilt \(\phi(L)=L\)
+        \item Für Jeden \(K\)-Homomorphismus \(\varphi\colon L\to\bar L\) gilt \(\phi(L)=L\).
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Gelte 1. Dann sei \[\mathcal F=\set{f\in K[X]}{ f\text{ ist irreduzibel und hat eine Nullstelle in \(L\)}}.\]
+    Jedes \(f\in \mathcal F\) zerfällt in \(L[X]\) in Linearfaktoren.
+    Sei \(a\in L\) mit Minimalpolynom \(f\in K[X]\). Dann ist \(f\in\mathcal F\) also ist \(L\) von allen Nullstellen erzeugt. Also ist \(L\) Zerfällungskörper.
+    Gelte 2. Sei \(L/K\) Zerfällungskörper von \(\mathcal F\) und \(\varphi\colon L\to M\) ein \(K\)-Homomorphismus. Für \(f\in \mathcal F\) und \(a\in L\) mit \(f(a)=0\) gilt \(f(\varphi(a))=0\) also ist \(\phi(a)\) Nullstelle von \(f\) in \(M\).
+    Dann ist \(L=K(a\in M\mid f(a)=0 \text{ für ein } f\in\mathcal F)\) und somit \(\phi(L)\subseteq L\). Da \(L/K\) algebraisch ist, ist \(\varphi\) bijektiv und \(\varphi(L)=L.\)\\
+    3. \(\implies 4\) ist klar. Gelte \(4.\) Sei \(f\in K[X]\) irreduzibel mit \(f(a)=0\) für \(a\in L\).
+    Die Menge der \(K\)-Homomorphismen \(\sigma\colon K(a)\to \bar L\) ist bijektiv zur Menge \(\set{b\in\bar L}{ f(b)=0}\). Zu \(b\in \bar L\) wähle also \(\sigma\colon K(a)\to \bar L\).
+    Nach \Cref{Satz:AlgAbMor} gibt es ein \(\varphi\colon L\to \bar L\), das \(\sigma\) fortsetzt. Dann ist \(\varphi(L)=L\). Also ist \(b=\sigma(a)=\varphi(a)\in L\). Also zerfällt \(f\) in \(L[X]\).
+\end{proof}
+\begin{Lemma}[Normalität in Türmen]
+    Seien \(M/L/K\) Körpererweiterungen. Es gilt \[M/K \text{ normal }\implies M/L \text{ normal.}\]
+\end{Lemma}
+\begin{proof}
+    Sei \(M\) ein Zerfällungskörper von \(\mathcal{F}\subseteq K[X]\). Dann ist \(M/L\) ein Zerfällungskörper von \(\mathcal F\) als Teilmenge von \(L[X].\)
+\end{proof}
+\begin{Def}
+    Sei \(L/K\) algebraisch. Eine normale Hülle von \(L/K\) ist eine Erweiterung \(M/L\) sodass \(M/K\) normal ist und für jede andere Erweiterung \(M'/L\) mit \(M'/K\) normal gibt es einen \(L\)-Homomorphismus \(M\to M'\). Das zeigt: Eine normale Hülle ist eindeutig bis auf Isomorphismus
+\end{Def}
+\begin{Satz}
+    Die normale Hülle einer algebraischen Erweiterung \(L/K\) existiert
+\end{Satz}
+\begin{proof}
+    Sei \[\mathcal F=\Set{f\in K[X] \text{ irreduzibel sodass \(f\) eine Nullstelle in \(L\) hat}}.\] Sei \(M/L\) Zerfällungskörper von \(\mathcal F\subseteq L[X]\). Dann ist \(M/K\) Zerfällungskörper der selben Menge und somit \(M/K\) normal. Sei \(M'/L\) mit \(M'/L\) normal. Wähle \(\bar M'/M'\) algebraischen Abschluss. Nach \Cref{Satz:AlgAbMor} gibt es einen \(L\)-Hom \(\varphi\colon M\to\bar M'\). Jedes \(f\in\mathcal F\) zerfällt in \(M'[X]\) und da \(M\) von allen Nullstellen erzeugt gilt \(\phi(M)\subseteq M'\).
+\end{proof}
+\begin{Bsp}
+    Eine normale Hülle von \(\QQ(\sqrt[3]{2})/\QQ\) ist \(\QQ(\sqrt[3]{2},\zeta a)\), der Zerfallskörper von \(x^2-2.\)
+\end{Bsp}
+\subsection{Separable Erweiterungen}
+\begin{Def}
+    \(f\in K[X]\) heißt separable, wenn \(f\in \bar K[X]\) keine mehrfachen Nullstellen hat.
+\end{Def}
+\begin{Def}
+    Die formale Ableitung von \(f\in K[X]\) ist \( f=\sum_{i=0}^na_iX^i\) ist \(f'=\sum_{i=0}^ni\cdot a_iX^{i-1}\)
+\end{Def}
+\begin{Lemma}[Leibniz-Regel]
+    \[(fg)'=f'g+fg'\]
+\end{Lemma}
+\begin{proof}
+    Reduziere auf \(f=X^n\) und \(g=X^m\). Dann ist alles klar.
+\end{proof}
+\begin{Lemma}
+    Sei \(f\in K[X]\).
+    \begin{enumerate}
+        \item \(b\in \bar K\) ist mehrfache Nullstelle von \(f\iff f(b)=0=f'(b)\iff (X-b)| \ggT(f,f')\)
+        \item \(f\) ist separable \(\iff \ggT(f,f')=1\)
+    \end{enumerate}
+\end{Lemma}
+\begin{proof}
+    Der \(\ggT\) ändert sich nicht bei Übergang zu einer Erweiterung \(L/K\), also auch nicht bei \(\bar K/K\). 1. ist eine Rechnung und 2. folgt aus \(1\).
+\end{proof}
+\begin{Satz}
+    Sei \(f\in K[X]\) irreduzibel.
+    \begin{enumerate}
+        \item \(f\) ist separable \(\iff f'\neq 0\) in \(K[X]\).
+        \item Wenn \(K\) Charakteristik \(0\) hat, ist \(f\) separable.
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    \begin{align*}
+        f \text{ separable}\iff\ggT(f,f')=1\iff f'\neq 0
+    \end{align*} da \(f'\neq f\).
+    Wenn \(K\) Charakteristik 0 hat, dann ist \(f'\neq 0\) also ist \(f\) separable.
+\end{proof}
+\begin{Bem} Für \(f\) irreduzibel gilt:
+    \(f'=0\iff \chara K=p>0\) und \(f=\sum_{i=0}^nb_iX^{p^i}\) für \(b_i\in K\)
+\end{Bem}
+\begin{Bem}
+    Sei \(p\) Primzahl und \(K=\Quot(\FF_p[Y])\). Das Polynom \(f=X^p-Y\in K[X]\) ist irreduzibel nach Eisenstein für das Primelement \(Y\in\FF_p[X]\) und in-separable.
+\end{Bem}
+\begin{Def}
+    Sei \(L/K\) eine algebraische Körpererweiterung. 
+    \begin{enumerate}
+        \item \(a\in L\) ist separable über \(K\), wenn das Minimalpolynom von \(a\) separable ist.
+        \item \(L/K\) ist separable, wenn jedes \(a\in L\) separable ist.
+        \item Der Separabilitätsgrad von \(L/K\) ist \([L:K]_s= \abs{\Set{K-\Hom.\ L\to\bar K}}\)
+    \end{enumerate}
+\end{Def}
+\begin{Lemma}
+    Sei \(L=K(a)\) algebraisch über \(K\).
+    Dann gilt 
+    \begin{enumerate}
+        \item \([L:K]_s\leq [L:K]\)
+        \item \([L:K]_s=[L:K]\iff a\) separable über \(K\)
+    \end{enumerate}
+\end{Lemma}
+\begin{proof}
+    Sei \(f\) Minimalpolynom von \(a\) sodass \(L\cong K[X]/(f)\).
+    Es gilt 
+    \[\abs{\Set{K-\Hom L\to\bar K}}=\abs{{\set{b\in\bar K}{ f(b)=0}}}\leq \deg(f)\] und "\(=\)" genau dann, wenn \(f\) separable. 
+\end{proof}
+\begin{Lemma}
+    Sei \(M/L/K\) endlich. Dann ist \([M:L]_s\cdot [L:K]_s=[M:K]_S\)
+\end{Lemma}
+\begin{proof}
+    \(\bar K\) kann als algebraischer Abschluss von \(M\) und \(L\) aufgefasst werden.
+    Dann gilt \[[M:L]_s=\abs{\set{\psi\colon M\to \bar K}{ \psi|_L=\varphi}}\] für jeden \(\phi\colon L\to\bar K\)
+    erfüllt die Abbildung \[R\colon\set{\psi\colon M\to\bar K}{ \psi|_K=id}\to\set{\varphi\colon L\to\bar K}{ \varphi|_K=id},\ \psi\mapsto \psi|_L\]  \[ \abs{R^{-1}\Set{\varphi}}=[M\colon L]_s.\] Also
+    \[[M:K]_s=\abs{\set{\psi\colon M\to\bar K}{ \psi|_K=id}}=[M:L]_s\cdot[L:K]_s\]
+\end{proof}
+\begin{Satz}
+    Sei \(L/K\) endlich.
+    \begin{enumerate}
+        \item \([L:K]_s\leq [L:K]\)
+        \item Es ist äquivalent:
+        \begin{enumerate}
+            \item \([L:K]_s=[L:K]\)
+            \item \(L/K\) ist separable
+            \item \(L/K\) ist von separablen Elementen erzeugt
+        \end{enumerate}
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+   \begin{enumerate}
+       \item  Wähle \(a_1,\dots,a_r\) sodass \(L=K(a_1,\dots,a_r)\). 
+    Es gilt \[[L:K]=[L:K(a_1)]\cdot[K(a_1):K]\] und 
+    \[[L:K]_s=[L:K(a_1)]_s\cdot [K(a_1):K]_s\]
+    Jetzt folgt 1. mit Induktion.
+    \item \(b)\implies c)\) ist klar. Gelte c). \(L=K(a_1,\dots,a_r)\) mit \(a_i\) separable.
+    Dann ist \[[K(a_1):K]_s=[K(a_1):K]\] und nach Induktion \([L:K(a_1)]_s=[L:K(a_1)]\). Also gilt a).
+    Gelte a) und sei \(a\in L\). Dann ist 
+    \begin{align*}
+        [L:K]&=[L:K(a_1)]\cdot[K(a_1):K]\\
+        & \geq [L:K(a_1)]_s\cdot[K(a_1):K]_s\\
+        &=[L:K]_s=[L:K]
+    \end{align*}
+    Also ist \([K(a_1):K]=[K(a_1):K]_s\) und somit ist \(a\) separable. Also gilt b).
+   \end{enumerate}
+\end{proof}
+\begin{Kor}
+    Seien \(M/L/K\) algebraisch.
+    \[M/K \text{ separable}\iff M/L \text{ und } L/K\text{ separable }\]
+\end{Kor}
+\begin{proof}
+    Sei \(M/K\) separable und \(a\in M\). Sei \(f\in K[X]\) das Minimalpolynom über \(K\) und \(g\in L[X]\) das Minimalpolynom über \(L\). Dann \(g|f\) in \(L[X]\) also ist \(g\) separable und damit auch \(a\) separable über \(L\).\\
+    Seien \(M/L\) und \(L/K\) separable. Sei \(a\in M\) und \(g\in L[X]\) das Minimalpolynom. Wähle \(K\subseteq L'\subseteq L\) sodass \(L'/K\) endlich ist und \(g\in L'[X]\). Sei \(M'=L'(a)\). Dann ist \(M'/L'/K\) endlich. Minimalpolynom von \(a\) über \(L'\) ist \(g\) und das ist separable, da \(M/L\) separable. Somit ist \(M'/L'\) separable. \(L'/K\) ist separable das \(L/K\) separable.
+    Somit ist ohne Einschränkung \(M/L/K\) endlich.
+    Dann zeigt eine Rechnung mit den Graden der Erweiterungen, dass \(M/K\) separable ist.
+\end{proof}
+\begin{Kor}
+    Der Zerfällungskörper einer Menge von separablen Polynomen ist eine separable Erweiterung.
+\end{Kor}
+\begin{proof}
+    Sei \(L/K\) Zerfällungskörper von \(\mathcal F\in K[X]\) bestehend aus separablen Polynomen. Zu \(a\in L\) gibt es endliche Teilmenge \(\mathcal F'\subseteq \mathcal F\) sodass \(a\in L'\) wobei \(L'\subseteq L\) Zerfällungskörper von \(\mathcal F'.\) \(L'/K\) ist endlich und von separablen Elementen erzeugt. Somit ist \(L'/K\) separable. Insbesondere ist \(a\) separable über \(K\).
+\end{proof}
+\begin{Kor}
+    Die normale Hülle einer separablen Erweiterung ist ebenfalls separable
+\end{Kor}
+\begin{proof}
+    Folgt aus der Konstruktion der normalen Hülle.
+\end{proof}
+\subsection{Endliche Körper}
+\begin{Lemma}
+    Sei \(K\) ein beliebiger Körper der Charakteristik \(p>0\). Die Abbildung 
+    \(\phi\colon K\to K,\ \phi(x)=x^p\) ist ein Ringhomomorphismus.
+     Wenn \(K\) endlich ist, dann ist
+     \(\phi\) bijektiv.
+\end{Lemma}
+\begin{proof}
+    Es ist \[\phi(x+y)=\sum_{i=0}^p\binom{p}{i}x^iy^{p-i}=y^p+x^p=\phi(x)+\phi(y)\]
+    \(\phi\) ist immer injektiv. Wenn \(K\) endlich ist, dann automatisch bijektiv.
+\end{proof}
+\begin{Def}
+    Sei \(q=p^r\) und \(\FF_q\) ein Zerfällungskörper von \(x^q-x\) über \(\FF_p.\)
+\end{Def}
+\begin{Satz} Sei \(q=p^r\) für eine Primzahl \(p\).
+    \(\FF_q\) ist ein endlicher Körper mit \(q\) Elementen und jeder endlich Körper ist isomorph zu \(\FF_q\) für ein \(q=p^r\) wobei \(p=\chara K\).
+\end{Satz}
+\begin{proof}
+    Sei \(K\) irgendein endlicher Körper der Charakteristik \(p>0\) und \(b\in K\). Es ist \((X^q-X)(b)=0\iff \phi^r(b)=b\). Dann ist \(\set{x\in K}{ \phi^r(x)=x}\) ein Teilkörper von \(K\).
+    In \(\FF_q[X]\) zerfällt \(X^q-X\) in Linearfaktoren. Die Ableitung ist \((X^q-X)'=-1\) was teilerfremd ist zu \(X^q-X\). Also ist \(X^q-X\) separable. Also hat \(X^q-X\) \(q\)-viele verschiedene Nullstellen, die einen Teilkörper \(L\subseteq \FF_q\) bilden. Somit \(\FF_q=L\) und \(|\FF_q|=q\).
+    Sei \(K\) ein endlicher Körper der Charakteristik \(p\). Dann ist \([K:\FF_p]=r<\infty\) und damit \(|K|=p^r=q\).
+    Für \(a\in K\) gilt \(a^q=a\). Denn wenn \(a=0\) dann ist das richtig und wenn \(a\neq 0\) dann ist \(a\in K^*\) und \(|K^*|=q-1\). Nach \nameref{Kor:Lagrange2} gilt \(a^{q-1}=1\) also \(a^q=a\) für alle \(a\in K\). Das heißt \(x^q-x\) zerfällt in \(K[X]\) und somit gibt es Homomorphismus \(\FF_q\to K\) mit \(|\FF_q|=q=|K|\) also ist \(\FF_q\cong K\).
+\end{proof}
+\begin{Satz}
+    Sei \(K\) ein beliebiger Körper und \(G\subseteq K^*\) eine endliche Untergruppe. Dann ist \(G\) zyklisch.
+\end{Satz}
+\begin{proof}
+    Sei \(n=|G|\). Der Struktursatz für endlich abelsche Gruppen impliziert 
+    \[G\cong \ZZ/m_1\ZZ\times \dots\times \ZZ/m_r\ZZ\] mit \(m_1|m_2|\dots| m_r\) und \(n=\prod_{i=1}^rm_i\).
+    Für jedes \(a\in G\) gilt \(a^{m_r}=1\). Sei also \(f=X^{m_r}-1\). Jedes \(a\in G\) ist Nullstelle von \(f\) und \(f\) hat höchstens \(m_r\) verschiedene Nullstellen. Somit ist \(n=m_r\) und \(G\cong \ZZ/m_r\ZZ\) zyklisch.
+
+\end{proof}
+\begin{Kor}
+    Wenn \(K\) ein endlicher Körper ist, dann ist \(K^*\) zyklisch mit \(K^*\cong \ZZ/(q-1)\ZZ\)
+\end{Kor}
+\begin{Bsp}
+    Sei \(K=\CC\) und \(G=\set{z\in\CC}{ z^n=1}=\mu_n(\CC)\). Dann ist \(G\) zyklisch. \(x^n-1\) ist separable da die Ableitung nicht \(0\) ist. Somit ist \(G\cong \ZZ/n\ZZ\) \(G=\set{e^{2\pi i k/n}}{ 0\leq k\leq n-1}\) erzeugt von \(e^{2\pi i/n}\). 
+    Es gilt: \(e^{2\pi i k/n}\) erzeugt \(\mu_n(\CC)\) genau dann wenn \(\ggT(k,n)=1\).
+\end{Bsp}

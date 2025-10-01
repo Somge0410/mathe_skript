@@ -2098,3 +2098,208 @@ Da \(R_\frakp\) Hauptidealring ist folgt mit Struktursatz, dass jeder Torsionsmo
 \(\bigoplus_{n\in J}R_p/(\frakp R_\frakp)^nR_\frakp=\bigoplus (R/\frakp^n)_\frakp\) ist.
 Da \(R/\frakp^n\) lokal ist, ist \(R/\frakp^n)_\frakp\cong R/\frakp^n\). Also gilt die Aussage.
 \end{proof}
+\begin{Def} Ein \(R\)-Modul \(P\) heißt projektiv, falls für jeden Epimorphismus
+\(\varphi\colon M\to M''\) die Abbildung \(\Hom_R(P,M)\to \Hom_R(P,M')\) surjektiv ist.
+\end{Def}
+\begin{Satz} Ein \(R\)-Modul \(P\) ist projektiv genau dann wenn \(P\) ein direkter Summand
+eines freien Modules ist. Insbesondere sind freie Moduln projektiv.
+\end{Satz}
+\begin{proof}
+Klar: freie Moduln sind projektiv. Wenn \(P\) ein Modul ist sodass \(P\oplus P'\) frei ist,
+dann ist \(P\oplus P'\) projektiv. Sei \(g\colon P\to M'\) und Epimorphismus
+\(\varphi\colon M\to M'\) gegeben.
+Die Projektion \(P\oplus P'\to P\) gibt 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAFEAX1PU1z5CKMsWp0mrdhwA6MiGhZwABBwDkPPiAzY8BImQBM4hizaJOm-rqEHSAZhOTzIALIbe1wfpTkHTs3ZXHnEYKABzeCJQADMAJwgAWyQ-EBwIJDIJQIs5fBx6AH0uTxB4pMyadKRDGlMpCzQ44qsyhOTEWrSMxHs653Zw1vKOgBYqnr7shpA5Bji0AAssYfbK7qRx6Zc5GAAPLDgcFRiQGkZ6ACMYRg4BPWEQOKxwxZwzkEYsMBcoejhFmFVhVEKlqp0aNcwFBNgBOfo5WYyLAw0ojFITTaQmDQpAAWnsqXqOxk+0Ox2UMQ052+vwgOBwQO4lG4QA
+\begin{tikzfigure}
+                       & P \arrow[d, "\iota_P"] \arrow[dd, "\id", bend left=49] \arrow[lddd, "\exists f'", dotted, bend right] \\
+                       & P\oplus P' \arrow[d, "pr_P"] \arrow[ldd, "\exists f"', dashed]                                        \\
+                       & P \arrow[d, "g"]                                                                                      \\
+M \arrow[r, "\varphi"] & M'                                                                                                   
+\end{tikzfigure}
+Also ist \(P\) projektiv.
+Andersrum sei \(P\) projektiv und \(F\) frei sodass \(\varphi\colon F\to P\) surjektiv ist.
+Das gibt split exakte Sequenz
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAEzkqtRizYAxLjxAZseAkQDMo6vWatEIAAqzeigUQAs68VrYduh-spQBGc5sk6AOm4DWMAE4AKD3ofNAALLABKLjEYKABzeCJQADMfCABbJDIQHAgkExsQFPS86hykBwKijMQnbNzEEQtXEEC6YLCDQtTqxrLEFU4KTiA
+\begin{tikzfigure}
+0 \arrow[r] & \ker(\varphi) \arrow[r] & F \arrow[r, "\varphi"] & P \arrow[r] & 0
+\end{tikzfigure}
+sodass \(F=\ker(\varphi)\oplus P\)
+\end{proof}
+\begin{Satz} Jeder \(R\)-Modul hat eine freie und somit projektive homologische Auflösung.
+
+
+\end{Satz}
+\begin{proof}
+Wähle Erzeugendensystem \((x_i)_{i\in I}\) und setze \(M_0=R^{(I)}\). 
+Dann ist \(M_0\to P\) surjektiv. Setze Konstruktion fort mit \(\ker(M_0\to P\).
+\end{proof}
+\begin{Lemma}
+Projektive Moduln sind flach.
+\end{Lemma}
+\begin{proof}
+Freie Moduln sind flach und da sich Flachheit auf direkte Summanend überträgt gilt die Aussage.
+\end{proof}
+\begin{Satz} Sei \(R\) lokal. Dann ist jeder endliche projektive Modul frei.
+
+\end{Satz}
+\begin{proof}
+Sei \(\frakm\) das maximale Ideal von \(R\). Dann ist 
+\(R/\frakm\) ein Körper also \(P\otimes R/\frakm=P/\frakm P\) frei.
+Wähle \(x_1,\dots,x_n\) in \(P\) die auf eine Basis Abbilden in \(P/\frakm P\).
+Sei \(f\colon R^n\to P,\, e_i\mapsto x_i\). Nach \cref{Lem:Nakayama} ist \(f\) surjektiv.
+Es ist weil \(P\) projektiv ist \(R^n\cong \ker(f)\oplus P\) und somit \(\ker(f)\) endlich erzeugt.
+Da \(f\) ein Isomorphismus ist über \(R/\frakm R\) ist \(\ker(f)\otimes R/\frakm R=0\). Also ist \(\ker(f)=0\) nach \cref{Lem:Nakayama}.
+Somit ist \(f\) ein Isomorphismus.
+\end{proof}
+\begin{Def} Der \(n\)-te Ableitungsfunktor von \(_\otimes_R E\) wird mit \(Tor_n^R(_,E)\) bezeichnet.
+Das heißt \(Tor_n^R(M,E)=H_n(M_*\otimes_R E)\) für eine projektive Auflösung \(M_*\to M\).
+
+\end{Def}
+\begin{Bsp} Seien \(n,m\geq 1\).
+Haben freie Auflösung 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkRyQBfU9TXfIRQAmCtTpNW7ADrSAWnO68QGbHgJEAzGJoMWbRCFkKlfNYKIAWHRP0z5cgPRhjinmYEaUAVht6phpzuKvzqQsjkfpIGRtJQEDgIXOIwUADm8ESgAGYAThAAtki+IDgQSOTBeYUVNGVIxFX5RYhkpeWIorYBsQDG8TgABIRNNZ11HZqjLdrtSJbJXEA
+\begin{tikzfigure}
+\dots \arrow[r] & 0 \arrow[r] & \ZZ \arrow[r, "\cdot n"] & \ZZ \arrow[r] & \ZZ/n\ZZ \arrow[r] & 0
+\end{tikzfigure}
+Mit \(\ZZ/m\ZZ\) tensorieren gibt
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkRyQBfU9TXfIRQAmCtTpNW7ADrSAWnID0AW1kLuvEBmx4CRAMxiaDFm0Qg1S1fLka+OwUQAsRiaZk3FYS7Ih5l8AAEliqWdlr8ukLIAKyuJlLmnDz2Anoo5PGSZhbSUH4IXOIwUADm8ESgAGYAThDKSHEgOBBI5CkgtfVtNC1IxB1dDYhkza2Iom6JuQDG+TiBhIN1w5N9iPrL3Ru9405FXEA
+\begin{tikzfigure}
+\dots \arrow[r] & 0 \arrow[r] & \ZZ/m\ZZ \arrow[r, "\cdot n"] & \ZZ/m\ZZ \arrow[r] & \ZZ/n\ZZ\otimes \ZZ/m\ZZ \arrow[r] & 0
+\end{tikzfigure}
+also ist für \(d=\ggT(n,m)\):
+\[Tor_0^\ZZ(\ZZ/n\ZZ,\ZZ/m\ZZ)=\ZZ/n\ZZ\otimes \ZZ/m\ZZ=\ZZ/d\ZZ\]
+\[\[Tor_1^\ZZ(\ZZ/n\ZZ,\ZZ/m\ZZ)=\frac{m}{d}=\ZZ/d\ZZ\]
+\[\[Tor_i^\ZZ(\ZZ/n\ZZ,\ZZ/m\ZZ)=0\, i\geq 2\]
+\end{Bsp}
+\begin{Bsp} Sei \(R=K[X,Y]\) für einen Körper \(K\) und \(M=R/(X,Y)=K\) als \(R\)-Modul.
+Sei \(f\colon R^2\tio R, f(\varphi,\psi)=X\varphi+Y\psi)\) und \(g\colon R\to R^2,\, g(\varphi)=(Y\varphi,-X\varphi)\).
+Dann ist 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAlLjxAZseAkQBMo6vWatEIKQCbZvRQKIBmdeK3TD8vksHIALBc2SdAaRsL+ylAFYXCW12LjEYKABzeCJQADMAJwgAWyQyEBwIJCFuOMSUxBF0zMQ1SzcQCJsE5KRSjKRzMuDYqryG6nrEZya2AB1etCxWmq6O4r9OCk4gA
+\begin{tikzfigure}
+0 \arrow[r] & R \arrow[r, "g"] & R² \arrow[r, "f"] & R \arrow[r, "\pi"] & K \arrow[r] & 0
+\end{tikzfigure} eine Auflösung.
+Somit ist \[Tor_i^R(R,M)=\begin{cases}
+K & i=0\\
+K^2 & i=1\\
+K & i=2\\
+0 & i\geq 3\\
+\end{cases} \]
+
+\end{Bsp}
+\begin{Satz} \(Tor\) kann als Ableitung von \(_\otimes_RE\) oder als Ableitun von \(M\otimes_R-\) aufgefasst werden.
+
+\end{Satz}
+\begin{proof}
+Seien \(M_*\to M\) und \(E_*\to E\) homologische Auflösungen von zwei \(R\)-Moduln \(M,E\).
+Sei \(C^{i,j}=M_i \otimes E_j\) und \(A^i=M_i\otimes_R E\) und \(B^j=M\otimes_RE_j\).
+Das gibt Abbildung von Komplexen \(Tot(C^{**})\to B^*\) und \(Tot(C^{**})\to A^*\).
+Wenn beide Abbildungen quasi Isomorphismen sind, dann ist \(H^i(B^*)=H^i(A^*)\) was die Aussage ist.
+In Zeile \(j\) ist \(C^{**}\to B^*\) aber nichts anderes als
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBZAHS4jwFt4AAgCiAfQBWIAL6l0mXPkIoALBWp0mrduRlyQGbHgJEATOpoMWbRJzHkefLILijJe+UaVEAjBc3W7BxiPo4CwuJSsp6KJijk-lbatjxQfAjSGjBQAObwRKAAZgBOEPxIaiA4EEjE0SAlZbU01Uim9Y3liOZVNYjkHaVdCb1IPpnSQA
+\begin{tikzfigure}
+\dots \arrow[r] & M_1\otimes E_j \arrow[r] & M_0\otimes E_j \arrow[r] & M\otimes E_j \arrow[r] & 0
+\end{tikzfigure}
+was exakt ist da \(E_j\) projektiv und somit flach ist. Nach ??? ist also \(Tot(C^{**}\to B^*\) quasi isomorphismus. Analog geht das für \(A^*\) statt \(B^*\).
+
+
+\end{proof}
+\begin{Satz} Für einen \(R\)-Modul \(M\) ist äquivalent:
+\begin{enumerate}
+\item \(M\) ist flach
+\item \(Tor_n^R(M,N)=0\) für alle \(n\geq 1\) und alle \(R\)-Moduln \(N\).
+\item \(Tor_1^R(M,N)=0\) für alle endlichen \(R\)-Moduln.
+\item \(Tor_1^R(M,R/\alpha)=0\) für alle endlich erzeugten Ideale \(\alpha\subseteq R\).
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+\((1)\iff (2)\) ist klar und \((2)\implies (3)\implies (4)\) auch.
+Gelte \((4)\) und zeige \((3)\). Sei \(s\) die Anzahl von Erzeugern von \(N\).
+Wenn \(s=1\) dann ist \(N=R\cdot x\) und somit \(N\cong R/\alpha\) für \(\alpha=\ker(\cdot x\).
+Wenn \(\alpha\) endlich erzeugt ist, ist \(Tor_1=0\). Die lange exakte Tor Sequenz liefert 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkRyBeAFQgCcA+sQB6AJQAUAWVKiAlCAC+pdJlz5CKAEwVqdJq3a9BIidNEB6ADqWmaABb15SldjwEiAZh00GLNohBJawg8AFt4AVFrWwdFZRAMV3UiABZvPT92IMsQrHC4SIACUU5JOJc1dxQAVnTfAwDrKBCEZwTVNw1kcjr9fxAmlsVdGCgAc3giUAAzPghQpC8QHAgkFLbZ+aRtZdXEDw25hcQyXe3DrcQes5OL49qb8gVKBSA
+\begin{tikzfigure}
+\dots \arrow[r] & {0=Tor_1^R(M,R)} \arrow[r] & {Tor_1^R(M,R/\alpha)} \arrow[r] & M\otimes_R\alpha \arrow[r] & M\otimes_R R=M \arrow[r] & \dots
+\end{tikzfigure}
+wobei links 0 steht da \(R\) frei ist.
+Also ist \(Tor_1^R(M,R/\alpha)\cong \ker(M\otimes_R\alpha\to M\).
+Für jedes endlich erzeugte Ideal \(\alpha'\subseteq \alpha\) ist 
+\[ M\otimes_R\alpha'\to M\otimes\alpha\to M\] injektiv da \(Tor_1^R(M,R/\alpha')=0\).
+Wenn \(z=\sum_{i=1}^nm_i\otimes a_i\in \ker(M\otimes alpha\to M)\) sei \(\alpha'=(a_1,\dots,a_r\).
+dann ist \(z\in\ker(M\otimes alpha'\to M)=0\).
+Also ist \(M\otimes_R\alpha\to M\) injektiv und somit \(Tor_1^R(M,N)=0\).
+Wenn \(s\geq 1\) dann ist \(N=\sum_{i=1}^s Rx_i\) und sei \(N'=\sum_{i=1}^{s-1}Rx_i\).
+Dann ist \(0\to N'\to N\to N''\to 0\) exakt und \(N''\) erzeugt durch ein Element. Nach Induktion ist \(Tor_1^R(M,N')=0\)
+und \(Tor_1^R(M,N'')=0\). Dann auch \(Tor_1^R(M,N)=0\) nach langer exakter Tor Sequenz.
+Gelte \((3)\) und sei \(0\to N'\to N\to N''\to N\) exakt. Wenn\(N\) endlich erzeugt ist, dann auch \(N''\)
+und somit ist \(0\to M\otimes N'\to M\otimes N\to M\otimes N''\to 0\) exakt.
+Wenn \(N\) nicht endlich, sei \(z=\sum_{i=1}^r m_i\otimes n_i\in \ker(M\otimes N'\to M \otimes M\to N)\).
+Ersetze \(N'\) durch Modul erzeugt durch die \(n_i\). Dann ist 
+\[z\in\ker(M\otimes N'\to M\otimes \Im(N'))=0\] somit ist \(M\) flach.
+\end{proof}
+\begin{Kor} Ein \(R\)-Modul \(M\) ist flach genau dann wenn für jedes endlich erzeugte Ideal
+\(\alpha\subseteq R\) die Abbildung \(\alpha\otimes M\to M\) injektiv ist.
+
+\end{Kor}
+\begin{proof}
+Wenn \(M\) flach ist gilt die Behauptung da \(\alpha\to R\) injektiv ist.
+Andererseits gibt die exakte Sequenz \(0\to \alpha\to R\to R/\alpha\to 0\) die exakte Sequenz
+\[ 0=Tor_1^R(M,R)\to Tor_1^R(M,R/\alpha)\to \alpha\otimes_R M\to M\to M/\alpha M\to 0\]
+Da \(\alpha\otimes M\to M\) injektiv ist ist \(Tor_1^R(M,R/\alpha)=0\) also \(M\) flach.
+\end{proof}
+\begin{Satz} Sei \(M''\) ein \(R\)-Modul. Dann ist äquivalent:
+\begin{enumerate}
+\item \(M''\) flach
+\item Für alle exakte Sequenzen \[0\to M'\to M\to M''\to 0\] und für alle \(R\)-Moduln \(N\) ist 
+\[0\to M'\otimes N\to M\otimes N\to M''\otimes N\to 0\] exakt.
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+\((1)\) nach \((2)\) ist klar. Sei \(M\) frei und \(N\) beliebig.
+Dann ist \[0\to M'\otimes N\to M\otimes N\to M''\otimes N\to 0\] exakt.
+Also ist \(Tor_1^R(M,N)=0\) also \(Tor_1^R(M'',N)=0\) also \(M''\) flach.
+\end{proof}
+\begin{Satz} Sei \[0\to M'\to M\to M''\to 0\] exakt und \(M''\) flach.
+Dan ist \(M'\) flach genau dann wenn \(M\) flach ist.
+
+\end{Satz}
+\begin{proof}
+Klar, Lange exakte Tor Sequenz.
+\end{proof}
+\begin{Def} Seien \(M,N\) \(R\)-Moduln und \(M_*\to M\) projektive Auflösung.
+Sei \(Ext_R^n(M,N)\) die \(n\)-te homologische Ableitung von \(Hom_R(-,N)\). 
+Sei  \(N\to N^*\) injektive Auflösung. Sei \(Ext_R^n'(M,N)\) die cohomologische Ableitung von \(Hom_R(M,-)\). 
+
+\end{Def}
+\begin{Satz} \(Ext_R^n'(M,N)\cong Ext_R^n(M,N)\)
+
+\end{Satz}
+\begin{proof}
+Wie in ?? sei \(C^{**}=\Hom_R(M_*,M^*)\) und \(A^*=Hom(M_*,N)\) und \(B^*=\Hom(M,N^*)\).
+Das gibt Abbildungen \(B^*\to Tot(C^{**})\) und \(A^*\to Tot(C^{**})\). Das sind quasi-Isomorphismen, denn zum
+Beispiel in Zeile \(j\) ist \(B^*\to C^{**}\) einfach nur 
+\[\dots\to\Hom(M_1,N^j)\to\Hom(M_0,N^j)\to\Hom(M,N^j)\] was exakt ist da \(N^j\) injektiv ist.
+\end{proof}
+\begin{Satz} Für ein \(R\)-Modul \(P\) ist äquivalent:
+\begin{enumerate}
+\item \(P\) projektiv.
+\item \(\Ext_R^n(P,N)=0\) für alle \(n>0\) und alle Moduln \(N\).
+\item \(Ext_R^1(P,N)=0\) für alle \(n\).
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+wie bei Tor
+\end{proof}
+\begin{Satz} Für einen \(R\) Modul \(I\) ist äquivalent
+\begin{enumerate}
+\item \(I\) ist injektiv
+\item \(Ext_R^n(M,I)=0\) für alle \(n\) und alle Moduln \(M\)
+\item \(Ext_R^1(M,I)=0\) für alle \(n\) und alle Moduln \(M\)
+\end{enumerate}
+
+\end{Satz}
+\begin{proof}
+Genau wie vorher.
+\end{proof}

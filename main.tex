@@ -1,14 +1,12 @@
-\documentclass[a4paper,11pt,pdftex]{amsart}
+\documentclass[oneside]{book}
 \usepackage{config,commands} % Required for inserting images
 
 
 \begin{document}
-\input{Category Theory}
-\input{Sets}
-\input{Group Theory}
-\input{Galoistheory}
-\input{commutative algebra}
-\input{Algebraic Number Theory}
-\input{Topology}
-\input{Algebraic Geometry}
+\include{part_foundations}
+\include{part_field_theory_and_galois_theory}
+\include{part_commutative_algebra}
+\include{part_algebraic_number_theory}
+\include{Topology}
+\include{Algebraic Geometry}
 \end{document}

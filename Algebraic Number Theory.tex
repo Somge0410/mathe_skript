@@ -1,0 +1,372 @@
+\chapter{Grundlagen}
+\section{Quadratzahlen \( \mod p\)}
+\begin{Bem}
+    Sei \(n=k\cdot \ell\) natürliche Zahlen. Dann ist 
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AtLgejE48QAX1LpMufIRQBGclVqMWbQXwHcuIsSAzY8BIgCZ51es1aIOG-qpEKYUAObwioAGYAnCAFskZEDgQSHKK5irsAMZQEDgABADWWu5evoghgUjGocqWnFExsQx2wkA
+\begin{tikzfigure} 
+\ZZ/n\ZZ \arrow[r, "\cdot k"] & \ZZ/n\ZZ \arrow[r, "\cdot \ell"] & \ZZ/n\ZZ
+\end{tikzfigure} exakt, das heißt
+    \[\{a\in\ZZ/n\mid \ell\dot a=0\} =\{k\cdot b\mid b\in\ZZ/n\ZZ\}\]
+    denn für \(x\in \ZZ\) ist \(n\mid \ell\dot x \iff k\mid x\).
+\end{Bem}
+\begin{Bem}
+    Es ist \((\FF_p^*,\cdot)\cong (\ZZ/(p-1),+),\, 1\mapsto 0\) nach Satz ???.
+    Wenn also \(p-1=n=k\dot \ell\) dann ist
+    \(\{a\in\FF_p^*\mid a^k=1\}=\{b^\ell\mid b\in\FF_p^*\}\).
+    Wenn also \(p\geq 3\) dann ist \(p-1=2\cdot \frac{p-1}{2}\).
+    Also ist \[\{b^2\mid b\in\FF_p^*\}=\{a\in\FF_p^*\mid a^{\frac{p-1}{2}}=1\}.\]
+\end{Bem}
+\begin{Def}[Legendre Symbol]
+    Sei \(p\) prim und \(a\in \ZZ\). Dann ist das Legendre Symbol gegeben durch 
+    \[\left( \frac a p\right)=\begin{cases}
+        0 & p\mid a\\
+        1 & p\not\mid a \ext{ und } a \text{ Quadratzahl in} \FF_p\\
+        -1 & p\not\mid a \ext{ und } a \text{ keine Quadratzahl in} \FF_p\\
+    \end{cases}\]
+\end{Def}
+\begin{Lemma} \[\left(\frac a p\right)\equiv a^{\frac{p-1}{2}}\mod p\]
+\end{Lemma}
+\begin{proof}
+    Wenn \(\left(\frac a p\right)=-1\) dann ist \((a^{\frac{p-1}{2}})^2=a^{p-1}=1\) in \(\FF_p\).
+    also \(a^{\frac{p-1}{2}}\in \{\pm 1\}\) aber \(a^{\frac{p-1}{2}}\neq 1\) da sonst \(a\) ein 
+    Quadrat. 
+\end{proof}
+\begin{Lemma}
+    \[\left(\frac{-1}{p}\right)=\begin{cases}
+        1 & 4\mid p-1 \iff p\equiv 1 \mod 4\\
+        -1 & 4\not\mid p-1 \iff p\equiv 3\mod 4
+    \end{cases}\]
+\end{Lemma}
+
+\begin{Lemma}
+    Wenn \(p\equiv 1 \mod 4\) dann ist \(-1\in \FF_p\) eine Quadratzahl.
+\end{Lemma}
+\begin{proof}
+    
+\end{proof}
+\section{Primzahlen in \(\ZZ[i]\)}
+\begin{Bem}
+    Für \(z\in\ZZ[i]\) definiere \(N(z)=z\cdot\bar{z}\). Damit wird \(\ZZ[i]\) ein Euklidischer 
+    Ring bzgl \(N\).
+    Es ist \(N(zw)=N(z)=N(w)\) und 
+    \(\ZZ[i]^*=\{z\in \ZZ[i]\mid  N(z)=1\}=\{\pm 1,\pm i\}.\)
+\end{Bem}
+\begin{Satz} Eine Primzahl \(p\in \NN\) hat eine Darstellung \(p=a^2+b^2\) mit \(a,b\in \NN\) genau dann wenn
+    \(p=2\) oder \(p \equiv 1 \mod 4\).
+\end{Satz}
+\begin{proof}
+    Für alle \(x\in \NN\) gilt \(x^2\equiv 0 \mod 4\) oder \(x^2\equiv 1\mod 4\).
+    wenn also \(p=x^2+y^2\) ist, dann ist \(p \equiv\begin{cases}
+        0 \\ 
+        1\\
+        2\\
+    \end{cases} \mod 4\).
+    Also ist eine Richtung gezeigt.
+    Sei andererseits \(p\equiv 1 \mod 4\). Wähle \(x\) sodass \(x^2\equiv -1 \mod p\) nach ??
+    Das heißt \(p\mid x^2+1=(x+i)(x-i)\) in \(\ZZ[i]\).
+    Aber \(p\not \mid x\pm i\) da \(\frac{x\pm i}{p}=\frac x p \pm \frac i p\not\in\ZZ[i]\).
+    Somit ist \(p\) nicht prim in \(\ZZ[i]\).
+    Da \(\ZZ[i]\) Euklidisch, ist es faktoriell nach ?? somit ist \(p\) nicht irreduzibel.
+    das heißt \(p=z\cdot w\) für \(z,w\in\ZZ[i]\) keine Einheiten.
+    Dann ist \(p^2=N(p)=N(Z)N(w)\) und \(N(Z),N(w)\neq 1\) also \(p=N(z)=N(w)\).
+    Wenn \(z=a+bi\) dann ist \(p=N(z)=a^2+b^2\).
+\end{proof}
+\begin{Satz}
+    Primelemnte in \(\ZZ[i]\) sind 
+    \begin{enumerate}
+        \item Primzahlen \(p\in\ZZ\) mit \(p\equiv 3\mod 4\)
+        \item \(a+bi\in\ZZ[i]\) mit \(a^2+b^2=p\) und \(p=2\) oder \(p\equiv 1 \mod 4\).
+    \end{enumerate}
+\end{Satz}
+\begin{proof}
+    Ähnliche Rechnung.
+\end{proof}
+\begin{Bsp}[Pellsche Gleichung]
+    Fixiere \(N\in \NN\) und \(N\) sei keine Quadratzahl.
+    Suche \(a,b\in\NN\) sodass \(a^2-Nb^2=1\).
+    
+\end{Bsp}
+\begin{Lemma} Sei \(R=\ZZ[\sqrt{N}]=\{a+b\sqrt{N}\mid a,b\in\ZZ\}\).
+    \(z=a+b\sqrt{N}\in R^*\iff a^2-Nb^2=\pm 1\)
+\end{Lemma}
+\begin{Bsp}
+    Sei \(R=\ZZ[\sqrt{2}]\). Die Norm von \(x=a+b\sqrt{2}\) ist definiert als 
+    \(N(x)=(a+b\sqrt{2})(a-b\sqrt{2})=a^2-2b^2\).
+    Es ist \(x\in R\) eine Einheit genau dann wenn \(N(x)=\pm 1\).
+    Denn wenn \(x\cdot \bar x=N(x)=\pm 1\) dann ist \(\pm \bar x\) das Inverse zu \(x\), wobei 
+    \(\bar x=a-b\sqrt{2}\) ist.
+    Es ist jede Einheit \(u=a+b\sqrt{2}\) von \(R\) von der Form \(\pm (1+\sqrt{2})^n\) für \(n\in \ZZ\).
+    
+    Induktion über \(n=|a+b|\).
+    Wenn \(n=0\) dann ist \(a=-b\) sodass \(u=b(-1+\sqrt{2})\). Da \(-1+\sqrt{2}=(1+\sqrt{2})^{-1}\) ist muss
+    \(b=\pm 1\) sein also hat es die gewünschte Form.
+    Sei \(n=|a+b|>0\)
+    Wenn \(a,b\) verschiedene Vorzeichen haben sei \(u'=\frac{a-b\sqrt{2}}{N(u)}=\pm (a-b\sqrt{2})\)
+    und \(uu'=\pm 1\) und ersetze \(u\) durch \(u'\).
+    Wenn \(a,b\) beide negativ sind, ersetze \(u\) durch \(-u\).
+    Also ohne Einschränkung \(a,b>0\). 
+    Dann ist \(u'=u(-1+\sqrt{2})=(-a+2b)+(a-b)\sqrt{2}\) eine Einheit, da \(-1+\sqrt{2}=(1+\sqrt{2})^{-1}\)
+    Sei \(c=-a+2b\) und \(d=a-b\). Dann ist \(|c+d|=|b|<|a+b|\).
+    Nach Induktion hat \(u'\) die gewünschte Form und damit auch \(u\).
+    Das zeigt, dass \(\ZZ/2\ZZ\times \ZZ\cong R^*,\, (n+2\ZZ,m)\mapsto (-1)^n(1+\sqrt{2})^m\).
+\end{Bsp}
+\section{Zahlkörper}
+\begin{Def}
+    Ein Zahlkörper ist eine endliche Erweiterung \(K/\QQ\). Wenn \(K\) ein Zahlkörper ist, dann
+    ist der Ring der ganzen Zahlen von \(K\) gegeben durch
+    \[\OO_K=\{z\in K\mid z \text{ ganz über }\ZZ\}\]
+    Also \(\OO_K\) ist der ganze Abschluss von \(\ZZ\) in \(K\).
+\end{Def}
+\begin{Bsp}
+    Sei \(K\) ein quadratischer Zahlkörper, \(K=\QQ(\sqrt{d})\) für ein quadratfreies \(d\in \ZZ\).
+    Sei \(x=a+b\sqrt{d}\in K\) mit \(a,b\in \QQ\)
+    Wenn \(b=0\) dann ist \(x\) ganz über \(ZZ\) genau dann wenn \(a\in \ZZ\).
+    Wennn \(b\neq 0\) dann ist das Minimalpolynom von \(x\) gegeben durch 
+    \(X^2-2aX+(a^2-db^2)\).
+    \(x\) ist nach ??? ganz über \(\ZZ\) genau dann wenn \(-2a, a^2+-db^2\in \ZZ\) also genau dann
+    wenn \(a,b\in \ZZ\) oder \(a,b\in \frac 1 2+\ZZ\) und \(d\equiv 1 \mod 4\).
+    Das heißt \[\OO_K=\begin{cases}
+        \ZZ[\sqrt{d}] & d\not\equiv \mod 4\\
+        \ZZ[\frac{\sqrt{d}+1}{2}] & d\equiv 1 \mod 4
+    \end{cases}\]
+\end{Bsp}
+\begin{Bem}
+    Aus ??? folgt, dass \(\OO_K\) ein endlicher \(\ZZ\)-Modul ist.
+    Da \(\OO_k\) torsionsfrei ist folgt mit ???
+    \(\O_K=\ZZ^n\) als \(\ZZ\)-Modul.
+\end{Bem}
+\begin{Def} Eine \(\ZZ\)-Basis von \(\OO_K\) heißt Ganzheitsbasis von \(K\).
+\end{Def}
+\begin{Lemma}
+    Jede Ganzheitsbasis ist eine \(\\Q\)-Basis von \(K\) und \(\OO_K\cong \ZZ^n\) mit 
+    \(n=[L:K]\).
+\end{Lemma}
+\begin{proof}
+    Seien \(a_1,\dots,a_n\in\OO_K\) eine Ganzheitsbasis.
+    Dann sind sie auch \(\\Q\)-linear unabhängig.
+    Sei \(y\in K\) mit \(f\in \QQ[X]\) Minimalpolynom.
+    Sei \(b\) der gemeinsame Nenner aller Koeffienten von \(f\).
+    Dann ist \(by\) ganz also in \(\OO_K\).
+    somit ist \(y\in \QQ\cdot \OO_K\).
+\end{proof}
+\begin{Bsp}
+    Wenn \(K=\QQ(\sqrt{d})\) mit \(d\) quadratfrei, dann ist
+    falls \(d\equiv 1 \mod 4\) eine Ganzheitsbasis gegeben durch 
+    \(1,\frac{}\sqrt{d}+1}{2}\) und falls \(d\not\equiv \mod 4\) gegeben durch 
+    \(1,\sqrt{d}\).
+\end{Bsp}
+\begin{Def}
+    Sei \(L/K\) eine Körpererweiterung.
+    Definiere die Spur von \(b\in L\) durch
+    \[Tr_{L/K}(b)=Tr(b\colon L\to L)\]
+    und die Norm von \(b\in L\) durch 
+    \[N_{L/K}(b)=\det(b\colon L\to L)\]
+\end{Def}
+\begin{Lemma}
+    Wenn \(L/K\) separabel, dann ist für \(b\in L\) und \(\Sigma=\{\sigma\colon L\to \bar K\mid \sigma|_K=\id\]\):
+    \[Tr_{L/K}(b)=\sum_{\sigma\in\Sigma}\sigma(b)\]
+    \[N_{L/K}(b)=\prod_{\sigma\in\Sigma}\sigma(b)\]
+\end{Lemma}
+\begin{proof}
+    Wenn \(L=K(b)\) und \(f\) das Minimalpolynom von \(b\) ist, dann ist
+    \(f=\mu_b\mid \chi_b\) und \(n=[L:K]=\deg(f)=\deg(\chi_b)\) 
+    also ist \(\chi_b=f\).
+    Die \(\sigma(b)\) sind paarweise verschiedene Nullstellen von \(f\) da \(b\) separabel.
+    Da Separabilitätsgrad gleich Körpergrad, ist \(|\Sigma|=n\).
+    Somit teilt \(\prod_{\sigma\in \Sigma}(X-\sigma(b))\mid f\) und weil beide gleiche Gerade haben
+    sind sie gleich und Aussage folgt.
+    Wenn \(L\) allgemein, sei \(M=K(b)\).
+    Jedes \(\sigma'\colon M\to \bar K\) hat genau \(r=[L:M]\) Fortsetzungen zu \(\sigma\colon L\to \bar K\) 
+    nach ????.
+    Also ist \(\prod_{\sigma\in \Sigma}(X-\sigma(b))=\prod_{\sigma'\in \Sigma'}(X-\sigma'(b))^r\) mit 
+    \(\Sigma'=\{\sigma'\colon M\to \bar K\).
+    Es ist \(L=M^r\) als \(M\) Vektorraum und \(b\in M\) respektiert die Summenzerlegung.
+    Also ist \(\chi_{b\colon L\o L}=(\chi_{b\colon M\to M})^r\).
+
+\end{proof}
+\begin{Kor}
+Seien \(M//L/K\) separable Körpererweiterungen und \(b\in M\).
+Dann \[Tr_{M/K}(b)=Tr_{L/K}(Tr_{M/L}(b))\]
+\[N_{M/K}(b)=N_{L/K}(N_{M/L}(b))\]
+\end{Kor}
+\begin{proof}
+    Genau wie in ???
+\end{proof}
+\begin{Def}
+    Sei \(L/K\) endliche separable Körpererweiterung und \(a_1,\dots,a_n\) eine \(K\)-Basis.
+    Die Diskrimminante von \(a_1,\dots,a_n\) sei 
+    \[d(a_1,\dots,a_n)=\det(Tr_{L/K}(a_ia_j)_{ij})\]
+    das heißt die Determinante der Darstellenden Matrix bzgl der Bilinearform
+    \(L\times L\to K, (a,b)\mapsto Tr_{L/K}(ab)\).
+\end{Def}
+\begin{Bem}[Basiswechsel]
+    Wenn \(a_1,\dots,a_n\) und \(b_1,\dots,b_n\) zwei \(K\)-Basen und \(S\) die Übergangsmatrix ist,
+    dann ist\[d(b_1,\dots,b_n)=det(S^TTr(a_ia_j)_{ij}S)=\det(S)^2d(a_1,\dots,a_n)\] 
+\end{Bem}
+\begin{Lemma}
+    Wenn \(A=Tr(a_ia_j}_{ij})\) Dann ist \(A=B^tB\) für \(B=\sigma_i(a_j)_{i,j}\in M_n(\bar K)\) mit
+    wobei \(\sigma_i\) die verscchiedenen \(K\)-Homomorphismen \(L\to \bar K\).
+\end{Lemma}
+\begin{proof}
+    Nach ?? ist
+    \[(B^tB)_{ik}=\sum_{j=1}^n\sigma_j(a_i)\sigma_j(a_k)=\sum_{j=1}^n\sigma_j(a_ia_k)=Tr_{L/K}(a_ia_k)=A_{ik}\]
+\end{proof}
+\begin{Kor}
+    \(d(a_1,\dots,a_n)=det(A)=\det(B)^2\)
+\end{Kor}
+\begin{Satz}
+\(d(a_1,\dots,a_n)\neq 0\) also ist \((a,b)\to Tr_{L/K}(ab)\) nicht ausgeartet.
+\end{Satz}
+\begin{proof}
+    Das folgt eigentlich schon direkt aus ???
+    Alternativ:
+    Nach \nameref{Satz:PrimElt} ist \(L=K(b)\).
+    Das heißt eine \(K\) basis von \(L\) ist \(1,b,b^2,\dots,b^{n-1}\) mit \(n=[L:K]\).
+    Sei \(B=\begin{pmatrix}
+1 & \dots & 1 \\
+\sigma_1(b) &  &  \\
+\vdots &  & \vdots \\
+\sigma_1(b)^{n-1} &  & \sigma_n(b)^{n-1} 
+\end{pmatrix} \) 
+Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
+\end{proof}
+\begin{Bem}
+    Angenommen \(A\subset K\) Teilring und \(a_1,\dots,a_n\in L\) ganz über \(A\).
+    Dann ist \(\sigma_i(a_j)\) ganz über \(A\) und damit \(\det(B)\) ganz über \(A\).
+    Also ist Diskrimminante \(d(a_1,\dots,a_n\) ganz über \(A\).
+\end{Bem}
+\begin{Def}
+    Sei \(K/\QQ\) endlich und \(a_1,\dots,a_n\in\OO_K\) Ganzheitsbasis.
+    Diskrimminante von \(K\) ist 
+    \(d_K=d(a_1,\dots,a_n)=\det(Tr_{K/\QQ}(a_ia_j))\).
+    Eine Basiswechselmatrix \(S\) zu einer anderen Ganzheitsbasis ist über \(\ZZ\) 
+    also ist hat Determinante \(\pm 1\) also ist nach ??? \(d_K\) wohldefiniert.
+\end{Def}
+\begin{Bsp}
+    Sei \(K=\QQ(\sqrt{d})\) und \(d\) quadratfrei.
+    Wenn \(d\not\equiv 1 \mod 4\), dann ist \(1,\sqrt{d}\) eine Ganzheitsbasis nach ???
+    Also ist \(B=(\sigma_i(a_j))_{ij}=\begin{pmatrix}
+        1 & 1 \\
+        \sqrt{d} & -\sqrt{d}
+    \end{pmatrix}\) 
+    und \(d_K=\det(B)^2=4d\).
+    Wenn \(d\equiv 1 \mod 4\), dann ist \(1,\frac{\sqrt{d}+1}{2}\) eine Ganzheitsbasis nach ???
+    Also ist \(B=(\sigma_i(a_j))_{ij}=\begin{pmatrix}
+        1 & 1 \\
+        \frac{\sqrt{d}+1}{2} & \frac{-\sqrt{d}+1}{2}
+    \end{pmatrix}\) 
+    und \(d_K=\det(B)^2=d\).
+    
+\end{Bsp}
+\begin{Lemma}
+    sei \((0)\neq I\subseteq \OO_K\) ein Ideal.
+    Dann ist \(I=\cong \ZZ^n\) als \(\ZZ\)-Modul und \(n=[L:K]\).
+\end{Lemma}
+\begin{proof}
+    Wähle \(a\in I\) mit \(a\neq 0\).
+    Dann ist \(a\OO_K\subseteq I\subseteq \OO_K\).
+    Da \(a\OO_K\cong \ZZ^n\) ist \(I\cong \ZZ^n\).
+\end{proof}
+\begin{Def}
+    Definiere \(d(I)=d(b_1,\dots,b_n\) für eine \(\ZZ\)-Basis \(b_1,\dots,b_n\) von \(I\).
+    Wenn \(a_1,\dots,a_n\) Ganzheitsbasis und \(S\) Übergangsmatrix,
+    dann ist \(d(I)=\det(S)^2d_K\) mit \(\det(S)\neq 0\) über \(\QQ\) invertierbar.
+\end{Def}
+\begin{Lemma}
+    \[\mid \det(S)\mid =\mid \OO_K/I\mid\] und somit 
+    \(d(I)=\mid \O_K/I \mid^2d_K\).
+
+\end{Lemma}
+\begin{Bsp}
+    Sei \(K=\QQ(\zeta_p)\) für eine primitive \(p\)-te Einheitswurzel \(\zeta_p\).
+    Es ist \(\Sigma=\{\sigma\colon K\to \bar\QQ\}=\{\sigma_i\mid \sigma_i(\zeta_p)=\zeta_p^i, i=1,\dots,p-1\}\).
+    Also ist 
+    \[Tr_{K/\QQ}(\zeta_p)=\sum_{i=1}^{n-1}b^i=-1+\sum_{i=0}^{n-1}b^i=-1+\dfrac{\zeta_p^p-1}{\zeta_p-1}=-1\] 
+    und 
+    Es ist \(K=\QQ(1-\zeta_p)\) daher hat das Minimalpolynom von \(1-\zeta_p\) Grad \(p-1\).
+    Dann ist \(f(X)=\frac{(1-X)^p-1}{X}=-\dfrac{(1-X)^p-1}{(1-X)-1}=-(1+(1-X)^1+\dots+(1-X)^{p-1})\in \QQ[X]\) das Minimalpolynom denn \(f(1-\zeta_p)=0\) und 
+    \(f\) hat Grad \(p-1\) und ist normiert.
+    Somit ist \(f\) auch das Charakteristische Polynom \(\chi_\zeta_p\).
+    Es ist \(f(0)=-p\). Somit ist \(N_{L/K}(1-\zeta_p)=p\).
+\end{Bsp}
+\begin{Bsp}
+    Sei \(K=\QQ(\sqrt[3]{2})\) mit Ganzheitsbasis \(1,\sqrt[3]{2},\sqrt[3]{4}\).
+    Es ist \(\Sigma=\{\sigma_k\mid b\mapsto b\cdot e^{\frac{2\pi i k}{3}}, k=0,1,2\}\)
+    Dann ist 
+    \[B=(\sigma_i(b^j))_{ij}=\begin{pmatrix}
+        1 & 1 & 1\\
+        \sqrt[3]{2} & \sqrt[3]{2}e^{\frac{2\pi i 1}{3}} & \sqrt[3]{2}e^{\frac{2\pi i 2}{3}}\\
+        \sqrt[3]{4} & \sqrt[3]{4}e^{\frac{2\pi i 1}{3}} & \sqrt[3]{4}e^{\frac{2\pi i 2}{3}}
+    \end{pmatrix}\]
+    und \(d_K=\det(B)^2=(-3i2\sqrt{3})^2=-3^3\cdot 2^2\).
+    Alternativ:
+    Wenn \(a_1=1, a_2=b, a_3=b^2\) Ganzheitsbasis ist,
+    Dann ist \(\{a_ia_j\mid i,j=1,2,3\}=\{1,b,b^2,2\}\).
+    Es ist \(b\colon K\to K\) ist dargestellt durch 
+    \[\begin{pmatrix}
+       0 & 0& 2\\
+       1 & 0 & 0\\
+       0 & 1& 0\\
+    \end{pmatrix}\] Also ist \(Tr(b)=0\).
+    \(b^2\colon K\to K\) ist dargestellt durch \[\begin{pmatrix}
+       0 & 2& 0\\
+       0 & 0 & 2\\
+       1 & 0& 0\\
+    \end{pmatrix}\] hat also auch \(Tr(b^2)=0\).
+    Es ist \(Tr(1)=3\) und \(Tr(2)=2\dot 3\).
+    Also ist \[A=
+        \begin{pmatrix}
+       3 & 0& 0\\
+       0 & 0 & 6\\
+       0 & 6 & 0\\
+    \end{pmatrix}\] 
+    und somit \(d_K=\det(A)=-3^3\cdot 2^2\).
+\end{Bsp}
+% Das hier sollte eher zu Ganzheit gehören
+\begin{Bsp}
+    Seien \[a=\sqrt[3]{1+\sqrt[4]{2+\sqrt{7}}},\, b=\sqrt[3]{1+\sqrt[4]{2+\frac 1 2\sqrt{7}}},\,
+    c=\dfrac{3+2\sqrt{6}}{1-\sqrt{6}}\] 
+    Es ist \(f(X)=\left((X^3-1)^4-2\right)^2-7\in \ZZ[X]\) und \(f(a)=0\) 
+    also ist \(a\) ganz über \(\ZZ\).
+    Angenommen \(b\) wäre ganz über \(\ZZ\)).
+    Dann auch \(\left((b^3-1)^4-2\right)^2=\frac 7 4\) was nicht richtig ist da \(\ZZ\) ganzabgeschlossen in \(\QQ\).
+    Es ist \(c=-(\sqrt{6}+3)\) und \(\sqrt{6}\) ist ganz da \(\sqrt{6}^2-6=0\) und \(3\) ist ganz.
+    Also ist auch \(c\) ganz.
+\end{Bsp}
+% Das hier sollte eher zu Topologie oder Gruppen gehören
+\begin{Lemma}
+    Sei \(G\) eine topologische Gruppe. Dann gilt:
+    \begin{enumerate}
+        \item Für eine normale Untergruppe \(H\subseteq G\) ist \(G/H\) eine topologische Gruppe.
+        \item Wenn \(K\subseteq H\subseteq G\) normale Untergruppen sind, dann ist die 
+        Teilraumtopologie \(H/K\subseteq G/K\) die gleiche wie die Quotiententopologie.
+        \item Sei \(G\) Hausdorff. Dann \[G/H\text{ Hausdorff } \iff H\subseteq G \text{abgeschlossen}\] 
+        \item Sei \(H\subseteq \RR^n\) abgeschlossen. Es gilt 
+        \[\RR^n/H \text{ kompakt } \iff \exits B\subseteq \RR^n \text{ beschränkte Menge sd.} B+H=\RR^n\] 
+    \end{enumerate}
+\end{Lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item Klar.
+        \item Die Abbildung \(H\to H/K\) wobei \(H/K\) Unterraumtopologie hat ist stetig.
+        Wenn also \(U\) offen in Unterraumtopologie dann auch in Quotiententopologie.
+        Sei \(U\) offen in Quotiententopologie, \(\pi_H\colon H\to H/K\), \(\pi_G\colon G\to G/K\) Projektion.
+        Das heißt es gibt ein \(V\subseteq G\) offen sodass \(V\cap H=\pi_H^{-1}(U)\).
+        Es ist \[\pi_G^{-1}(V/K)=V\cdot K=\bigcup_{k\in K}V\cdot k\] offen, also
+        \(V/K\subseteq G/K\) offen.
+        Es ist \(V/K \cap H/K=(V\cap H)/K=U\). 
+        Also ist \(U\) offen in Unterraumtopologie.
+        \item Sei \(G/H\) Hausdorff, \(\pi\colon G\to G/H\). Es ist \(eH\) abgeschlossen in \(G/H\) da Einpunktmengen immer
+        abgeschlossen sind in Hausdorff. Also ist \(H=\pi^{-1}(eH)=H\) abgeschlossen.
+        Sei andererseits \(H\) abgeschlossen.
+        Betrachte \(G\times G\to G/H\times G/H\). Das ist offen da \(\pi\) offen ist(Topologische Gruppen).
+        Sei \(W=\{(x,y)\in G\times G\mid x^{-1}y\in G\setminus H\}\). Das ist offen da \(G\) topologische Gruppe.
+        Es ist \((\pi\times\pi)(W)=G/H\times G/H \setminus\{\text{Diagonale}\}\).
+        Also ist die Diagonale abgeschlossen in \(G/H\times G/H\) also \(G/H\) Hausdorff.
+        \item Sei \(H\subseteq \RR^n\) abgeschlossen und \(\pi\colon \RR^n\to \RR^n/H\) die Projektion.
+        Angenommen \(R/H\) kompakt das heißt \(\RR^n/\setminus H=\bigcup_{i=1}^m\pi(B_k(0))\) für ein \(m\).
+        Dann ist \(\RR^n=\bigcup_{k=1}^mB_k(0)+H\).
+        wenn andererseits \(\RR^n=B+H\) wobei \(B\) beschränkt, dann ist ohne Einschränkung \(B\) abgeschlossen also kompakt.
+        Da \(\pi(B)=R^n/H\) ist ist auch \(R^n/H\) kompakt.
+    \end{enumerate}
+\end{proof}

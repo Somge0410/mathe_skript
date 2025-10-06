@@ -404,7 +404,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 	\[Tr_{L/K}(a)=[L:K]a\] und
 	\[N_{L/K}(a)=a^{[L:K]}\]
 \end{Bem}
-\begin{Lemma}
+\begin{Lemma}\label{Lem:CharMinPot}
 	Sei \(L/K\) eine endliche Körpererweiterung und \(b\in L\). Sei \(P\) das Minimalpolynom von \(b\) über \(K\),
 	\(\deg(P)=d\) und \(e=[L:K(b)]=\frac{[L:K]}{d}\). Dann ist das charackteristische Polynom \[\chi_{b\colon L\to L}=P^e.\]
 \end{Lemma}
@@ -415,12 +415,12 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 \end{proof}
 \begin{Kor}
 	Sei \(L/K\) endliche Körpererweiterung und \(P=X^d+a_{d-1}X^{d-1}+\dots+a_0\) das Minimalpolynom von \(b\in L\). Dann ist 
-	\[Tr_{L/K}(b)=-ea\] und
-	\[N_{L/K}(b)=(-1)^{[L:K]}a\] wobei \(ed=[L:K]\)
+	\[Tr_{L/K}(b)=-ea_{d-1}\] und
+	\[N_{L/K}(b)=(-1)^{[L:K]}a_0\] wobei \(ed=[L:K]\)
 \end{Kor}
-\begin{proof} Klar nach ???.
+\begin{proof} Klar nach \cref{Lem:CharMinPot}.
 \end{proof}
-\begin{Satz} Wenn \(L/K\) eine endliche separable Erweiterung ist, dann ist für \(b\in L\) das Minimalpolynom
+\begin{Satz}\label{Satz:MipolCharSep} Wenn \(L/K\) eine endliche separable Erweiterung ist, dann ist für \(b\in L\) das Minimalpolynom
 	\[\mu_b(X)=\prod_{\sigma\in\Sigma}(X-\sigma(b))\] und das charackteristische Polynom
 	\[\chi_b(X)=\prod_{\sigma\in\Sigma'}(X-\sigma(b))\]
 	wobei \(\Sigma=\{\sigma\colon K(b)\to \bar K\mid \sigma|_K=\id\}\) und \(\Sigma'=\{\sigma\colon L\to \bar K\mid \sigma|_K=\id\}\).
@@ -438,7 +438,7 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 	\(\Sigma=\{\sigma\colon L\to\bar K\mid \sigma|_K=\id\}\).
 \end{Kor}
 \begin{proof}
-	Klar nach ???
+	Klar nach \cref{Satz:MipolCharSep}.
 \end{proof}
 \begin{Lemma} Sei \(L\) ein Körper und \(a_1,\dots,a_n\) paarweise verschieden. Wenn \(\lambda_1,\dots,\lambda_n\) nicht alle \(0\) sind, dann gibt es ein \(e\geq 0\) sodass \(\sum_{i=1}^n\lambda_i a_i^e\neq 0\).
 \end{Lemma}
@@ -485,4 +485,15 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 	Wenn \(m>0\) dann ist jedes Element in \(\bar K[Y]/(Y^{p^m})\) Summe von etwas Konstantem und etwas nilpotenten.
 	Jede Konstante hat Spur \(0\) denn \(p^m=0\) in \(\bar K\).
 	Jedes nilpotente Element hat auch Spur \(0\). Also hat jedes Element in \(\bar K[Y]/(Y^{p^m})\) Spur \(0\).
+\end{proof}
+\begin{Satz}
+	Sei \(L/K\) eine endliche Galoiserweiterung und \(A\subseteq K\) normal.
+	Sei \(B\) der ganze Abschluss von \(A\) in \(L\).
+	Wenn \(b\in B\) dann ist \(Tr(b)\in A\).
+\end{Satz}
+\begin{proof}
+	Sei \(\varphi(x)=\prod_{g\in G}(X-g(b))\) mit \(G=\Gal(L/K)\). Das ist das Charakterisitsche Polynom nach ?? und ??.
+	Alle Koefffizienten von \(\varphi\) sind in \(K\). Da \(B\) ganz ist über \(A\) ist auch \(g(b)\) ganz.
+	Also sind alle Koeffizienten ganz über \(A\) und damit in \(A\) da \(A\) normal.
+	Also ist \(Tr(b)\in A\) da \(Tr(b)\) einer der Koeffienten ist.
 \end{proof}

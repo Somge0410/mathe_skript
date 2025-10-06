@@ -1,0 +1,59 @@
+\chapter{Minkowski Theorie}
+\begin{Def} Sei \(V\) ein endlich-dimensionaler \(\RR\)-Vektorraum.
+	\begin{enumerate}
+		\item Eine Untergruppe \(\Lambda\subseeq V\) ist ein Gitter, wenn jede \(\ZZ\)-lineare unabhängige Menge in 
+		\(\Lambda\) in \(V\) \(\RR\)-linear unabhängig ist.
+		\item Ein Gitter \(\Lambda\subseteq V\) ist vollständig, wenn \(\Lambda\) \(V\) als \(\RR\)-Vektorraum erzeugt.
+	\end{enumerate}
+	
+\end{Def}
+\begin{Bsp}
+	\(\ZZ^n\subseteq \RR^n\) ist vollständiges Gitter. \(\ZZ[i]\subseteq\CC\) ist vollständiges Gitter mit Basis \(1,i\). Aber \(\ZZ[\sqrt 2]\subseteq \RR\) ist kein Gitter.
+\end{Bsp}
+\begin{Bem}
+	Sei \(\Lambda\subseteq V\) und \(\alpha\colon\Lambda \otimes_\ZZ\RR\to V,(x,v)\mapsto xv\).
+	Es ist \(\Lambda\) ein Gitter \(\iff \alpha\) injektiv ist.
+	\(Lambda\) ist vollständiges Gitter \(\iff \alpha\). bijektiv.
+	
+	Wenn \(\Lambda\subseteq V\) vollständiges Gitter ist, dann gibt eine Wahl von Basis von \(\Lambda\) und 
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModEAF9S6TLnyEUARnJVajFmwBqo8SAzY8BImVmL6zVog7sAWhYB6hMRJ3Si8w9WMqznAEpfboxTBQAObwRKAAZgBOELxIAEzUOBBIAMyJdFgMbAAWEBAA1hoR0bGIZCBJ8dQMWGCmIFAQTPwMrNTZMHRQbJB1IOmZPQRtSiZsnNE4dDgw-BAAHsAAnMQiwJwAFJzYvJwAlCJFIFExSPIVyYhpIB1dQ33VtfWNza39FRlZZr0j7vUTECmMzmixWa022ywu3YByOJ1K5UqiHOU0GZlyBX8IiAA
+	\begin{tikzfigure}
+		\Lambda \arrow[d, "\rotatebox{90}{\(\sim\)}", no head, equal] \arrow[r, hook] & V \arrow[d, "\rotatebox{90}{\(\sim\)}", no head, equal] \\
+		\ZZ^n \arrow[r, hook]                                                              & \RR^n                                                       
+	\end{tikzfigure}
+\end{Bem}
+\begin{Satz} Sei \(V\) ein \(\RR\)-Vektorraum.
+	\begin{enumerate}
+		\item Eine Untergruppe \(\Lambda\subseteq V\) ist Gitter \(iff \Lambda\) ist diskret in \(V\).
+		\item Ein Gitter \(\Lambda\subseteq V\) ist vollständig \(iff V/\Lambda\) ist kompakt.
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	\begin{enumerate}
+		\item Wenn \(Lambda\) Gitter dann ist es diskret da \(\ZZ^n\subseteq \RR^n\) diskret ist.
+		Sei also \(\Lambda\subseteq V\) diskret.
+		Ersetze \(V\) durch \(RR\cdot \Lambda\) und wähle \(RR\)-Basis \(v_1,\dots,v_n\in \Lambda\).
+		Sei \(Lambda_0=\langle v_1,\dots,v_n\rangle_\ZZ\).
+		Dann ist \(\Lambda_0\) Gitter in \(V\).
+		Es ist \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) wobei die Quotiententopologie gleich der Teilraumtopologie ist nach ???.
+		Da \(\Lambda\subseteq V\) diskret, ist \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) diskret.
+		Da \(\Lambda_0\subseteq\) vollständiges Gitter ist, ist \(V/\Lambda_0\) kompakt nach (2).
+		Also ist \(\Lambda/Lambda_0\) auch kompakt da \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) abgeschlossen denn \(\Lambda\subseteq V\) ist diskrete Untergruppe einer Hausdorff Gruppe.
+		Also ist zusammen \(\Lambda/\Lambda_0\) kompakt und diskret also endlich.
+		Also ist \(\Lambda\) endlich erzeugte abelsche Gruppe.
+		Nach ??? Struktursatz ist \(\Lambda\cong ZZ^r\). Da \(v_1,\dots,v_n\) linear unabhängig sind, ist \(\Lambda_0=\Lambda\) und somit \(\Lambda\) Gitter.
+		\item Wenn \(\Lambda\) vollständig, dann ist \(\RR^n/\ZZ^n=(S^1)^n\) kompakt.
+		Wenn \(\Lambda\subseteq V\) Gitter sodass \(V/\Lambda\) kompakt ist, dann sei \(V_0=\RR\Lambda\).
+		Es ist \(V=V_0\oplus V_1\) nach ergänzen einer Basis von \(V_0\).
+		Also ist \(V/\Lambda\cong V_0/\Lambda \oplus V_1=\text{kompakt}\times \RR^m\) kompakt. Also ist \(m=0\) und damit \(V_0=V\).
+	\end{enumerate}
+\end{proof}
+\begin{Def}
+	Sei \(\Lambda\subseteq V\) ein Gitter. Eine Grundmasche ist eine Menge der Form
+	\(\{\sum_{i=1}^na_iv_i\mid a_i\in [0,1]\}\) für eine Basis \(v_1,\dots,v_n\) von \(\Lambda\).
+\end{Def}
+Sei ab jetzt \(V\) ein eukldischer Vektorraum, dh. \(V\) hat ein Skalarprodukt. Dann trägt \(V\) ein Maß \(\mu\).
+\begin{Def}
+	Das Volumen \(\Vol(\Lambda)\) von Gitter \(\Lambda\) ist definiert als \(\mu(\Gamma)\) wobei \(\Gamma\) eine Grundmasche ist.Das ist wohldefiniert, denn zwei Basen von \(Lambda\) unterscheiden sich um ein Element von \(GL_n(\ZZ)\) und das hat Determinante \(\\pm 1\).
+	Wirkung auf Volumen geschiet durch Betrag der Determinante.
+\end{Def}

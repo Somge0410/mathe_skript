@@ -1,7 +1,7 @@
 \chapter{Gruppentheorie}
 \section{Grundlagen und Satz von Lagrange}
 \begin{Satz}[Gruppenordnung]
-    Sei \(G\) eine Gruppe und \(H\subseteq G\) eine Untergruppe. Dann ist \(|G|=|H|\cdot [G:H]\)
+    Sei \(G\) eine Gruppe und \(H\subseteq G\) eine Untergruppe. Dann ist \[|G|=|H|\cdot [G:H]\]
 \end{Satz}
 \begin{proof}
     Es ist \([G:H]=\abs{G/H}=\set{aH}{a\in G}\) und \[G=\bigcup_{aH\in G/H}aH\] disjunkte Vereinigung, denn wenn \(g\in G\) dann ist \(g\in gH\) und \(aH\cap bH=\empty \iff aH=bH\) Es ist \(\abs{H}\not=\abs{aH}\) für alle \(a\in G\).
@@ -92,7 +92,7 @@ Für \(a\in G\) ist \(\ord(a)\mid \abs{G}\). Also \(a^{\abs{G}}=e\).
     Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl mit \(p\mid \abs G\). Dann gibt es ein \(a\in G\) mit \(\ord(a)=p\).
 \end{Lemma}
 \begin{proof}
-    \(\ZZ/p\ZZ\) operiert auf der Menge \(M=\set{(g_1,\dots,g_p)\in G^p}{g_1\cdot g_2\dots \cdot g_p=e}\) durch \(k\cdot (g_1,\dots,g_p)=(g_{1+k\mod p},\dots,g_{p+k\mod p})\). Es ist \(\abs M=\abs G ^{p-1}\).
+    \(\ZZ/p\ZZ\) operiert auf der Menge \(M=\set{(g_1,\dots,g_p)\in G^p}{g_1\cdot g_2\dots \cdot g_p=e}\) durch \[k\cdot (g_1,\dots,g_p)=(g_{1+k\mod p},\dots,g_{p+k\mod p})\]. Es ist \(\abs M=\abs G ^{p-1}\).
     Nach \Cref{Satz:FixpPGrp} ist \[0\equiv \abs G^{p-1}\equiv \abs{M^{\ZZ/p\ZZ}}\mod p\]. Das heißt es gibt Fixpunkt \((g_1,\dots,g_p)\) wobei \(g_i\neq e\).
     Dann ist aber \(g_i=g_j\) für alle \(i,j\) also ist dieses Tupel \((g,\dots ,g)\) für ein \(g\in G\). Dann ist \(g^p=e\).
 \end{proof}

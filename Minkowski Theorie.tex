@@ -52,8 +52,157 @@
 	Sei \(\Lambda\subseteq V\) ein Gitter. Eine Grundmasche ist eine Menge der Form
 	\(\{\sum_{i=1}^na_iv_i\mid a_i\in [0,1]\}\) für eine Basis \(v_1,\dots,v_n\) von \(\Lambda\).
 \end{Def}
-Sei ab jetzt \(V\) ein eukldischer Vektorraum, dh. \(V\) hat ein Skalarprodukt. Dann trägt \(V\) ein Maß \(\mu\).
+Sei ab jetzt \(V\) ein endlich-dimensionaler eukldischer Vektorraum. Wähle Isometrie \(\varphi\colon (V,\langle , \rangle)\to (\RR^n,\cdot)\)
+und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für Messbare Mengen \(A\) wobei \(\lambda\) das Lebesgueq Maß auf \(\RR^n\) ist. Das ist wohldefiniert denn für eine andere Isometrie sind die Orthonormalbasen verbunden durch eine orthonormale Matrix und das Lebesgue Maß ist invariant unter diesen Transformationen nach ???.
+\begin{Lemma}
+	Sei \(V\) ein Euklidischer Vektorraum und \(v_1,\dots,v_n\in V\) und sei \(\Gamma\) das Parallelopid das aufgespannt wird von \(v_1,\dots,v_n\).
+	Dann ist \(\mu(\Gamma)=|\det(A)|\) wobei \(A\) die Darstellungsmatrix ist der \(v_1\) bezüglich einer Orthonormalbasis.
+\end{Lemma}
+\begin{proof}
+	Eine Orthonormalbasis gibt Isometrie zu \(\RR^n\) mit Standardskalarprodukt. Somit ist ohne Einschränkung \(V=\RR^n\) und die Orthonormalbasis die Standardbasis.
+	Sei \(A\) die Abbildungsmatrix. Nach QR-Zerlegung ???
+	ist \(A=QR\) wobei \(Q\) Orthogonal ist und \(R\) obere Dreiecksmatrix. Wegen Invarianz des Lebesgue Maß von Orthogonalen Transformationen ist ohne Einschränkung \(A\)
+	obere Dreiecksmatrix. Dann ist sowohl das Volumen als auch der Betrag der Determinante gleich dem Produkt der Diagoaleinträge.
+\end{proof}
+\begin{Lemma}
+	Seien \(M\subseteq N\) zwei vollständige Gitter in \(\RR^n\) und sei \(A\in M_n(\ZZ)\) die Übergangsmatrix von einer Basis von \(N\) zu einer Basis von \(M\).
+	Es gilt
+	\begin{enumerate}
+		\item \(\Vol(M)=|\det(A)|\vol(N)\)
+		\item \(N/M=|det(A)|\)
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Sei \(v_1,\dots,v_n\) eine Basis von \(N\) und \(w_1,\dots,w_n\) eine Basis von \(M\) und \(A\) die Übergangsmatrix.
+	Dann ist \((w_1,\dots,w_n)=(v_1,\dots,v_n)\cdot A\) und somit
+	\(\Vol(M)=|\det(w_1,\dots,w_n)|=|\det(A)|\cdot |\det(v_1,\dots,v_n)|=|\det(A)|\Vol(N)\).
+	Die zweite Aussage kann man rein algebraisch Zeigen. Oder aber so:
+	Sei \(x\in N\). Es gibt Darstellung \(x=\sum_i \beta_iw_i\) mit \(\beta_i\in\RR\). Sei \(y=\sum_i\floor{\beta_i}w_i\in M\).
+	Dann ist \(x-y\in \Gamma_M\cap N\).
+	Wenn \(x_1-y_1=x_2-y_2\in \Gamma_M\cap N\) für \(x_1,x_2\in N\) und \(y_1,y_2\in M\) dann ist 
+	sind die Koeffizienten von \(x_1-x_2\) ganze Zahlen aber auch im Betrag \(<1\) also 0.
+	Das heißt es gibt Bijektion \(N/M\to N\cap \Gamma_M\).
+	Sei \(\Gamma_M\cap N=\{s_1,\dots,s_k\}\). 
+	Es ist \(s_i+\Gamma_N\) disjunkt für verschiedene \(i\)
+	Es ist \(\Gamma_M=\bigcup_i s_i+\Gamma_N\) 
+	
+\end{proof}
 \begin{Def}
 	Das Volumen \(\Vol(\Lambda)\) von Gitter \(\Lambda\) ist definiert als \(\mu(\Gamma)\) wobei \(\Gamma\) eine Grundmasche ist.Das ist wohldefiniert, denn zwei Basen von \(Lambda\) unterscheiden sich um ein Element von \(GL_n(\ZZ)\) und das hat Determinante \(\\pm 1\).
 	Wirkung auf Volumen geschiet durch Betrag der Determinante.
+	
 \end{Def}
+\begin{Bem}
+	Es ist \(A^t\cdot A=\langle v_i,v_j\rangle_{i,j}=B\)
+	und somit \(\det(B)=\det(A)^2\).
+	Also ist \(\Vol(A)=\sqrt{\det(B)}\)
+\end{Bem}
+\section{Miskowskysche Gitterpunktsatz}
+\begin{Satz}[Gitterpunktsatz] \label{Satz:Gitterpunktsatz}
+	
+	Sei \(V\) ein Euklidischer Vektorraum und \(\Lambda\subseteq V\) ein vollständiges Gitter und \(X\subseteq V\) eine konvexe, zentralsymmetrische (dh. \(x\in X\implies -x\in X\)) Menge.
+	Wenn \[\mu(X)>2^n\Vol(\Lambda)\] dann ist \(X\cap \Lambda\neq\{0\}\)
+\end{Satz}
+\begin{proof}
+	Es reicht zu zeigen, dass es \(\gamma_1,\gamma_2\in \Lambda\) gibt mit \(\gamma_1\neq\gamma_2\) sodass
+	\[(\frac 1 2 X+\gamma_1)\cap(\frac 1 2 X+\gamma_2)\neq \emptyset\] denn wenn
+	\[\frac 1 2 x_1+\gamma_1=\frac 1 2 x_2+\gamma_2\] mit \(x_1,x_2\in X\) dann ist 
+	\[\gamma=\gamma_1-\gamma_2=\frac 1 2 x_2-\frac 1 2 x_1\in X\cap \Lambda\]
+	Also angenommen \(\frac 1 2 X+\gamma\) für \(\gamma\in\Lambda\) sind paarweise disjunkt.
+	Dann sind auch \(\Gamma\cap (\frac 1 2 X+\gamma)\) paarweise disjunkt wobei \(\Gamma\) eine Grundmasche ist von \(\Lambda\)
+	Dann ist 
+	\begin{align*}
+		\Vol(\Lambda)&\geq \sum_{\gamma\in \Lambda}\Vol(\Gamma\cap() \frac 1 2 +\gamma))\\
+		&=\sum_{\gamma\in\Lambda}\Vol((\Gamma-\gamma)\cap \frac 1 2 X)\\
+		&= \Vol(\frac 1 2 X)\\
+		&= \frac{1}{2^n}\Vol(X)
+	\end{alifn*} was ein Widerspruch ist.
+\end{proof}
+\begin{Kor}
+	Jede natürliche Zahl lässt sich schreiben als Summe von vier Quadraten.
+\end{Kor}
+\begin{proof}
+	Es ist 
+	\begin{align*}
+	(a^2+b^2+c^2+d^2)(A^2+B^2+C^2+D^2)&=(aA-bB-cC-dD)^2+
+	(aB+bA+cD-dC)^2\\&+(aC-bD+cA+dB)^2+(aD+bC-cB+dA)^2
+	\end{align*}
+	Also reicht es die Aussage für eine Primzahl \(p\) zu zeigen.
+	Es ist \(2=1^2+1^2+0^2+0^2\) also ist ohne Einschränkung \(p\geq 3\).
+	Es ist \[|\{m^2 \mod p\mid m=0,\dots p-1\}|=\frac{p+1}{2}\] und
+	\[|\{-1-n^2 \mod p\mid n=0,\dots p-1\}|=\frac{p+1}{2}\]
+	Also gibt es \(m,n\in\ZZ\) sodass \(m^2+n^2+1\equiv 0 \mod p\).
+	Sei \[\Lambda=\{(a,b,c,d)\in\ZZ^4\mid c\equiv ma+nb,\, d\equiv mb-na \mod p\}\] Gitter.
+	Dann ist \(p\ZZ^4\subseteq \Lambda\subseteq ZZ^4\)
+	und \(\Lambda/p\ZZ^4\subseteq \FF_p^4\) Unterraum der Dimension 2.
+	Also ist der Index \([\ZZ^4\colon \Lambda]=p^2\)
+	und somit ist \(\Vol(\Lambda)=p^2\).
+	Sei \(T=\bar{B_r(0)}\) und \(r\) so gewählt, dass \(2p>r^2>\frac{4\sqrt{2}}{\pi}p\).
+	Dann ist
+	\[\Vol(T)=\frac{\pi^2r^4}{2}>16p^2=\Vol(\Lambda)\]
+	Nach \nameref{Satz:Gitterpunktsatz} gibt es \((a,b,c,d)\in \Lambda\setminus\{0\}\cap T\) das heißt
+	\(a^2+b^2+c^2+d^2\equiv a^2(1+m^2+n^2)+b^2(1+n^2+m^2)\equiv 0 \mod p\).
+	Da \((a,b,c,d)\in T\) ist \(a^2+b^2+ c^2+ d^2<2p\).
+	Also ist \(a^2+b^2+c^2+d^2=p\).
+\end{proof}
+\begin{Bem}
+	Sei \(K\) ein Zahlkörper. \(\calO_K\cong \ZZ^n\) soll ein Gitter werden in einem passenden \(\RR\)-Vektorraum.
+	Da jede \(\ZZ\)-Basis von \(\calO_K\) eine \(\QQ\)-Basis ist, ist die natürliche Abbildung
+	\(\calO_K\otimes_\ZZ\QQ\to K\) bijektiv. 
+	Betrachte Diagramm
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AtLkAX1LpMufIRQBGclVqMWbTgEUF-QSAzY8BIgCYp1es1aIO7AEqmVQjaKIBmPTMPz2AYReW1wzWJKlx0gzljTgB5EIB9AGkPdREtCT8A2SMTMKjOCDwAW3hwzh5FZQErOJ9df31k5zTIjOzc-K46rBy4AAJOcxivGxR7Cscg1Ija9kyWhu4m13c+aRgoAHN4IlAAMwAnCCykMhAcCCRJfbosBjYACwgIAGsPTe2j6gOkXROzy+u74pAHncQ3i9EPZ3udjFdbvctv89kCACw-P5PfaHRAAVkR0Nez1RADZMY9gTikAB2An-OHE9HPU5gkAQ76qJHUlFIXE0j7gr5Qwns1mIEkcukM-gUPhAA
+	\begin{tikzfigure}
+		\ZZ \arrow[r, hook] \arrow[d] & \QQ \arrow[r, hook] \arrow[d]       & \RR \arrow[r, hook] \arrow[d]               & \CC \arrow[d]       \\
+		\calO_K \arrow[r, hook]         & \calO_K\otimes_\ZZ\QQ \arrow[r, hook] & \calO_K\otimes_\ZZ\otimes \RR \arrow[r, hook] & \calO_K\otimes_\ZZ\CC
+	\end{tikzfigure}
+	Sei \(K_\RR=\calO_K\otimes_\ZZ\RR\cong (\calO_K\otimes_\ZZ \QQ)\otimes_\QQ\RR\cong K\otimes_\QQ\RR\) der Minkowski Raum. Es sei \(K_\CC=\calO_K\otimes_\ZZ\CC\).
+	Es ist \(\calO_K\) ein vollständiges Gitter in \(K_\RR\) denn die Abbildung 
+	\(\calO_K\otimes_\ZZ\RR\to K_\RR, (x,a)\mapsto a\cdot x=(1\otimes a)(x\otimes 1)=x\otimes a\) ist bijektiv.
+\end{Bem}
+\begin{Lemma}
+	Die Komplexe Konjugation \(\tau\colon\CC\to\CC\) induziert einen Homomorphismus 
+	\[\tilde\tau=\id\otimes \tau\colon K\otimes_\QQ\CC\toK\otimes_\QQ\CC\].
+	Die Invarianten davon sind 
+	\[(K\otimes_\QQ\CC)^{\tilde\tau}=\{x\in K\otimes\CC\mid \tilde\tau(x)=x\}=K_\RR\]
+\end{Lemma}
+\begin{proof}
+	Wähle eine \(\QQ\)-Basis von \(K\cong \QQ^n\).
+	Dann ist \(K\otimes_\QQ\RR\cong \RR^n\) und \(K_\CC\cong \CC^n\).
+	Also ist
+	\((K_\CC)^{\tilde\tau}\cong (\CC^n)^{\tilde\tau}=\RR^n\cong K\otimes_\QQ\RR\).
+\end{proof}
+\begin{Lemma}
+	Es gibt Isomorphismus von \(\CC\)-Algebren \(\psi\colon K_\CC\to \prod_{\tau}\CC,\psi(a\otimes b)=(\tau(a)\cdot b)_\tau\) wobei \(\tau\) alle Körperhomomorphismen \(\tau\colon K\to\CC\) durchläuft.
+\end{Lemma}
+\begin{proof}
+	\(K_\CC\) ist endlich-dimensionale \(\CC\)-algebra, also ein Modul endlicher Länge und damit Artinscher Ring.
+	Nach \ref{Kor:StruktArtinring} ist \(K_\CC\cong \prod R_i\) mit \((R_i,\frakm_i)\) lokale artinsche Ringe. Es gilt dass
+	\(R_i/\frakm_i=\CC\) da \(\CC\) algebraisch abgeschlossen ist.
+	Seien \(\tau_1,\dots,\tau_n\) die Homomorphismen \(K\to \CC\). Es ist \(n=[K:\QQ]_S=[K:\QQ]\).
+	Also sind auch \(\tilde\tau_1,\dots,\tilde\tau_n\) verschiedene Abbildungen \(K_\CC\to \CC\).
+	Jeder Homomorphismus von \(\CC\)-Algebren \(\prod R_i\to \CC\) hat die Form \(\prod R_i\to R_i\to R_i/\frakm_i \cong \CC\) siehe ???.
+	Also ist Anzahl \(r\) der Homomorphismen \(K_\CC\to\CC\) gleich Anzahl der Faktoren.
+	Da jede Algebra \(R_i\) als Vektorraum mindestens Dimension 1 hat, muss \(n\geq r\) sein. Aber oben haben wir gesehen, dass \(r\geq n\). Also ist \(r=n\) und \(\dim_\CC(R_i)=1\). Somit ist \(R_i\cong \CC\).\\
+	Alternativ kann man auch wie folgt argumentieren:
+	Sei \(b\in K\) sodass \(K=\QQ[b]\cong \QQ[X]/(f)\).
+	Dann ist \(K_\CC\cong \CC[X]/(f)\).
+	Wenn \(f=\prod_{i=0}^r(X-b_i)\) mit paarweisen verschiedenen Nullstellen in \(\CC\) dann ist 
+	\[K_\CC\cong \prod_{i=1}^r\CC[X]/(X-b_i)\cong \prod\CC_i\]
+	Es ist \(\{b_1,\dots,b_n\}=\{\tau(b)\colon \tau\colon K\to \CC\}\).
+	Sei \(\tau_i\colon K\to \CC\) sodass \(\tau(b)=b_i\).
+	dann ist die Abbildung gegeben durch
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9AHW4GE+IAL6l0mXPkIoAjOSq1GLNrzQAnaJ2BYAvNKEA9MLwHDRIDNjwEiAJjnV6zVohDHBIsZclEy0+Y6UXACNeCDwAW3gAAmlTTwlrGVI-B0VnEAAKIM4sAEpNWV4oMLhSMCE483ErKWQ7FIUnNmydXhw6Jhys3OF5GCgAc3giUAAzdXCkMhAcCCRZRsDXbmxJjxBxiEnEBdmkO0X0tRzKze2AZmo9xAAWK7osBjZwujQ4PfWzpDuZucQAVnuj2er3ecyEFCEQA
+	\begin{tikzfigure}
+		K_\CC \arrow[r, "\sim"]       & \prod_{i=1}^n\CC \arrow[r, "pr_i"]     & \CC           \\
+		b\otimes 1 \arrow[r, maps to] & {(b_i)_{1,\dots,n}} \arrow[r, maps to] & b_i=\tau_i(b)
+	\end{tikzfigure}
+	folglich ist die Abbildung wie im Satz auch für alle Elemente in \(K_\CC\).
+\end{proof}
+\begin{Bsp}
+	Sei \(d>1\) quadratfrei und \(K=\QQ[\sqrt{d}]\cong \QQ[X]/(X^2-d)\)
+	Dann ist \(K\otimes_\QQ\RR\cong \RR[X]/(X-\sqrt{d})\times \RR[X]/(X+\sqrt{d)\cong \RR\times\RR\) wobei \(1\otimes a\) auf \(a,a\) geschickt wird und \(\sqrt{d}\) auf \(\sqrt{d},-\sqrt{d}\).
+		Wenn \(d\not\equiv 1 \mod 4\) dann ist \(d_K=d\) und \(1,\sqrt{d}\) eine Ganzheitsbasis.
+		Es ist \(\Vol(\calO_K)=|\det(\begin{pmatrix} 1 & \sqrt d\\ 1 & -\sqrt d)|=\sqrt{d}=\sqrt{d_K}\)
+		Analog wenn \(d\equiv 1 \mod 4\) dann 
+		\(\Vol(\calO_K)=\sqrt{(d_K)}\)
+\end{Bsp}

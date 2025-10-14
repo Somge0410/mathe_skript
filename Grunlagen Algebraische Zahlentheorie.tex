@@ -386,3 +386,27 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
         Da \(\pi(B)=R^n/H\) ist ist auch \(R^n/H\) kompakt.
     \end{enumerate}
 \end{proof}
+\begin{Lemma}
+	Sei \(\Gamma\) in vollständiges Gitter in einem Euklidischen Vektorraum der Dimension \(n\).
+	\begin{enumerate}
+		\item Der Gitterpunktsatz ist optimal, das heißt es gibt in \(V\) eine konvexe, zentralsymmetrische Menge \(X\) mit dem Volumen \[2^n\Vol(\Gamma)\] sodass
+		\(X\cap\Gamma=\{0\}\)
+		\item Wenn \(X\) eine kompakte konvexe zentralsymmetrische Menge mit dem Volumen \(\geq 2^n\Vol(\Lambda)\) ist, dann ist \(X\cap \Gamma\neq\{0\}\).
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item Sei \(v_1,\dots,v_n\) eine Basis von \(\Gamma\) über \(\ZZ\).
+		Sei \(X=\{\lambda_1v_1+\dots+\lambda_nv_n\mid |\lambda_i|<1\}\)
+		Dann ist \(\Vol(X)=2^n\Vol(\Gamma)\)
+		Aber wenn \(\gamma\in X\cap \Gamma\) dann ist 
+		\[\lambda_1v_1+\dots+\lambda_nv_n=\gamma=\alpha_1v_1+\dots+\alpha_nv_n\] für \(\alpha_i\in\ZZ, |\lambda_i|<1\).
+		Also ist \(\alpha_i=\lambda_i=0\) für alle \(i\).
+		Somit ist \(\gamma=0\).
+		\item Sei \(X_{\frac 1 n}=(1+\frac 1 n)X\).
+		Dann gibt es nach \cref{Satz:Gitterpunktsatz} ein \(\gamma_{\frac 1 n}\in X_{\frac 1 n}\cap \Gamma\setminus\{0\}\).
+		Es ist \(X=\bigcap_n X_{\frac 1 n}\) und da \(\Gamma\) diskret gibt es ein \(\gamma_{\frac 1 n}\) mit minimaler Länge. Also ist 
+		\(\gamma_{\frac 1 n}\in X\).
+			
+	\end{enumerate}
+\end{proof}

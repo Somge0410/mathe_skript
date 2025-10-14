@@ -49,9 +49,36 @@
 	\end{enumerate}
 \end{proof}
 \begin{Def}
-	Sei \(\Lambda\subseteq V\) ein Gitter. Eine Grundmasche ist eine Menge der Form
-	\(\{\sum_{i=1}^na_iv_i\mid a_i\in [0,1]\}\) für eine Basis \(v_1,\dots,v_n\) von \(\Lambda\).
+	Sei \(\Lambda\subseteq \RR^n\) ein Gitter. Eine Grundmasche ist eine Teilmenge \(F\subseteq \RR^n\)
+	sodass jedes \(x\in\RR^n\) genau eine Darstellung
+	\(x=\lambda+\gamma\) hat mit \(\lambda\in \Lambda\) und \(\gamma\in F\).
 \end{Def}
+\begin{Lemma}
+	Ein Gitter \(\Lambda\) ist vollständig genau dann wenn eine beschränkte Grundmasche existiert.
+\end{Lemma}
+\begin{proof}
+	Sei \(\Lambda\) vollständig. Wähle \(\ZZ\)-Basis \(v_1,\dots,v_n\) von \(\Lambda\) und setze 
+	\(F=\{\sum_{i=1}^na_iv_i\mid 0\leq a_i<1\}\). Dann ist \(F\) eine Fundamentalmasche.
+	Wenn es \(F\) beschränkte Fundamentalmasche gibt, dann ist \(\RR^n/\Lambda\) kompakt nach ??? da \(\Lambda\) diskret.
+	Nach ??? ist \(\Lambda\) vollständig.
+	
+\end{proof}
+\begin{Lemma}
+	Seien \(F_1,F_2\) zwei Fundamentalmaschen in \(\RR^n\) für ein vollständiges Gitter \(\Lambda\subseteq \RR^n\).
+	Dann gilt \(\Vol(F_1)=\Vol(F_2)\).
+\end{Lemma}
+\begin{proof}
+	Sei \(\mathbbm{1}_{F_1}\) die charakteristische Funktion von \(F_1\).
+	Es ist 
+	\begin{align*}
+	\Vol(F_1)&=\int_{\RR^n}\mathbbm{1}_{F_1}(x)\text{d}x\\
+	&=\sum_{g\in\Lambda}\int_{F_2+g}\mathbbm{1}_{F_1}(x)\text{d}x\\
+	&=\sum_{g\in\Lambda}\int_{F_2}\mathbbm{1}_{F_1}(x+g)\text{d}x\\
+	&=\int_{F_2}\sum_{g\in\Lambda}\mathbbm{1}_{F_1}(x+g)\text{d}x\\
+	&=\int_{F_2}1\text{d}x\\
+	&=\Vol(F_2)
+	\end{align*} wobei man Summe und Integral nach Fubini-Tonelli ??? vertauschen darf.
+\end{proof}
 Sei ab jetzt \(V\) ein endlich-dimensionaler eukldischer Vektorraum. Wähle Isometrie \(\varphi\colon (V,\langle , \rangle)\to (\RR^n,\cdot)\)
 und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für Messbare Mengen \(A\) wobei \(\lambda\) das Lebesgueq Maß auf \(\RR^n\) ist. Das ist wohldefiniert denn für eine andere Isometrie sind die Orthonormalbasen verbunden durch eine orthonormale Matrix und das Lebesgue Maß ist invariant unter diesen Transformationen nach ???.
 \begin{Lemma}
@@ -84,7 +111,7 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 	Das heißt es gibt Bijektion \(N/M\to N\cap \Gamma_M\).
 	Sei \(\Gamma_M\cap N=\{s_1,\dots,s_k\}\). 
 	Es ist \(s_i+\Gamma_N\) disjunkt für verschiedene \(i\)
-	Es ist \(\Gamma_M=\bigcup_i s_i+\Gamma_N\) 
+	Es ist \(F=\bigcup_i s_i+\Gamma_N\) eine Grundmasche von \(M\), denn für \(x\in \RR^n\) gibt es \(\)
 	
 \end{proof}
 \begin{Def}

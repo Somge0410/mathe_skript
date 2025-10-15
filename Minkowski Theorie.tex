@@ -96,13 +96,13 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 	Es gilt
 	\begin{enumerate}
 		\item \(\Vol(M)=|\det(A)|\Vol(N)\)
-		\item \(N/M=|det(A)|\)
+		\item \(|N/M|=|det(A)|\)
 	\end{enumerate}
 \end{Lemma}
 \begin{proof}
 	Sei \(v_1,\dots,v_n\) eine Basis von \(N\) und \(w_1,\dots,w_n\) eine Basis von \(M\) und \(A\) die Übergangsmatrix.
 	Dann ist \((w_1,\dots,w_n)=(v_1,\dots,v_n)\cdot A\) und somit
-	\(\Vol(M)=|\det(w_1,\dots,w_n)|=|\det(A)|\cdot |\det(v_1,\dots,v_n)|=|\det(A)|\Vol(N)\).
+	\[\Vol(M)=|\det(w_1,\dots,w_n)|=|\det(A)|\cdot |\det(v_1,\dots,v_n)|=|\det(A)|\Vol(N).\]
 	Die zweite Aussage kann man rein algebraisch Zeigen. Oder aber so:
 	Sei \(x\in N\). Es gibt Darstellung \(x=\sum_i \beta_iw_i\) mit \(\beta_i\in\RR\). Sei \(y=\sum_i\lfloor \beta_i \rfloor w_i\in M\).
 	Dann ist \(x-y\in \Gamma_M\cap N\).
@@ -110,13 +110,14 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 	sind die Koeffizienten von \(x_1-x_2\) ganze Zahlen aber auch im Betrag \(<1\) also 0.
 	Das heißt es gibt Bijektion \(N/M\to N\cap \Gamma_M\).
 	Sei \(\Gamma_M\cap N=\{s_1,\dots,s_k\}\). 
-	Es ist \(s_i+\Gamma_N\) disjunkt für verschiedene \(i\)
-	Es ist \(F=\bigcup_i s_i+\Gamma_N\) eine Grundmasche von \(M\), denn für \(x\in \RR^n\) gibt es \(\)
+	Es ist \(s_i+\Gamma_N\) disjunkt für verschiedene \(i\).
+	Es ist \(F=\bigcup_i s_i+\Gamma_N\) eine Grundmasche von \(M\), denn für \(x\in \RR^n\) gibt es eine eindeutige Darstellung \(x=n+\gamma\) wobei \(n\in N\) und \(\gamma\in \Gamma_N\). Sei \(s_i\) gegeben durch \(n\equiv s_i \mod M\). Dann ist \(x=m+s_i+\gamma\) und die Darstellung ist eindeutig.
+	Also ist \(F\) eine Grundmasche und \(\Vol(\Gamma_M)=\Vol(F)=k\cdot\Vol(\Gamma_N)\).
+	Nach 1. folgt, dass \(|N/M|=|\det(A)|\)
 	
 \end{proof}
 \begin{Def}
-	Das Volumen \(\Vol(\Lambda)\) von Gitter \(\Lambda\) ist definiert als \(\mu(\Gamma)\) wobei \(\Gamma\) eine Grundmasche ist.Das ist wohldefiniert, denn zwei Basen von \(Lambda\) unterscheiden sich um ein Element von \(GL_n(\ZZ)\) und das hat Determinante \(\\pm 1\).
-	Wirkung auf Volumen geschiet durch Betrag der Determinante.
+	Das Volumen \(\Vol(\Lambda)\) von Gitter \(\Lambda\) ist definiert als \(\mu(\Gamma)\) wobei \(\Gamma\) eine Grundmasche ist.Das ist wohldefiniert.
 	
 \end{Def}
 \begin{Bem}
@@ -233,3 +234,145 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 		Analog wenn \(d\equiv 1 \mod 4\) dann 
 		\(\Vol(\calO_K)=\sqrt{(d_K)}\)
 \end{Bsp}
+\begin{Bem} Sei \(K\) ein Zahlkörper.
+	Sei \(c\colon \CC\to\CC\) komplexe Konjugation und \(\tilde c=\id_K\). Sei weiter \(\tau\colon K\to \CC\) Körperhom und \(\tilde\tau\colon K_\CC\to \CC,\, a\otimes b\mapsto \tau(a)\cdot b\).
+	Dann kommutiert
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9AHW4GE+IAL6l0mXPkIoAjOSq1GLNrwHDRIDNjwEiZafPrNWiDj36CRYrZKKz91Q0pMqL8mFADm8IqABmAJwgAWyQyEBwIJAAmB0VjEF48BlgAAgBjNT9AkMQwiKRZBSNlbiTYRLomTJAA4ILqfMQAZljikwzLGuzohsjm1qcE0qxkmGA03jSsfzSUiqYhYQohIA
+	\begin{tikzfigure}
+		K_\CC \arrow[d, "\tilde c"] \arrow[r, "\tilde\tau"] & \CC \arrow[d, "c"] \\
+		K_\CC \arrow[r, "\tilde{c\circ \tau}"]              & \CC               
+	\end{tikzfigure}.
+	Wenn \(\rho_1,\dots,\rho_r\) die Homomorphismen \(K\to\RR\cdot \RR\) sind und \(\sigma_1,\dots,\sigma_s, c\sigma_1,\dots,c\sigma_s\) die Verbleibenden Homomorphismen \(K\to \CC\) mit \(n=[K:\QQ]=r+2s\)
+	Dann schreibe \(x\in\prod_\tau \CC\) als 
+	\(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)\).
+	Dann ist 
+	\[\tilde c (a_1,\dots,c_s)=(\bar{a_1},\dots,\bar{a_r},\bar{c_1},\dots,\bar{c_2},\bar{b_1},\dots,\bar{b_s}).\]
+	Es folgt, dass \(K_\RR=K_\CC^{\tilde c=\id}\cong \RR^r\times \CC^s\).
+\end{Bem}
+\begin{Def}
+	Definiere bilineare Abbildung 
+	\[\beta\colon K\times K\to \RR,\, \beta(x,y)=\sum_{\tau\colon K\to\CC}\tau(x)\bar{\tau(y)}\]
+	Das Bild ist in \(\RR\) denn wenn \(\tau=\rho_i\)
+	Dann ist \(\rho_i(x)\bar{\rho_i(y)}\in \RR\)
+	und wenn \(\tau=\sigma_i\) dann ist
+	\[\sigma_i(x)\bar{\sigma_i(y)}+c\sigma_i(x)\bar{c\sigma_i(y)}=2\Real(\sigma_i(x)\bar{\sigma_i(y)})\in \RR.\]
+	Definiere also 
+	\[\tilde\beta\colon K_\RR\to K_\RR\to \RR,\ \tilde \beta(a\otimes x,b\otimes y)=ab\beta(x,y)\]
+\end{Def}
+\begin{Lemma}
+	\(tilde b\) ist symmetrische, positive Bilinearform gegeben durch 
+	\[\tilde\beta(a_1,\dots,a_r,b_1,\dots,b_s ),a'_1,\dots,a'_n,b'_1,\dots,b'_n)=\sum_{i=1}^ra_ia'_i+\sum_{i=1}^s\Real(b_ib'_i)\]
+\end{Lemma}
+\begin{proof}
+	Symmetrie ist klar da \(\beta\) symmetrisch.
+	Dass \(\tilde\beta\) positiv definit ist folgt aus der Formel da erste Summe aus dem Standardskalarprodukt auf \(\RR^n\) kommt und zweite Summe das zweifache des Standardskalarpoduktes ist auf \(\CC=\RR^2\).
+	Zeige also die Formel.
+	Das durch die Formel gegebene Sklarprodukt ist \(\RR\)-bilinear, also reicht die Gleichheit zu überprüfen für eine \(\RR\)-Basis von \(K_\RR\).
+	Für \(a\in K\) ist entspricht \(a\otimes 1\) dem Tupel
+	\((\rho_1(a),\dots,\rho_r(a),\sigma_1(a),\dots,\sigma_s(a))\)
+	Damit folgt die Formel wie in der Rechnung von der Definition ???.
+\end{proof}
+\begin{Bem}
+	Man kann genauso eine hermitesche Form \(\tilde\beta'\colon K_\CC\times K_\CC\to \CC\) definieren durch \(\tilde \beta'(a\otimes x,b\otimes y)=a\bar{b}\beta(x,y)\). Das ist dann auch positiv definit.
+\end{Bem}
+\begin{Def}
+	wenn \(I\subseteq \calO_K\) ein Ideal ist, dann ist 
+	\(N(I)=|\calO_K/I|\) die Norm des Ideals.
+\end{Def}
+\begin{Bem}
+	Wenn \(I\subseteq \calO_K\) ein Ideal ungleich 0 ist, dann ist \(I\subseteq K_\RR\) ein vollständiges Gitter da \(I\cong \ZZ^n\) nach ???.
+\end{Bem}
+\begin{Satz}
+	Sei \(K\) ein Zahlkörper und \(I\subseteq \calO_K\) ein Ideal ungleich \(0\). Dann ist
+	\(\Vol(I)=N(I)\cdot\sqrt{|d_K|}\) wobei \(d_K\) die Diskrimminante ist.
+\end{Satz}
+\begin{proof}
+	Es ist nach ???
+	\[\Vol(I)=N(I)\¢dot \Vol(\calO_K)\]
+	Also ist ohne Einschränkung \(I=\calO_K\). Sei
+	\(v_1,\dots,v_n\in\calO_K\) eine \(\ZZ\)-Basis und
+	\(A=(Tr(v_i,v_j))_{ij}\) sowie \(A'=((\tilde beta(v_i,v_j)))\). Es \(d_K=\det(A)\) und 
+	\(\Vol(\calO_K)=\sqrt{|\det(A')|}\) nach ???.
+	Sei \(B=(\tau_i(v_j))_{ij}\in M_n(\CC)\).
+	Dann ist \(A=B^tB\) und \(A'=B^t\bar B\).
+	Somit ist \(\det(A)=\det(B)^2\) und 
+	\[\det(A')=|\det(B)|^2\].
+	Somit ist \(\Vol(\calO_K)=\sqrt{|d_K|}\)
+\end{proof}
+\begin{Satz}
+	Sei \(A=(\frac 2 \pi)^s\sqrt{|d_K}\). Wenn \(I\subseteq \calO_K\) ein Ideal ungleich 0 ist und 
+	\(c_\tau\in\RR_{>0}\) sodass für alle \(\tau\colon K\to\CC\) gilt: \(c_\tau=c_{c\circ\tau}\) und
+	\(\prod_\tau c_\tau\geq N(I)\cdot A\).
+	Dann gibt es ein \(a\in I\) mit \(a\neq 0\) sodass
+	\(|\tau(a)\leq c_\tau\) für alle \(\tau\).
+\end{Satz}
+\begin{proof}
+	Definiere \(X\subseteq K_\RR\) durch
+	\[X=\{(a_1,\dots,a_r,b_1,\dots,b_s)\mid |a_i|\leq c_{\rho_i}, |b_i|\leq c_{\sigma_i}\}\]
+	\(X\) ist konvex als Produkt von abgeschlossenen Bällen
+	\[B_c_{\rho_1}(0)\times\dots \times B_{c_\sigma_1}\times\dots\times B_c_{\sigma_s}(0)\]
+	und zentralsymmetrisch und kompakt.
+	Es ist 
+	\[\mu(X)=2^r\prod_{i=1}^rc_{\rho_i}\cdot 2^s\pi^sc_{\sigma_i}^2\] da \(\tilde\beta|_{\CC}\) das zweifache vom Standardskalarprodukt auf \(\RR^2\) ist.
+	Somit ist 
+	\begin{align*}
+		\mu(X)&=2^n(\frac \pi 2)^s\prod_\tau c_\tau\\
+		&\geq 2^n(\frac \pi 2)^sN(I)A\\
+		&=2^nN(I)\sqrt{|d_K|}\\
+		&=2^n\Vol(I)
+		\end{align*}
+	Nach Gitterpunktsatz Kompakte Version ??? folgt die Aussage.
+\end{proof}
+\begin{Lemma}
+	Eigenschaften der Norm:
+	\begin{enumerate}
+		\item N(IJ)=N(I)N(J)
+		\item Für \(a\in \CalO_K\) gilt \(N(a\calO_K)=|N_{K/\QQ}(a)|\)
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Es ist \(()\calO_K/IJ)/(I/IJ)\cong \calO_K/I\)
+	also ist \(N(I)=N(IJ)/|I/IJ|\).
+	Angeommen \(J\) ist Primideal und \(IJ\subseteq K\subseteq I\) für ein Ideal \(K\). Dann ist
+	wegen der Eindeutigkeit der PrimidealZerlegung \(K=I\) oder \(K=IJ\).
+	Also ist \(I/IJ\) ein \(\calO_K/J\) Vektorraum der Dimension 1 und somit \(N(J)=|I/IJ|\).
+	Somit gilt \(N(IJ)=N(I)N(J)\) wenn \(J\) ein Primideal ist
+	und somit allgemein.
+	Da \(a\calO_K\subset \calO_K\) Gitter ist,
+	ist \(N(a\calO_K)=|\det(A)|\) wobei \(A\) eine Übergangsmatrix der Basen der Gitter ist.
+	Dann ist \(A\) aber auch die Abbildungsmatrix von Multiplikation mit \(a\), somit \(|N_{K/\QQ}(a)|=|\det(A)|\) und die zweite Aussage folgt.
+\end{proof}
+\begin{Lemma}
+	Für \(c\in \RR>0\) gibt es nur endlich viele Ideale 
+	\(I\subseteq \calO_K\) ungleich 0 sodass
+	\(N(I)\leq c\).
+\end{Lemma}
+\begin{proof}
+	Wegen ??? reicht es das für Primideale zu zeigen.
+	Sei also \(I=\frakp\) prim. Es ist \(\frakp\cap \ZZ=(p)\) für eine Primzahl \(p\).
+	Dann ist \(\FF_p=\ZZ/p\ZZ\to \calO_K/\frakp\) injektiv,
+	Also ist \(\calO_K\) \(\FF_p\)-Vektorraum der Dimension \(\geq 1\).
+	Also ist \(N(\frakp)=p^e\) mit \(e\geq 1\).
+	Da \(p\calO_K\subseteq\frakp\) ist \(\frakp\) ein Faktor in der Primidealzerlegung von \(p\calO_K\).
+	Somit gibt es zu jedem \(p\) nur endlich viele \(\frakp\).
+	Wenn \(N(\frakp)\leq c\) dann ist \(p\leq c\) und das sind nur endlich viele Möglichkeiten.
+\end{proof}
+\begin{Satz}
+	Die Klassenzahl \(Cl_K\) ist endlich.
+\end{Satz}
+\begin{proof}
+	\(Cl_K\) wird von allen \(I\subseteq \calO_K\) ungleich 0 erzeugt (Multiplikation der Nenner).
+	Nach ?? reicht es zu Zeigen, dass \(I\) modulo \(P_K\) äquivalent ist zu einem \(I'\) mit \(N(I')\leq A=(\frac 2 \pi)^s\sqrt{|d_K|}\).
+	Wähle \(b\in K\) sodass \(bI^{-1}=J\subseteq\calO_K\) und 
+	\(c_\tau\) wie in ??? sodass \(\prod c_\tau=N(J)A\).
+	Dann existiert ein \(a\in J\setminus\{0\}\) sodass
+	\(\prod |\tau(a)|\leq \prod c_\tau=N(J)A\).
+	Es ist
+	\[\prod |\tau(a)|=|N_{K/\QQ}(a)|=|N(a\calO_K)|\]
+	Es ist \(a\calO_K\subseteq J=bI^{-1}\subseteq \calO_K\).
+	Sei \(I'=\frac a b I\subseteq \calO_K\).
+	Dann ist \[N(I')=\dfrac{N(a\calO_K)}{N(b\calO_K)}N(I)\leq \dfrac{N(b)}{N(b)}N(I^{-1})N(I)A=A\]
+\end{proof}
+\begin{Def}
+	Die Klassenzahl von \(K\) ist \(h_K=|Cl_K|\)
+\end{Def}

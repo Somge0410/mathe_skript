@@ -376,3 +376,43 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 \begin{Def}
 	Die Klassenzahl von \(K\) ist \(h_K=|Cl_K|\)
 \end{Def}
+\begin{Def} Es gibt Gruppenhomomorphismus \(\ell\colon \CC^*\to \RR,\, \ell(z)=\log(|z|)\).
+	das gibt dann kommutatives Diagramm
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AKhAF9S6TLnyEUARnJVajFm3YB9ADpKAwqp79BIDNjwEiAJinV6zVohAq0AJ2jKlOOkwAEK9ZoFC9oogGYTGXM2azsoBycmFQAlaK1vEQMUMnFpMzlLFQBFLM9tXUSxZElU01kLKzUNXi8dYX0i41KgjMqPGvz63xQA5vSKmLi+aRgoAHN4IlAAMzsAWyQyEBwIJHFa2YgFxEll1cRjEAYsMAq4CGOoEGoACxg6K8QwJgYGaicsBjZIU+uWgaU2AWG3mSEOKyQAX+ISUMFe8RAm22SwhiAALGVgpYAHIIpFrd77ACsmNauJBWzBhKQADZSRVsQAKRl0CLOACU7IAvKFoC5WSpInjQYgoaiAOz0mEAZSwYzmdC5ABUbMLKYgSXtadRjr9LFAIEwAEYMVi3e6PcAEM3LOifb7WtXbOlaxCS6GZWHw4Z8IA
+\begin{tikzfigure}
+K^* \arrow[r] \arrow[d, "N"] & K_\CC^* \arrow[r, "\sim"] \arrow[d, "N"] & \prod_\tau \CC^* \arrow[r, "\ell"] \arrow[d, "N((a_\tau))=\prod a_\tau"] & \prod_\tau\RR \arrow[d, "\Sigma=Tr"] \\
+\QQ^*                        & \CC^* \arrow[r, no head, Rightarrow]     & \CC^* \arrow[r, "\ell"]                                                  & \RR                                 
+\end{tikzfigure}
+Dann gillt \(\tilde c \ell =\ell \tilde c\), denn \[\tilde c\ell(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)=(\ell(a_1),\ell(a_r),\ell(c_1),\dots,\ell(c_s),\ell(b_1),\dots,(b_s))=\ell(\tilde c(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)\]
+Die Invarianten geben dann 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoAGAXVJADcBDAGwFcYkQBpAPQCoB9ADoCASsIC8Q0V2A8ATgF8heALbwABEIDCm6TzjyQ80uky58hFAGYK1Ok1btJw6bIDU+w8ZAZseAkWsARlsGFjZEECdPE19zIjJgmlCHCKdeaO9TPwtkQNJEuzDHAQBFEvSjGLN-FDyqJPtwzgqvH2qc8hsGotSBAGMmAHk+bh4MtuyiToLkpqEALXmK2xgoAHN4IlAAM1kIZSROkBwIJDzClMiBGEZGDN39s5oTpDILuYE4ZgPKkAeDxBHF6IazvdgAOXuewBoOBb1mxRud1+-yQABZnqcQSjoUgAKyY9HdS6QnGPRAAdkJiAxx3oWDuEQAFhAIABrKHkgBs1KpYIipK8qMQPOOWIJdIZ7BZ7M5AIlwPI8ko8iAA
+\begin{tikzfigure}
+\calO_K^* \arrow[d, "N"] \arrow[r, hook] & K^* \arrow[d, "N"] \arrow[r] & K^*_\RR=\RR^{*r}\times \CC^{*s} \arrow[r, "\ell"] \arrow[d, "N"] & \RR^{r+s} \arrow[d, "\sum"] \\
+\ZZ^* \arrow[r, hook]                    & \QQ^* \arrow[r]              & \RR^* \arrow[r, "\ell"]                                          & \RR                        
+\end{tikzfigure}
+wobei man identifiziert \[(\prod_\tau\RR)^{\tilde c=\id}\cong \RR^{r+s}, \(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s\)\to (a_1,\dots,a_r,2b_1,\dots,2b_2\].
+Es ist also \(\ell(N(\calO_K^*))=\ell(\pm 1)=0\).
+Sei \(H=\{x\in \RR^s\mid \sum x_i=0\}\) die Spur-Null Hyperebene. Es ist \(\dim(H)=r+s-1\).
+Sei \(S=\{y\in K_\RR\mid N(y)=\pm 1\}\) die Norm 1 Hyperfläche.
+\end{Def}
+\begin{Lemma}
+Der Kern der Abbildung \(\ell\colon \calO_K^*\to H\) ist die endliche Gruppe 
+\[\mu(K)=\{x\in K^*\mid x^n=1, n\geq 1\}\]
+\end{Lemma}
+\begin{proof}
+Da \(x^n=1\) eine Ganzheitsgleichung ist, ist \(x\in\calO^*_K\).
+Es ist \(0=\ell(x^n)=n\ell(x)\) also \(l(x)=0\).
+Es ist \(\ker(\ell\colon K^*_\RR\to \RR^{r+s])=\{\pm 1\}^r\times (S^1)^s\) beschränkt in \(K_\RR\).
+Somit ist \(\ker(\ell\colon \alO_K^*_\RR\to \RR^{r+s]) beschränkt in \(\calO_K\) und eine beschränkte Teilmenge eines Gitters ist immer endlich.
+Nach Lagrange ??? ist also \(\Ker(\ell)\subseteq \mu(K)\).
+\end{proof}
+\begin{Lemma}
+\(\Gamma=\image(\ell\colon \calO_K^*\to H)\cong \calO_K^*/\mu(K)\) ist Gitter in \(H\).
+\end{Lemma}
+\begin{proof}
+Zeige, dass \(\Gamma\) diskret ist in \(H\).
+Dafür reicht, dass für \(B\subseteq H\) beschränkt die Menge \(\Gamma\cap B\) endlich ist.
+Es ist \(\ell^{-1}(B)\subseteq K\otimes \RR\) beschränkt und \(\Gamma\cap B\) ist Bild von \(\ell^{-1}(B)\cap \calO_K^*\) und letzteres ist endlich da beschränkt in Gitter.
+\end{proof}
+\begin{Kor} \(\calO_K\) ist endlich erzeugt, \(\calO_K^*\cong \mu(K)\times \ZZ^m\) für \(m\leq r+s-1\).
+\end{Kor}

@@ -1,0 +1,56 @@
+\chapter{Hilbert Verzweigungstheorie}
+Sei \(A\) ein Dedekindring und \(K=\Quot(A)\). Sei \(L/K\) eine endliche separable Erweiterung und \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\). Nach ??? ist \(B\) wieder Dedekindring.
+
+\begin{Def}Für Primideal \(\frakp\subseteq \calO_K\) gibt es eindeutige Zerlegung 
+	\(\frakp B=\frakq_1^{e_1}\cdots \đrakq_r^{e_r}\).
+	Es ist \(\frakq_i\cap A=\frakp\) wegen Eindeutigkeit der Primzerlegung.
+	Das gibt injektiven Homomoprhismus \(k(\frakp)=A/\frakp\to B/\frakq_i=k(\frakq_i)\).
+	\begin{enumerate}
+		\item 
+		Der Verzweigungsindex von \(\frakq_i\) ist \(e_i\).
+		\item Der Trägheitsgrad von \(\frakq_i\) ist \(f_i=[k(\frakq_i)\colon k(\frakp)]\).
+		\item \(\frakq_i\) heißt unverzweigt über \(\frakp\), wenn \(e_i=1\).
+	\end{enumerate}
+	
+\end{Def}
+\begin{Lemma}
+	Sei \(M/L\) eine weitere endliche separable Körpererweiterung und \(C\) der ganze Abschluss von \(A\) in \(M\). Sei \(\frakq_C\) ein maximales Ideal von \(C\)
+	und \(\frakq_B=\frakqC\cap B\) und \(\frakq_A=\frakq_B\cap A\).
+	Dann gilt 
+	\(e_{\frakq_C/\frakq_A}=e_{\frakq_C/\frakq_B}\cdot e_{\frakq_B/\frakq_A}\) und \(f_{\frakq_C/\frakq_A}=f_{\frakq_C/\frakq_B}\cdot f_{\frakq_B/\frakq_A}\)
+\end{Lemma}
+\begin{proof}
+	Sei \(\frakq_AB=\frakp_1^{e_1}\cdots \frakp_r^{e_r}\)
+	und \(\frakq_AC=\frakq_1^{e_1}\cdots \frakq_s^{e_s}\)
+	und ohne Einschränkung \(\frakq_B=\frakp_1\) und \(\frakq_C=\frakq_1\).
+	Es ist
+	\[\frakq_AC=(\frakq_AB)C=\frakp_1^{e_1}\cdots \frakp_r^{e_r}C\] ist \(e_1\cdot e_{\frakq_C/\frakq_B}\leq e_{\frakq_C/\frakq_A}\).
+	Wenn \(\frakq_C\mid \frakq_iC\) für ein \(i\) dann ist
+	\(\frakq_i\subseteq \frakq_C\cap B=\frakq\) also \(\frakq_i=\frakq_B\).
+	Also teilt \(\frakq_C\) nur \(\frakq_1=\frakq_B\).
+	Somit ist \(e_1\cdot e_{\frakq_C/\frakq_B}= e_{\frakq_C/\frakq_A}\).
+	Die Aussage über \(f\) ist einfach Multiplikation der Körpergrade ????.
+\end{proof}
+\begin{Bsp}
+	Es sei \(K_n=\QQ[\sqrt[n]{p}]\cong \QQ[X]/(X^n-p)\) für eine Primzahl \(p\). Dann ist \(\frakq=(\sqrt[n]{p})\) ein maximales Ideal und 
+	\(p\calO_K=\frakq^n\). Also ist \(e=n=[K_n\colon \QQ]\).
+	
+\end{Bsp}
+\begin{Bsp}
+	Wenn \(K\) Zahlkörper ist und \(\frakp\subseteq\calO_K\) maximales Ideal. Sei \(m\in\NN\) und \((p)=\frakp\cap \ZZ\) und \(n=m\cdot e_{\frakp/(p)}\).
+	Sei \(L=K_n\cdot K\) und \(\frakq\) maximales Ideal von \(\calO_L\) mit  \(\frakq\cap \calO_K=\frakp\).
+	Sei \(\frakp'=\frakq\cap \calO_{K_n}\).
+	Dann ist nach Bsp ???
+	\begin{align*}
+		e_{\frakq/\frakp}e_{\fraq/(p)}&=e_{\frakq/\frakp'}e_{\frakp'/(p)}\\
+		&= e_{\frakq/\frakp'}\cdot n\\
+		&= m e_{\frakq/\frakp'}\cdot e_{\frakp/(p)}
+	\end{align*}
+	Also ist \(e_{\frakq/\frakp}=m e_{\frakq/\frakp'}\geq m\)
+	Somit ist \(L/K\) eine Körpererwetierung sodass jedes Ideal über \(\frakp\) mindestens Verweigungsindex \(m\) hat.
+\end{Bsp}
+
+
+
+
+

@@ -173,6 +173,7 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 	Da \((a,b,c,d)\in T\) ist \(a^2+b^2+ c^2+ d^2<2p\).
 	Also ist \(a^2+b^2+c^2+d^2=p\).
 \end{proof}
+\section{Endlichkeit der Klassenzahl}
 \begin{Bem}
 	Sei \(K\) ein Zahlkörper. \(\calO_K\cong \ZZ^n\) soll ein Gitter werden in einem passenden \(\RR\)-Vektorraum.
 	Da jede \(\ZZ\)-Basis von \(\calO_K\) eine \(\QQ\)-Basis ist, ist die natürliche Abbildung
@@ -376,6 +377,7 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 \begin{Def}
 	Die Klassenzahl von \(K\) ist \(h_K=|Cl_K|\)
 \end{Def}
+\section{Einheiten von \(\calO_K\)}
 \begin{Def} Es gibt Gruppenhomomorphismus \(\ell\colon \CC^*\to \RR,\, \ell(z)=\log(|z|)\).
 	das gibt dann kommutatives Diagramm
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AKhAF9S6TLnyEUARnJVajFm3YB9ADpKAwqp79BIDNjwEiAJinV6zVohAq0AJ2jKlOOkwAEK9ZoFC9oogGYTGXM2azsoBycmFQAlaK1vEQMUMnFpMzlLFQBFLM9tXUSxZElU01kLKzUNXi8dYX0i41KgjMqPGvz63xQA5vSKmLi+aRgoAHN4IlAAMzsAWyQyEBwIJHFa2YgFxEll1cRjEAYsMAq4CGOoEGoACxg6K8QwJgYGaicsBjZIU+uWgaU2AWG3mSEOKyQAX+ISUMFe8RAm22SwhiAALGVgpYAHIIpFrd77ACsmNauJBWzBhKQADZSRVsQAKRl0CLOACU7IAvKFoC5WSpInjQYgoaiAOz0mEAZSwYzmdC5ABUbMLKYgSXtadRjr9LFAIEwAEYMVi3e6PcAEM3LOifb7WtXbOlaxCS6GZWHw4Z8IA
@@ -416,3 +418,74 @@ Es ist \(\ell^{-1}(B)\subseteq K\otimes \RR\) beschränkt und \(\Gamma\cap B\) i
 \end{proof}
 \begin{Kor} \(\calO_K\) ist endlich erzeugt, \(\calO_K^*\cong \mu(K)\times \ZZ^m\) für \(m\leq r+s-1\).
 \end{Kor}
+\begin{Lemma}
+	Für jedes \(a\in\ZZ\) mit \(a\neq 0\) hat \(\calO_K\) nur endlich viele Elemente \(b\in\calO_K\) mit \(N(b)=a\) bis auf Assozierte.
+\end{Lemma}
+\begin{proof}
+	Wenn \(N(b)=a\) ist, dann ist \(N(b\calO_K)\)=|a|. Nach ??
+	gibt es nur endlich viele Ideale mit vorgegebener Norm. 
+	Somit folgt die Aussage
+\end{proof}
+\begin{Satz}
+	\(\Gamma=\calO_K^*/\mu(K)\subseteq H\) ist vollständiges Gitter in \(H\).
+\end{Satz}
+\begin{proof}
+	Sei \(X\subseteq K_\RR\) durch
+	\[X=\{(a_1,\dots,a_r,b_1,\dots,b_s)\mid |a_i|\leq c_{\rho_i}, |b_i|\leq c_{\sigma_i}\}\] wie in ??? mit 
+	\(\prod_\tau c_\tau=A=(\frac 2 \pi)ŝ\sqrt{|d_K|\).
+	Für \(y\in S\) ist \(\mu(y\cdot X)=\mu(X)\) denn \(\det(y)=\pm 1\).
+	Nach \nameref{Satz:Gitterpunktsatz} gibt es \(a\in\calO_K\) mit \(a\neq 0\) sodass \(a\in yX\).
+	Die möglichen \(a\) haben beschränkte Norm unabhängig von \(y\) denn \(N(y)=\pm 1\).
+	Nach Lemma ??? gibt es modulo Assozierten nur endlich viele \(a_1,\dots,a_n\dots,a_r\in \calO_K\).
+	\(a\in yX\) impliziert \(y^{-1}\in a^{-1}X\).
+	Also ist
+	\[y^{-1}\in\cup_{i=1}^r a_i^{-1}\calO^*X=\calO_K^*\cup_ia_i^{-1}X\]
+	Sei \(T=(\bigcup a_i^{-1}X)\cap S\). Das ist beschränkt da \(a_i^{-1}X\) beschränkt ist.
+	Also ist \(\ell(T)\) beschränkt in \(H\).
+	\(T\) ist enthalten in Produk von Tori und punktierte Intervalle.
+	Da \(S\subseteq \calO_K^*T\) ist \(H\subseteq \Gamma+\ell(T)\). Somit ist \(\Gamma\) vollständig denn \(\ell(T)\) ist beschränkt.
+\end{proof}
+\begin{Kor}
+	Es ist \(\calO_K^*\cong \mu(K)\times \ZZ^{r+s-1}\)
+\end{Kor}
+\begin{Bsp}[Pellsche Gleichung]
+	Sei \(N\geq 1\) quadratfrei, \(N\not\equiv 1 \mod 4\). Die Pellsche Gleichung ist gegeben durch 
+	\(N(a+b\sqrt{N})=a^2-Nb^2=\pm 1\)
+	Dann beschreibt die Pellsche Gleichung die Einheiten von \(O_K\).
+	Es ist \(r=2, s=0\)
+	und somit \(\calO_K^*\cong \{\pm 1\}\times \ZZ\}\) unendlich viele Lösungen der Pellschen Gleichung.
+\end{Bsp}
+\begin{Bem}
+	Da \(H\subseteq \RR^{r+s\) mit Standardskalarprodukt ist \(H\) Euklidischer Vektorraum
+	Sei \(v_0=\frac{1}{\sqrt{r+s}\begin{pmatrix} 1\\ \vdots \\ 1 \end{pmatrix}\)
+		Dann ist \(|v_0|=1\) und \(v_0\perp H \).
+	Seien \(\epsilon_1,\dots,\epislon_{r+s-1}\in \calO_K^*\) Elemente, die auf eine Basis von \(\Gamma\) abgebildet werden und \(v_i=\ell(\epsilon_i)\) mit \(\ell\colon \calO_K^*\to\RR^{r+s}\).
+	Sei \(A=(v_0,v_1,\dots,v_{r+s-1})\).
+	Dann ist 
+	\[\Vol(\Gamma)=\Vol(\langle v_0,\Gamma\rangle)=\det(A)\]
+	Addiert man alle Zeilen von Matrix \(A\) zur ersten Zeile, verändert sich die Determinante nicht und man erhält 
+	\[\begin{pmatrix}
+		\sqrt{r+s} & 0 & \dots & 0 \\
+		\frac{1}{\sqrt{r+s} &  &  &  \\
+			\vdots &  & B &  \\
+			\frac{1}{\sqrt{r+s} &  &  &  
+			\end{pmatrix} \]
+			wobei oben \(0\) entsteht da \(v_i\in H=\ker(\Sigma\colon R^{r+s}\to \RR)\).
+	Also ist \(\det(A)=\sqrt{r+s}\det(B)\).
+	Das Zeigt:
+\end{Bem}
+
+\begin{Satz}
+	Es gilt \(\Vol(\calO_K^*/\mu(K))=\sqrt{r+s}\cdot R\)
+	wobei \(R=\det(B)\) der Regulator von \(K\) ist.
+\end{Satz}
+
+
+
+
+
+
+
+
+
+

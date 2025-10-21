@@ -110,3 +110,48 @@ Eve can produce to a given plaintext the cipher text
 \item She can ask to Encipher the Alphabet 
 \end{enumerate}
 \end{Bsp}
+\chapter{2}
+\section{The \(O\)-Notation}
+Running time of Algorithms is taken in \(O\) notation(Landau 1877-1938).
+\begin{Def} Let \(f,g\colon \NN^k\to\RR\). We write 
+\(f=O(g)\) if there is a constant \(0<c\in\RR\) and some \(n_0\) such that \(f(n_1,\dots,n_k)<=cg(n_1,\dots,n_k)\) for all \(n_1,\dots,n_k\geq n_0\).
+\end{Def}
+\begin{Bsp} \[2n^2+17n+10^{11}=O(n^2)\] quadratic 
+\end{Bsp}
+\begin{Bsp}
+let \(f(n)\) the length of the \(a\)-adic expansion of \(n\) where \(a\geq 2\).
+Then \(f(n)=O(\log(n))\).
+\(f(n)=\floor{\log_a(n)}+1≤ \log_an+1=\frac{1}{\log(a)}\log(a)+1\) and here \(n_0=3\) and \(c=\frac{1}{\log }+1\)
+\end{Bsp}
+
+\section{Running times}
+Assume that 
+\begin{enumerate}
+\item The addition of 2 bits needs constant time \(O(1)\)
+\item The subtraction of 2 bits needs constant time \(O(1)\)
+\item Writing costs nothing
+\end{enumerate}
+\begin{Lemma}
+Let \(a,b\in\Nn\) in their binary expansion. 
+\begin{enumerate}
+\item The addition of \(a\) and \(b\) costs \(O(\max(\log(a),\log(b))\) time
+\item The Multiplication of \(a\) and \(b\) takes \(O(\log(a)\log(b))\) time. Clear because you always add 2 numbers of length \(a\) exactly the amount of times of the length of the other number. So it follows from the first part.
+\item Division with remainder of \(a\) and \(b\) costs \(O(\log(b)\log(\frac{a}{\floor{b}}))\).
+\end{Lemma}
+\begin{Def} An algorithm is polynomial (has polynomial running time) if there are exponents \(e_1,\dots,e_n\) such that the running time is \[O(\log(|z_1)^{e_1}\dots\log(|z_k|)^{e_k})\] by input or \(z_1,\dots,z_k\in \ZZ\) They are also called efficient.
+\end{Def}
+\section{Number Theory}
+We can calculate the greatest common divisor using Euclidean algorithm.
+\subsection{Euclidean Algorithm}
+The idea is that \(\ggT(a,b)=\ggT(a,a\mod b)\).
+\begin{Satz} Let \(a,b\in\NN_{>0}\) and \(a>b\). The number of iterations of the Euclidean algorithm is at most \(\log_2(a)/\log_2(\theta)+1=O(\log(a))\) where \(\theta=\frac{sqrt{5}+1}{2}\)
+\end{Satz}
+\begin{Satz} Let \(a,b\in\NN\). Then the running time of the Euclidean algorithm is \(O(\log(a)\log(b))\).
+\end{Satz}
+\begin{proof} Wlog \(a>b\). In each iteration of the Euclidean algorithm we do a division by remainder. It takes \(O(\log\floor(r_k/r_{k-1})\log(r_k))=O(\log(q_{k+1})\log(r_k))\) to determine \(q_{k+1}\) and \(r_{k+1}\).
+It is \(r_k\leq b\) so \(\log(r_k)\leq\log(b)\) and \(\log(q_k)=\log_2(q_k)+1\). Thus the Euclidean algorithm needs \(O(\log(b)(\sum_{k=0}^n\log(q_k)))=O(\log(b)(n+\sum_{k=0}^n\log(q_k)))\)
+\(n=O(\log(a))\).
+We can also calculate backwards that \(a\geq q_1\cdots q_n\). 
+So \(\sum_{k=1}^n \log_2(q_k)\leq \log_2(a)\).
+The statement follows.
+\end{proof}

@@ -137,6 +137,7 @@ Let \(a,b\in\NN\) in their binary expansion.
 \item The addition of \(a\) and \(b\) costs \(O(\max(\log(a),\log(b))\) time
 \item The Multiplication of \(a\) and \(b\) takes \(O(\log(a)\log(b))\) time. Clear because you always add 2 numbers of length \(a\) exactly the amount of times of the length of the other number. So it follows from the first part.
 \item Division with remainder of \(a\) and \(b\) costs \(O(\log(b)\log(\frac{a}{\floor{b}}))\).
+\end{enumerate}
 \end{Lemma}
 \begin{Def} An algorithm is polynomial (has polynomial running time) if there are exponents \(e_1,\dots,e_n\) such that the running time is \[O(\log(|z_1)^{e_1}\dots\log(|z_k|)^{e_k})\] by input or \(z_1,\dots,z_k\in \ZZ\) They are also called efficient.
 \end{Def}

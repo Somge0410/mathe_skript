@@ -500,3 +500,26 @@ L \arrow[rr, "\sigma'"] &                                          & M \\
 	Also sind alle Koeffizienten ganz über \(A\) und damit in \(A\) da \(A\) normal.
 	Also ist \(Tr(b)\in A\) da \(Tr(b)\) einer der Koeffienten ist.
 \end{proof}
+\begin{Def}
+	Sei \(K\) ein Körper und \(C\) eine endlich-dimensionale \(K\)-algebra. \(C\) heißt separabel falls die symmetrische Bilinearform \((x,y)\mapsto Tr_{C/K}(xy)\) nicht ausgeartet ist.
+\end{Def}
+\begin{Lemma}
+	Sei \(C\) eine endlich-dimensionale \(K\)Algebra.
+	\(C\) ist separabel, genau dann wenn \(C\cong L_1\times\dots\times L_r\) mit \(L_i/K\) separable Körpererweiterung.
+\end{Lemma}
+\begin{proof}
+	Sei \(C=L_1\times\dots\times L_r\) wie im Satz.
+	Sei \(B_i\) die Matrix der Spurform eingeschränkt auf \(L_i\).
+	Dann ist \(B=\diag(B_1,\dots,B_r)\) die Matrix der Spurform für \(C\).
+	Nach ??? ist \(B_i\) invertierbar und somit \(B\) invertierbar also \(C\) separabel.
+	Andererseits sei \(C\) separabel.
+	Da \(C\) artinsch ist, folgt mit ??? dass 
+	\(C=\prod_{i=1}^rC_i\) wobei \(C_i\) lokal ist mit maximalen Ideal \(\frakm_i\).
+	Sei \(B_i\) die Matrix der Spurform eingeschränkt auf \(C_i\).
+	Da \(C\) separabel, ist \(B=\diag(B_1,\dots,B_r)\) die Matrix der Spurform invertierbar. Somit ist \(B_i\) invertierbar und damit \(C_i/K\) separabel.
+	Also ist ohne Einschränkung \(C\) lokal mit maximalem Ideal \(\frakm\).
+	Für \(x\in\frakm\) gilt \(xy\in \frakm\) für alle \(y\in C\). Da \(C\) artinsch und lokal, ist \(\frakm\) das einzige Primideal somit gleich dem Nilradikal.
+	Also ist \(xy\) nilpotent und damit \(Tr(xy)=0\) da die Spur eines nilpotenten Endomorphismus immer Spur 0 hat.
+	Also ist \(x=0\) und somit \(\frakm=0\) und \(C\) ein Körper.
+	
+\end{proof}

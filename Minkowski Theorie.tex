@@ -79,7 +79,7 @@
 	&=\Vol(F_2)
 	\end{align*} wobei man Summe und Integral nach Fubini-Tonelli ??? vertauschen darf.
 \end{proof}
-Sei ab jetzt \(V\) ein endlich-dimensionaler eukldischer Vektorraum. Wähle Isometrie \(\varphi\colon (V,\langle , \rangle)\to (\RR^n,\cdot)\)
+Sei ab jetzt \(V\) ein endlich-dimensionaler eukldischer Vektorraum. Wähle Isometrie \(\varphi\colon (V,\langle , \rangle )\to (\RR^n,\cdot)\)
 und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für Messbare Mengen \(A\) wobei \(\lambda\) das Lebesgueq Maß auf \(\RR^n\) ist. Das ist wohldefiniert denn für eine andere Isometrie sind die Orthonormalbasen verbunden durch eine orthonormale Matrix und das Lebesgue Maß ist invariant unter diesen Transformationen nach ???.
 \begin{Lemma}
 	Sei \(V\) ein Euklidischer Vektorraum und \(v_1,\dots,v_n\in V\) und sei \(\Gamma\) das Parallelopid das aufgespannt wird von \(v_1,\dots,v_n\).
@@ -377,6 +377,43 @@ und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für 
 \begin{Def}
 	Die Klassenzahl von \(K\) ist \(h_K=|Cl_K|\)
 \end{Def}
+\begin{Kor}
+	Für Jedes Ideal \(I\subseteq \calO_K\) gibt es ein \(m\geq 1\) sodass \(I^m\) ein Hauptideal ist.
+\end{Kor}
+\begin{proof}
+	Klar da wegen Endlichkeit der Klassenzahl \(I^m\subseteq \calO_K\) ein gebrochenes Hauptideal ist für \(m=h_K\).
+	Damit ist \(I^m\) Hauptideal.
+\end{proof}
+\begin{Bem}
+	Sei \(L/K\) eine endliche Körpererweiterung.
+	Dann ist die Abbildung \(Cl_K\to Cl_L,\, [I]\mapsto [I\calO_L]\) wohldefiniert, denn für \(a\in K\) ist \(a\calO_L\) gebrochenes Hauptideal.
+\end{Bem}
+\begin{Lemma}
+	Sei \(K\) ein Zahlkörper. 
+	\begin{enumerate}
+		\item Wenn \(I\subseteq \calO_K\) mit 
+		\(I^m=(a)\) ist und \(L=K[\alpha]\) mit \(\alpha^m=a\) dann ist \(I\calO_L\) ein Hauptideal.
+		\item Es gibt endliche Körpererweiterung \(L/K\) sodass \(Cl_K\to Cl_L\) die Nullabbildung ist.
+	\end{enumerate}
+	
+\end{Lemma}
+ \begin{proof}
+ 	\begin{enumerate}
+ 		\item Es ist \((I\calO_L)^m=I^m\calO_L=(a)\calO_L=(\alpha\calO_L)^m\)
+ 		Sei \(I\calO_L=\frakp_q^{e_1}\dots \frakp_r^{e_r}\) und \(\alpha\calO_L=\frakq_1^{f_1}\dots\frakq_s^{f_s}\)
+ 		die eindeutige Primfaktorzerlegung.
+ 		Dann ist \(\frakp_q^{me_1}\dots \frakp_r^{me_r}=\frakq_1^{mf_1}\dots\frakq_s^{mf_s}\)
+ 		und somit \(r=s\) und nach Umsortieren \(\frakp_i=\frakq_i\) sowei \(e_i=f_i\).
+ 		Also ist \(I\calO_L=\alpha\calO_L\).
+ 		\item Seien \([I_1],\dots,[I_m]\) alle Elemente von \(Cl_K\).
+ 		Wähle \(b_i\) sodas \(J_i=b_iI_i\subseteq\calO_K\).
+ 		Zu \(J_1\) sei \(a_1\calO_K=J_1^m\) und \(L_1=K[\alpha_1]\) mit \(\alpha_1^m=a_1\).
+ 		Dann schickt nach 1. \(Cl_K\to Cl_L\) das Element
+ 		\([J_1]\) auf 1.
+ 		Zu \(J_2\) sei \(L_2=K[\alpha_1,\alpha_2]\) usw.
+ 		Das zeigt, dass \(Cl_K\to C_L\) die Nullabbildung ist für \(L=K[\alpha_1,\dots,\alpha_m]\).
+ 	\end{enumerate}
+ \end{proof}
 \section{Einheiten von \(\calO_K\)}
 \begin{Def} Es gibt Gruppenhomomorphismus \(\ell\colon \CC^*\to \RR,\, \ell(z)=\log(|z|)\).
 	das gibt dann kommutatives Diagramm

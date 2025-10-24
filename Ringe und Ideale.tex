@@ -54,6 +54,19 @@
 	Sei \(n=p^r\). Primideale in \(\ZZ/n\ZZ\) sind Primideale in \(\ZZ\) die \(n\ZZ\) enthalten. Das ist nur \((p)\). Also ist der Ring lokal.
 	Andersrum wenn \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung von \(n\) ist mit \(p_i\neq p_j\) für \(i\neq j\) dann korrespondier mit selber Begründung jedes \((p_i)\) zu einem maximalen Ideal in \(\ZZ/n\ZZ\).
 \end{proof}
+\begin{Satz}[Chinesischer Restsatz] \labe{Satz:ChinRest}
+	Sei \(R\) ein kommutativer Ring, \(I_1,\dots,I_r\subseteq R\) Ideale sodass \(I_i+I_j=R\) für \(I\neq j\).
+	Dann ist die Abbildung \(R/I_1\cap\dots\cap I_r\to R/I_1\times\dots\times R/I_n,\, x+I_1\cap\dots\cap I_r\mapsto (x+I_1,\dots,x+I_n\) bijektiv und \(I_1\cap\dots\cap I_r=I_1\cdots I_r\).
+\end{Satz}
+\begin{proof}
+	Die Abbildung \(f\) im Satz ist nach ??? bijektiv genau dann wenn für alle \(\frakp\in Spec(R)\) die Abbildung 
+	\(f\otimes_R \id_{R_\frakp}\) bijektiv ist.
+	Nach ??? ist Bildung von Schnitten und Quotienten mit Lokalisierung verträglich. Man darf also ohne Einschränkung \(R=R_\frakp\) annehmen. Es kann nicht mehr als ein Ideal der \(I_i\) im maximalen Ideal enthalten sein, denn dann wäre auch die Summe darin enthalten und somit nicht gleich dem ganzen Ring.
+	Also sind alle bis auf vielleicht ein \(I_{i_0}\) gleich dem ganzen Ring \(R\).
+	Dann ist \(I_{i_0}\) gleich dem Schnitt aller Ideale gleich dem Produkt aller Ideale.
+	Dann folgt 
+	\[R/\bigcap I_i=R/I_{i_0}=\{0\}\times \dots\times R/I_{i_0}\times \{0\}\times\dots\times \{0\}\cong \prod R/I_i\].
+\end{proof}
 \begin{Lemma}[Primvermeidung]
 	Sei \(\fraka\subseteq R\) ein Ideal. Wenn \(\frakp_1,\dots,\frakp_n\) Primideale sind mit \(\fraka\subseteq \bigcup_{i=1}^n\frakp_i\) dann ist \(\fraka\subseteq \frakp_i\) für ein \(i\).
 	

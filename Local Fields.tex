@@ -1,0 +1,76 @@
+\chapter{Lokale Körper}
+\section{Algebraische Definition der \(p\)-adischen Zahlen}
+Sei \(p\) eine Primzahl.
+\begin{Def} 
+	Sei \(\pi_i\colon \ZZ/p^{i+1}\ZZ\to\ZZ/p^i\ZZ\) mit
+	\(\pi_i(a+p^{i+1}\ZZ)=a+p^i\ZZ\).
+	Dann sei 
+	\[\ZZ_p=\varprojlim_{i}\ZZ/p^i\ZZ=\{(x_i)_i\in\prod_{i=1}^\infty \ZZ/p^i\ZZ\mid \pi_i(x_{i+1})=x_i\, \forall i\}\]
+	der Ring der ganzen \(p\)-adischen Zahlen.
+	Das ist Ring durch Komponentenweise Operation.
+\end{Def}
+\begin{Lemma}
+	Es ist \(\ZZ_p/p\ZZ_p\cong \FF_p\)
+\end{Lemma}
+\begin{proof}
+	Betrachte Diagramm mit exakten Zeilen
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAMzkqtRizYAdKQC1ZAejQz5XHiAzY8BImQCMY+s1aJ2a3loFERB6kcmmVi5XNnmNfbYJKkATIYkTEBkaKAgcBG4Lfh1hPwDjaSlQ8Mj1TRjvPXi7QKSUiPcMryJfHPFEx2SwwqiPS1jkbMpcyuDXJQA9MCcizysUbNsKh3b5LuAwAGo9Tl664oHkMpaRoKcJ6dn59P7GsuH7dY60Tsmp3znXPobvABZRVtGOBb370kO80xfd26IH-xPY4FSJiGBQADm8CIoAAZgAnCAAWyQZBAOAgSAAHHUEcikGV0ZjEABOXGIlGIPRojFIWbqPGUvTZIlIITk-Gk6i0xBYoFJNBYAD6hA5TJZPOp-KqgqF51m7kZbO5xJZRySWCgiopdJVdMuDJ1iBErKp7MNnIArHrjWKkAA2G1ki2UvmmqVrNhobWcj2Su1c91qr4aLgUThAA
+	\begin{tikzfigure}
+		0 \arrow[r] & \ZZ/p^n\ZZ \arrow[r, "p"]                        & \ZZ/p^{n+1}\ZZ \arrow[r] \arrow[r]              & \ZZ/p\ZZ \arrow[r]                  & 0      \\
+		0 \arrow[r] & \ZZ/p^{n+1}\ZZ \arrow[u, "\pi_n"] \arrow[r, "p"] & \ZZ/p^{n+2}\ZZ \arrow[r] \arrow[u, "\pi_{n+1}"] & \ZZ/p\ZZ \arrow[u, "\id"] \arrow[r] & 0      \\
+		\vdots      & \vdots \arrow[u]                                 & \vdots                                          & \vdots \arrow[u]                    & \vdots
+	\end{tikzcdfigure}
+	Dann prüft man, dass
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKACzkqtRizYduvbHgJEAjKOr1mrRCAA6W+gCc0eiACsGWALY6z53HAD6YAAQ6AWi4D0aAHphXLrjwgGHICRABMKuLqbDr6hibWVha2Ds5abp5ewGAA1IqcfgGy-AooAMyRapKasXQGRqYWSTY49tkF6R5ohZxiMFAA5vBEoABmRuZIESA4EEgVUdVBRSDjEJOIC7NIQr2cQA
+	\begin{tikzfigure}
+		0 & \varprojlim\limits_n \ZZ/p^n\ZZ \arrow[r, "p"] & \varprojlim\limits_n \ZZ/p^{n+1}\ZZ \arrow[r] & \varprojlim\limits_{n}\ZZ/p\ZZ & 0
+	\end{tikzfigure} exakt ist.
+	Da \(\varprojlim\limits_n\ZZ/p\ZZ=\FF_p\) folgt die Aussage.
+\end{proof}
+\begin{Lemma}
+	\(\ZZ_p\) ist diskreter Bewertungsring mit maximalem Ideal
+	\(p\ZZ_p\) und Restklassenkörper \(ZZ_p/p\ZZ_p=\FF_p\).
+\end{Lemma}
+\begin{proof}
+	Wenn \(x\in\ZZ_p\) mit \(x\neq 0\) dann ist \(x_i\neq 0\) in \(\ZZ/p^i\ZZ\) für ein \(i\).
+	Dann ist \(x\neq p^iy\) für alle \(y\in\ZZ_p\).
+	Also ist \(\bigcap_i p^i\ZZ_p=(0)\).
+	Schreibe also \(x=p^iu\) mit \(i\geq 0\) maximal.
+	Es ist \(\ZZ/p^n\ZZ\to \ZZ/p\ZZ\) Homomorphismus von lokalen Ringen, also \((\ZZ/p^n)^*=\pi^{-1}((\ZZ/p\ZZ)^*)\).
+	Somit ist \(x_1\in\FF_p^*\iff x\in \ZZ_p^*\).
+	Da \(p\not\mid u\) ist \(u_1\in\FF_p\) und \(u\neq 0\).
+	also ist \(u\in \ZZ_p^*\).
+	Somit ist \((\ZZ_p)\) ein diskreter Bewertungsrings nach ??.
+	
+\end{proof}
+\begin{Def}
+	Sei \(\QQ_p=\Quot(\ZZ_p)=\ZZ_p[\frac 1 p]\) der Körper der \(p\)-adischen Zahlen.
+\end{Def}
+\subsection{Analytische Definition der \(p\)-adischen Zahlen}
+\begin{Def}
+	Sei \(K\) ein Körper. Ein Absolutbetrag oder Absolutbewertung ist eine Abbildung 
+	\(|\dot|\colon K\to\RR\) sodass
+	\begin{enumerate}
+		\item \(|x|\geq 0 \, \forall x\in K\) und \(|x|=0\iff x=0\)
+		\item \(|xy|=|x||y|\) für alle \(x,y\in K\).
+		\item Es gilt die verschärfte Dreiecksungleichung \(|x+y|\leq \max\{|x|,|y|\}\) für alle \(x,y\in K\)
+	\end{enumerate}
+	Ein Absolutberwertung induziert eine Metrik \(d(x,y)=|x-y|\) auf \(K\).
+\end{Def}
+\begin{Def}
+	Für \(x\in\QQ\) definiere \(|x|_p=p^{-\nu_p(x)}\).
+	Dann erfüllst \(|\dot|_p\) die Axiome eines \(p\)-adischen Absolutbetrag.
+	Sei \(R\) der Ring der Cauchy-Folgen in \(\QQ\) bzgl \(|\dot|_p\). Sei \(\frakm\subseteq R\) die Menge der Nullfolgen bzgl. \(|\dot|_p\).
+\end{Def}
+\begin{Lemma}
+	\(\frakm\subseteq R\) ist maximales Ideal.
+\end{Lemma}
+\begin{proof}
+	\(Sei \(x=(x_n)_{n\neq 1}\in R\setminus \frakm \).
+	Dann ist \(x_n\neq 0\) für \(n\geq n_0\). 
+	Sei \(y=(y_n)_{n\geq 1}\) die Folge gegeben durch \(y_n=\frac{1}{x_n}\) für \(n\geq n_0\) und sonst \(y_n=1\). Wegen Axiomen der Norm ist \(x\mapsto \frac 1 x\) stetig, also \(y\in R\).
+	dann ist \(xy=(x_1,\dots,x_{n_0-1},1,1,1,\dots)\equiv 1\mod \frakm\). Somit ist \(\bar x\in R\setminus \frakm\) inveriterbar also \(R/\frakm\) Körper.
+\end{proof}
+\begin{Def}
+	Sei \(\QQ_p=R/\frakm\) Die Vervollständigung von \(\QQ\) bzgl \(|\dot|_p\). Sei \(\ZZ_p=\{x\in\QQ_p\mid |x|_p\leq 1\}\).
+\end{Def}

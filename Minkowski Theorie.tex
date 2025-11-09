@@ -1,0 +1,528 @@
+\chapter{Minkowski Theorie}
+\begin{Def} Sei \(V\) ein endlich-dimensionaler \(\RR\)-Vektorraum.
+	\begin{enumerate}
+		\item Eine Untergruppe \(\Lambda\subseteq V\) ist ein Gitter, wenn jede \(\ZZ\)-lineare unabhängige Menge in 
+		\(\Lambda\) in \(V\) \(\RR\)-linear unabhängig ist.
+		\item Ein Gitter \(\Lambda\subseteq V\) ist vollständig, wenn \(\Lambda\) \(V\) als \(\RR\)-Vektorraum erzeugt.
+	\end{enumerate}
+	
+\end{Def}
+\begin{Bsp}
+	\(\ZZ^n\subseteq \RR^n\) ist vollständiges Gitter. \(\ZZ[i]\subseteq\CC\) ist vollständiges Gitter mit Basis \(1,i\). Aber \(\ZZ[\sqrt 2]\subseteq \RR\) ist kein Gitter.
+\end{Bsp}
+\begin{Bem}
+	Sei \(\Lambda\subseteq V\) und \(\alpha\colon\Lambda \otimes_\ZZ\RR\to V,(x,v)\mapsto xv\).
+	Es ist \(\Lambda\) ein Gitter \(\iff \alpha\) injektiv ist.
+	\(Lambda\) ist vollständiges Gitter \(\iff \alpha\). bijektiv.
+	
+	Wenn \(\Lambda\subseteq V\) vollständiges Gitter ist, dann gibt eine Wahl von Basis von \(\Lambda\) und 
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModEAF9S6TLnyEUARnJVajFmwBqo8SAzY8BImVmL6zVog7sAWhYB6hMRJ3Si8w9WMqznAEpfboxTBQAObwRKAAZgBOELxIAEzUOBBIAMyJdFgMbAAWEBAA1hoR0bGIZCBJ8dQMWGCmIFAQTPwMrNTZMHRQbJB1IOmZPQRtSiZsnNE4dDgw-BAAHsAAnMQiwJwAFJzYvJwAlCJFIFExSPIVyYhpIB1dQ33VtfWNza39FRlZZr0j7vUTECmMzmixWa022ywu3YByOJ1K5UqiHOU0GZlyBX8IiAA
+	\begin{tikzfigure}
+		\Lambda \arrow[d, "\rotatebox{90}{\(\sim\)}", no head, equal] \arrow[r, hook] & V \arrow[d, "\rotatebox{90}{\(\sim\)}", no head, equal] \\
+		\ZZ^n \arrow[r, hook]                                                              & \RR^n                                                       
+	\end{tikzfigure}
+\end{Bem}
+\begin{Satz} Sei \(V\) ein \(\RR\)-Vektorraum.
+	\begin{enumerate}
+		\item Eine Untergruppe \(\Lambda\subseteq V\) ist Gitter \(iff \Lambda\) ist diskret in \(V\).
+		\item Ein Gitter \(\Lambda\subseteq V\) ist vollständig \(iff V/\Lambda\) ist kompakt.
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	\begin{enumerate}
+		\item Wenn \(Lambda\) Gitter dann ist es diskret da \(\ZZ^n\subseteq \RR^n\) diskret ist.
+		Sei also \(\Lambda\subseteq V\) diskret.
+		Ersetze \(V\) durch \(RR\cdot \Lambda\) und wähle \(RR\)-Basis \(v_1,\dots,v_n\in \Lambda\).
+		Sei \(Lambda_0=\langle v_1,\dots,v_n\rangle_\ZZ\).
+		Dann ist \(\Lambda_0\) Gitter in \(V\).
+		Es ist \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) wobei die Quotiententopologie gleich der Teilraumtopologie ist nach ???.
+		Da \(\Lambda\subseteq V\) diskret, ist \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) diskret.
+		Da \(\Lambda_0\subseteq\) vollständiges Gitter ist, ist \(V/\Lambda_0\) kompakt nach (2).
+		Also ist \(\Lambda/Lambda_0\) auch kompakt da \(\Lambda/\Lambda_0\subseteq V/\Lambda_0\) abgeschlossen denn \(\Lambda\subseteq V\) ist diskrete Untergruppe einer Hausdorff Gruppe.
+		Also ist zusammen \(\Lambda/\Lambda_0\) kompakt und diskret also endlich.
+		Also ist \(\Lambda\) endlich erzeugte abelsche Gruppe.
+		Nach ??? Struktursatz ist \(\Lambda\cong ZZ^r\). Da \(v_1,\dots,v_n\) linear unabhängig sind, ist \(\Lambda_0=\Lambda\) und somit \(\Lambda\) Gitter.
+		\item Wenn \(\Lambda\) vollständig, dann ist \(\RR^n/\ZZ^n=(S^1)^n\) kompakt.
+		Wenn \(\Lambda\subseteq V\) Gitter sodass \(V/\Lambda\) kompakt ist, dann sei \(V_0=\RR\Lambda\).
+		Es ist \(V=V_0\oplus V_1\) nach ergänzen einer Basis von \(V_0\).
+		Also ist \(V/\Lambda\cong V_0/\Lambda \oplus V_1=\text{kompakt}\times \RR^m\) kompakt. Also ist \(m=0\) und damit \(V_0=V\).
+	\end{enumerate}
+\end{proof}
+\begin{Def}
+	Sei \(\Lambda\subseteq \RR^n\) ein Gitter. Eine Grundmasche ist eine Teilmenge \(F\subseteq \RR^n\)
+	sodass jedes \(x\in\RR^n\) genau eine Darstellung
+	\(x=\lambda+\gamma\) hat mit \(\lambda\in \Lambda\) und \(\gamma\in F\).
+\end{Def}
+\begin{Lemma}
+	Ein Gitter \(\Lambda\) ist vollständig genau dann wenn eine beschränkte Grundmasche existiert.
+\end{Lemma}
+\begin{proof}
+	Sei \(\Lambda\) vollständig. Wähle \(\ZZ\)-Basis \(v_1,\dots,v_n\) von \(\Lambda\) und setze 
+	\(F=\{\sum_{i=1}^na_iv_i\mid 0\leq a_i<1\}\). Dann ist \(F\) eine Fundamentalmasche.
+	Wenn es \(F\) beschränkte Fundamentalmasche gibt, dann ist \(\RR^n/\Lambda\) kompakt nach ??? da \(\Lambda\) diskret.
+	Nach ??? ist \(\Lambda\) vollständig.
+	
+\end{proof}
+\begin{Lemma}
+	Seien \(F_1,F_2\) zwei Fundamentalmaschen in \(\RR^n\) für ein vollständiges Gitter \(\Lambda\subseteq \RR^n\).
+	Dann gilt \(\Vol(F_1)=\Vol(F_2)\).
+\end{Lemma}
+\begin{proof}
+	Sei \(\mathbbm{1}_{F_1}\) die charakteristische Funktion von \(F_1\).
+	Es ist 
+	\begin{align*}
+	\Vol(F_1)&=\int_{\RR^n}\mathbbm{1}_{F_1}(x)\text{d}x\\
+	&=\sum_{g\in\Lambda}\int_{F_2+g}\mathbbm{1}_{F_1}(x)\text{d}x\\
+	&=\sum_{g\in\Lambda}\int_{F_2}\mathbbm{1}_{F_1}(x+g)\text{d}x\\
+	&=\int_{F_2}\sum_{g\in\Lambda}\mathbbm{1}_{F_1}(x+g)\text{d}x\\
+	&=\int_{F_2}1\text{d}x\\
+	&=\Vol(F_2)
+	\end{align*} wobei man Summe und Integral nach Fubini-Tonelli ??? vertauschen darf.
+\end{proof}
+Sei ab jetzt \(V\) ein endlich-dimensionaler eukldischer Vektorraum. Wähle Isometrie \(\varphi\colon (V,\langle , \rangle )\to (\RR^n,\cdot)\)
+und definiere ein Maß \(\mu\) auf \(V\) durch \(\mu(A)=\lambda(\phi(A))\) für Messbare Mengen \(A\) wobei \(\lambda\) das Lebesgueq Maß auf \(\RR^n\) ist. Das ist wohldefiniert denn für eine andere Isometrie sind die Orthonormalbasen verbunden durch eine orthonormale Matrix und das Lebesgue Maß ist invariant unter diesen Transformationen nach ???.
+\begin{Lemma}
+	Sei \(V\) ein Euklidischer Vektorraum und \(v_1,\dots,v_n\in V\) und sei \(\Gamma\) das Parallelopid das aufgespannt wird von \(v_1,\dots,v_n\).
+	Dann ist \(\mu(\Gamma)=|\det(A)|\) wobei \(A\) die Darstellungsmatrix ist der \(v_1\) bezüglich einer Orthonormalbasis.
+\end{Lemma}
+\begin{proof}
+	Eine Orthonormalbasis gibt Isometrie zu \(\RR^n\) mit Standardskalarprodukt. Somit ist ohne Einschränkung \(V=\RR^n\) und die Orthonormalbasis die Standardbasis.
+	Sei \(A\) die Abbildungsmatrix. Nach QR-Zerlegung ???
+	ist \(A=QR\) wobei \(Q\) Orthogonal ist und \(R\) obere Dreiecksmatrix. Wegen Invarianz des Lebesgue Maß von Orthogonalen Transformationen ist ohne Einschränkung \(A\)
+	obere Dreiecksmatrix. Dann ist sowohl das Volumen als auch der Betrag der Determinante gleich dem Produkt der Diagoaleinträge.
+\end{proof}
+\begin{Lemma}
+	Seien \(M\subseteq N\) zwei vollständige Gitter in \(\RR^n\) und sei \(A\in M_n(\ZZ)\) die Übergangsmatrix von einer Basis von \(N\) zu einer Basis von \(M\).
+	Es gilt
+	\begin{enumerate}
+		\item \(\Vol(M)=|\det(A)|\Vol(N)\)
+		\item \(|N/M|=|det(A)|\)
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Sei \(v_1,\dots,v_n\) eine Basis von \(N\) und \(w_1,\dots,w_n\) eine Basis von \(M\) und \(A\) die Übergangsmatrix.
+	Dann ist \((w_1,\dots,w_n)=(v_1,\dots,v_n)\cdot A\) und somit
+	\[\Vol(M)=|\det(w_1,\dots,w_n)|=|\det(A)|\cdot |\det(v_1,\dots,v_n)|=|\det(A)|\Vol(N).\]
+	Die zweite Aussage kann man rein algebraisch Zeigen. Oder aber so:
+	Sei \(x\in N\). Es gibt Darstellung \(x=\sum_i \beta_iw_i\) mit \(\beta_i\in\RR\). Sei \(y=\sum_i\lfloor \beta_i \rfloor w_i\in M\).
+	Dann ist \(x-y\in \Gamma_M\cap N\).
+	Wenn \(x_1-y_1=x_2-y_2\in \Gamma_M\cap N\) für \(x_1,x_2\in N\) und \(y_1,y_2\in M\) dann ist 
+	sind die Koeffizienten von \(x_1-x_2\) ganze Zahlen aber auch im Betrag \(<1\) also 0.
+	Das heißt es gibt Bijektion \(N/M\to N\cap \Gamma_M\).
+	Sei \(\Gamma_M\cap N=\{s_1,\dots,s_k\}\). 
+	Es ist \(s_i+\Gamma_N\) disjunkt für verschiedene \(i\).
+	Es ist \(F=\bigcup_i s_i+\Gamma_N\) eine Grundmasche von \(M\), denn für \(x\in \RR^n\) gibt es eine eindeutige Darstellung \(x=n+\gamma\) wobei \(n\in N\) und \(\gamma\in \Gamma_N\). Sei \(s_i\) gegeben durch \(n\equiv s_i \mod M\). Dann ist \(x=m+s_i+\gamma\) und die Darstellung ist eindeutig.
+	Also ist \(F\) eine Grundmasche und \(\Vol(\Gamma_M)=\Vol(F)=k\cdot\Vol(\Gamma_N)\).
+	Nach 1. folgt, dass \(|N/M|=|\det(A)|\)
+	
+\end{proof}
+\begin{Def}
+	Das Volumen \(\Vol(\Lambda)\) von Gitter \(\Lambda\) ist definiert als \(\mu(\Gamma)\) wobei \(\Gamma\) eine Grundmasche ist.Das ist wohldefiniert.
+	
+\end{Def}
+\begin{Bem}
+	Es ist \(A^t\cdot A=\langle v_i,v_j\rangle_{i,j}=B\)
+	und somit \(\det(B)=\det(A)^2\).
+	Also ist \(\Vol(A)=\sqrt{\det(B)}\)
+\end{Bem}
+\section{Miskowskysche Gitterpunktsatz}
+\begin{Satz}[Gitterpunktsatz] \label{Satz:Gitterpunktsatz}
+	
+	Sei \(V\) ein Euklidischer Vektorraum und \(\Lambda\subseteq V\) ein vollständiges Gitter und \(X\subseteq V\) eine konvexe, zentralsymmetrische (dh. \(x\in X\implies -x\in X\)) Menge.
+	Wenn \[\mu(X)>2^n\Vol(\Lambda)\] dann ist \(X\cap \Lambda\neq\{0\}\)
+\end{Satz}
+\begin{proof}
+	Es reicht zu zeigen, dass es \(\gamma_1,\gamma_2\in \Lambda\) gibt mit \(\gamma_1\neq\gamma_2\) sodass
+	\[(\frac 1 2 X+\gamma_1)\cap(\frac 1 2 X+\gamma_2)\neq \emptyset\] denn wenn
+	\[\frac 1 2 x_1+\gamma_1=\frac 1 2 x_2+\gamma_2\] mit \(x_1,x_2\in X\) dann ist 
+	\[\gamma=\gamma_1-\gamma_2=\frac 1 2 x_2-\frac 1 2 x_1\in X\cap \Lambda\]
+	Also angenommen \(\frac 1 2 X+\gamma\) für \(\gamma\in\Lambda\) sind paarweise disjunkt.
+	Dann sind auch \(\Gamma\cap (\frac 1 2 X+\gamma)\) paarweise disjunkt wobei \(\Gamma\) eine Grundmasche ist von \(\Lambda\)
+	Dann ist 
+	\begin{align*}
+		\Vol(\Lambda)&\geq \sum_{\gamma\in \Lambda}\Vol(\Gamma\cap() \frac 1 2 +\gamma))\\
+		&=\sum_{\gamma\in\Lambda}\Vol((\Gamma-\gamma)\cap \frac 1 2 X)\\
+		&= \Vol(\frac 1 2 X)\\
+		&= \frac{1}{2^n}\Vol(X)
+	\end{align*} was ein Widerspruch ist.
+\end{proof}
+\begin{Kor}
+	Jede natürliche Zahl lässt sich schreiben als Summe von vier Quadraten.
+\end{Kor}
+\begin{proof}
+	Es ist 
+	\begin{align*}
+	(a^2+b^2+c^2+d^2)(A^2+B^2+C^2+D^2)&=(aA-bB-cC-dD)^2+
+	(aB+bA+cD-dC)^2\\&+(aC-bD+cA+dB)^2+(aD+bC-cB+dA)^2
+	\end{align*}
+	Also reicht es die Aussage für eine Primzahl \(p\) zu zeigen.
+	Es ist \(2=1^2+1^2+0^2+0^2\) also ist ohne Einschränkung \(p\geq 3\).
+	Es ist \[|\{m^2 \mod p\mid m=0,\dots p-1\}|=\frac{p+1}{2}\] und
+	\[|\{-1-n^2 \mod p\mid n=0,\dots p-1\}|=\frac{p+1}{2}\]
+	Also gibt es \(m,n\in\ZZ\) sodass \(m^2+n^2+1\equiv 0 \mod p\).
+	Sei \[\Lambda=\{(a,b,c,d)\in\ZZ^4\mid c\equiv ma+nb,\, d\equiv mb-na \mod p\}\] Gitter.
+	Dann ist \(p\ZZ^4\subseteq \Lambda\subseteq ZZ^4\)
+	und \(\Lambda/p\ZZ^4\subseteq \FF_p^4\) Unterraum der Dimension 2.
+	Also ist der Index \([\ZZ^4\colon \Lambda]=p^2\)
+	und somit ist \(\Vol(\Lambda)=p^2\).
+	Sei \(T=\bar{B_r(0)}\) und \(r\) so gewählt, dass \(2p>r^2>\frac{4\sqrt{2}}{\pi}p\).
+	Dann ist
+	\[\Vol(T)=\frac{\pi^2r^4}{2}>16p^2=\Vol(\Lambda)\]
+	Nach \nameref{Satz:Gitterpunktsatz} gibt es \((a,b,c,d)\in \Lambda\setminus\{0\}\cap T\) das heißt
+	\(a^2+b^2+c^2+d^2\equiv a^2(1+m^2+n^2)+b^2(1+n^2+m^2)\equiv 0 \mod p\).
+	Da \((a,b,c,d)\in T\) ist \(a^2+b^2+ c^2+ d^2<2p\).
+	Also ist \(a^2+b^2+c^2+d^2=p\).
+\end{proof}
+\section{Endlichkeit der Klassenzahl}
+\begin{Bem}
+	Sei \(K\) ein Zahlkörper. \(\calO_K\cong \ZZ^n\) soll ein Gitter werden in einem passenden \(\RR\)-Vektorraum.
+	Da jede \(\ZZ\)-Basis von \(\calO_K\) eine \(\QQ\)-Basis ist, ist die natürliche Abbildung
+	\(\calO_K\otimes_\ZZ\QQ\to K\) bijektiv. 
+	Betrachte Diagramm
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AtLkAX1LpMufIRQBGclVqMWbTgEUF-QSAzY8BIgCYp1es1aIO7AEqmVQjaKIBmPTMPz2AYReW1wzWJKlx0gzljTgB5EIB9AGkPdREtCT8A2SMTMKjOCDwAW3hwzh5FZQErOJ9df31k5zTIjOzc-K46rBy4AAJOcxivGxR7Cscg1Ija9kyWhu4m13c+aRgoAHN4IlAAMwAnCCykMhAcCCRJfbosBjYACwgIAGsPTe2j6gOkXROzy+u74pAHncQ3i9EPZ3udjFdbvctv89kCACw-P5PfaHRAAVkR0Nez1RADZMY9gTikAB2An-OHE9HPU5gkAQ76qJHUlFIXE0j7gr5Qwns1mIEkcukM-gUPhAA
+	\begin{tikzfigure}
+		\ZZ \arrow[r, hook] \arrow[d] & \QQ \arrow[r, hook] \arrow[d]       & \RR \arrow[r, hook] \arrow[d]               & \CC \arrow[d]       \\
+		\calO_K \arrow[r, hook]         & \calO_K\otimes_\ZZ\QQ \arrow[r, hook] & \calO_K\otimes_\ZZ\otimes \RR \arrow[r, hook] & \calO_K\otimes_\ZZ\CC
+	\end{tikzfigure}
+	Sei \(K_\RR=\calO_K\otimes_\ZZ\RR\cong (\calO_K\otimes_\ZZ \QQ)\otimes_\QQ\RR\cong K\otimes_\QQ\RR\) der Minkowski Raum. Es sei \(K_\CC=\calO_K\otimes_\ZZ\CC\).
+	Es ist \(\calO_K\) ein vollständiges Gitter in \(K_\RR\) denn die Abbildung 
+	\(\calO_K\otimes_\ZZ\RR\to K_\RR, (x,a)\mapsto a\cdot x=(1\otimes a)(x\otimes 1)=x\otimes a\) ist bijektiv.
+\end{Bem}
+\begin{Lemma}
+	Die Komplexe Konjugation \(\tau\colon\CC\to\CC\) induziert einen Homomorphismus 
+	\[\tilde\tau=\id\otimes \tau\colon K\otimes_\QQ\CC\to K\otimes_\QQ\CC\].
+	Die Invarianten davon sind 
+	\[(K\otimes_\QQ\CC)^{\tilde\tau}=\{x\in K\otimes\CC\mid \tilde\tau(x)=x\}=K_\RR\]
+\end{Lemma}
+\begin{proof}
+	Wähle eine \(\QQ\)-Basis von \(K\cong \QQ^n\).
+	Dann ist \(K\otimes_\QQ\RR\cong \RR^n\) und \(K_\CC\cong \CC^n\).
+	Also ist
+	\((K_\CC)^{\tilde\tau}\cong (\CC^n)^{\tilde\tau}=\RR^n\cong K\otimes_\QQ\RR\).
+\end{proof}
+\begin{Lemma}
+	Es gibt Isomorphismus von \(\CC\)-Algebren \(\psi\colon K_\CC\to \prod_{\tau}\CC,\psi(a\otimes b)=(\tau(a)\cdot b)_\tau\) wobei \(\tau\) alle Körperhomomorphismen \(\tau\colon K\to\CC\) durchläuft.
+\end{Lemma}
+\begin{proof}
+	\(K_\CC\) ist endlich-dimensionale \(\CC\)-algebra, also ein Modul endlicher Länge und damit Artinscher Ring.
+	Nach \ref{Kor:StruktArtinring} ist \(K_\CC\cong \prod R_i\) mit \((R_i,\frakm_i)\) lokale artinsche Ringe. Es gilt dass
+	\(R_i/\frakm_i=\CC\) da \(\CC\) algebraisch abgeschlossen ist.
+	Seien \(\tau_1,\dots,\tau_n\) die Homomorphismen \(K\to \CC\). Es ist \(n=[K:\QQ]_S=[K:\QQ]\).
+	Also sind auch \(\tilde\tau_1,\dots,\tilde\tau_n\) verschiedene Abbildungen \(K_\CC\to \CC\).
+	Jeder Homomorphismus von \(\CC\)-Algebren \(\prod R_i\to \CC\) hat die Form \(\prod R_i\to R_i\to R_i/\frakm_i \cong \CC\) siehe ???.
+	Also ist Anzahl \(r\) der Homomorphismen \(K_\CC\to\CC\) gleich Anzahl der Faktoren.
+	Da jede Algebra \(R_i\) als Vektorraum mindestens Dimension 1 hat, muss \(n\geq r\) sein. Aber oben haben wir gesehen, dass \(r\geq n\). Also ist \(r=n\) und \(\dim_\CC(R_i)=1\). Somit ist \(R_i\cong \CC\).\\
+	Alternativ kann man auch wie folgt argumentieren:
+	Sei \(b\in K\) sodass \(K=\QQ[b]\cong \QQ[X]/(f)\).
+	Dann ist \(K_\CC\cong \CC[X]/(f)\).
+	Wenn \(f=\prod_{i=0}^r(X-b_i)\) mit paarweisen verschiedenen Nullstellen in \(\CC\) dann ist 
+	\[K_\CC\cong \prod_{i=1}^r\CC[X]/(X-b_i)\cong \prod\CC_i\]
+	Es ist \(\{b_1,\dots,b_n\}=\{\tau(b)\colon \tau\colon K\to \CC\}\).
+	Sei \(\tau_i\colon K\to \CC\) sodass \(\tau(b)=b_i\).
+	dann ist die Abbildung gegeben durch
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9AHW4GE+IAL6l0mXPkIoAjOSq1GLNrzQAnaJ2BYAvNKEA9MLwHDRIDNjwEiAJjnV6zVohDHBIsZclEy0+Y6UXACNeCDwAW3gAAmlTTwlrGVI-B0VnEAAKIM4sAEpNWV4oMLhSMCE483ErKWQ7FIUnNmydXhw6Jhys3OF5GCgAc3giUAAzdXCkMhAcCCRZRsDXbmxJjxBxiEnEBdmkO0X0tRzKze2AZmo9xAAWK7osBjZwujQ4PfWzpDuZucQAVnuj2er3ecyEFCEQA
+	\begin{tikzfigure}
+		K_\CC \arrow[r, "\sim"]       & \prod_{i=1}^n\CC \arrow[r, "pr_i"]     & \CC           \\
+		b\otimes 1 \arrow[r, maps to] & {(b_i)_{1,\dots,n}} \arrow[r, maps to] & b_i=\tau_i(b)
+	\end{tikzfigure}
+	folglich ist die Abbildung wie im Satz auch für alle Elemente in \(K_\CC\).
+\end{proof}
+\begin{Bsp}
+	Sei \(d>1\) quadratfrei und \(K=\QQ[\sqrt{d}]\cong \QQ[X]/(X^2-d)\)
+	Dann ist \(K\otimes_\QQ\RR\cong \RR[X]/(X-\sqrt{d})\times \RR[X]/(X+\sqrt{d}\cong \RR\times\RR\) wobei \(1\otimes a\) auf \(a,a\) geschickt wird und \(\sqrt{d}\) auf \(\sqrt{d},-\sqrt{d}\).
+		Wenn \(d\not\equiv 1 \mod 4\) dann ist \(d_K=d\) und \(1,\sqrt{d}\) eine Ganzheitsbasis.
+		Es ist \(\Vol(\calO_K)=|\det(\begin{pmatrix} 1 & \sqrt d\\ 1 & -\sqrt d\end{pmatrix})|=\sqrt{d}=\sqrt{d_K}\)
+		Analog wenn \(d\equiv 1 \mod 4\) dann 
+		\(\Vol(\calO_K)=\sqrt{(d_K)}\)
+\end{Bsp}
+\begin{Bem} Sei \(K\) ein Zahlkörper.
+	Sei \(c\colon \CC\to\CC\) komplexe Konjugation und \(\tilde c=\id_K\). Sei weiter \(\tau\colon K\to \CC\) Körperhom und \(\tilde\tau\colon K_\CC\to \CC,\, a\otimes b\mapsto \tau(a)\cdot b\).
+	Dann kommutiert
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9AHW4GE+IAL6l0mXPkIoAjOSq1GLNrwHDRIDNjwEiZafPrNWiDj36CRYrZKKz91Q0pMqL8mFADm8IqABmAJwgAWyQyEBwIJAAmB0VjEF48BlgAAgBjNT9AkMQwiKRZBSNlbiTYRLomTJAA4ILqfMQAZljikwzLGuzohsjm1qcE0qxkmGA03jSsfzSUiqYhYQohIA
+	\begin{tikzfigure}
+		K_\CC \arrow[d, "\tilde c"] \arrow[r, "\tilde\tau"] & \CC \arrow[d, "c"] \\
+		K_\CC \arrow[r, "\tilde{c\circ \tau}"]              & \CC               
+	\end{tikzfigure}.
+	Wenn \(\rho_1,\dots,\rho_r\) die Homomorphismen \(K\to\RR\cdot \RR\) sind und \(\sigma_1,\dots,\sigma_s, c\sigma_1,\dots,c\sigma_s\) die Verbleibenden Homomorphismen \(K\to \CC\) mit \(n=[K:\QQ]=r+2s\)
+	Dann schreibe \(x\in\prod_\tau \CC\) als 
+	\(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)\).
+	Dann ist 
+	\[\tilde c (a_1,\dots,c_s)=(\bar{a_1},\dots,\bar{a_r},\bar{c_1},\dots,\bar{c_2},\bar{b_1},\dots,\bar{b_s}).\]
+	Es folgt, dass \(K_\RR=K_\CC^{\tilde c=\id}\cong \RR^r\times \CC^s\).
+\end{Bem}
+\begin{Def}
+	Definiere bilineare Abbildung 
+	\[\beta\colon K\times K\to \RR,\, \beta(x,y)=\sum_{\tau\colon K\to\CC}\tau(x)\bar{\tau(y)}\]
+	Das Bild ist in \(\RR\) denn wenn \(\tau=\rho_i\)
+	Dann ist \(\rho_i(x)\bar{\rho_i(y)}\in \RR\)
+	und wenn \(\tau=\sigma_i\) dann ist
+	\[\sigma_i(x)\bar{\sigma_i(y)}+c\sigma_i(x)\bar{c\sigma_i(y)}=2\real(\sigma_i(x)\bar{\sigma_i(y)})\in \RR.\]
+	Definiere also 
+	\[\tilde\beta\colon K_\RR\to K_\RR\to \RR,\ \tilde \beta(a\otimes x,b\otimes y)=ab\beta(x,y)\]
+\end{Def}
+\begin{Lemma}
+	\(tilde b\) ist symmetrische, positive Bilinearform gegeben durch 
+	\[\tilde\beta(a_1,\dots,a_r,b_1,\dots,b_s ),a'_1,\dots,a'_n,b'_1,\dots,b'_n)=\sum_{i=1}^ra_ia'_i+\sum_{i=1}^s\real(b_ib'_i)\]
+\end{Lemma}
+\begin{proof}
+	Symmetrie ist klar da \(\beta\) symmetrisch.
+	Dass \(\tilde\beta\) positiv definit ist folgt aus der Formel da erste Summe aus dem Standardskalarprodukt auf \(\RR^n\) kommt und zweite Summe das zweifache des Standardskalarpoduktes ist auf \(\CC=\RR^2\).
+	Zeige also die Formel.
+	Das durch die Formel gegebene Sklarprodukt ist \(\RR\)-bilinear, also reicht die Gleichheit zu überprüfen für eine \(\RR\)-Basis von \(K_\RR\).
+	Für \(a\in K\) ist entspricht \(a\otimes 1\) dem Tupel
+	\((\rho_1(a),\dots,\rho_r(a),\sigma_1(a),\dots,\sigma_s(a))\)
+	Damit folgt die Formel wie in der Rechnung von der Definition ???.
+\end{proof}
+\begin{Bem}
+	Man kann genauso eine hermitesche Form \(\tilde\beta'\colon K_\CC\times K_\CC\to \CC\) definieren durch \(\tilde \beta'(a\otimes x,b\otimes y)=a\bar{b}\beta(x,y)\). Das ist dann auch positiv definit.
+\end{Bem}
+\begin{Def}
+	wenn \(I\subseteq \calO_K\) ein Ideal ist, dann ist 
+	\(N(I)=|\calO_K/I|\) die Norm des Ideals.
+\end{Def}
+\begin{Bem}
+	Wenn \(I\subseteq \calO_K\) ein Ideal ungleich 0 ist, dann ist \(I\subseteq K_\RR\) ein vollständiges Gitter da \(I\cong \ZZ^n\) nach ???.
+\end{Bem}
+\begin{Satz}
+	Sei \(K\) ein Zahlkörper und \(I\subseteq \calO_K\) ein Ideal ungleich \(0\). Dann ist
+	\(\Vol(I)=N(I)\cdot\sqrt{|d_K|}\) wobei \(d_K\) die Diskrimminante ist.
+\end{Satz}
+\begin{proof}
+	Es ist nach ???
+	\[\Vol(I)=N(I)\cdot \Vol(\calO_K)\]
+	Also ist ohne Einschränkung \(I=\calO_K\). Sei
+	\(v_1,\dots,v_n\in\calO_K\) eine \(\ZZ\)-Basis und
+	\(A=(Tr(v_i,v_j))_{ij}\) sowie \(A'=((\tilde beta(v_i,v_j)))\). Es \(d_K=\det(A)\) und 
+	\(\Vol(\calO_K)=\sqrt{|\det(A')|}\) nach ???.
+	Sei \(B=(\tau_i(v_j))_{ij}\in M_n(\CC)\).
+	Dann ist \(A=B^tB\) und \(A'=B^t\bar B\).
+	Somit ist \(\det(A)=\det(B)^2\) und 
+	\[\det(A')=|\det(B)|^2\].
+	Somit ist \(\Vol(\calO_K)=\sqrt{|d_K|}\)
+\end{proof}
+\begin{Satz}
+	Sei \(A=(\frac 2 \pi)^s\sqrt{|d_K}\). Wenn \(I\subseteq \calO_K\) ein Ideal ungleich 0 ist und 
+	\(c_\tau\in\RR_{>0}\) sodass für alle \(\tau\colon K\to\CC\) gilt: \(c_\tau=c_{c\circ\tau}\) und
+	\(\prod_\tau c_\tau\geq N(I)\cdot A\).
+	Dann gibt es ein \(a\in I\) mit \(a\neq 0\) sodass
+	\(|\tau(a)\leq c_\tau\) für alle \(\tau\).
+\end{Satz}
+\begin{proof}
+	Definiere \(X\subseteq K_\RR\) durch
+	\[X=\{(a_1,\dots,a_r,b_1,\dots,b_s)\mid |a_i|\leq c_{\rho_i}, |b_i|\leq c_{\sigma_i}\}\]
+	\(X\) ist konvex als Produkt von abgeschlossenen Bällen
+	\[B_{c_{\rho_1}}(0)\times\dots \times B_{c_{\sigma_1}}\times\dots\times B_{c_{\sigma_s}}(0)\]
+	und zentralsymmetrisch und kompakt.
+	Es ist 
+	\[\mu(X)=2^r\prod_{i=1}^rc_{\rho_i}\cdot 2^s\pi^sc_{\sigma_i}^2\] da \(\tilde\beta|_{\CC}\) das zweifache vom Standardskalarprodukt auf \(\RR^2\) ist.
+	Somit ist 
+	\begin{align*}
+		\mu(X)&=2^n(\frac \pi 2)^s\prod_\tau c_\tau\\
+		&\geq 2^n(\frac \pi 2)^sN(I)A\\
+		&=2^nN(I)\sqrt{|d_K|}\\
+		&=2^n\Vol(I)
+		\end{align*}
+	Nach Gitterpunktsatz Kompakte Version ??? folgt die Aussage.
+\end{proof}
+\begin{Lemma}
+	Eigenschaften der Norm:
+	\begin{enumerate}
+		\item \(N(IJ)=N(I)N(J)\)
+		\item Für \(a\in \calO_K\) gilt \(N(a\calO_K)=|N_{K/\QQ}(a)|\)
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	Es ist \(()\calO_K/IJ)/(I/IJ)\cong \calO_K/I\)
+	also ist \(N(I)=N(IJ)/|I/IJ|\).
+	Angeommen \(J\) ist Primideal und \(IJ\subseteq K\subseteq I\) für ein Ideal \(K\). Dann ist
+	wegen der Eindeutigkeit der PrimidealZerlegung \(K=I\) oder \(K=IJ\).
+	Also ist \(I/IJ\) ein \(\calO_K/J\) Vektorraum der Dimension 1 und somit \(N(J)=|I/IJ|\).
+	Somit gilt \(N(IJ)=N(I)N(J)\) wenn \(J\) ein Primideal ist
+	und somit allgemein.
+	Da \(a\calO_K\subset \calO_K\) Gitter ist,
+	ist \(N(a\calO_K)=|\det(A)|\) wobei \(A\) eine Übergangsmatrix der Basen der Gitter ist.
+	Dann ist \(A\) aber auch die Abbildungsmatrix von Multiplikation mit \(a\), somit \(|N_{K/\QQ}(a)|=|\det(A)|\) und die zweite Aussage folgt.
+\end{proof}
+\begin{Lemma}
+	Für \(c\in \RR>0\) gibt es nur endlich viele Ideale 
+	\(I\subseteq \calO_K\) ungleich 0 sodass
+	\(N(I)\leq c\).
+\end{Lemma}
+\begin{proof}
+	Wegen ??? reicht es das für Primideale zu zeigen.
+	Sei also \(I=\frakp\) prim. Es ist \(\frakp\cap \ZZ=(p)\) für eine Primzahl \(p\).
+	Dann ist \(\FF_p=\ZZ/p\ZZ\to \calO_K/\frakp\) injektiv,
+	Also ist \(\calO_K\) \(\FF_p\)-Vektorraum der Dimension \(\geq 1\).
+	Also ist \(N(\frakp)=p^e\) mit \(e\geq 1\).
+	Da \(p\calO_K\subseteq\frakp\) ist \(\frakp\) ein Faktor in der Primidealzerlegung von \(p\calO_K\).
+	Somit gibt es zu jedem \(p\) nur endlich viele \(\frakp\).
+	Wenn \(N(\frakp)\leq c\) dann ist \(p\leq c\) und das sind nur endlich viele Möglichkeiten.
+\end{proof}
+\begin{Satz}
+	Die Klassenzahl \(Cl_K\) ist endlich.
+\end{Satz}
+\begin{proof}
+	\(Cl_K\) wird von allen \(I\subseteq \calO_K\) ungleich 0 erzeugt (Multiplikation der Nenner).
+	Nach ?? reicht es zu Zeigen, dass \(I\) modulo \(P_K\) äquivalent ist zu einem \(I'\) mit \(N(I')\leq A=(\frac 2 \pi)^s\sqrt{|d_K|}\).
+	Wähle \(b\in K\) sodass \(bI^{-1}=J\subseteq\calO_K\) und 
+	\(c_\tau\) wie in ??? sodass \(\prod c_\tau=N(J)A\).
+	Dann existiert ein \(a\in J\setminus\{0\}\) sodass
+	\(\prod |\tau(a)|\leq \prod c_\tau=N(J)A\).
+	Es ist
+	\[\prod |\tau(a)|=|N_{K/\QQ}(a)|=|N(a\calO_K)|\]
+	Es ist \(a\calO_K\subseteq J=bI^{-1}\subseteq \calO_K\).
+	Sei \(I'=\frac a b I\subseteq \calO_K\).
+	Dann ist \[N(I')=\dfrac{N(a\calO_K)}{N(b\calO_K)}N(I)\leq \dfrac{N(b)}{N(b)}N(I^{-1})N(I)A=A\]
+\end{proof}
+\begin{Def}
+	Die Klassenzahl von \(K\) ist \(h_K=|Cl_K|\)
+\end{Def}
+\begin{Kor}
+	Für Jedes Ideal \(I\subseteq \calO_K\) gibt es ein \(m\geq 1\) sodass \(I^m\) ein Hauptideal ist.
+\end{Kor}
+\begin{proof}
+	Klar da wegen Endlichkeit der Klassenzahl \(I^m\subseteq \calO_K\) ein gebrochenes Hauptideal ist für \(m=h_K\).
+	Damit ist \(I^m\) Hauptideal.
+\end{proof}
+\begin{Bem}
+	Sei \(L/K\) eine endliche Körpererweiterung.
+	Dann ist die Abbildung \(Cl_K\to Cl_L,\, [I]\mapsto [I\calO_L]\) wohldefiniert, denn für \(a\in K\) ist \(a\calO_L\) gebrochenes Hauptideal.
+\end{Bem}
+\begin{Lemma}
+	Sei \(K\) ein Zahlkörper. 
+	\begin{enumerate}
+		\item Wenn \(I\subseteq \calO_K\) mit 
+		\(I^m=(a)\) ist und \(L=K[\alpha]\) mit \(\alpha^m=a\) dann ist \(I\calO_L\) ein Hauptideal.
+		\item Es gibt endliche Körpererweiterung \(L/K\) sodass \(Cl_K\to Cl_L\) die Nullabbildung ist.
+	\end{enumerate}
+	
+\end{Lemma}
+ \begin{proof}
+ 	\begin{enumerate}
+ 		\item Es ist \((I\calO_L)^m=I^m\calO_L=(a)\calO_L=(\alpha\calO_L)^m\)
+ 		Sei \(I\calO_L=\frakp_q^{e_1}\dots \frakp_r^{e_r}\) und \(\alpha\calO_L=\frakq_1^{f_1}\dots\frakq_s^{f_s}\)
+ 		die eindeutige Primfaktorzerlegung.
+ 		Dann ist \(\frakp_q^{me_1}\dots \frakp_r^{me_r}=\frakq_1^{mf_1}\dots\frakq_s^{mf_s}\)
+ 		und somit \(r=s\) und nach Umsortieren \(\frakp_i=\frakq_i\) sowei \(e_i=f_i\).
+ 		Also ist \(I\calO_L=\alpha\calO_L\).
+ 		\item Seien \([I_1],\dots,[I_m]\) alle Elemente von \(Cl_K\).
+ 		Wähle \(b_i\) sodas \(J_i=b_iI_i\subseteq\calO_K\).
+ 		Zu \(J_1\) sei \(a_1\calO_K=J_1^m\) und \(L_1=K[\alpha_1]\) mit \(\alpha_1^m=a_1\).
+ 		Dann schickt nach 1. \(Cl_K\to Cl_L\) das Element
+ 		\([J_1]\) auf 1.
+ 		Zu \(J_2\) sei \(L_2=K[\alpha_1,\alpha_2]\) usw.
+ 		Das zeigt, dass \(Cl_K\to C_L\) die Nullabbildung ist für \(L=K[\alpha_1,\dots,\alpha_m]\).
+ 	\end{enumerate}
+ \end{proof}
+\section{Einheiten von \(\calO_K\)}
+\begin{Def} Es gibt Gruppenhomomorphismus \(\ell\colon \CC^*\to \RR,\, \ell(z)=\log(|z|)\).
+	das gibt dann kommutatives Diagramm
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AKhAF9S6TLnyEUARnJVajFm3YB9ADpKAwqp79BIDNjwEiAJinV6zVohAq0AJ2jKlOOkwAEK9ZoFC9oogGYTGXM2azsoBycmFQAlaK1vEQMUMnFpMzlLFQBFLM9tXUSxZElU01kLKzUNXi8dYX0i41KgjMqPGvz63xQA5vSKmLi+aRgoAHN4IlAAMzsAWyQyEBwIJHFa2YgFxEll1cRjEAYsMAq4CGOoEGoACxg6K8QwJgYGaicsBjZIU+uWgaU2AWG3mSEOKyQAX+ISUMFe8RAm22SwhiAALGVgpYAHIIpFrd77ACsmNauJBWzBhKQADZSRVsQAKRl0CLOACU7IAvKFoC5WSpInjQYgoaiAOz0mEAZSwYzmdC5ABUbMLKYgSXtadRjr9LFAIEwAEYMVi3e6PcAEM3LOifb7WtXbOlaxCS6GZWHw4Z8IA
+\begin{tikzfigure}
+K^* \arrow[r] \arrow[d, "N"] & K_\CC^* \arrow[r, "\sim"] \arrow[d, "N"] & \prod_\tau \CC^* \arrow[r, "\ell"] \arrow[d, "N((a_\tau))=\prod a_\tau"] & \prod_\tau\RR \arrow[d, "\Sigma=Tr"] \\
+\QQ^*                        & \CC^* \arrow[r, no head, Rightarrow]     & \CC^* \arrow[r, "\ell"]                                                  & \RR                                 
+\end{tikzfigure}
+Dann gillt \(\tilde c \ell =\ell \tilde c\), denn \[\tilde c\ell(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)=(\ell(a_1),\ell(a_r),\ell(c_1),\dots,\ell(c_s),\ell(b_1),\dots,(b_s))=\ell(\tilde c(a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)\]
+Die Invarianten geben dann 
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoAGAXVJADcBDAGwFcYkQBpAPQCoB9ADoCASsIC8Q0V2A8ATgF8heALbwABEIDCm6TzjyQ80uky58hFAGYK1Ok1btJw6bIDU+w8ZAZseAkWsARlsGFjZEECdPE19zIjJgmlCHCKdeaO9TPwtkQNJEuzDHAQBFEvSjGLN-FDyqJPtwzgqvH2qc8hsGotSBAGMmAHk+bh4MtuyiToLkpqEALXmK2xgoAHN4IlAAM1kIZSROkBwIJDzClMiBGEZGDN39s5oTpDILuYE4ZgPKkAeDxBHF6IazvdgAOXuewBoOBb1mxRud1+-yQABZnqcQSjoUgAKyY9HdS6QnGPRAAdkJiAxx3oWDuEQAFhAIABrKHkgBs1KpYIipK8qMQPOOWIJdIZ7BZ7M5AIlwPI8ko8iAA
+\begin{tikzfigure}
+\calO_K^* \arrow[d, "N"] \arrow[r, hook] & K^* \arrow[d, "N"] \arrow[r] & K^*_\RR=\RR^{*r}\times \CC^{*s} \arrow[r, "\ell"] \arrow[d, "N"] & \RR^{r+s} \arrow[d, "\sum"] \\
+\ZZ^* \arrow[r, hook]                    & \QQ^* \arrow[r]              & \RR^* \arrow[r, "\ell"]                                          & \RR                        
+\end{tikzfigure}
+wobei man identifiziert \[(\prod_\tau\RR)^{\tilde c=\id}\cong \RR^{r+s}, (a_1,\dots,a_r,b_1,\dots,b_s,c_1,\dots,c_s)\to (a_1,\dots,a_r,2b_1,\dots,2b_2\].
+Es ist also \(\ell(N(\calO_K^*))=\ell(\pm 1)=0\).
+Sei \(H=\{x\in \RR^s\mid \sum x_i=0\}\) die Spur-Null Hyperebene. Es ist \(\dim(H)=r+s-1\).
+Sei \(S=\{y\in K_\RR\mid N(y)=\pm 1\}\) die Norm 1 Hyperfläche.
+\end{Def}
+\begin{Lemma}
+Der Kern der Abbildung \(\ell\colon \calO_K^*\to H\) ist die endliche Gruppe 
+\[\mu(K)=\{x\in K^*\mid x^n=1, n\geq 1\}\]
+\end{Lemma}
+\begin{proof}
+Da \(x^n=1\) eine Ganzheitsgleichung ist, ist \(x\in\calO^*_K\).
+Es ist \(0=\ell(x^n)=n\ell(x)\) also \(l(x)=0\).
+Es ist \(\ker(\ell\colon K^*_\RR\to \RR^{r+s})=\{\pm 1\}^r\times (S^1)^s\) beschränkt in \(K_\RR\).
+Somit ist \(\ker(\ell\colon \calO_K^*\to \RR^{r+s})\) beschränkt in \(\calO_K\) und eine beschränkte Teilmenge eines Gitters ist immer endlich.
+Nach Lagrange ??? ist also \(\Ker(\ell)\subseteq \mu(K)\).
+\end{proof}
+\begin{Lemma}
+\(\Gamma=\Im(\ell\colon \calO_K^*\to H)\cong \calO_K^*/\mu(K)\) ist Gitter in \(H\).
+\end{Lemma}
+\begin{proof}
+Zeige, dass \(\Gamma\) diskret ist in \(H\).
+Dafür reicht, dass für \(B\subseteq H\) beschränkt die Menge \(\Gamma\cap B\) endlich ist.
+Es ist \(\ell^{-1}(B)\subseteq K\otimes \RR\) beschränkt und \(\Gamma\cap B\) ist Bild von \(\ell^{-1}(B)\cap \calO_K^*\) und letzteres ist endlich da beschränkt in Gitter.
+\end{proof}
+\begin{Kor} \(\calO_K\) ist endlich erzeugt, \(\calO_K^*\cong \mu(K)\times \ZZ^m\) für \(m\leq r+s-1\).
+\end{Kor}
+\begin{Lemma}
+	Für jedes \(a\in\ZZ\) mit \(a\neq 0\) hat \(\calO_K\) nur endlich viele Elemente \(b\in\calO_K\) mit \(N(b)=a\) bis auf Assozierte.
+\end{Lemma}
+\begin{proof}
+	Wenn \(N(b)=a\) ist, dann ist \(N(b\calO_K)\)=|a|. Nach ??
+	gibt es nur endlich viele Ideale mit vorgegebener Norm. 
+	Somit folgt die Aussage
+\end{proof}
+\begin{Satz}
+	\(\Gamma=\calO_K^*/\mu(K)\subseteq H\) ist vollständiges Gitter in \(H\).
+\end{Satz}
+\begin{proof}
+	Sei \(X\subseteq K_\RR\) durch
+	\[X=\{(a_1,\dots,a_r,b_1,\dots,b_s)\mid |a_i|\leq c_{\rho_i}, |b_i|\leq c_{\sigma_i}\}\] wie in ??? mit 
+	\(\prod_\tau c_\tau=A=(\frac 2 \pi)^s\sqrt{|d_K|}\).
+	Für \(y\in S\) ist \(\mu(y\cdot X)=\mu(X)\) denn \(\det(y)=\pm 1\).
+	Nach \nameref{Satz:Gitterpunktsatz} gibt es \(a\in\calO_K\) mit \(a\neq 0\) sodass \(a\in yX\).
+	Die möglichen \(a\) haben beschränkte Norm unabhängig von \(y\) denn \(N(y)=\pm 1\).
+	Nach Lemma ??? gibt es modulo Assozierten nur endlich viele \(a_1,\dots,a_n\dots,a_r\in \calO_K\).
+	\(a\in yX\) impliziert \(y^{-1}\in a^{-1}X\).
+	Also ist
+	\[y^{-1}\in\cup_{i=1}^r a_i^{-1}\calO^*X=\calO_K^*\cup_ia_i^{-1}X\]
+	Sei \(T=(\bigcup a_i^{-1}X)\cap S\). Das ist beschränkt da \(a_i^{-1}X\) beschränkt ist.
+	Also ist \(\ell(T)\) beschränkt in \(H\).
+	\(T\) ist enthalten in Produk von Tori und punktierte Intervalle.
+	Da \(S\subseteq \calO_K^*T\) ist \(H\subseteq \Gamma+\ell(T)\). Somit ist \(\Gamma\) vollständig denn \(\ell(T)\) ist beschränkt.
+\end{proof}
+\begin{Kor}
+	Es ist \(\calO_K^*\cong \mu(K)\times \ZZ^{r+s-1}\)
+\end{Kor}
+\begin{Bsp}[Pellsche Gleichung]
+	Sei \(N\geq 1\) quadratfrei, \(N\not\equiv 1 \mod 4\). Die Pellsche Gleichung ist gegeben durch 
+	\(N(a+b\sqrt{N})=a^2-Nb^2=\pm 1\)
+	Dann beschreibt die Pellsche Gleichung die Einheiten von \(O_K\).
+	Es ist \(r=2, s=0\)
+	und somit \(\calO_K^*\cong \{\pm 1\}\times \ZZ\}\) unendlich viele Lösungen der Pellschen Gleichung.
+\end{Bsp}
+\begin{Bem}
+	Da \(H\subseteq \RR^{r+s}\) mit Standardskalarprodukt ist \(H\) Euklidischer Vektorraum
+	Sei \(v_0=\frac{1}{\sqrt{r+s}}\begin{pmatrix} 1\\ \vdots \\ 1 \end{pmatrix}\)
+		Dann ist \(|v_0|=1\) und \(v_0\perp H \).
+	Seien \(\epsilon_1,\dots,\epsilon_{r+s-1}\in \calO_K^*\) Elemente, die auf eine Basis von \(\Gamma\) abgebildet werden und \(v_i=\ell(\epsilon_i)\) mit \(\ell\colon \calO_K^*\to\RR^{r+s}\).
+	Sei \(A=(v_0,v_1,\dots,v_{r+s-1})\).
+	Dann ist 
+	\[\Vol(\Gamma)=\Vol(\langle v_0,\Gamma\rangle)=\det(A)\]
+	Addiert man alle Zeilen von Matrix \(A\) zur ersten Zeile, verändert sich die Determinante nicht und man erhält 
+	\[\begin{pmatrix}
+		\sqrt{r+s} & 0 & \dots & 0 \\
+		\frac{1}{\sqrt{r+s}} &  &  &  \\
+			\vdots &  & B &  \\
+			\frac{1}{\sqrt{r+s}} &  &  &  
+			\end{pmatrix} \]
+			wobei oben \(0\) entsteht da \(v_i\in H=\ker(\Sigma\colon R^{r+s}\to \RR)\).
+	Also ist \(\det(A)=\sqrt{r+s}\det(B)\).
+	Das Zeigt:
+\end{Bem}
+
+\begin{Satz}
+	Es gilt \(\Vol(\calO_K^*/\mu(K))=\sqrt{r+s}\cdot R\)
+	wobei \(R=\det(B)\) der Regulator von \(K\) ist.
+\end{Satz}
+
+
+
+
+
+
+
+
+
+

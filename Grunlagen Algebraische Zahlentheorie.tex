@@ -20,8 +20,8 @@
     Sei \(p\) prim und \(a\in \ZZ\). Dann ist das Legendre Symbol gegeben durch 
     \[\left( \frac a p\right)=\begin{cases}
         0 & p\mid a\\
-        1 & p\not\mid a \ext{ und } a \text{ Quadratzahl in} \FF_p\\
-        -1 & p\not\mid a \ext{ und } a \text{ keine Quadratzahl in} \FF_p\\
+        1 & p\not\mid a \text{ und } a \text{ Quadratzahl in} \FF_p\\
+        -1 & p\not\mid a \text{ und } a \text{ keine Quadratzahl in} \FF_p\\
     \end{cases}\]
 \end{Def}
 \begin{Lemma} \[\left(\frac a p\right)\equiv a^{\frac{p-1}{2}}\mod p\]
@@ -114,8 +114,8 @@
 \begin{Def}
     Ein Zahlkörper ist eine endliche Erweiterung \(K/\QQ\). Wenn \(K\) ein Zahlkörper ist, dann
     ist der Ring der ganzen Zahlen von \(K\) gegeben durch
-    \[\OO_K=\{z\in K\mid z \text{ ganz über }\ZZ\}\]
-    Also \(\OO_K\) ist der ganze Abschluss von \(\ZZ\) in \(K\).
+    \[\calO_K=\{z\in K\mid z \text{ ganz über }\ZZ\}\]
+    Also \(\calO_K\) ist der ganze Abschluss von \(\ZZ\) in \(K\).
 \end{Def}
 \begin{Bsp}
     Sei \(K\) ein quadratischer Zahlkörper, \(K=\QQ(\sqrt{d})\) für ein quadratfreies \(d\in \ZZ\).
@@ -125,34 +125,34 @@
     \(X^2-2aX+(a^2-db^2)\).
     \(x\) ist nach ??? ganz über \(\ZZ\) genau dann wenn \(-2a, a^2+-db^2\in \ZZ\) also genau dann
     wenn \(a,b\in \ZZ\) oder \(a,b\in \frac 1 2+\ZZ\) und \(d\equiv 1 \mod 4\).
-    Das heißt \[\OO_K=\begin{cases}
+    Das heißt \[\calO_K=\begin{cases}
         \ZZ[\sqrt{d}] & d\not\equiv \mod 4\\
         \ZZ[\frac{\sqrt{d}+1}{2}] & d\equiv 1 \mod 4
     \end{cases}\]
 \end{Bsp}
 \begin{Bem}
-    Aus ??? folgt, dass \(\OO_K\) ein endlicher \(\ZZ\)-Modul ist.
-    Da \(\OO_k\) torsionsfrei ist folgt mit ???
+    Aus ??? folgt, dass \(\calO_K\) ein endlicher \(\ZZ\)-Modul ist.
+    Da \(\calO_K\) torsionsfrei ist folgt mit ???
     \(\O_K=\ZZ^n\) als \(\ZZ\)-Modul.
 \end{Bem}
-\begin{Def} Eine \(\ZZ\)-Basis von \(\OO_K\) heißt Ganzheitsbasis von \(K\).
+\begin{Def} Eine \(\ZZ\)-Basis von \(\calO_K\) heißt Ganzheitsbasis von \(K\).
 \end{Def}
 \begin{Lemma}
-    Jede Ganzheitsbasis ist eine \(\\Q\)-Basis von \(K\) und \(\OO_K\cong \ZZ^n\) mit 
+    Jede Ganzheitsbasis ist eine \(\\Q\)-Basis von \(K\) und \(\calO_K\cong \ZZ^n\) mit 
     \(n=[L:K]\).
 \end{Lemma}
 \begin{proof}
-    Seien \(a_1,\dots,a_n\in\OO_K\) eine Ganzheitsbasis.
+    Seien \(a_1,\dots,a_n\in\calO_K\) eine Ganzheitsbasis.
     Dann sind sie auch \(\\Q\)-linear unabhängig.
     Sei \(y\in K\) mit \(f\in \QQ[X]\) Minimalpolynom.
     Sei \(b\) der gemeinsame Nenner aller Koeffienten von \(f\).
-    Dann ist \(by\) ganz also in \(\OO_K\).
-    somit ist \(y\in \QQ\cdot \OO_K\).
+    Dann ist \(by\) ganz also in \(\calO_K\).
+    somit ist \(y\in \QQ\cdot \calO_K\).
 \end{proof}
 \begin{Bsp}
     Wenn \(K=\QQ(\sqrt{d})\) mit \(d\) quadratfrei, dann ist
     falls \(d\equiv 1 \mod 4\) eine Ganzheitsbasis gegeben durch 
-    \(1,\frac{}\sqrt{d}+1}{2}\) und falls \(d\not\equiv \mod 4\) gegeben durch 
+    \(1,\frac{\sqrt{d}+1}{2}\) und falls \(d\not\equiv \mod 4\) gegeben durch 
     \(1,\sqrt{d}\).
 \end{Bsp}
 \begin{Def}
@@ -163,7 +163,7 @@
     \[N_{L/K}(b)=\det(b\colon L\to L)\]
 \end{Def}
 \begin{Lemma}
-    Wenn \(L/K\) separabel, dann ist für \(b\in L\) und \(\Sigma=\{\sigma\colon L\to \bar K\mid \sigma|_K=\id\]\):
+    Wenn \(L/K\) separabel, dann ist für \(b\in L\) und \(\Sigma=\{\sigma\colon L\to \bar K\mid \sigma|_K=\id\}\):
     \[Tr_{L/K}(b)=\sum_{\sigma\in\Sigma}\sigma(b)\]
     \[N_{L/K}(b)=\prod_{\sigma\in\Sigma}\sigma(b)\]
 \end{Lemma}
@@ -204,7 +204,7 @@ Dann \[Tr_{M/K}(b)=Tr_{L/K}(Tr_{M/L}(b))\]
     dann ist\[d(b_1,\dots,b_n)=det(S^TTr(a_ia_j)_{ij}S)=\det(S)^2d(a_1,\dots,a_n)\] 
 \end{Bem}
 \begin{Lemma}
-    Wenn \(A=Tr(a_ia_j}_{ij})\) Dann ist \(A=B^tB\) für \(B=\sigma_i(a_j)_{i,j}\in M_n(\bar K)\) mit
+    Wenn \(A=Tr(a_ia_j)_{ij})\) Dann ist \(A=B^tB\) für \(B=\sigma_i(a_j)_{i,j}\in M_n(\bar K)\) mit
     wobei \(\sigma_i\) die verscchiedenen \(K\)-Homomorphismen \(L\to \bar K\).
 \end{Lemma}
 \begin{proof}
@@ -236,7 +236,7 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
     Also ist Diskrimminante \(d(a_1,\dots,a_n\) ganz über \(A\).
 \end{Bem}
 \begin{Def}
-    Sei \(K/\QQ\) endlich und \(a_1,\dots,a_n\in\OO_K\) Ganzheitsbasis.
+    Sei \(K/\QQ\) endlich und \(a_1,\dots,a_n\in\calO_K\) Ganzheitsbasis.
     Diskrimminante von \(K\) ist 
     \(d_K=d(a_1,\dots,a_n)=\det(Tr_{K/\QQ}(a_ia_j))\).
     Eine Basiswechselmatrix \(S\) zu einer anderen Ganzheitsbasis ist über \(\ZZ\) 
@@ -258,14 +258,30 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
     und \(d_K=\det(B)^2=d\).
     
 \end{Bsp}
+ \begin{Lemma}
+ 	Sei \(K\) ein Zahlkörper und \(r\) die Anzahl der Homomorphismen \(K\to RR\) und sei \([K:\QQ]=n=r+2s\).
+ 	Dann ist \(d_K\) positiv genau dann wenn \(S\) gerade ist.
+ \end{Lemma}
+ \begin{proof}
+ 	Es ist nach ??? \(d_K=\det(B)^2\) für \(B=(\sigma_i(x_j))_{ij}\) wobei \(x_1,\dots,x_n\) eine Ganzheitsbasis ist und \(\sigma_i\colon K\to \CC\) \(\QQ\)-Homomorphismen.
+ 	Sei \(\tau\colon \CC\to\CC\) die Komplexe Konjugation. Dann ist 
+ 	\[(\bar B)_{ij}=\tau(\sigma_i(x_j))=\sigma_{i'}(x_j)\] wobei \(\sigma_{i'}=\tau\sigma_i\).
+ 	Wenn \(\sigma\colon K\to \CC\) Bild in \(\RR\) hat, dann ist \(\tau\sigma=\sigma\) und wenn nicht, dann ist \(\tau\sigma\neq\sigma\).
+ 	Also entsteht \(\bar B\) aus \(B\) durch \(s\) Vertauschungen der Zeilen.
+ 	Also ist 
+ 	\[\bar{\det(B)}=\det(\bar B)=(-1)^s\det(B)\]
+ 	Also gilt
+ 	\[s \text{ gerade } \iff \bar{\det(B)}=\det(B) \iff \det(B)\in \RR\iff d_K=\det(B)^2>0\]
+ 	\[s \text{ ungerade } \iff \bar{\det(B)}=-\det(B) \iff \det(B)\in i\cdot\RR\iff d_K=\det(B)^2<0\]
+ \end{proof}
 \begin{Lemma}
-    sei \((0)\neq I\subseteq \OO_K\) ein Ideal.
+    sei \((0)\neq I\subseteq \calO_K\) ein Ideal.
     Dann ist \(I=\cong \ZZ^n\) als \(\ZZ\)-Modul und \(n=[L:K]\).
 \end{Lemma}
 \begin{proof}
     Wähle \(a\in I\) mit \(a\neq 0\).
-    Dann ist \(a\OO_K\subseteq I\subseteq \OO_K\).
-    Da \(a\OO_K\cong \ZZ^n\) ist \(I\cong \ZZ^n\).
+    Dann ist \(a\calO_K\subseteq I\subseteq \calO_K\).
+    Da \(a\calO_K\cong \ZZ^n\) ist \(I\cong \ZZ^n\).
 \end{proof}
 \begin{Def}
     Definiere \(d(I)=d(b_1,\dots,b_n\) für eine \(\ZZ\)-Basis \(b_1,\dots,b_n\) von \(I\).
@@ -273,7 +289,7 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
     dann ist \(d(I)=\det(S)^2d_K\) mit \(\det(S)\neq 0\) über \(\QQ\) invertierbar.
 \end{Def}
 \begin{Lemma}
-    \[\mid \det(S)\mid =\mid \OO_K/I\mid\] und somit 
+    \[\mid \det(S)\mid =\mid \calO_K/I\mid\] und somit 
     \(d(I)=\mid \O_K/I \mid^2d_K\).
 
 \end{Lemma}
@@ -286,7 +302,7 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
     Es ist \(K=\QQ(1-\zeta_p)\) daher hat das Minimalpolynom von \(1-\zeta_p\) Grad \(p-1\).
     Dann ist \(f(X)=\frac{(1-X)^p-1}{X}=-\dfrac{(1-X)^p-1}{(1-X)-1}=-(1+(1-X)^1+\dots+(1-X)^{p-1})\in \QQ[X]\) das Minimalpolynom denn \(f(1-\zeta_p)=0\) und 
     \(f\) hat Grad \(p-1\) und ist normiert.
-    Somit ist \(f\) auch das Charakteristische Polynom \(\chi_\zeta_p\).
+    Somit ist \(f\) auch das Charakteristische Polynom \(\chi_{\zeta_p}\).
     Es ist \(f(0)=-p\). Somit ist \(N_{L/K}(1-\zeta_p)=p\).
 \end{Bsp}
 \begin{Bsp}
@@ -342,7 +358,7 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
         Teilraumtopologie \(H/K\subseteq G/K\) die gleiche wie die Quotiententopologie.
         \item Sei \(G\) Hausdorff. Dann \[G/H\text{ Hausdorff } \iff H\subseteq G \text{abgeschlossen}\] 
         \item Sei \(H\subseteq \RR^n\) abgeschlossen. Es gilt 
-        \[\RR^n/H \text{ kompakt } \iff \exits B\subseteq \RR^n \text{ beschränkte Menge sd.} B+H=\RR^n\] 
+        \[\RR^n/H \text{ kompakt } \iff \exists B\subseteq \RR^n \text{ beschränkte Menge sd.} B+H=\RR^n\] 
     \end{enumerate}
 \end{Lemma}
 \begin{proof}
@@ -369,4 +385,28 @@ Nach ??? ist \(\det(B)=\prod_{i<j}(\sigma_i(b)-\sigma_j(b))\neq 0\).
         wenn andererseits \(\RR^n=B+H\) wobei \(B\) beschränkt, dann ist ohne Einschränkung \(B\) abgeschlossen also kompakt.
         Da \(\pi(B)=R^n/H\) ist ist auch \(R^n/H\) kompakt.
     \end{enumerate}
+\end{proof}
+\begin{Lemma}
+	Sei \(\Gamma\) in vollständiges Gitter in einem Euklidischen Vektorraum der Dimension \(n\).
+	\begin{enumerate}
+		\item Der Gitterpunktsatz ist optimal, das heißt es gibt in \(V\) eine konvexe, zentralsymmetrische Menge \(X\) mit dem Volumen \[2^n\Vol(\Gamma)\] sodass
+		\(X\cap\Gamma=\{0\}\)
+		\item Wenn \(X\) eine kompakte konvexe zentralsymmetrische Menge mit dem Volumen \(\geq 2^n\Vol(\Lambda)\) ist, dann ist \(X\cap \Gamma\neq\{0\}\).
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item Sei \(v_1,\dots,v_n\) eine Basis von \(\Gamma\) über \(\ZZ\).
+		Sei \(X=\{\lambda_1v_1+\dots+\lambda_nv_n\mid |\lambda_i|<1\}\)
+		Dann ist \(\Vol(X)=2^n\Vol(\Gamma)\)
+		Aber wenn \(\gamma\in X\cap \Gamma\) dann ist 
+		\[\lambda_1v_1+\dots+\lambda_nv_n=\gamma=\alpha_1v_1+\dots+\alpha_nv_n\] für \(\alpha_i\in\ZZ, |\lambda_i|<1\).
+		Also ist \(\alpha_i=\lambda_i=0\) für alle \(i\).
+		Somit ist \(\gamma=0\).
+		\item Sei \(X_{\frac 1 n}=(1+\frac 1 n)X\).
+		Dann gibt es nach \cref{Satz:Gitterpunktsatz} ein \(\gamma_{\frac 1 n}\in X_{\frac 1 n}\cap \Gamma\setminus\{0\}\).
+		Es ist \(X=\bigcap_n X_{\frac 1 n}\) und da \(\Gamma\) diskret gibt es ein \(\gamma_{\frac 1 n}\) mit minimaler Länge. Also ist 
+		\(\gamma_{\frac 1 n}\in X\).
+			
+	\end{enumerate}
 \end{proof}

@@ -1,0 +1,181 @@
+\chapter{Hilbert Verzweigungstheorie}
+Sei \(A\) ein Dedekindring und \(K=\Quot(A)\). Sei \(L/K\) eine endliche separable Erweiterung und \(B\subseteq L\) der ganze Abschluss von \(A\) in \(L\). Nach ??? ist \(B\) wieder Dedekindring.
+
+\begin{Def}Für Primideal \(\frakp\subseteq \calO_K\) gibt es eindeutige Zerlegung 
+	\(\frakp B=\frakq_1^{e_1}\cdots \frakq_r^{e_r}\).
+	Es ist \(\frakq_i\cap A=\frakp\) wegen Eindeutigkeit der Primzerlegung.
+	Das gibt injektiven Homomoprhismus \(k(\frakp)=A/\frakp\to B/\frakq_i=k(\frakq_i)\).
+	\begin{enumerate}
+		\item 
+		Der Verzweigungsindex von \(\frakq_i\) ist \(e_i\).
+		\item Der Trägheitsgrad von \(\frakq_i\) ist \(f_i=[k(\frakq_i)\colon k(\frakp)]\).
+		\item \(\frakq_i\) heißt unverzweigt über \(\frakp\), wenn \(e_i=1\) und \(k(\frakq)/k(\frakp)\) separabel ist.
+	\end{enumerate}
+	
+\end{Def}
+\begin{Lemma}
+	Sei \(M/L\) eine weitere endliche separable Körpererweiterung und \(C\) der ganze Abschluss von \(A\) in \(M\). Sei \(\frakq_C\) ein maximales Ideal von \(C\)
+	und \(\frakq_B=\frakq C\cap B\) und \(\frakq_A=\frakq_B\cap A\).
+	Dann gilt 
+	\(e_{\frakq_C/\frakq_A}=e_{\frakq_C/\frakq_B}\cdot e_{\frakq_B/\frakq_A}\) und \(f_{\frakq_C/\frakq_A}=f_{\frakq_C/\frakq_B}\cdot f_{\frakq_B/\frakq_A}\)
+\end{Lemma}
+\begin{proof}
+	Sei \(\frakq_AB=\frakp_1^{e_1}\cdots \frakp_r^{e_r}\)
+	und \(\frakq_AC=\frakq_1^{e_1}\cdots \frakq_s^{e_s}\)
+	und ohne Einschränkung \(\frakq_B=\frakp_1\) und \(\frakq_C=\frakq_1\).
+	Es ist
+	\[\frakq_AC=(\frakq_AB)C=\frakp_1^{e_1}\cdots \frakp_r^{e_r}C\] ist \(e_1\cdot e_{\frakq_C/\frakq_B}\leq e_{\frakq_C/\frakq_A}\).
+	Wenn \(\frakq_C\mid \frakq_iC\) für ein \(i\) dann ist
+	\(\frakq_i\subseteq \frakq_C\cap B=\frakq\) also \(\frakq_i=\frakq_B\).
+	Also teilt \(\frakq_C\) nur \(\frakq_1=\frakq_B\).
+	Somit ist \(e_1\cdot e_{\frakq_C/\frakq_B}= e_{\frakq_C/\frakq_A}\).
+	Die Aussage über \(f\) ist einfach Multiplikation der Körpergrade ????.
+\end{proof}
+\begin{Bsp}
+	Es sei \(K_n=\QQ[\sqrt[n]{p}]\cong \QQ[X]/(X^n-p)\) für eine Primzahl \(p\). Dann ist \(\frakq=(\sqrt[n]{p})\) ein maximales Ideal und 
+	\(p\calO_K=\frakq^n\). Also ist \(e=n=[K_n\colon \QQ]\).
+	
+\end{Bsp}
+\begin{Bsp}
+	Wenn \(K\) Zahlkörper ist und \(\frakp\subseteq\calO_K\) maximales Ideal. Sei \(m\in\NN\) und \((p)=\frakp\cap \ZZ\) und \(n=m\cdot e_{\frakp/(p)}\).
+	Sei \(L=K_n\cdot K\) und \(\frakq\) maximales Ideal von \(\calO_L\) mit  \(\frakq\cap \calO_K=\frakp\).
+	Sei \(\frakp'=\frakq\cap \calO_{K_n}\).
+	Dann ist nach Bsp ???
+	\begin{align*}
+		e_{\frakq/\frakp}e_{\frakq/(p)}&=e_{\frakq/\frakp'}e_{\frakp'/(p)}\\
+		&= e_{\frakq/\frakp'}\cdot n\\
+		&= m e_{\frakq/\frakp'}\cdot e_{\frakp/(p)}
+	\end{align*}
+	Also ist \(e_{\frakq/\frakp}=m e_{\frakq/\frakp'}\geq m\)
+	Somit ist \(L/K\) eine Körpererwetierung sodass jedes Ideal über \(\frakp\) mindestens Verweigungsindex \(m\) hat.
+\end{Bsp}
+\begin{Bsp}
+	Angenommen \(B=A[\alpha]\) für ein \(\alpha\in B\) und \(P\in A[X]\) sei das Minimalpolynom von \(\alpha\) über \(K\).
+	Für maximales Ideal \(\frakp\subseteq A\) gibt es einerseits die Zerlegung \[\frakp B=\prod_{i=1}^r\frakq_i^{e_i}\] andererseit kann man die Zerlegung von \(P\) modulo \(k[\frakp]\) betrachten:
+	\[\bar P=\prod_{j=1}^sQ_j^{m_j}\].
+	Nach Umordnen ist \(e_i=m_i\) und \(f_i=\deg(Q_i)\).Denn
+	einerseits ist 
+	\(B/\frakp B\cong \prod_{i=1}^rB/\frakq_i^{e_i}B\) und andererseits ist
+	\begin{align*}
+		B/\frakp B&\cong A[X]/(P)/\frakp A[X]/(P)\\
+		&= A/\frakp [X]/(\bar P)\\
+		&\cong \prod_{j=1}^sk(\frakp)[X]/(Q_j^{m_i}
+	\end{align*}
+	Da \(B/\frakp B\) endlich erzeugte \(k(\frakp)\) Algerbra ist \(B/\frakp B\) artinsch.
+	Nach ??? ist \(B/\frakp B\) eindeutiges Produkt von artinschen lokalen Ringen.
+	Beide \(k(\frakp)[X]/(Q_j^{m_i})\) und \(B/\frakq_i^{e_i}\) sind artisch und lokal.
+	Also ist \(r=s\) und \(k(\frakp)[X]/(Q_j^{m_i})\cong B/\frakq_i^{e_i}\) nach Umsortieren und beide haben die maximalen Ideale \(\frakm_1=\frakq_i/\frakq_i^{e_i}\) und \(\frakm_2=Q_i/Q_i^{m_i}\).
+	Somit ist \(e_i=\min\{n\in\NN\mid \frak m_i^n=0\}=m_i\) und
+	\[f_ie_i=\dim_{k[\frakp]}B/\frakq_i^{e_i}=\deg(Q_i)\cdot m_i\]
+\end{Bsp}
+\begin{Bsp}
+	Es gibt eine eindeutige Abbildung \(N\), die jedem Ideal \(J\neq 0\) von \(B\) ein Ideal \(N(J)\) von \(A\) zuordnet, sodass gilt
+	\begin{enumerate}
+		\item \(N\) ist multiplikativ
+		\item Für ein maximales Ideal \(\frakq\) von \(B\) und \(\frakp=\frakq\cap B\) gilt \(N(\frakq)=\frakp^{f_{\frakq/\frakp}}\).
+	\end{enumerate}
+	Diese Norm ist transitiv in einem Körperturm \(M/L/K\)
+	das heißt \[N_{L/K}(N_{M/L}(\frakq))=N_{M/K}(\frakq)\].
+	Das ist klar, da nach ??? alles multiplikativ ist.
+	Wenn \(I\subseteq A\) ist dann ist \(N_{L/K}(IB)=I^n\).\\~\\
+	Wenn zum Beispiel \(A=\ZZ\) und \(B=\calO_L\) dann ist 
+	\(N(J)=(|\calO_L/J|)\) denn wir wissen bereits, dass 
+	\(J\mapsto |\calO_L/J\) multiplikativ ist und 
+	wenn \(q\in\calO_L\) maximal ist und \((p)=\frakq\cap\ZZ\)
+	dann ist \(\calO_L/\frakq\) ein \(\ZZ/p\) Vektorraum mit der Dimension \(f_{\frakq/\frakp}\) also hat 
+	\(\calO_L\) genau \(p^{f_{\frakq/\frakp}}\) viele Elemente.
+\end{Bsp}
+\begin{Bem}
+	Wenn \(A=\calO_K\) ist für \(K/\QQ\) endlich, dann ist 
+	\(k(\frakp)\) endlich da eine endliche Erweiterung von \(\FF_p\) für \((p)=\frakp\cap \ZZ\). Somit ist \(k(\frakp)\) perfekt und somit jede endliche Erweiterung von \(k(\frakp)\) separabel.
+\end{Bem}
+\begin{Def}
+	Sei \(L/K\) separabel und \(\frakq_i\) in \(B\) über \(\frakp\) in \(A\).
+	Dann heißt
+	\[\frakp \text{ in \(L/K\)}\begin{cases}
+		\text{vollzerlegt } & \text{wenn } e_i=f_i=1 \forall i\\
+		\text{unzerlegt } & \text{ wenn } r=1\\
+		\text{träge } & \text{wenn }r=1,e_1=1
+		\end{cases}
+		\]
+\end{Def}
+\begin{Satz}
+	Sei \(L/K\) separabel. Dann gilt
+	\[\sum_{i=1}^re_if_i=n=[L\colon K]\]
+\end{Satz}
+\begin{proof}
+	Sei \(\frakp=\prod \frakq_i^{e_i}\). Nach \nameref{Satz:ChinRest} ist 
+	\(B/\frakp B\cong\prod B/\frakq_i^{e_i}B\) und 
+	\(\frakq_i^\ell/\frakq_i^{\ell+1}\) sind Vektorräume über \(B/\frakq_i=k(\frakq_i)\).
+	Wegen der Eindeutigen Primidealzerlgeung gibt es kein Zwischenideal \(\frakq_i^{\ell+1}\subsetneq J\subsetneq \frakq_i^{\ell}\) somit ist
+	\(\dim_{k(\frakq_i)}(\frakq_i^\ell/\frakq_i^{\ell+1}))=1\).
+	Es folgt
+	\begin{align*}
+		\dim_{k(\frakp)}B/\frakq_i^{e_i}&= \sum_{\ell=0}^{e_i-1}\dim_{k(\frakp)}(\frakq_i^{\ell}/\frakq_i^{\ell+1})\\
+		&=[k(\frakq_i):k(\frakp)]\cdot e_i\\
+		&= f_ie_i
+		\end{align*}
+	somit ist \(\dim_{k(\frakp)}(B/\frakp B)=\sum_{i=1}^r\dim_{k(\frakp)}(B/\frakq_i^{e_i})=\sum_{i=1}^re_if_i\).
+	Da \(L/K\) separabel ist nach ??? \(B\) als \(A\)-Modul endlich erzeugt.
+	Nach ?? ist \(A_\frakp\) diskreter Bewertungsring und somit Hauptidealring nach ??. Somit ist \(B_\frakp\) freier \(A_\frakp\) Modul nach \nameref{Satz:StruktEndlModPID} denn es gibt keine Torsion innerhalb \(L\).
+	Es ist \(\dim_{A/\frakp}(B/\frakp)=\dim_{S^{-1} A/\frakp}(S^{-1}B/\frakp B)\) somit ist ohne Einschränkung \(B\) freier \(A\)-Modul. Sei \(S=A\setminus\{0\}\).
+	Dann is nach ??? \(S^{-1}B\) der ganze Abschluss von \(S^{-1}A=K\) in \(L\), also ist \(S^{-1}B=L\).
+	Das heißt wenn \(v_1,\dots,v_n\in B\) eine \(A\)-Basis, dann bilden sie auch eine \(K\)-Basis von \(L\).
+	Also ist der Rang von \(B\) gleich \(n=[L:K]\).
+	Es ist \[B/\frakp=B\otimes_AA/\frakp\cong (A/\frakp)^n\]
+	Somit ist \(\dim_{k(\frakp)}B/\frakp B=n\)
+	
+\end{proof}
+\begin{Def}
+	 Sei \(L/K\) separabel. Die relative Determinante von \(L/K\) ist 
+	 \(d_{B/A}\) das Ideal von \(A\) das durch alle \(d(x_1,\dots,x_n=\det(Tr(x_ix_j)))\) erzeugt wird, wobei \(x_1,\dots,x_n\) eine \(K\)-Basis von \(L\) in \(B\).
+\end{Def}
+\begin{Def}
+	Wenn \(A\) Hauptidealring ist, dann ist \(B\) freier \(A\)-Modul denn endlich erzeugt und keine Torsion.
+	Dann ist \(d_{B/A}=(d(x_1,\dots,x_n))\).
+	Insbesondere ist \(d_{\calO_K/\ZZ}=(d_K)\).
+\end{Def}
+\begin{Bem}
+	Sei \(S\subseteq A\) multiplikative Menge. Dann ist
+	\(d_{S^{-1}B}/S^{-1}A=S^{-1}d_{B/A}\)
+\end{Bem}
+\begin{Satz}
+	Sei \(L/K\) separabel und \(\frakp\subseteq A\) ein maximales Ideal. Es gilt
+	\(\frakp\) ist unverzweigt in \(L/K\) (dh. alle \(frakq_i\) über \(\frakp\) sind unverzweigt) genau dann wenn \(\frakp\not\mid d_{B/A}\)
+\end{Satz}
+\begin{proof}
+	Sei \(C=B/\frakp B\) als \(k\)-Algebra wobei \(k=A/\frakp=k(\frakp)\).
+	Wie im Beweis von ??? ist \(\dim_KC=n=[L:K]\).
+	Die Eigenschaften von \(p\mid d_{B/A}\) und \(\frakp\) unverzweigt sind unverändert beim Übergang von \(A\) zu \(A_\frakp\) also ist ohne Einschränkung \(A=A_\frakp\).
+	Dann ist \(A\) Hauptidealring und somit \(B\) freier \(A\)-Modul.
+	Sei \(x_1,\dots,x_n\) eine \(A\)-Basis in \(B\) und \(\bar x_i\) die Bilder in \(C\) die eine \(k\)-basis bilden.
+	Sei \(X=Tr(x_ix_j)_{ij}\) und \(\bar X=Tr(\bar x_i\bar x_j)\).
+	Es ist \(d_{B/A}=(\det(X))\).
+	Es gilt 
+	\begin{align*}
+		\frakp \mid d_{B/A}&\iff \det(X)\in\frakp\\
+		&\iff \det(\bar X)=0\\
+		&\iff C=B/\frakp \text{ nicht separable \(k\)-Algebra.}\\
+		&\iff \frakp \text{ verzweigt in } L/K
+	\end{align*}
+	Denn wenn \(\frakp B=\prod \frakq_i^{e_i}\) dann ist 
+	\(C=\prod B/q_i^{e_i}\) und das ist separabel nach ???
+	genau dann, wenn alle \(e_i=1\) und \(k(\frakq_i)/k\) separabel.
+\end{proof}
+\begin{Kor}
+	Nur endlich viele Ideale \(\frakp\subseteq A\) sind verzweigt in \(L/K\).
+\end{Kor}
+\begin{proof}
+	Weil \(L/K\) separabel ist ist \(d_{B/A}\neq 0\).
+	somit hat \(d_{B/A}\) nur endlich viele Primteiler.
+\end{proof}
+\begin{Bsp}
+	Sei \(K/¿QQ\) quadratisch, dh. \(K=\QQ(\sqrt{d})\) wobei \(d\) quadratfrei.
+		Es ist
+		\[\calO_K=\begin{cases}\ZZ[\sqrt{d}] & d\equiv 3,2 \mod 4\\ \ZZ[\frac{\sqrt{d}+1}{2}] & d\equiv 1 \mod 4\end{cases}\]
+			und 
+			\[d_K=\begin{cases} 4d & d\equiv 3,2 \mod 4 \\ d & d\equiv 1 \mod 4\end{cases}\].
+		also ist \(p\in\calO_K/\ZZ\) verzweigt, genau dann wenn 
+		\(p\mid d\) oder (\(p=2 \text{ und } d\equiv 2,3\mod 4\)).
+		Zum beispiel ist für eine Primzahl \(p\equiv\mod 4\) in \(\QQ[\sqrt{p}]/\QQ\) nur \(p\) verzweigt und für \(p\equiv 3\mod 4\) ist in \(\QQ[\sqrt{-p}]/\QQ\) nur \(p\) verzweigt.
+\end{Bsp}

@@ -1,0 +1,330 @@
+\chapter{Ringe und Ideale}
+\section{Grundlagen}
+\begin{Def}
+	Ein Ring \(R\) heißt Integritätsbereich (oder nullteilerfrei), wenn \(R\neq 0\) und \(ab=0\implies a=0 \text{ oder } b=0 \ \forall a,b\in R.\)
+\end{Def}
+\begin{Lemma} Sei \(R\) ein kommutativer Ring.
+	\begin{enumerate}
+		\item Ein Idea \(I\subseteq R\) ist ein Primideal \(\iff R/I\) ist Integritätsbereich.
+		\item \(R\) ist ein Körper \(\iff R\) hat genau zwei Ideale \(\Set 0\) und \(R\).
+		\item Ein Ideal \(I\subseteq R\) ist maximal \(\iff R/I\) ist ein Körper.
+	\end{enumerate}
+	\begin{proof}
+		1) ist klar.
+		Zeige 2). Wenn \(R\) ein Körper ist und \(I\subsetneq \Set 0\) ein Ideal, dann gibt es \(x\in I\) mit \(x\neq 0\). Dann ist \(1=x^{-1}x\in I\), also ist \(I=R\). Andersrum zeige, dass \(x\neq 0\) invertierbar ist. Es ist \(R=(x)\) also gibt es Inverses.
+		Zeige 3). \(I\subseteq R\) ist maximal \(\iff R/I\) hat genau zwei Ideale \(\{0\}, R/I \iff R/I\) ist Körper.
+	\end{proof}
+	\begin{Lemma}\label{Lem:IdealeProduktring}
+		Seien \(R_1,R_2\) Ringe und \(R=R_1\times R_2\). Jedes Ideal von \(R\) hat die Form \(I=I_1\times I_2\) wobei \(I_1\subseteq R_1\) und \(I_2\subseteq R_2\) Ideale sind. \(I\) ist genau dann prim wenn entweder \(I_1\) prim und \(I_2=R_2\) oder \(I_1=R_1\) und \(I_2\) prim ist.
+		Folglich ist \(\Spec(R)=\Spec(R_1)\coprod \Spec(R_2)\).
+	\end{Lemma}
+	\begin{proof}
+		Die erste Behauptung ist klar. Es ist \(R/I\cong R_1/I_1\times R_2/I_2\) und \(I\) ist prim, genau dann wenn \(R/I\) nullteilerfrei ist.
+		Da \((a,0)\cdot (0,b)=(0,0)\) ist, ist das genau dann der Fall, wenn eines der \(I_j=R_j\) ist und das andere prim.
+	\end{proof}
+	
+	\begin{Satz}\label{Satz:ExMaxId}
+		Sei \(R\) ein kommutativer Ring, \(R\neq 0\). Dann hat \(R\) ein maximales Ideal.
+	\end{Satz}
+	\begin{proof}
+		Sei \(M\) die Menge aller Ideale \(I\subseteq R\) mit \(I\neq R\) und sei \(M'\subseteq M\) eine totale geordnete Teilmenge.  Ohne Einschränkung ist \((0)\in M'\). Sei \[J=\bigcup\limits_{I\in M'}I.\] Dann ist \(J\) ein Ideal mit \(1\not\in J\) also \(J\in M\). Das ist eine obere Schranke für \(M'\). Also hat \(M\) ein maximales Element nach Lemma von Zorn.
+	\end{proof}
+\end{Lemma}
+\begin{Def}
+	Sei \(R\) ein kommutativer Ring. Sei \(n\in \NN\) gegeben sodass \((n)=\ker(\ZZ\to R)\).Dann heißt \(n\) die Charakteristik von \(R\). Wenn \(R\) nullteilerfrei ist, dann ist \(n=0\) oder \(n\) eine Primzahl.
+\end{Def}\begin{Def}
+	Ein Ring \(R\) heißt lokal, wenn es genau ein maximales Ideal gibt.
+\end{Def}
+\begin{Satz}
+	Sei \(\frakm\subsetneq R\) ein Ideal. Es ist äquivalent:
+	\begin{enumerate}
+		\item \(R\) ist lokal mit maximalem Ideal \(\frakm\)
+		\item \(\forall a\in R\setminus \frakm: a\in R^*\)
+		\item \(\frakm\) ist maximales Ideal und jedes Element \(a=1+m\) mit \(m\in\frakm\) ist eine Einheit.
+	\end{enumerate}
+\end{Satz}
+\begin{proof}
+	Gelte 1. Wenn \(a\) keine Einheit, dann ist \(a\) in einem maximalen Ideal enthalten. Also in \(\frakm\).
+	Gelte 3. Sei \(a\not \in\frakm\) das heißt \(a+\frakm\) ist Einheit in \(R/\frakm\). Also gibt es \(x\) sodass \(ax+\frakm=1+\frakm\) also ist \(1=ax+m\) für ein \(m\in\frakm\). Dann ist \(ax\in R^*\) also auch \(a\).
+\end{proof}
+\begin{Lemma}
+	\(\ZZ/n\ZZ\) ist lokal genau dann wenn \(n=p^r\) für eine primzahl \(p\) und \(r>1\).
+\end{Lemma}
+\begin{proof}
+	Sei \(n=p^r\). Primideale in \(\ZZ/n\ZZ\) sind Primideale in \(\ZZ\) die \(n\ZZ\) enthalten. Das ist nur \((p)\). Also ist der Ring lokal.
+	Andersrum wenn \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung von \(n\) ist mit \(p_i\neq p_j\) für \(i\neq j\) dann korrespondier mit selber Begründung jedes \((p_i)\) zu einem maximalen Ideal in \(\ZZ/n\ZZ\).
+\end{proof}
+\begin{Satz}[Chinesischer Restsatz] \label{Satz:ChinRest}
+	Sei \(R\) ein kommutativer Ring, \(I_1,\dots,I_r\subseteq R\) Ideale sodass \(I_i+I_j=R\) für \(I\neq j\).
+	Dann ist die Abbildung \(R/I_1\cap\dots\cap I_r\to R/I_1\times\dots\times R/I_n,\, x+I_1\cap\dots\cap I_r\mapsto (x+I_1,\dots,x+I_n\) bijektiv und \(I_1\cap\dots\cap I_r=I_1\cdots I_r\).
+\end{Satz}
+\begin{proof}
+	Die Abbildung \(f\) im Satz ist nach ??? bijektiv genau dann wenn für alle \(\frakp\in Spec(R)\) die Abbildung 
+	\(f\otimes_R \id_{R_\frakp}\) bijektiv ist.
+	Nach ??? ist Bildung von Schnitten und Quotienten mit Lokalisierung verträglich. Man darf also ohne Einschränkung \(R=R_\frakp\) annehmen. Es kann nicht mehr als ein Ideal der \(I_i\) im maximalen Ideal enthalten sein, denn dann wäre auch die Summe darin enthalten und somit nicht gleich dem ganzen Ring.
+	Also sind alle bis auf vielleicht ein \(I_{i_0}\) gleich dem ganzen Ring \(R\).
+	Dann ist \(I_{i_0}\) gleich dem Schnitt aller Ideale gleich dem Produkt aller Ideale.
+	Dann folgt 
+	\[R/\bigcap I_i=R/I_{i_0}=\{0\}\times \dots\times R/I_{i_0}\times \{0\}\times\dots\times \{0\}\cong \prod R/I_i\].
+\end{proof}
+\begin{Lemma}[Primvermeidung]
+	Sei \(\fraka\subseteq R\) ein Ideal. Wenn \(\frakp_1,\dots,\frakp_n\) Primideale sind mit \(\fraka\subseteq \bigcup_{i=1}^n\frakp_i\) dann ist \(\fraka\subseteq \frakp_i\) für ein \(i\).
+	
+\end{Lemma}
+\begin{proof}
+	Induktion: \(n=1\) ist klar. Gelte die Behauptung für \(n-1\). Angenommen \(\fraka\not\subseteq \bigcup_{j\neq i}\frakp_j\) für alle \(i\). Das heißt es gibt \(f_i\in\fraka\) mit \(f_i\not\in\bigcup_{j\neq i}\frakp_j\) und \(f_i\in\frakp_i\).
+	Es ist \(f_1+f_2\cdots f_n\in\fraka\) aber \(f_1+f_2\cdots f_n\not\in \frakp_1\)und \(f_1+f_2\cdots f_n\not\in\frakp_i\) für \(i\geq 2\). Das ist ein Widerspruch. Also ist \(\fraka\subseteq \bigcup_{j\neq i}\frakp_j\) für ein \(i\). Also folgt die Aussagen mit Induktion.
+\end{proof}
+
+\section{Euklidische Ringe, Hauptidealringe und faktorielle Ringe}
+\begin{Def}
+	Sei \(R\) ein Ring. \(R\) ist Euklidisch wenn \(R\) ein Integritätsbereich ist und es eine Abbildung \(\delta\colon R\setminus\Set 0\to\NN\) gibt sodass für \(a,q\in R\) mit \(q\neq 0\) es \(b,c\in R\) gibt mit \(a=bq+c\) und \(\delta(x)<\delta(q)\) oder \(c=0\).
+\end{Def}
+\begin{Def}
+	Ein Ring \(R\) ist ein Hauptidealring, wenn \(R\) ein Integritätsbereich ist und jedes Ideal ein Hauptideal ist.
+\end{Def}
+\begin{Satz}
+	Jeder Euklidische Ring ist ein Hauptidealring.
+\end{Satz}
+\begin{proof}
+	Sei \(I\subseteq R\) ein Ideal, \(I\neq \Set 0\). wähle \(q\in I\) sodass \(\delta(q)\) minimal ist. Dann ist \(I=(q)\).
+\end{proof}
+\begin{Bsp}
+	\(R=\ZZ[X]\) ist kein Hauptidealring, also auch nicht Euklidisch. Denn \((2,X)\) ist kein Hauptideal.
+\end{Bsp}
+\begin{Def}
+	Sei \(R\) nullteilerfrei und \(a\in R\). Wir nennen \(a\in R\) Primelement, wenn \(\Set 0\subsetneq (a)\subsetneq R\) ist und wenn für alle \(b,c\in R\) mit \(a\mid bc\) folgt, dass \(a\mid b\) oder \(a\mid c\).\\
+	Wir nenne \(a\in R\) irreduzibel, wenn \(\Set 0\subsetneq (a)\subsetneq R\) und für alle \(b,c\in R\) folgt, dass \(b\in R^*\) oder \(c\in R^*\).
+\end{Def}
+\begin{Bem}
+	Es gilt \(a\in R\text{ prim}\implies a\in R\text{ irreduzibel}\) und wenn \(\Set 0\subsetneq (a)\) ist, dann ist \(a\) prim \(\iff (a)\) Primideal ist.
+\end{Bem}
+\begin{proof}
+	Sei \(a\in R\) prim und \(a=bc\) für \(b,c\in R\). Dann ist \(a\mid b\) oder \(a\mid c\). Wenn \(a\mid b\) dann ist \(b=ad=bcd\). Da \(b\neq 0\) und \(R\) nullteilerfrei ist, ist \(1=cd\) und \(c\in R^*\).
+\end{proof}
+\begin{Lemma}
+	Sei \(R\) nullteilerfrei und \(a\in R\) mit \(a\neq 0\). Es gilt 
+	\begin{align*}
+		a \text{ ist irreduzibel} \iff (a) \text{ ist maximal unter Hauptidealen \(\neq R\).}
+	\end{align*}
+\end{Lemma}
+\begin{proof}
+	Das ist eine direkte Übersetzung der Eigenschaft irreduzibel zu sein.
+\end{proof}
+\begin{Def}
+	Ein faktorieller Ring \(R\) ist ein Integritätsbereich \(R\), sodass jedes \(a\in R\) mit \(\Set 0\subsetneq (a)\subsetneq R\) eine Darstellung \(a=p_1\cdots p_r\) hat mit \(r\in\NN\) und \(p_i\) Primelementen. Die Darstellung ist automatisch eindeutig bis auf Reihenfolge und Assoziertheit.
+\end{Def}
+\begin{Lemma}
+	Sei \(R\) ein Integritätsbereich. 
+	\begin{align*}
+		R \text{ ist faktoriell} \iff& \text{Jedes irreduzible Element von R ist prim und}\\
+		& \text{Jedes \(a\in R\) mit \(\Set 0\subsetneq (a)\subsetneq R\) ist Produkt von}\\
+		&\text{irreduziblen Elementen}
+	\end{align*}
+\end{Lemma}
+\begin{proof}
+	Sei \(R\) faktoriell und \(a\in R\) irreduzibel. Sei \(a=p_1\cdots p_r\) mit Primelementen \(p_i\). Da \(a\) irreduzibel ist, ist \(p_1\in R^*\) oder \(p_2\cdots p_r\in R^*\). Da beides nicht der Fall ist, muss \(a=p_1\) prim sein.
+\end{proof}
+\begin{Satz}
+	Jeder Hauptidealring \(R\) ist faktoriell. Für \(a\in R\) prim ist \(R/(a)\) ein Körper.
+\end{Satz}
+\begin{proof}
+	Zeige: Jedes irreduzible \(a\in R\) ist prim. Es gilt 
+	\begin{align*}
+		a \text{ ist irreduzibel} &\iff (a) \text{ ist maximal unter echten Hauptidealen}\\
+		&\stackrel{R \text{ HIR}}\iff (a) \text{ ist maximales Ideal}\\
+		&\iff R/(a) \text{ ist Körper}\\
+		&\implies a \text{ ist Primelement.}
+	\end{align*}
+	Sei \(n=p_1^{e_1}\cdots p_s^{e_s}\) die Primfaktorzerlegung in paarweise verschiedene Primzahlen. Dann ist nach \nameref{Chinesischer Restsatz} \(\ZZ/n\ZZ\cong \prod \ZZ/p_i^{e_i}\ZZ\) und nach \Cref{Lem:IdealeProduktring} haben maximale Ideale die Form \(\ZZ/p_1^{e_1}\ZZ\times\dots\times \frakm_i\times\dots\times \ZZ/p_s^{e_s}\ZZ\) für ein maximales Ideal \(\frakm_i \subseteq \ZZ/p_i^{e_i}\ZZ\).
+	Da Primideale von \(\ZZ/p_i^{e_i}\ZZ\) den Primidealen in \(\ZZ\) entsprechen, die \((p_i^{e_i})\) enthalten, folgt, das der Ring lokal ist. also folgt die Aussage.
+\end{proof}
+
+\begin{Lemma}\label{Lem:PrimidealEig}
+	Es Sei R ein Ring und \(I,J\subseteq R\) beliebige Ideale und \(\frakp\subseteq R\) ein Primideal. Dann gilt 
+	\(IJ\subseteq \frakp\implies I\subseteq\frakp \text{ oder } J\subseteq\frakp\)
+\end{Lemma}
+\begin{proof}
+	Wenn \(I\subsetneq \frakp\) dann gibt es \(x\in I\setminus\frakp\). Für \(y\in J\) gilt dann \(xy\in\frakp\) also \(y\in\frakp\)
+\end{proof}
+\begin{Kor}
+	Für ein maximales Ideal \(\frakm\subseteq R\) hat der Ring \(R/\frakm^n\) genau ein Primideal und ist insbesondere lokal.
+\end{Kor}
+\begin{proof}
+	Primideale in \(R/\frakm\) entsprechen den Primidealen \(\frakm'\) in \(R\) mit \(\frakm^n\subseteq \frakm'\). Nach \Cref{Lem:PrimidealEig} folgt \(\frakm\subseteq \frakm'\) also \(\frakm=\frakm'\). 
+\end{proof}
+\begin{Bsp}
+	Es sei \(R\) der Ring der stetigen Funktionen \(f:\RR\to \RR\). Für jedes \(x\in \RR\) ist \(\frakm_x=\{f\in R\mid f(x)=0\}\) ein maximales Ideal von \(R\), denn betrachte Abbildung \(eval_x\colon R\to \RR, f\mapsto f(x)\). Das ist surjektiv mit \(\ker(eval_x)=\frakm_x\). da \(\RR\) ein Körper ist, ist folgt die Behauptung.
+	Weiter ist die Menge \(I\) aller \(f\in R\) mit kompaktem Träger ein echtes Ideal von \(R\), das in keinem \(\frakm_x\) enthalten ist, denn definiere \[f_x\colon \RR\to \RR,\, y\mapsto \begin{cases}
+		y-(x-1), & y\in[x-1,x]\\
+		-y+x+1, & y\in [x,x+1]\\
+		0, & \text{ sonst }
+	\end{cases}\]. Dann ist \(f_x\) stetig mit kompaktem Träger \(K=[x-1,x+1]\) also 
+	ist \(f_x\in I\). Da aber \(f_x(x)=1\) folgt \(I\subsetneq \frakm_x\). 
+	Also hat \(R\) maximale Ideale die nicht von der Form \(\frakm_x\) sind.
+\end{Bsp}
+\section{Jacobson und Nilradical}
+\begin{Def}
+	Sei \(R\) ein Ring und \(j(R)=\cap_{\frakm\in\Specm(R)}\frakm\) das Jacobson Radikal von \(R\). 
+	Wenn \(R=\{0\}\) dann setzte \(j(R)=\{0\}\).
+	Es ist \(j(R)\) maximal genau dann wenn \(R\) lokal ist
+\end{Def}
+\begin{Bem}
+	Für \(a\in R\) ist äquivalent:
+	\begin{enumerate}
+		\item \(a\in j(R)\)
+		\item \(1-ab\in R^*\) für alle \(b\in R\)
+	\end{enumerate}
+\end{Bem}
+\begin{proof}
+	Angenommen \(1-ab\in R^{*}\) für alle \(b\). Sei \(\frakm\) ein maximales Ideal. Setze \(\frakn=(a,\frakm\). Wenn \(a\not\in\frakm\) dann ist \(\frakn=R\) und es gibt \(b\in R\) und \(m\in\frakm\) sodass \(1=ab+m\). Aber dann ist \(m\) eine Einheit. Also muss \(a\in\frakm\) sein für alle maximalen Ideal \(\frakm\). Also ist \(a\in j(R)\).
+\end{proof}
+\begin{Def}
+	Sei \(\rad(R)=\bigcap_{\frakp\in \Spec R}\frakp\) das Nilradikal. \(R\) heißt reduziert, wenn \(\rad(R)=0\).
+\end{Def}
+\begin{Satz}
+	\(\rad(R)=\{a\in R\mid a \text{ nilpotent}\}\)
+\end{Satz}
+\begin{proof}
+	Sei \(a\) nicht nilpotent. Dann ist \(0\not\in S={1,a,a^2,\dots}\) also \(S^{-1}R\neq 0\).
+	Das heißt es gibt ein maximales Ideal in \(S^{-1}R\) das zu Primideal \(\frakp\subseteq R\) korrespondiert mit \(\frakp\cap S=\emptyset\).
+	Das heißt \(a\not\in\frakp\) und \(a\not\in \rad(R)\). Die andere Inklusion ist klar.
+\end{proof}
+\begin{Lemma}
+	Es ist äquivalent:
+	\begin{enumerate}
+		\item \(R\) hat genau ein Primideal
+		\item \(a\in R\implies a\in R^* \text{ oder } a ist nilpotent\)
+		\item \(R/\rad(R)\) ist ein Körper
+	\end{enumerate}
+\end{Lemma}
+\begin{proof}
+	klar.
+\end{proof}
+\begin{Def}
+	Sei \(\fraka\subseteq R\) ein Ideal. \(j(\fraka)\coloneq \pi^{-1}(j(R/\fraka))\) und \(\rad(\fraka)=\pi^{-1}(rad(R/\fraka))\) wobei \(\pi:R\to R/\fraka\) kanonische Abbildung.
+\end{Def}
+\begin{Satz}
+	sei \(K\) Körper. \(j(K[X_1,\dots,X_n])=0\)
+\end{Satz}
+\begin{proof}
+	sei \(\bar K\) der algebraische Abschluss von \(K\).
+	Sei  \[x=\begin{pmatrix}
+		x_1\\ \vdots\\ x_n
+	\end{pmatrix}\in \bar K^n\] . Betrachte 
+	\[\frakm_x=\set{f\in K[X_1,\dots,X_n]}{f(x)=0}=\ker(K[X_1,\dots,X_n]\to\bar K, g\mapsto g(x))\]
+	Die letzte Abbildung ist surjektiv auf den Körper \(K(x_1,\dots,x_n)\) (Betrachte Minimalpolynom und dann modifiziere um Element zu erhalten).
+	Also ist \(K[X_1,\dots,X_m]/\frakm_x\cong K(x_1,\dots,x_n)\) Körper und somit \(\frakm_x\) maximales Ideal in \(K[X_1,\dots,X_n]\).
+	\(f\in j(K[X_1,\dots,X_n])\) impliziert dass \(f\in\frakm_x\) ist also \(f(x)=0\) für alle \(x\in\bar K^{n}\). Also ist \(f\) das Nullpolynom nach Induktion.
+\end{proof}
+
+\section{Lokalisierung}
+\begin{Def}
+	Sei \(R\) ein Ring und \(S\subseteq R\) eine multiplikative Menge, das heißt \(1\in S\) und \(s,s'\in S\) impliziert \(ss'\in S\).
+	Definiere Äquivalenzrelation auf \(R\times S\) durch \[(a,s)\sim (a',s')\iff \exists t\in S\colon (as'-a's)t=0\]. Notation: \(R_S=S^{-1}R=(R\times S)/\sim\) und schreibe \(\frac a s\) für die Äquivalenzklasse \([(a,s)]\).
+	\(S^{-1}R\) wird Ring durch 
+	\[\frac a s+\frac b t=\frac{at+bs}{st}\]
+	\[\frac a s\cdot \frac b t=\frac{ab}{st}\]
+	\(S^{-1}R\) heißt Lokalisierung von \(R\) mit \(S\).
+	Es gibt Ringhomomorphismus \(\tau:R\to S^{-1}R,a\mapsto \frac a 1\).
+	Es ist \(\ker(\tau)=\set{ a\in R}{\exists s\in S\colon as=0}\) und \(S^{-1}R\neq 0 \iff 0\not\in S\) and \(\tau \) ist bijektiv wenn \(S\subseteq R^*\).
+	Wenn \(R\) ein Integritätsbereich ist, dann ist \(S=R\setminus\Set{0}\) multiplikativ und wir definieren \(\Quot(R)=S^{-1}R\). Das ist ein Körper.
+	Wenn \(\frakp\subseteq R\) ein primideal ist, dann ist \(S=R\setminus\frakp\) multiplikativ. Definiere \(R_\frakp=S^{-1}R.\)
+\end{Def}
+\begin{Satz}
+	Sei \(R\) ein Ring und \(S\subseteq R\) multiplikativ. Dann existiert ein kommutatives Diagramm:
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB124YdhOAzAE50A1nQC+fdkNF1OcJgCNuOGAEcABACUNnVQA9eGgJKxGG8aQ0BlTgGM6aAcLEBeTjAC2aHAE8V4iCW6Ji4+IQoAEzkVLSMLGzyPFIyIoqSzqKK8koqYOo2AHrAALQAjOI6ejCGwCZmDOKBwSAY2HgERGRlsfTMrIgcXMmZImgZ0i5OXLk8BVXsBkYACoJYnlgNFjb2jqNo7uxePv48zaQh7eFE0T3UfQmDSbyjahOpajnKc5rWxeWVXSLGq8VbrTYwRhNIKxGBQADm8CIoCEEE8SDIIBwECQZXu8QGQ1ScnYnkccGxGjof1KFS0IGoDDoihgDGWoQ6ERADBg-BwDJAAAtIVA2DgAO4QYV0KAIFqo9GIaJYnGIADM+P6iS46wFTJZbI510GPL5QQuIAVSGV2IxmseYCYDAYjOZrPZV06Jt5-OoODoWAYbEFEAgInNKMEaKQGpVuPtA0dztdBo9YS93J9Av9geDofD4go4iAA
+	\begin{tikzfigure}
+		{\set{\fraka}{\fraka\subseteq R \text{ Ideal }, S\cap\fraka=\emptyset}} \arrow[rr, "\fraka\mapsto aS^{-1}R", two heads] &  & \set{\frakb}{\frakb\subsetneq S^{-1}R \text{ Ideal}}                   \\
+		\set{\frakp}{\frakp\subseteq R \text{ Primideal } S\cap\frakp=\emptyset} \arrow[rr, "\sim"] \arrow[u, hook]             &  & \set{\frakq}{\frakq\subseteq S^{-1}R \text{ Primideal}} \arrow[u, hook]
+	\end{tikzfigure}
+\end{Satz}
+\begin{proof}
+	Angenommen \(\frac a s=1\) für \(a\in\fraka\) und \(s\in S\). Das heißt \(\exists t\in S\) sodass \((a-s)t=0\) also \(at=ts\in S\). Dann ist aber \(at\in \fraka\cap S\).
+	wenn \(\frakb\subsetneq S^{-1}R\) ein Ideal ist, definiere \(\fraka=\tau^{-1}(\frakb)\). Dann ist \(\fraka S^{-1}R=\frakb\) und \(S\cap\fraka=\empty\).
+	Wenn \(\frakp\subseteq R\) prim ist mit \(S\cap\frakp=\emptyset\) dann ist \(q=\frakp S^{-1}R\) prim, denn wenn \(\frac a s,\frac{a'}{a}\in S^{-1}R\) mit \(\frac{aa'}{ss'}=\frac b t\in \frakq\) mit \(b\in\frakp\) dann ist 
+	\[(aa't-ss'b)r=0\] für ein \(r\in S\) also \(aa't\in \frakp\). Dann ist \(a\in\frakp\) oder \(a'\in\frakp'\) also \(\frac a s\in\frakq\) oder \(\frac{a'}{s'}\in\frakq\).
+	Wenn \(\frakp\) prim ist, dann ist \(\frakp=\tau^{-1}(\frakp S^{-1}R)\) denn wenn \(x\in b\) sodass \(\frac x 1=\frac a s\) für ein \(a\in\frakp\) dann folgt wie oben dass \(x\in\frakp\).
+	Wenn \(\frakq\subseteq S^{-1}R\) prim ist, dann ist \(\tau^{-1}(\frakq)\) prim. Somit ist untere Abbildung Bijektion.
+	
+\end{proof}
+\begin{Bsp}
+	Sei \(R=\ZZ\) und \(\fraka=(2)\) sowie \(\fraka'=(6)\) und \(S=\{1,3,3^2,3^3,\dots\}\). Dann ist \(\fraka S^{-1}\ZZ=\set{\frac{2x}{3^n}}{x\in\ZZ, n\in\NN}\) und \(\fraka'S^{-1}\ZZ=\set{\frac{6y}{3^m}}{y\in\ZZ, m\in \NN}=\fraka S^{-1}\ZZ.\)
+\end{Bsp}
+\begin{Kor}
+	\(\tau\colon R\to S^{-1}R\) induziert Isomorphismus \[\Spec(S^{-1}R)\to \set{\frakp\in\Spec R}{\frakp\cap S\neq\emptyset}.\, \frakq\mapsto \tau^{-1}(\frakq)\]
+\end{Kor}
+\begin{Kor}
+	Für alle \(\frakp\subseteq R\) prim ist \(R_\frakp\) ein lokaler Ring mit maximalem Ideal \(\frakp R_\frakp\)
+\end{Kor}
+\begin{proof}
+	\(R_\frakp\setminus \frakp R_\frakp\) besteht aus Einheiten.
+\end{proof}
+\begin{Satz}[Universelle Eigenschaft der Lokalisierung]\label{Satz:UnivEigLok}
+	Es ist \(\tau(S)\subseteq (S^{-1}R)^*\). Wenn \(\varphi\colon R\to R'\) Ringhomorphismus ist, dann git \(\varphi(S)\subseteq (R')^*\) genau dann, wenn es einen eindeutigen Ringhomomorphismus \(\varphi'\colon S^{-1}R\to R'\) gibt sodass \(\varphi=\varphi'\circ\tau.\)
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgHJuvEBmx4CRMsPH1mrRCADKAPWABaYV05dxMKAHN4RUADMAThAC2SMiBwQkAJmotKV0AHRCcOiYQagY6ACMYBgAFfhUhEGcsGwALHHknVw9ELx8kURBYhOTUwTYGGEc8wMkdEDD6ZzRsrHyQF3d-alLEcoYsMFaoCBwca2iJbTZ2uk7uuRj4xJTlWt1MnLzLLiA
+	\begin{tikzfigure}
+		R \arrow[d, "\tau"'] \arrow[r, "\varphi"] & R' \\
+		S^{-1}R \arrow[ru, "\varphi'"', dotted]   &   
+	\end{tikzfigure}  
+	Wenn \(\varphi\colon R\to R'\) dieselbe Eigenschaft erfüllt wie \(\tau\), dann ist \(\varphi'\) Isomorphismus.
+\end{Satz}
+
+\begin{proof}
+	Definiere \(\varphi'(\frac a s)=\varphi(a)\varphi(s)^{-1}\). Prüfe dass das wohldefiniert und eindeutig ist. 
+	Angenommen \(\tau,\varphi\) sind beide universell, das heißt es existiert \(\varphi'\colon S^{-1}R\to R'\) mit \(\varphi=\varphi'\circ\tau\) und \(\tau'\colon R'\to S^{-1}R\) mit \(\tau=\tau'\circ \varphi\).
+	Dann ist 
+	\[\id_{R'}\circ \varphi=\varphi'\circ \tau=(\varphi'\circ \tau')\circ \varphi\] also \(\id_{R'}=\varphi'\circ\tau'\) wegen Eindeutigkeit. Analog ist \(\id_{S^{-1}R}=\tau'\circ\varphi'\)
+\end{proof}
+\begin{Lemma}
+	Sei \(R\) ein Ring und \(F=(f_i)_{i\in I}\) eine Familie in \(R\) und \(S\subseteq R\) eine multiplikative Menge von \(F\) erzeugt. Seien Variablen \(T=(t_i)_{i\in I}\) gegeben.
+	Dann existiert ein Isomoprhismus 
+	\[R_S\to R[T]/(1-f_it_i\mid i\in I)\]
+	Insbesondere ist \(R_f\cong R[X]/(1-fX)\)
+\end{Lemma}
+\begin{proof}
+	Sei \(\varphi:R\to R'\) Ringhomomorphismus sodass \(\varphi(S)\subseteq (R')^*\). Definiere \(\tilde\varphi\colon R[T]\to R'\) durch \(\varphi\) und \(t_i\mapsto \varphi(f_i)^{-1}\).
+	Dann ist \(\ker(\tilde\varphi)=(1-f_it_i\mid i\in I)\) was \(\varphi':R[T]/(1-f_it_i\mid i\in I)\to R'\) induziert sodass \(\varphi=\varphi'\circ\tau\) wobei \(\tau:R\to R[T]/(1-f_it_i\mid i\in I)\).
+	\(\varphi'\) ist eindeutig da \(1=\varphi'(f_it_i)=\varphi(f_i)\tilde\varphi(t_i)\) ist. Also gibt es Isomorphismus nach \cref{Satz:UnivEigLok}
+\end{proof}
+\begin{Satz}\label{Satz:EigLok}
+	Seien \(f,g\in R\) und \(d,e\in\NN\) mit \(d\geq 1\). Dann kommutiert % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgH0AZt14gM2PASJlh4+s1aIOM4HIDmXRX1WCiordR1T9ACllyAlIbkA9YAFoYXY08oMy5xGChjeCJQOQAnCABbJDIQHAgkACYeGPikxBS0pGFskDjEzOpCxABmO0k9EAAdRuwkkrK80VT0mtCuIA
+	\begin{tikzfigure}
+		R \arrow[d] \arrow[r]    & R_f \arrow[d]     \\
+		R_{fg} \arrow[r, "\sim"] & (R_f)_{f^{-e}g^d}
+	\end{tikzfigure}  
+\end{Satz}
+\begin{proof}
+	Die Abbildung \(R\to R_f\to (R_f)_{f^{-e}g^d}\) schickt \(f,g\) und somit \(fg\) auf Einheiten. 
+	Das gibt \(R_{fg}\to (R_f)_{f^{-e}g^d}\)
+	\(R\to R_{fg}\) schickt \(f\) auf Einheit, das gibt also \(R_f\to R_{fg}\) und der schickt \(f^{-e}g^d\) auf eine Einheit. Das gibt \((R_f)_{f^{-e}g^d}\to R_{fg}\) invers zu oben.
+\end{proof}
+\begin{Satz}
+	Sei \(\frakp\) Primideal, \(f\in R\setminus \frakp\). 
+	Dann kommutiert 
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACUQBfU9TXfIRQBGclVqMWbdgH0AZt14gM2PASJlh4+s1aIOMgDqG5AJzoBrNIr6rBRUVuo6p+gBSy5AShnBjZyzQAAk8vbnEYKABzeCJQMwgAWyQyEBwIJGEeeNMkzOp0pABmbJAE5MRUwsQAJlLypBqCjMQi50k9EGNsZK4KLiA
+	\begin{tikzfigure}
+		R \arrow[r] \arrow[d]      & R_f \arrow[d]      \\
+		R_\frakp \arrow[r, "\sim"] & (R_f)_{\frakp R_f}
+	\end{tikzfigure}  
+\end{Satz}
+\begin{proof}
+	Analog wie in \Cref{Satz:EigLok}
+\end{proof}
+\begin{Bsp}
+	Es gibt Isomorphismus \((\ZZ/12\ZZ)[3^{-1}]\to \ZZ/4\ZZ\) und jeder Zwischenring \(\ZZ\subseteq R\subseteq \QQ\) ist eine Lokalisierung von \(\ZZ\).
+\end{Bsp}
+\begin{proof}
+	Sei \(\varphi\colon \ZZ/12\ZZ\to \ZZ/4\ZZ \). Einheiten von \(\ZZ/12\ZZ\) sind \(1,5,5,11\) und diese gehen auf Einheiten in \(\ZZ/4\ZZ\).
+	Sei \(\tau'\colon \ZZ/4\ZZ\to \ZZ/12\ZZ[-3],\, x+4\ZZ\mapsto \frac{x+12\ZZ}{1}\). Das ist wohldefiniert wie man prüft und \(\tau'\) ist eindeutig sodass \(\tau'\circ\varphi=\tau.\) also ist beides Isomorph.
+	Sei \(\ZZ\subseteq R\subseteq \QQ\) Zwischenring und \(S\) die multiplikative Menge erzeugt von allen Primzaheln \(p\) sodas \(\frac 1 p\in R\). Dann ist \(S^{-1}\ZZ\subseteq R\). Sei \(\frac a b\in R\) mit \(a,b\) teilerfremd. sei \(p\) eine Primzahl mit \(p\mid b\). Dann ist \(\frac a p\in R\) und da \(a,p\) teilerfremd, gibt es \(m,n\in\ZZ\) sodass \(1=ma+np\) ist. Also ist \[\frac 1 p+n=\frac{ma}{p}\in R\] also ist \(\frac 1 p\in R\). Dann ist \(\frac 1 b\in S^{-1}R\) und somit \(\frac a b\in S^{-1}\ZZ\).
+\end{proof}
+
+
+
+\begin{Lemma}
+	Eine Lokalisierung von noetherschen Ringen ist noethersch.
+\end{Lemma}
+\begin{proof}
+	Klar, betrachte aufsteigende Kette die zu aufsteigender Kette im Ring korrespondiert
+\end{proof}

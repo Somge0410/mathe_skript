@@ -1,0 +1,158 @@
+\chapter{Cryptography}
+Book recommendations: 
+Buchmann Einführung in die Kryptografie\\
+Bernstein/Buchmann/Dahmen Post Quantum Cryptography\\
+Hoffstein/Pipher/Silverman An introduction to mathematical Cryptography\\
+Werner Elliptische Kurven in der Kryptografie\\
+Criteria for passing: 50 percent of the points, 75 percent useful answers to questions, present twice per semester\\
+\section{Basics and historical examples}
+\subsection{Ceasar-Chiffre}
+It was used during (100-44 bc)
+\begin{Bsp}
+\textbf{WKDRO SCD CMRYOX}
+Procedure: We choose a number of \(i \in\{1,\dots,26\}\) and move every letter of the plaintext by the fixed number \(i\).
+For example \(i=5\) and the plaintext \textbf{TODAY}. This becomes \textbf{YTIFD}.
+The encyphered plaintext is called cipher text.
+The set of Keys is in this example \(\ZZ/26\ZZ\).
+\end{Bsp}
+\begin{Def}[Cryptosystem]
+A Cryptosystem consists of 
+\begin{enumerate}
+\item a set \(\mathcal{P}\) of plaintext
+\item a set \(\mathcal{C}\) of cipher text
+\item a set \(\mathcal{K}\) of Keys
+\item an encyphering function \(e\colon \mathcal{P}\times\mathcal{K}\to\mathcal{C}\)
+\item a decyphering function \(d\colon \mathcal{C\times K\to P}\)
+\end{enumerate}
+Such that for each \(k\in K\) there is a \(h\in K\) such that
+\[d(e(m,k),h)=m\] for all \(m\in \mathcal{P}\).
+Write for \(e(m,k)\) also \(e_k(m)\) and for \(d(c,k)=\) also \(d_k(m)\).
+\end{Def}
+\subsection{Kerkhoff’s principle(Jean Guillaume Hubert Victoir François Alexandre August Kerkhoff von Nieuwenhof 1883)}
+\textbf{The security of a crypto system should not be based on the knowledge of the used system. The security should only be based on the secrecy of the Key}
+\section{Alphabet and Words}
+\begin{Def} 
+An Alphabet is a non-empty finite set. The elements of the Alphabet are called Letters.
+\end{Def}
+\begin{Bsp}
+Typical alphabets:
+\begin{enumerate}
+\item \(\mathcal A=\{a,\dots,z\}\)
+\item \(\mathcal A=\{0,1\}\)
+\item \(\mathcal A=\text{ASCII-Code}\}\) (American standard Code for information interchange)
+\item \(\mathcal A=\ZZ/n\ZZ\)
+\end{enumerate}
+\end{Bsp}
+\begin{Def}
+Let \(calA\) be an alphabet. A finite sequence of elements from \(\calA\) is called a Word over \(\calA\). The length of a Word \(\omega\) over \(\calA\) is the length of the corresponding sequence.
+\(\calA^n\) is the set of Words of length \(n\) and \(A^\infty=\bigcup_{n\in \NN} \calA^n\) the set of all Words.
+\end{Def}
+\begin{Bem}
+\begin{enumerate}
+\item[]
+\item The Word of length 0 is \(\{\}\) the empty Word.
+\item Let \(w_1=\sigma_1\dots\sigma_r\) and \(w_2=\tilde \sigma_1\dots\tilde\sigma_s\) be Words over \(\calA\). Then
+\[w_1\cdot w_2:= \sigma_1\dots\sigma_r\tilde \sigma_1\dots\tilde\sigma_s\] is again a Word.
+This makes \((\calA^\infty,\cdot)\) a Monoid (Muliplication is associative with a neutral element \(\{\}\).
+\end{enumerate}
+\end{Bem}
+\begin{Bsp} In Caesar chiffre we have \(\calP=\calC=\calA^\infty\) with \(\calA=\ZZ/26\ZZ\).
+\(\calK=\calA\)  and
+\(e_k(w)=e_k(\sigma_1\dots\sigma_r)= \sigma_1+k\dots\sigma_r+k\)
+And \(d_k(w)=d_k(\sigma_1\dots\sigma_r)= \sigma_1-k\dots\sigma_r-k\)
+\end{Bsp}
+Generalization
+\begin{Bsp}[Permutation Chiffre]
+\(\calA=\ZZ/n\ZZ\, \calP=\calC=\calA^\infty, \calK=S_n\)
+For \(\pi\in S_n\) we set
+\[e_\pi(w)=\pi(\sigma_1)\dots\pi(\sigma_r)\in\calC\]
+
+\[d_\pi(w)=\pi^{-1}(\sigma_1)\dots\pi^{-1}(\sigma_r)\in\calC\]
+\end{Bsp}
+\subsection{Statistical analysis}
+In German and in English the five most often used letters are 
+\textbf{E,N,I,R,S} with percentages 18, 11 , 8, 7, 7 in German and \textbf{E,T,A,I,N} with percentages
+12,9,8,7,7 in English respectively.
+In our Crypto Systems we have to take care that the frequency of a letter has no importance.
+\begin{Def} 
+A block Cipher is a crypto system in which all the plaintexts have the same length, as well as every cipher text. I.E. \(\calP=\calA^n=\calC\) for some \(m\in \NN\).
+Then for each \(k\in K\) we have \(e_k\colon \calA^n\to \calA^n\)
+
+\end{Def}
+\begin{Bem}
+We can split any text in blocks of equal size.
+\end{Bem}
+\begin{Bsp} The Vignère cipher is based on such a splitting.
+\end{Bsp}
+\subsection{Types of Attacks}
+\begin{enumerate}
+\item[]
+\item \textbf{Attack with the ciphertext(ciphertext only attack)}
+The attacker Eve has only the cipher text.
+\item \textbf{Knowing plaintext attack}
+Eve has plain and Chiffre text for certain parts of the message.
+\item \textbf{Chosen plaintext attack}
+Eve can produce to a given plaintext the cipher text
+\end{enumerate}
+\begin{Bsp}[Ceasar Cipher]
+\begin{enumerate}
+\item[]
+\item Eve can try all the 26 Keys to decipher
+\item Eve only needs to know the cipher text of one letter
+\item Eve only needs to ask for the cipher text of one letter
+\end{enumerate}
+\end{Bsp}
+\begin{Bsp}[Permutation Cipher]
+\begin{enumerate}
+\item[]
+\item Eve can use the statistical analysis 
+\item Eve knows the encyphering for some letters and can use first point for the remaining
+\item She can ask to Encipher the Alphabet 
+\end{enumerate}
+\end{Bsp}
+\chapter{2}
+\section{The \(O\)-Notation}
+Running time of Algorithms is taken in \(O\) notation(Landau 1877-1938).
+\begin{Def} Let \(f,g\colon \NN^k\to\RR\). We write 
+\(f=O(g)\) if there is a constant \(0<c\in\RR\) and some \(n_0\) such that \(f(n_1,\dots,n_k)<=cg(n_1,\dots,n_k)\) for all \(n_1,\dots,n_k\geq n_0\).
+\end{Def}
+\begin{Bsp} \[2n^2+17n+10^{11}=O(n^2)\] quadratic 
+\end{Bsp}
+\begin{Bsp}
+let \(f(n)\) the length of the \(a\)-adic expansion of \(n\) where \(a\geq 2\).
+Then \(f(n)=O(\log(n))\).
+\(f(n)=\floor{\log_a(n)}+1\leq \log_an+1=\frac{1}{\log(a)}\log(a)+1\) and here \(n_0=3\) and \(c=\frac{1}{\log }+1\)
+\end{Bsp}
+
+\section{Running times}
+Assume that 
+\begin{enumerate}
+\item The addition of 2 bits needs constant time \(O(1)\)
+\item The subtraction of 2 bits needs constant time \(O(1)\)
+\item Writing costs nothing
+\end{enumerate}
+\begin{Lemma}
+Let \(a,b\in\NN\) in their binary expansion. 
+\begin{enumerate}
+\item The addition of \(a\) and \(b\) costs \(O(\max(\log(a),\log(b))\) time
+\item The Multiplication of \(a\) and \(b\) takes \(O(\log(a)\log(b))\) time. Clear because you always add 2 numbers of length \(a\) exactly the amount of times of the length of the other number. So it follows from the first part.
+\item Division with remainder of \(a\) and \(b\) costs \(O(\log(b)\log(\frac{a}{\floor{b}}))\).
+\end{enumerate}
+\end{Lemma}
+\begin{Def} An algorithm is polynomial (has polynomial running time) if there are exponents \(e_1,\dots,e_n\) such that the running time is \[O(\log(|z_1)^{e_1}\dots\log(|z_k|)^{e_k})\] by input or \(z_1,\dots,z_k\in \ZZ\) They are also called efficient.
+\end{Def}
+\section{Number Theory}
+We can calculate the greatest common divisor using Euclidean algorithm.
+\subsection{Euclidean Algorithm}
+The idea is that \(\ggT(a,b)=\ggT(a,a\mod b)\).
+\begin{Satz} Let \(a,b\in\NN_{>0}\) and \(a>b\). The number of iterations of the Euclidean algorithm is at most \(\log_2(a)/\log_2(\theta)+1=O(\log(a))\) where \(\theta=\frac{sqrt{5}+1}{2}\)
+\end{Satz}
+\begin{Satz} Let \(a,b\in\NN\). Then the running time of the Euclidean algorithm is \(O(\log(a)\log(b))\).
+\end{Satz}
+\begin{proof} Wlog \(a>b\). In each iteration of the Euclidean algorithm we do a division by remainder. It takes \(O(\log\floor(r_k/r_{k-1})\log(r_k))=O(\log(q_{k+1})\log(r_k))\) to determine \(q_{k+1}\) and \(r_{k+1}\).
+It is \(r_k\leq b\) so \(\log(r_k)\leq\log(b)\) and \(\log(q_k)=\log_2(q_k)+1\). Thus the Euclidean algorithm needs \(O(\log(b)(\sum_{k=0}^n\log(q_k)))=O(\log(b)(n+\sum_{k=0}^n\log(q_k)))\)
+\(n=O(\log(a))\).
+We can also calculate backwards that \(a\geq q_1\cdots q_n\). 
+So \(\sum_{k=1}^n \log_2(q_k)\leq \log_2(a)\).
+The statement follows.
+\end{proof}

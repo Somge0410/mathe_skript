@@ -1,6 +1,7 @@
-\section{Gruppen}
+\chapter{Gruppentheorie}
+\section{Grundlagen und Satz von Lagrange}
 \begin{Satz}[Gruppenordnung]
-    Sei \(G\) eine Gruppe und \(H\subseteq G\) eine Untergruppe. Dann ist \(|G|=|H|\cdot [G:H]\)
+    Sei \(G\) eine Gruppe und \(H\subseteq G\) eine Untergruppe. Dann ist \[|G|=|H|\cdot [G:H]\]
 \end{Satz}
 \begin{proof}
     Es ist \([G:H]=\abs{G/H}=\set{aH}{a\in G}\) und \[G=\bigcup_{aH\in G/H}aH\] disjunkte Vereinigung, denn wenn \(g\in G\) dann ist \(g\in gH\) und \(aH\cap bH=\empty \iff aH=bH\) Es ist \(\abs{H}\not=\abs{aH}\) für alle \(a\in G\).
@@ -17,11 +18,7 @@ Für \(a\in G\) ist \(\ord(a)\mid \abs{G}\). Also \(a^{\abs{G}}=e\).
 \begin{proof}
     Sei \(G=\FF_p^*\). Dann ist \(\abs{G}=p-1\) also gilt \(\bar a^{p-1}=1\).
 \end{proof}
-\begin{Satz}[Struktursatz endlicher abelscher Gruppen] \label{Satz:StuktEndlAb}
-Jede endliche abelsche Gruppe \(G\) mit \(\abs{G}\) lässt sich schreiben als 
-\[\abs{G}\cong \ZZ/m_1\ZZ\times\dots\times\ZZ/m_r\ZZ\] mit \(m_1\mid\dots\mid m_r\)
-\end{Satz}
-\subsection{Bahnenformel und Klassengleichung}
+\section{Gruppenwirkung}
 \begin{Def}
     Sei \(G\) eine Gruppe, \(X\) eine Meng und \(G\times X\to X\) eine Gruppenwirkung.
     \begin{enumerate}
@@ -87,12 +84,7 @@ Jede endliche abelsche Gruppe \(G\) mit \(\abs{G}\) lässt sich schreiben als
 \begin{proof}
     Betrachte Wirkung \(G\times G\to G, (a,b)\mapsto aba{-1}.\). Nach \Cref{Satz:FixpPGrp} gilt \(\abs G=\abs{Z(G)}\mod p\). Also \(\abs{Z(G)}\geq p\).
 \end{proof}
-
-\begin{proof}
-    Das ist der \nameref{Satz:HauptEndlMod} zusammen mit dem Fakt, dass endliche Gruppen Torsionsmoduln sind.
-\end{proof}
-\subsection{Sylowsätze}
-Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl.
+\section{Sylowsätze}Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl.
 \begin{Def}
     Eine \(p\)-Sylowgruppe von \(G\) ist eine \(p\)-Gruppe \(P\subseteq G\) mit \(p\not\mid[G:P]\). Das heißt wenn \(\abs{G}=p^r\cdot m\) mit \(p\not\mid m\) dann ist \(P\subseteq G\) eine \(p\)-Sylowgruppe von \(G\) genau dann wenn \(\abs P=p^r\).
 \end{Def}
@@ -100,7 +92,7 @@ Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl.
     Sei \(G\) eine endliche Gruppe und \(p\) eine Primzahl mit \(p\mid \abs G\). Dann gibt es ein \(a\in G\) mit \(\ord(a)=p\).
 \end{Lemma}
 \begin{proof}
-    \(\ZZ/p\ZZ\) operiert auf der Menge \(M=\set{(g_1,\dots,g_p)\in G^p}{g_1\cdot g_2\dots \cdot g_p=e}\) durch \(k\cdot (g_1,\dots,g_p)=(g_{1+k\mod p},\dots,g_{p+k\mod p})\). Es ist \(\abs M=\abs G ^{p-1}\).
+    \(\ZZ/p\ZZ\) operiert auf der Menge \(M=\set{(g_1,\dots,g_p)\in G^p}{g_1\cdot g_2\dots \cdot g_p=e}\) durch \[k\cdot (g_1,\dots,g_p)=(g_{1+k\mod p},\dots,g_{p+k\mod p})\]. Es ist \(\abs M=\abs G ^{p-1}\).
     Nach \Cref{Satz:FixpPGrp} ist \[0\equiv \abs G^{p-1}\equiv \abs{M^{\ZZ/p\ZZ}}\mod p\]. Das heißt es gibt Fixpunkt \((g_1,\dots,g_p)\) wobei \(g_i\neq e\).
     Dann ist aber \(g_i=g_j\) für alle \(i,j\) also ist dieses Tupel \((g,\dots ,g)\) für ein \(g\in G\). Dann ist \(g^p=e\).
 \end{proof}
@@ -174,19 +166,11 @@ Sei \(P\subseteq G\) eine \(P\)-Sylowgruppe und \(H\subseteq G\) eine \(p\)-Grup
      \(\ord(a_1)=\ord(a_2\cdots a_r)\mid\prod_{i=2}^rp_i^{e_i}\).
     Somit \(\ord(a_1)\mid \ggT(p_1^{e_1},\prod_{i=2}^rp_i^{e_i})=1\). Also \(e_1=e\) und genauso \(a_i=e\) für alle \(i\). Also ist \(f\) injektiv.
 \end{proof}
-\begin{Lemma}[Chinesischer Restsatz]\label{Lem:ChinRest1}
-    Seien \(n,m\in\ZZ\) und \(d=\ggT(n,m)\) und \(k=\kgV(n,m)\).
-    Dann ist \(\ZZ/n\ZZ\times\ZZ/m\ZZ\cong \ZZ/k\ZZ\times\ZZ/d\ZZ.\)
-\end{Lemma}
-\begin{proof}
-    Sei \(xn+ym=d\) für \(x,y\in \ZZ\).
-    Definiere \[f\colon \ZZ\times \ZZ\to\ZZ/n\ZZ\times\ZZ/m\ZZ, (a,b)\mapsto (a-b\frac{xn}{d}+n\ZZ,a+b\frac{ym}{d})+m\ZZ.\]
-    Angenommen \(f(a,b)=(0,0)\). Dann ist \[b\frac{xn}{d}\equiv a \mod n\] und \[-b\frac{ym}{d}\equiv a\mod m.\] Also gilt \[b\frac{xn}{d}\equiv -b\frac{ym}{d} \mod d\] und somit \[b(\frac{xn}{d}+\frac{ym}{d})\equiv 0 \mod d.\] Da \[\frac{xn}{d}+\frac{ym}{d}\equiv 1\mod d\] gilt, ist \[b\equiv 0 \mod d.\] Sei also \(b=s\cdot d\). Dann ist \[a\equiv \frac{xn}{d}\cdot b=xns\equiv 0\mod n\] und analog \(a\equiv 0 \mod n\). Also ist \(a\equiv 0\mod k\). Das zeigt \(\ker(f)=k\ZZ\times d\ZZ\) und somit ist \(\bar f\colon \ZZ/k\ZZ\times \ZZ/d\ZZ\to \ZZ/n\ZZ\times \ZZ/m\ZZ\) injektiv und damit surjektiv wegen gleicher Anzahl der Elemente.
-\end{proof}
-
+\section{Gruppen Stukturen}
 \subsection{Semidirekte Produkte}
 \begin{Def}
-    Sei \(G\) eine Gruppe und \(N,H\subseteq  G\) Untergruppen sodass \(N\) normal ist und \(H\cap N=\Set e\) und \(G=NH\). Dannn heißt \(G\) das innere semidirekte Produkt von \(N\) und \(H\).
+    Sei \(G\) eine Gruppe und \(N,H\subseteq  G\) Untergruppen sodass \(N\) normal ist 
+    und \(H\cap N=\Set e\) und \(G=NH\). Dannn heißt \(G\) das innere semidirekte Produkt von \(N\) und \(H\).
 \end{Def}
 \begin{Bem}
     Wenn \(G\) das semidirekte Produkt von \(N\) und \(H\) ist, dann ist die Abbildung \(N\times H\to G,\ (n,h)\mapsto n\cdot h\) bijektiv. Das Verleiht \(N\times H\) mit der Gruppenstruktur \((n,h)\cdot (n',h')=(n\cdot hn'h^{-1},h\cdot h')\). Das heißt wenn \[\alpha\colon H\to\Aut(N),\ \alpha(h)=(N\to N, n\mapsto hn'h^{-1})\] dann ist \((n,h)\cdot(n',h')=(n\cdot\alpha(h)(n'),hh')\)
@@ -245,8 +229,8 @@ H' \arrow[r, "\phi"]                      & N'
     Klar.
 \end{proof}
     
-\subsection{Einfache und auflösbare Gruppen}
-Sei \(G\) eine Gruppe.
+
+\subsection{Auflösbare und Einfache Gruppen}
 \begin{Def}
     \begin{enumerate}
         \item []
@@ -354,3 +338,23 @@ Sei \(G\) eine Gruppe.
 \begin{Satz}[Feit-Thomson 1963]
     Jede Gruppe ungerader Ordnung ist auflösbar.
 \end{Satz}
+\section{Endliche Abelsche Gruppen}
+\begin{Satz}[Struktursatz endlicher abelscher Gruppen] \label{Satz:StuktEndlAb}
+Jede endliche abelsche Gruppe \(G\) mit \(\abs{G}\) lässt sich schreiben als 
+\[\abs{G}\cong \ZZ/m_1\ZZ\times\dots\times\ZZ/m_r\ZZ\] mit \(m_1\mid\dots\mid m_r\)
+\end{Satz}
+\begin{proof}
+    Das ist der \nameref{Satz:HauptEndlMod} zusammen mit dem Fakt, dass endliche Gruppen Torsionsmoduln sind.
+\end{proof}
+\begin{Lemma}[Chinesischer Restsatz]\label{Lem:ChinRest1}
+    Seien \(n,m\in\ZZ\) und \(d=\ggT(n,m)\) und \(k=\kgV(n,m)\).
+    Dann ist \(\ZZ/n\ZZ\times\ZZ/m\ZZ\cong \ZZ/k\ZZ\times\ZZ/d\ZZ.\)
+\end{Lemma}
+\begin{proof}
+    Sei \(xn+ym=d\) für \(x,y\in \ZZ\).
+    Definiere \[f\colon \ZZ\times \ZZ\to\ZZ/n\ZZ\times\ZZ/m\ZZ, (a,b)\mapsto (a-b\frac{xn}{d}+n\ZZ,a+b\frac{ym}{d})+m\ZZ.\]
+    Angenommen \(f(a,b)=(0,0)\). Dann ist \[b\frac{xn}{d}\equiv a \mod n\] und \[-b\frac{ym}{d}\equiv a\mod m.\] Also gilt \[b\frac{xn}{d}\equiv -b\frac{ym}{d} \mod d\] und somit \[b(\frac{xn}{d}+\frac{ym}{d})\equiv 0 \mod d.\] Da \[\frac{xn}{d}+\frac{ym}{d}\equiv 1\mod d\] gilt, ist \[b\equiv 0 \mod d.\] Sei also \(b=s\cdot d\). Dann ist \[a\equiv \frac{xn}{d}\cdot b=xns\equiv 0\mod n\] und analog \(a\equiv 0 \mod n\). Also ist \(a\equiv 0\mod k\). Das zeigt \(\ker(f)=k\ZZ\times d\ZZ\) und somit ist \(\bar f\colon \ZZ/k\ZZ\times \ZZ/d\ZZ\to \ZZ/n\ZZ\times \ZZ/m\ZZ\) injektiv und damit surjektiv wegen gleicher Anzahl der Elemente.
+\end{proof}
+
+
+

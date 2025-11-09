@@ -1,3 +1,5 @@
+\chapter{Grundlagen Kategorientheorie}
+\section{Kategorien und Morphismen}
 \begin{Def}[Kategorie]
     Eine Kategorie \( e^x \) besteht aus den folgenden Daten:
     \begin{enumerate}
@@ -50,7 +52,7 @@
     Gelte 4). Dann ist \(f\) ein Monomorphismus. Zu \(z=y\) gibt es \(g\colon y\to x\) mit \(f_*(g)=\id_y\) also \(f\circ g=\id_y\). Dann ist \(g\) ein Schnitt und es gilt \(2).\)
     Das zeigt \(1)\iff 2)\iff 4)\). Analog zeigt man \(1)\iff 3)\iff 5).\)
 \end{proof}
-\subsection{Funktoren}
+\section{Funktoren}
 \begin{Def}[Funktor]
     Seien \(\calC\) und \(\calD\) Kategorien. Ein Funktor \(F\colon\calC\to\calD\) besteht aus folgenden Daten:
     \begin{enumerate}
@@ -77,7 +79,7 @@
     \end{cases}$$
     Das gibt einen volltreuen Funktor \(N\colon \CatOrd\to\Cat\) 
 \end{Def}
-\subsection{Natürliche Transformationen}
+\section{Natürliche Transformationen}
 \begin{Def}
     Seien \(F,G\colon\calC\to\calD\) Funktoren zwischen Kategorien. Eine natürliche Transformation \(\tau\colon F\to G\) besteht aus den folgenden Daten:
     \begin{enumerate}
@@ -91,7 +93,7 @@ Dabei fordern wir, dass folgende Bedingung erfüllt ist:
 \begin{tikzcd}
 F(x) \arrow[r, "\tau_x"] \arrow[d, "F(f)"] & G(x) \arrow[d, "G(f)"] \\
 F(y) \arrow[r, "\tau_y"]                   & G(y)                  
-\end{tikzcd} Wir schreiben \(\Nat(F,G)\) für die Klasse der natürlichen Transformationen \(\tau\colon F\to G$.
+\end{tikzcd} Wir schreiben \(\Nat(F,G)\) für die Klasse der natürlichen Transformationen \(\tau\colon F\to G\).
 \end{enumerate}
 \begin{Def}[Funktorkategorie]
     Seien \(\mathcal{C}\) und \(\mathcal{D}\) Kategorien. Dann definieren wir die Funktorkategorie \(\Fun(\calC,\calD)\) wie folgt
@@ -158,7 +160,7 @@ Falls ein Quasiinverses existiert dann nennen wir \(F\) eine Kategorienäquivale
         \item Für alle Kategroien \(\calE\) ist \(F_*\colon \Fun(\calE,\calC)\to \Fun(\calE,\calD)\) eine Kategorienäquivalenz
         \item Für alle Kategroien \(\calE\) ist \(F^*\colon \Fun(\calD,\calE)\to \Fun(\calC,\calE)\) eine Kategorienäquivalenz    \end{enumerate}
 \end{Bem}
-\subsection{Yoneda Lemma}
+\section{Yoneda Lemma}
 \begin{Satz}[Yoneda Lemma]\label{Lem:Yoneda}
     Sei \(\calC\) eine lokal kleine Kategorie. Sei \(F\colon \calC^\op\to\Sets\) ein Funktor und \(x\in\calC\). Dann ist die Abbildung 
     \[\Nat(\Mor_\calC(-,x),F)\to F(x),\; \tau\mapsto \tau_x(\id_x)\] bijektiv.
@@ -182,7 +184,7 @@ Falls ein Quasiinverses existiert dann nennen wir \(F\) eine Kategorienäquivale
 \begin{Def}
     Sei \(\calC\) eine lokal kleine Kategorie. Ein Funktor \(F\colon\calC^\op\to \Sets\) heißt darstellbar falls er im essentiellen Bild der Yoneda Einbettung liegt.  Analog heißt ein FUnktor \(F\colon\calC\to\Sets\)  kodarstellbar, wenn er im essentiellen Bild von \(Y^\calC\) liegt.
 \end{Def}
-\subsection{Adjunktionen}
+\section{Adjunktionen}
 \begin{Def}[Adjungiertes Objekt]
     Sei \(G\colon\calD\to\calC\) ein Funktor und \(x\in\calC\). Ein unter \(G\) zu \(x\) linksadjungiertes Objekt ist ein Objekt \(y\in\calD\) zusammen mit einem Morphismus \(\eta\colon x\to G(y)\) sodass für alle \(y'\in\calD\) die Abbildung 
     \[\Mor_\calD(y,y')\to\Mor_\calC(x,G(y')), \; f\mapsto G(f)\circ\eta\] bijektiv ist.
@@ -237,7 +239,7 @@ mus \(f\colon x\to y\) in \(\calC\) definiere \(F(f)\colon F(x) F(y)\) als das e
 \begin{proof}
     Klar
 \end{proof}
-\subsection{Moduln}
+\section{Moduln}
 \begin{Def}
     Sei \(\calC\) eine Kategorie mit Pullbacks und sei \(A\in\calC\). Ein Modul ist ein abelsches Gruppenobjekt in der Slice Kategorie \(\calC_{/A}\).
 \end{Def}

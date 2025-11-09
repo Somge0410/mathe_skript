@@ -18,6 +18,8 @@
 \usepackage{thmtools}
 \usepackage{amscd,amsfonts,bbm,mathrsfs,stmaryrd}
 
+\usepackage{rotating}
+
 % commutative diagrams
 \usepackage{tikz-cd,tikz}
 \usetikzlibrary{babel}
@@ -35,7 +37,14 @@
 
 % todo-notes
 \usepackage{todonotes}
-
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  left=3cm,      % Set the left margin
+  right=3cm,     % Set the right margin to the same value to center it
+  top=2.5cm,
+  bottom=2.5cm
+}
 % referencing
 \usepackage{hyperref}
 \hypersetup{
@@ -63,13 +72,13 @@
 %% SETTINGS
 
 %page layout with amsart
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-2in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-2in}
+%\setlength{\textwidth}{\paperwidth}
+%\addtolength{\textwidth}{-2in}
+%\setlength{\textheight}{\paperheight}
+%\addtolength{\textheight}{-2in}
 %\addtolength{\paperwidth}{+2.6in}
-\addtolength{\marginparwidth}{-0.4in}
-\calclayout
+%\addtolength{\marginparwidth}{-0.4in}
+%\calclayout
 
 % prevent bad things
 \binoppenalty=\maxdimen

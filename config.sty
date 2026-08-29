@@ -4,6 +4,7 @@
 % typographical perfection
 \usepackage{microtype}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[german]{babel}
 
 % bibliography
@@ -67,6 +68,8 @@
 \Crefname{Bem}{Bemerkung}{Bemerkungen}
 \crefname{figure}{Diagramm}{Diagramme}
 \Crefname{figure}{Diagramm}{Diagramme}
+\crefname{Axiom}{Axiom}{Axioms}
+\Crefname{Axiom}{Axiom}{Axioms}
 \usepackage{xparse}
 \usepackage{float}
 %% SETTINGS
@@ -121,6 +124,18 @@
 \newtheorem{Bem}[everything]{Bemerkung}
 \newtheorem{Def}[everything]{Definition}
 \newtheorem{Bsp}[everything]{Beispiel}
+\newtheoremstyle{axiomstyle}
+  {\topsep}   % Space above
+  {\topsep}   % Space below
+  {\itshape}  % Body font
+  {}          % Indent
+  {\bfseries} % Head font
+  {}          % <-- punctuation after head: NOTHING
+  {.5em}      % Space after head
+  {\thmnote{\textbf{(#3)}}}
+
+\theoremstyle{axiomstyle}
+\newtheorem*{Axiom}{}
 
 
 

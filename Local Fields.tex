@@ -19,7 +19,7 @@ Sei \(p\) eine Primzahl.
 		0 \arrow[r] & \ZZ/p^n\ZZ \arrow[r, "p"]                        & \ZZ/p^{n+1}\ZZ \arrow[r] \arrow[r]              & \ZZ/p\ZZ \arrow[r]                  & 0      \\
 		0 \arrow[r] & \ZZ/p^{n+1}\ZZ \arrow[u, "\pi_n"] \arrow[r, "p"] & \ZZ/p^{n+2}\ZZ \arrow[r] \arrow[u, "\pi_{n+1}"] & \ZZ/p\ZZ \arrow[u, "\id"] \arrow[r] & 0      \\
 		\vdots      & \vdots \arrow[u]                                 & \vdots                                          & \vdots \arrow[u]                    & \vdots
-	\end{tikzcdfigure}
+	\end{tikzfigure}
 	Dann prüft man, dass
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKACzkqtRizYduvbHgJEAjKOr1mrRCAA6W+gCc0eiACsGWALY6z53HAD6YAAQ6AWi4D0aAHphXLrjwgGHICRABMKuLqbDr6hibWVha2Ds5abp5ewGAA1IqcfgGy-AooAMyRapKasXQGRqYWSTY49tkF6R5ohZxiMFAA5vBEoABmRuZIESA4EEgVUdVBRSDjEJOIC7NIQr2cQA
 	\begin{tikzfigure}
@@ -66,7 +66,7 @@ Sei \(p\) eine Primzahl.
 	\(\frakm\subseteq R\) ist maximales Ideal.
 \end{Lemma}
 \begin{proof}
-	\(Sei \(x=(x_n)_{n\neq 1}\in R\setminus \frakm \).
+	Sei \(x=(x_n)_{n\neq 1}\in R\setminus \frakm\).
 	Dann ist \(x_n\neq 0\) für \(n\geq n_0\). 
 	Sei \(y=(y_n)_{n\geq 1}\) die Folge gegeben durch \(y_n=\frac{1}{x_n}\) für \(n\geq n_0\) und sonst \(y_n=1\). Wegen Axiomen der Norm ist \(x\mapsto \frac 1 x\) stetig, also \(y\in R\).
 	dann ist \(xy=(x_1,\dots,x_{n_0-1},1,1,1,\dots)\equiv 1\mod \frakm\). Somit ist \(\bar x\in R\setminus \frakm\) inveriterbar also \(R/\frakm\) Körper.

@@ -1,0 +1,154 @@
+\begin{Def}
+A Projective Plane is a Linear Space 
+\((P,L)\) such that 
+\begin{Axiom}(P1)
+    Every Line has at least 3 distinct points.
+\end{Axiom}
+and 
+\begin{Axiom}(P2)
+    Any two lines meet in at least one point
+\end{Axiom}
+\end{Def}
+\begin{Lemma}
+Let \((P,L)\) be a projective space. Then for every point there are at least 3 lines through 
+every point.
+\end{Lemma}
+\begin{proof}
+Let \(p\in P\) be a point.
+Since there are the non-collinear points, there are at least two distinct lines 
+through \(p\). Let \(\ell,m\) be lines through \(p\) and pick \(A\in \ell\) and \(B\in m\) different 
+from \(p\). Let \(o\) be the line through \(A\) and \(B\). Since 
+\(k_o\geq 3\) there must be a point \(Q\in o\) distinc from \(A\) and \(B\)
+Then \(Q\not \in \ell\) because otherwise \(o\) and \(\ell\) contain the distinct 
+points \(A,Q\) so \(o=\ell\) which implies \(B\in \ell\).
+Similarly \(Q\not in m\).
+Then the line through \(Q\) and \(p\) is a third line through \(p\).
+
+
+\end{proof}
+\begin{Def}
+Let \((P,L)\) be a projective space. Let \(P^\vee=L\) and 
+for \(p\in P\) define \(p^\vee=\{\ell\in L\mid p\in \ell\}\) and let 
+\(L^\vee=\{p^\vee\mid p\in P\}\).
+Then \((P^\vee,L^\vee)\) is a projective space, called the dual space to \(P,V\) and 
+\(k_{p^\vee}=r_p\) and \(k_\ell=r_\ell\).
+\end{Def}
+\begin{proof}
+Let \(\ell,m\in P^\vee\) with \(\ell\neq m\). Then let \(p\) be the intersection point 
+of \(m,\ell\). Then \(\ell,m\in p^\vee\). this is unique because if \(\ell,m\in q^\vee\) then
+\(q\in \ell\cap m=\{p\}\).
+Let \(p^\vee\in L^\vee\). Since \(r_p\geq 2\) we have that there are \(\ell,m\in p^\vee\) with \(\ell\neq m\).
+Let \(A,B,C\in P\) be three non-collinear points.
+Then \(\overline{AB},\overline{AC},\overline{BC}\in P^\vee\) are thre non-collinear points because 
+if they were all in \
+then all thre lines would have two points in common with each other, making them all equal contradicting
+the fact that they are non-collinear.
+now let \(p^\vee\in L^\vee\) for some \(p\in P\). Since 
+\(r_p\geq 2\) we have that \(|p^\vee|\geq 3\).
+Let \(p^\vee,q^\vee\in L^\vee\).
+Since there is a line \(\ell\) through \(p\) and \(q\) we have \(\ell\in p^\vee\cap q^\vee\).
+Thus \((P^\vee,L^\vee)\) is projective.
+
+\end{proof}
+\begin{Satz}
+Let \((P,L)\) be a finite Linear Space such that \(k_\ell\geq 3\) for all \(\ell\in L\).
+Then it is equivalent:
+\begin{enumerate}
+    \item \((P,L)\) is projective.
+    \item \(|P|=|L|\).
+\end{enumerate}
+In this case \(k_\ell=r_{p}=q+1\) for all \(\ell\in L\) and \(p\in P\) and 
+\(|P|=q^2+q+1\).
+\end{Satz}
+\begin{proof}
+If \((P,L)\) is projective, then \(P^\vee,L^\vee\) is projective and 
+\[|P|\leq |L|=|P^\vee|\leq |L^vee|\] 
+Since there is a bijektion \(P\to L^\vee, p\mapsto p^\vee\) we have 
+\[|P|\leq |L|\leq |P|\] such that 
+\(|P|=|L|\).
+If \(|P|=|L|\) then Satz applies to show that \((P,L)\) is projective and the formulas follow.
+\end{proof}
+\begin{Def}[Affine Plane]
+    An affine Plane is a Linear Space \((P,L)\) satisfiyng \axiomref{Axiom:P'}, .ie
+    For every line \(\ell\in L\) and every point \(p\in P\) with \(p\not\in\ell\) there is exactly 
+    one line \(m\in\ell\) with \(p\in m\) and \(m\parallel \ell\).
+
+\end{Def}
+\begin{Satz}
+Let \((P,L)\) be an Affine Plane.
+Let \(\ell,m\in L\) be two lines. Then there is a bijection 
+\(f\colon \ell\to m\).
+\end{Satz}
+\begin{proof}
+Assume \(\ell\neq m\).
+choose \(A\in \ell\setminus n\) and \(B\in m\setminus\ell\).
+Define the function 
+\(f\colon \ell\to m\) sending \(A\to B\) and a point \(X\neq A\) to the intersection of 
+\(m\) with the unique line \(o_X\) parallel to \(\overline{AB}\) containing \(X\).
+This must meet \(m\) because otherwise \(\ell=o_X\) by the uniqeness of parallel lines through \(X\)
+but then \(A\in o_X\) ao \(o_X\) cannot be parallel to \(\overline{AB}\).
+Thus \(f\) is well-defined.
+SImilarly we define \(g\colon m\to \ell\) and it is easy to check that they are 
+mutually inverse.
+\end{proof}
+\begin{Satz}
+Let \((P,L)\) be a finite Affine Plane such that there is a line with \(n\) points.
+Then there are exactly \(n+1\) distinct lines through every point and 
+\(|P|=n^2\).
+\end{Satz}
+\begin{proof}
+Let \(p\in P\) and \(\ell\in L\) with \(p\not \in L\).
+Then for \(A,B\in\ell\) with \(A\neq B\) the line \(m\) through \(A\) and \(p\) and the line 
+\(o\) through
+\(B\) and \(p\) are distinct, because otherwise \(A,B\in o\) so \(o=\ell\) and \(p\in \ell\).
+Thus there are at least \(n\) different lines through \(p\). There is one line through \(p\) parallel
+to \(\ell\). so there are at least \(n+1\) lines through \(p\).
+There cannot be more, because if we take any line through \(p\) it is either parallel to \(\ell\) making 
+it the unique line through \(p\) or it intersects with \(\ell\) in which case it is 
+\(\overline{Ap}\) from above.
+so \(r_p=n+1\).
+By ??? we have 
+\[n+1=\dfrac{|P|-1}{n-1}\] so that 
+\[|P|=n^2\].
+\end{proof}
+\begin{Satz}
+Let \((P,L)\) be an Affine Plane. Let for \(\ell\in L\) the point at infinity of 
+\(\ell\) be defined as \(\Pi_\ell=\{m\in L\mid m\parallel l\}\)\).
+Define the line at infinity to be the set \(\ell_\infty=\{\Pi_\ell\mid \ell\in L\}\).
+Define \[P'=P\cup\{\Pi_\ell\mid \ell \in L\}\] and
+ \[L'=\{\ell\cup \{\Pi_\ell\}\mid \ell\in L\}\cup\{\ell_\infty\}.\]
+Then \((P',L')\) is a projective plane.
+\end{Satz}
+\begin{proof}
+    Let \(A,B\in P'\) if \(A,B\in P\) then let \(\ell\in L\) be the unique line
+    through \(A,B\). Then \(A,B\in \ell\cup\{\Pi_\ell\}\) and it is easy to check that this 
+    is unique in \(L'\).
+    If \(A=\Pi_\ell\) and \(B=\Pi_\ell\) then \(\ell_\infty\) is the unique line 
+    with \(A,B\in \ell_\infty\).
+    if \(A\in P\) and \(B=\Pi_\ell\) let \(m\) be the unique line parallel to 
+    \(\ell\) and containing \(A\).
+    Then \(\Pi_\ell=\Pi_m\) and 
+    \(A,B\in m\cup{\Pi_m}\). It is easy to check that there are at least three non-collinear points.
+    It is clear that any line in \(L'\) has at least three distinct points and 
+    if \(\ell\cup\{\Pi_\ell\}\) and \(m\cup\Pi_m\) are given, then either \(\ell,m\) meet or 
+    they are parallel in which case \(\Pi_\ell=\Pi_m\). 
+    In both cases both lines meet in a point.  
+\end{proof}
+\begin{Bsp}
+Let \(F\) be any field. Then the cartesian plane \(F^2\) is an affine Plane with lines defined as 
+usual.
+Let \((P_1,L_1)\) be the projective space defined as above.
+Define \((P_2)\) to be \(1\)-dimensional linear vector-spaces of \(F^3\) and 
+\(L_2\) be \(2\)-dimensional linear vector spacesspaces.
+Then \((L_2,P_2)\) is a Linear Space Isomorphic to \((P_1,L_1)\)
+
+\end{Bsp}
+\begin{proof}
+It is clear that \((L_2,P_2)\) is a Linear Space.
+Define \(f\colon P_1\to P_2\) by if \(p\in F^2\) then send it to the vector space generated by 
+\((p,1)\).
+if \(p=\Pi_\ell\) then send \(p\) to the line \((\ell,0)\).
+This is a bijection and if \(\ell\cup\{\Pi_\ell\}\) is a line, then 
+\(f(\ell\cup\{\Pi_\ell\})\) is the \(2\) dimensional vector space generated by \((x,y,1)\mid (x,y)\in \ell\) and 
+\(\ell_\infty\) is send to the plane \(\{(x,y,0)\mid x,y\inF\}\)
+\end{proof}
